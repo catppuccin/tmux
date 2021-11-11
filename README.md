@@ -20,6 +20,10 @@
 - Q: **_"Where can I find the doc?"_**
   A: Run `:help theme`
 
+## Thanks to
+
+- [Human](https://github.com/catppuccin)
+
 ---
 
 # TEMPLATE INSTRUCTIONS
