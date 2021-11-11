@@ -43,6 +43,7 @@ There are this things on GitHub called "template repositories" which you can use
 
 - The name of the repo must be the simplest version of the app's name (e.g `nvim` instead of `NeoVim`)
 - Format repo description as "Catppuccin theme for AwesomeApp"
+- Add `catppuccin` to the topics.
 - Uppercase meta files (e.g. `README.md`)
 - Don't add health files (like `CODE_OF_CONDUCTS` or `SUPPORT`), those are organization-wide files stored [here](https://github.com/catppuccin/.github).
 - Emojis are _the way_, feel free to use them as much as you want.
