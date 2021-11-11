@@ -26,7 +26,7 @@
 
 ## 🐧 Usage
 
-There are this things on GitHub called "template repositories" which you can use as blueprints for a new repo. The problem with this is that it leaves a _small_ tag under the repos name that says "generated from <template>". To avoid this follow these instructions:
+There are this things on GitHub called "template repositories" which you can use as blueprints for a new repo. The problem with this is that they leave a _small_ tag under the repos' name that says "generated from <template>". To avoid this follow these instructions:
 
 1. Create the repo and leave it empty
 2. Add this template as a remote: `git remote add template git@github.com:catppuccin/template.git`
