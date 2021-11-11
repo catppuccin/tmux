@@ -6,6 +6,8 @@
 
 ## Gallery
 
+> **Note:** put the images under `assets/`. If there are a bunch them consider [creating an empty branch](https://gist.github.com/joncardasis/e6494afd538a400722545163eb2e1fa5) (e.g. `assets`) and storing them there.
+
 ## Usage
 
 1. Clone this repository locally
