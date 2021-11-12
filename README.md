@@ -4,8 +4,6 @@
 
 <p align="center">Warm mid-tone dark theme to show off your vibrant self!</p>
 
-## Gallery
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/catppuccin/tmux/main/assets/ss.png"/>
 </p>
