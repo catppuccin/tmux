@@ -24,13 +24,13 @@ thm_black4="#575268"
 set() {
 	local option=$1
 	local value=$2
-	tmux set-optionq "$option" "$value"
+	tmux set-option -gq "$option" "$value"
 }
 
 setw() {
 	local option=$1
 	local value=$2
-	tmux set-window-optionq "$option" "$value"
+	tmux set-window-option -gq "$option" "$value"
 }
 
 # status
