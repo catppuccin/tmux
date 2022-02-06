@@ -17,7 +17,7 @@
 
 ## Usage
 
-1. Copy the contents of `catppuccino.conf` into your Tmux config (usually stored at `~/.tmux.conf`)
+1. Copy the contents of `catppuccin.conf` into your Tmux config (usually stored at `~/.tmux.conf`)
 2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
 ## 💝 Thanks to
