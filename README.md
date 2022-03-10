@@ -20,6 +20,12 @@
 1. Copy the contents of `catppuccin.conf` into your Tmux config (usually stored at `~/.tmux.conf`)
 2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
+Alternatively, if you prefer to source the theme:
+
+1. Save `catppuccin.conf` somewhere (for example at `~/.tmux.catppuccin.conf`)
+1. Include it in your config by adding `source-file ~/.tmux.catppuccin.conf` to your `~/.tmux.conf`
+2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
+
 ## 💝 Thanks to
 
 -   [Pocco81](https://github.com/catppuccin)
