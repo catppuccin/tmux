@@ -15,9 +15,16 @@
   <img src="https://raw.githubusercontent.com/catppuccin/tmux/main/assets/ss.png"/>
 </p>
 
+## Themes
+
+* 🌻 [Latte](./catppuccin-latte.conf)
+* 🪴 [Frappé](./catppuccin-frappe.conf)
+* 🌺 [Macchiato](./catppuccin-macchiato.conf)
+* 🌿 [Mocha](./catppuccin-mocha.conf)
+
 ## Usage
 
-1. Copy the contents of `catppuccin.conf` into your Tmux config (usually stored at `~/.tmux.conf`)
+1. Copy your desired theme's configuration contents into your Tmux config (usually stored at `~/.tmux.conf`)
 2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
 ## 💝 Thanks to
