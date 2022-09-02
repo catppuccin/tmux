@@ -30,6 +30,7 @@
 ## 💝 Thanks to
 
 -   [Pocco81](https://github.com/catppuccin)
+-   [vinnyA3](https://github.com/vinnyA3)
 
 &nbsp;
 
