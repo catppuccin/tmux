@@ -4,17 +4,31 @@
 
 root = true
 
-
 [*]
-end_of_line = lf
 charset = utf-8
+indent_size = 2
+indent_style = space
+end_of_line = lf
 insert_final_newline = true
-indent_style = tabs
-indent_size = 4
+trim_trailing_whitespace = true
 
-[*.txt]
+# go
+[*.go]
 indent_style = tab
 indent_size = 4
 
-[*.{diff,md}]
+# python
+[*.{ini,py,py.tpl,rst}]
+indent_size = 4
+
+# rust
+[*.rs]
+indent_size = 4
+
+# documentation, utils
+[*.{md,mdx,diff}]
 trim_trailing_whitespace = false
+
+# windows shell scripts
+[*.{cmd,bat,ps1}]
+end_of_line = crlf
