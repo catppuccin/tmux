@@ -20,7 +20,7 @@
 * 🌻 [Latte](./catppuccin-latte.tmuxtheme)
 * 🪴 [Frappé](./catppuccin-frappe.tmuxtheme)
 * 🌺 [Macchiato](./catppuccin-macchiato.tmuxtheme)
-* 🌿 [Mocha](./catppuccin-mocha.tmuextheme)
+* 🌿 [Mocha](./catppuccin-mocha.tmuxtheme)
 
 ## Usage
 
