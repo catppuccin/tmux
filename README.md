@@ -17,10 +17,10 @@
 
 ## Themes
 
-* 🌻 [Latte](./catppuccin-latte.conf)
-* 🪴 [Frappé](./catppuccin-frappe.conf)
-* 🌺 [Macchiato](./catppuccin-macchiato.conf)
-* 🌿 [Mocha](./catppuccin-mocha.conf)
+* 🌻 [Latte](./catppuccin-latte.tmuxtheme)
+* 🪴 [Frappé](./catppuccin-frappe.tmuxtheme)
+* 🌺 [Macchiato](./catppuccin-macchiato.tmuxtheme)
+* 🌿 [Mocha](./catppuccin-mocha.tmuxtheme)
 
 ## Usage
 
