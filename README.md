@@ -12,39 +12,44 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/catppuccin/tmux/main/assets/ss.png"/>
+  <img src="./assets/preview.webp"/>
 </p>
 
 ## Themes
 
-* 🌻 [Latte](./catppuccin-latte.tmuxtheme)
-* 🪴 [Frappé](./catppuccin-frappe.tmuxtheme)
-* 🌺 [Macchiato](./catppuccin-macchiato.tmuxtheme)
-* 🌿 [Mocha](./catppuccin-mocha.tmuxtheme)
+- 🌻 [Latte](./catppuccin-latte.tmuxtheme)
+- 🪴 [Frappé](./catppuccin-frappe.tmuxtheme)
+- 🌺 [Macchiato](./catppuccin-macchiato.tmuxtheme)
+- 🌿 [Mocha](./catppuccin-mocha.tmuxtheme)
 
 ## Usage
 
 ### TPM
+
 1. Install [TPM](https://github.com/tmux-plugins/tpm)
 2. Add the Catppuccin plugin:
+
 ```bash
 set -g @plugin 'catppuccin/tmux'
 # ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```
+
 3. (Optional) Set your preferred flavour, it defaults to `"mocha"`:
+
 ```bash
 set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
 ```
 
 ### Manual
+
 1. Copy your desired theme's configuration contents into your Tmux config (usually stored at `~/.tmux.conf`)
 2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
 ## 💝 Thanks to
 
--   [Pocco81](https://github.com/catppuccin)
--   [vinnyA3](https://github.com/vinnyA3)
+- [Pocco81](https://github.com/catppuccin)
+- [vinnyA3](https://github.com/vinnyA3)
 
 &nbsp;
 
