@@ -4,11 +4,11 @@
 # WARNING: hex colors can't contain capital letters
 
 # --> Catppuccin (Macchiato)
-thm_bg="#181926"
+thm_bg="#24273a"
 thm_fg="#cad3f5"
 thm_cyan="#91d7e3"
 thm_black="#1e2030"
-thm_gray="#494d64"
+thm_gray="#363a4f"
 thm_magenta="#c6a0f6"
 thm_pink="#f5bde6"
 thm_red="#ed8796"
