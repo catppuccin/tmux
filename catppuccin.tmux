@@ -10,6 +10,8 @@ get-tmux-option() {
   if [ -n "$value" ]; then
     echo "$value"
   else
+    # README: Set the default option if it's not set originally.
+    tmux set-option -gq "${option}" "${default}"
     echo "$default"
   fi
 }

@@ -53,9 +53,18 @@ setw window-status-activity-style "fg=${thm_fg},bg=${thm_bg},none"
 setw window-status-separator ""
 setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
 
+# TODO: continue implementing this later today...
+wt_enabled=$(tmux show -gqv @catppuccin_window_tabs_enabled)
+
+status_left=""
+if [[ "${wt_enabled}" == "on" ]]
+then
+  status_left="window_tabs_enabled"
+fi
+
 # --------=== Statusline
 
-set status-left ""
+set status-left "#[fg=$thm_red,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics]"
 set status-right "#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
 
 # current_dir
