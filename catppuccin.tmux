@@ -16,7 +16,9 @@ get-tmux-option() {
 
 main() {
   local theme
+  local window_tabs_enabled
   theme="$(get-tmux-option "@catppuccin_flavour" "mocha")"
+  window_tabs_enabled="$(get-tmux-option "@catppuccin_window_tabs_enabled" "false")"
   tmux run -b "$CURRENT_DIR/catppuccin-${theme}.tmuxtheme"
 }
 
