@@ -46,6 +46,25 @@ set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
 1. Copy your desired theme's configuration contents into your Tmux config (usually stored at `~/.tmux.conf`)
 2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
+#### Configuration options
+
+All flavours support certain levels of customization that match our [Catppuccin
+Style Guide][style-guide]. To add these customizations, add any of the following
+options to your Tmux configuration.
+
+##### Enable window tabs
+
+By default, the theme places the `window-status` in the `status-right`. With
+`@catppuccin_window_tabs_enabled` set to `on`, the theme will place the
+directory within the `status-right` and move the window names to the
+`window-status` format variables.
+
+```sh
+set -g @catppuccin_window_tabs_enabled on # or off to disable window_tabs
+```
+
+[style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
+
 ## 💝 Thanks to
 
 - [Pocco81](https://github.com/catppuccin)
