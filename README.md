@@ -50,6 +50,7 @@ set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
 
 - [Pocco81](https://github.com/catppuccin)
 - [vinnyA3](https://github.com/vinnyA3)
+- [rogeruiz](https://github.com/rogeruiz)
 
 &nbsp;
 
