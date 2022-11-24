@@ -1,0 +1,4 @@
+# Let's not store the selected theme in version control. This file is used to
+# source theme variables locally in the main function rather than polluting the
+# global variable namespace.
+catppuccin-selected-theme.tmuxtheme
