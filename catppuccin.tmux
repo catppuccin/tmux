@@ -2,8 +2,6 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 main() {
-  # TODO: This function works great in here, but I'd like also like for it to set
-  # the option to the default if it's not set too. I'll get to it soon.
   get-tmux-option() {
     local option value default
     option="$1"
@@ -13,8 +11,6 @@ main() {
     if [ -n "$value" ]; then
       echo "$value"
     else
-      # README: Set the default option if it's not set originally.
-      tmux set-option -gq "${option}" "${default}"
       echo "$default"
     fi
   }
