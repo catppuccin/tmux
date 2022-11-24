@@ -28,9 +28,7 @@ main() {
   }
 
   local theme
-  local window_tabs_enabled
   theme="$(get-tmux-option "@catppuccin_flavour" "mocha")"
-  window_tabs_enabled="$(get-tmux-option "@catppuccin_window_tabs_enabled" "off")"
 
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
@@ -62,7 +60,12 @@ main() {
 
   # --------=== Statusline
 
+  # NOTE: Checking for the value of @catppuccin_window_tabs_enabled
+  wt_enabled="$(get-tmux-option "@catppuccin_window_tabs_enabled" "off")"
+  readonly wt_enabled
+
   # These variables are the defaults so that the setw and set calls are easier to parse.
+  readonly show_directory="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]  #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} #{?client_prefix,#[fg=$thm_red]"
   readonly show_window="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red]"
   readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
 
@@ -75,6 +78,15 @@ main() {
   # Window status by default shows the current directory basename.
   local window_status_format="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
   local window_status_current_format="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
+
+  # NOTE: With the @catppuccin_window_tabs_enabled set to on, we're going to
+  # update the right_column1 and the window_status_* variables.
+  if [[ "${wt_enabled}" == "on" ]]
+  then
+    right_column1=$show_directory
+    window_status_format="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+    window_status_current_format="#[fg=$thm_fg,bg=$thm_gray] #W #[fg=$thm_bg,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+  fi
 
   set status-left ""
 
