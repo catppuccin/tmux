@@ -62,65 +62,31 @@ main() {
 
   # --------=== Statusline
 
+  # These variables are the defaults so that the setw and set calls are easier to parse.
+  readonly show_window="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red]"
+  readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
+
+  # Right column 1 by default shows the Window name.
+  local right_column1=$show_window
+
+  # Right column 2 by default shows the current Session name.
+  local right_column2=$show_session
+
+  # Window status by default shows the current directory basename.
+  local window_status_format="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
+  local window_status_current_format="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
+
   set status-left ""
-  set status-right "#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
 
-  # current_dir
-  setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
-  setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
+  set status-right "${right_column1},${right_column2}"
 
-  # parent_dir/current_dir
-  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
-  # setw window-status-current-format "#[fg=colour232,bg=colour208] #I #[fg=colour255,bg=colour237] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
+  setw window-status-format "${window_status_format}"
+  setw window-status-current-format "${window_status_current_format}"
 
   # --------=== Modes
+  #
   setw clock-mode-colour "${thm_blue}"
   setw mode-style "fg=${thm_pink} bg=${thm_black4} bold"
-
-  # set status "on"
-  # set status-bg "${thm_bg}"
-  # set status-justify "left"
-  # set status-left-length "100"
-  # set status-right-length "100"
-  #
-  # # messages
-  # set message-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
-  # set message-command-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
-  #
-  # # panes
-  # set pane-border-style "fg=${thm_gray}"
-  # set pane-active-border-style "fg=${thm_blue}"
-  #
-  # # windows
-  # setw window-status-activity-style "fg=${thm_fg},bg=${thm_bg},none"
-  # setw window-status-separator ""
-  # setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
-  #
-  # # --------=== Statusline
-  #
-  # # TODO: continue implementing this later today...
-  # wt_enabled=$(tmux show -gqv @catppuccin_window_tabs_enabled)
-  #
-  # status_left=""
-  # if [[ "${wt_enabled}" == "on" ]]
-  # then
-  #   status_left="window_tabs_enabled"
-  # fi
-  #
-  # set status-left "#[fg=$thm_red,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics]"
-  # set status-right "#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]  #[fg=$thm_fg,bg=$thm_gray] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) #{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg]  #[fg=$thm_fg,bg=$thm_gray] #S "
-  #
-  # # current_dir
-  # setw window-status-format "#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
-  # setw window-status-current-format "#[fg=$thm_fg,bg=$thm_gray] #W #[fg=$thm_bg,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
-  #
-  # # parent_dir/current_dir
-  # # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
-  # # setw window-status-current-format "#[fg=colour232,bg=colour208] #I #[fg=colour255,bg=colour237] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
-  #
-  # # --------=== Modes
-  # setw clock-mode-colour "${thm_blue}"
-  # setw mode-style "fg=${thm_pink} bg=${thm_black4} bold"
 }
 
 main "$@"
