@@ -9,7 +9,10 @@ installation:
   flavours:
     all:
       default:
-        - ./*.tmuxtheme
+        - catppuccin-latte.tmuxtheme
+        - catppuccin-frappe.tmuxtheme
+        - catppuccin-macchiato.tmuxtheme
+        - catppuccin-mocha.tmuxtheme
     latte:
       default:
         - ./catppucin-latte.tmuxtheme
