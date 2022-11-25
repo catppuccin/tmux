@@ -26,5 +26,4 @@ installation:
       default:
         - ./catppuccin-mocha.tmuxtheme
   to: tmux
-  canInstall: 0
   comments: "Manage these theme filed using the Tmux Package Manager or manually using global options in your local ~/.tmux.conf file."
