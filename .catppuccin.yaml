@@ -15,15 +15,15 @@ installation:
         - catppuccin-mocha.tmuxtheme
     latte:
       default:
-        - ./catppucin-latte.tmuxtheme
+        - catppucin-latte.tmuxtheme
     frappe:
       default:
-        - ./catppuccin-frappe.tmuxtheme
+        - catppuccin-frappe.tmuxtheme
     macchiato:
       default:
-        - ./catppuccin-macchiato.tmuxtheme
+        - catppuccin-macchiato.tmuxtheme
     mocha:
       default:
-        - ./catppuccin-mocha.tmuxtheme
+        - catppuccin-mocha.tmuxtheme
   to: tmux
   comments: "Manage these theme filed using the Tmux Package Manager or manually using global options in your local ~/.tmux.conf file."
