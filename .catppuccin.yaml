@@ -13,17 +13,22 @@ installation:
         - catppuccin-frappe.tmuxtheme
         - catppuccin-macchiato.tmuxtheme
         - catppuccin-mocha.tmuxtheme
+        - catppuccin.tmux
     latte:
       default:
         - catppucin-latte.tmuxtheme
+        - catppucin.tmux
     frappe:
       default:
         - catppuccin-frappe.tmuxtheme
+        - catppuccin.tmux
     macchiato:
       default:
         - catppuccin-macchiato.tmuxtheme
+        - catppuccin.tmux
     mocha:
       default:
         - catppuccin-mocha.tmuxtheme
+        - catppuccin.tmux
   to: tmux
   comments: "Using these theme files requires the Tmux Package Manager & using global options in your local ~/.tmux.conf file."
