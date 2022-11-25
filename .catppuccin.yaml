@@ -1,0 +1,27 @@
+# A catppuccin RC for tmux. In beta, specs may change. 
+app_name: tmux
+binary_name: tmux 
+installation:
+  location:
+    macos: ~/.tmux/plugins/
+    linux: ~/.tmux/plugins/ 
+    windows: ~/.tmux/plugins/ # requires Cygwin
+  flavours:
+    all:
+      default:
+        - ./*.tmuxtheme
+    latte:
+      default:
+        - ./catppucin-latte.tmuxtheme
+    frappe:
+      default:
+        - ./catppuccin-frappe.tmuxtheme
+    macchiato:
+      default:
+        - ./catppuccin-macchiato.tmuxtheme
+    mocha:
+      default:
+        - ./catppuccin-mocha.tmuxtheme
+  to: tmux
+  canInstall: 0
+  comments: "Manage these theme filed using the Tmux Package Manager or manually using global options in your local ~/.tmux.conf file."
