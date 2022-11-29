@@ -63,15 +63,48 @@ main() {
   # NOTE: Checking for the value of @catppuccin_window_tabs_enabled
   wt_enabled="$(get-tmux-option "@catppuccin_window_tabs_enabled" "off")"
   readonly wt_enabled
+  
+  wi_enabled="$(get-tmux-option "@catppuccin_window_icons_enabled" "off")"
+  readonly wi_enabled
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
+
+  # Default Nerd Font zoom/mark icons
+  readonly icon_window_zoom_off="  "
+  readonly icon_window_zoom_on=" "
+  readonly icon_window_zoom_mark=""
+
+  custom_icon_window="$(get-tmux-option "@catppuccin_icon_window" ${icon_window_zoom_off})"
+  readonly custom_icon_window
+
+  custom_icon_window_zoom="$(get-tmux-option "@catppuccin_icon_window_zoom" ${icon_window_zoom_on})"
+  readonly custom_icon_window_zoom
+
+  custom_icon_window_mark="$(get-tmux-option "@catppuccin_icon_window_mark" ${icon_window_zoom_mark})"
+  readonly custom_icon_window_mark
+
+  # Default zoom/mark icons
+  local show_window_zoom_off=""
+  local show_window_zoom_on="*Z"
+  local show_window_zoom_mark="*M"
+  
+  if [[ "${wi_enabled}" == "on" ]]
+  then
+    show_window_zoom_off=${custom_icon_window}
+    show_window_zoom_on=${custom_icon_window_zoom}
+    show_window_zoom_mark=${custom_icon_window_mark}
+  fi
+
+  # Set the window zoom variable
+  readonly show_window_zoom_status="#(if [[ \"#F\" == \"*\" ]]; then echo ${show_window_zoom_off}; elif [[ \"#F\" == \"*Z\" ]]; then echo ${show_window_zoom_on}; elif [[ \"#F\" == \"*M\" ]]; then echo ${show_window_zoom_mark}; fi)"
+
   readonly show_directory="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]  #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} #{?client_prefix,#[fg=$thm_red]"
-  readonly show_window="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red]"
+  readonly show_window="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]${show_window_zoom_status} #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red]"
   readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
   readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
   readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
-  readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
-  readonly show_window_in_window_status_current="#[fg=$thm_fg,bg=$thm_gray] #W #[fg=$thm_bg,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+  readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]${show_window_zoom_status}#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+  readonly show_window_in_window_status_current="#[fg=$thm_fg,bg=$thm_gray] #W #[fg=$thm_bg,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg]${show_window_zoom_status}#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
 
   # Right column 1 by default shows the Window name.
   local right_column1=$show_window
@@ -82,6 +115,7 @@ main() {
   # Window status by default shows the current directory basename.
   local window_status_format=$show_directory_in_window_status
   local window_status_current_format=$show_directory_in_window_status_current
+
 
   # NOTE: With the @catppuccin_window_tabs_enabled set to on, we're going to
   # update the right_column1 and the window_status_* variables.
