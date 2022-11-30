@@ -65,6 +65,36 @@ set -g @catppuccin_window_tabs_enabled on # or off to disable window_tabs
 
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
 
+##### Enable window status
+
+By default, the theme includes window status as plain text. This will display
+the window status as defined by the `#F` variable in Tmux using the known
+characters such as `Z`, `*`, and `-`. If you would like Nerd Font supported
+icons for the default Tmux window status, you can enable them like so.
+
+```sh
+set -g @catppuccin_window_icons_enabled on
+```
+<details>
+<summary><a
+href="https://github.com/tmux/tmux/blob/master/tmux.1#L5632-L5641">Read more
+about the flags in the Tmux source code directly</a>, or by clicking on the
+non-highlighted text here.</summary>
+
+```text
+Symbol    Meaning
+*         Denotes the current window.
+-         Marks the last window (previously selected).
+#         Window activity is monitored and activity has been detected.
+!         Window bells are monitored and a bell has occurred in the window.
+~         The window has been silent for the monitor-silence interval.
+M         The window contains the marked pane.
+Z         The window's active pane is zoomed.
+```
+
+</details>
+
+
 ## 💝 Thanks to
 
 - [Pocco81](https://github.com/catppuccin)
