@@ -63,11 +63,15 @@ main() {
   # NOTE: Checking for the value of @catppuccin_window_tabs_enabled
   wt_enabled="$(get-tmux-option "@catppuccin_window_tabs_enabled" "off")"
   readonly wt_enabled
-  
+
+  # NOTE: Checking for the value of @catppuccin_window_tabs_enabled
   wi_enabled="$(get-tmux-option "@catppuccin_window_icons_enabled" "off")"
   readonly wi_enabled
 
-  # These variables are the defaults so that the setw and set calls are easier to parse.
+  # README: Any variables marked `readonly` are the defaults so that it is
+  # easier to understand what is a default value. Some variables are marked
+  # `local` and that's because they will be used in place for the `setw` and
+  # `set` commands to make it easier to parse what is happening.
 
   # Default Nerd Font zoom/mark icons
   readonly icon_window_zoom_off="  "
@@ -88,6 +92,9 @@ main() {
   local show_window_zoom_on="*Z"
   local show_window_zoom_mark="*M"
   
+  # NOTE: With the @catppuccin_window_icons_enabled set to on, we're going to
+  # update the show_window_status with a custom command to replace all the
+  # things that it would normally use according to the Tmux source.
   if [[ "${wi_enabled}" == "on" ]]
   then
     show_window_zoom_off=${custom_icon_window}
