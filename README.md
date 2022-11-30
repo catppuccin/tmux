@@ -72,9 +72,10 @@ the window status as defined by the `#F` variable in Tmux using the known
 characters such as `Z`, `*`, and `-`. If you would like Nerd Font supported
 icons for the default Tmux window status, you can enable them like so.
 
-```sh
-set -g @catppuccin_window_icons_enabled on
+```bash
+set -g @catppuccin_window_icons_enabled on # or off to disable window icons
 ```
+
 <details>
 <summary><a
 href="https://github.com/tmux/tmux/blob/master/tmux.1#L5632-L5641">Read more
