@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PLUGIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 main() {
   get-tmux-option() {
@@ -33,10 +33,10 @@ main() {
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   sed -E 's/^(.+=)/local \1/' \
-      > catppuccin-selected-theme.tmuxtheme \
-      < "${CURRENT_DIR}/catppuccin-${theme}.tmuxtheme"
+      > "${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme" \
+      < "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
 
-  source catppuccin-selected-theme.tmuxtheme
+  source "${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme"
 
   # status
   set status "on"
