@@ -32,11 +32,8 @@ main() {
 
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
-  sed -E 's/^(.+=)/local \1/' \
-      > "${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme" \
-      < "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
-
-  source "${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme"
+  # shellcheck source=catppuccin-frappe.tmuxtheme
+  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme")"
 
   # status
   set status "on"
