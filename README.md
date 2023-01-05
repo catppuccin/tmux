@@ -69,8 +69,9 @@ By default, the theme will use  for left separator and  for right separato
 To overwrite them use `@catppuccin_left_separator` and `@catppuccin_right_separator` 
 
 ```sh
-set -g @catppuccin_left_separator "█"
-set -g @catppuccin_right_separator "█"
+set -g @catppuccin_left_separator "█"
+set -g @catppuccin_right_separator "█"
+
 ```
 
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
