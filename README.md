@@ -65,12 +65,12 @@ set -g @catppuccin_window_tabs_enabled on # or off to disable window_tabs
 
 ##### Configure separator
 
-By default, the theme will use  for left separator and  for right separator.
-To overwrite them use `@catppuccin_left_separator` and `@catppuccin_right_separator` 
+By default, the theme will use a round separator for left and right.
+To overwrite it use `@catppuccin_left_separator` and `@catppuccin_right_separator` 
 
 ```sh
-set -g @catppuccin_left_separator "█"
-set -g @catppuccin_right_separator "█"
+set -g @catppuccin_left_separator "█"
+set -g @catppuccin_right_separator "█"
 
 ```
 
