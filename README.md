@@ -63,6 +63,14 @@ directory within the `status-right` and move the window names to the
 set -g @catppuccin_window_tabs_enabled on # or off to disable window_tabs
 ```
 
+##### Enable angled right status separators
+By default rounded right status separators are used, with `@catppuccin_right_status_separator`
+set to `angled` then angled separators will be used.
+
+```sh
+set -g @catppuccin_right_status_separator 'angled'
+```
+
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
 
 ## 💝 Thanks to
