@@ -64,6 +64,12 @@ main() {
   wt_enabled="$(get-tmux-option "@catppuccin_window_tabs_enabled" "off")"
   readonly wt_enabled
 
+  hostname_enabled="$(get-tmux-option "@catppuccin_hostname_enabled" "off")"
+  readonly hostname_enabled
+
+  datetime_enabled="$(get-tmux-option "@catppuccin_datetime_enabled" "off")"
+  readonly datetime_enabled
+
   # These variables are the defaults so that the setw and set calls are easier to parse.
   readonly show_directory="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]  #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} #{?client_prefix,#[fg=$thm_red]"
   readonly show_window="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red]"
@@ -90,6 +96,18 @@ main() {
     right_column1=$show_directory
     window_status_format=$show_window_in_window_status
     window_status_current_format=$show_window_in_window_status_current
+  fi
+
+  if [[ "${hostname_enabled}" == "on" ]]
+  then
+    hostname_status="#[fg=$thm_green,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_green,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_bg] #(hostname -s)"
+    right_column1="${hostname_status} ${right_column1}"
+  fi
+
+  if [[ "${datetime_enabled}" == "on" ]]
+  then
+    datetime_status="#[fg=$thm_yellow,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_yellow,nobold,nounderscore,noitalics]羽#[fg=$thm_fg,bg=$thm_bg] %H:%M | %d.%m.%Y"
+    right_column1="${datetime_status} ${right_column1}"
   fi
 
   set status-left ""

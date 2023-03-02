@@ -63,6 +63,18 @@ directory within the `status-right` and move the window names to the
 set -g @catppuccin_window_tabs_enabled on # or off to disable window_tabs
 ```
 
+##### Enable hostname in status bar
+
+```sh
+set -g @catppuccin_hostname_enabled on
+```
+
+##### Enable time and date in status bar
+
+```sh
+set -g @catppuccin_datetime_enabled on
+```
+
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
 
 ## 💝 Thanks to
