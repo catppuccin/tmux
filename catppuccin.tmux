@@ -61,9 +61,17 @@ main() {
   # --------=== Statusline
 
   # NOTE: Checking for the value of @catppuccin_window_tabs_enabled
-  readonly wt_enabled="$(get_tmux_option "@catppuccin_window_tabs_enabled" "off")"
-  readonly right_separator="$(get-tmux-option "@catppuccin_right_separator" "")"
-  readonly left_separator="$(get-tmux-option "@catppuccin_left_separator" "")"
+  local wt_enabled 
+  wt_enabled="$(get_tmux_option "@catppuccin_window_tabs_enabled" "off")"
+  readonly wt_enabled
+  
+  local right_separator
+  right_separator="$(get_tmux_option "@catppuccin_right_separator" "")"
+  readonly right_separator
+  
+  local left_separator
+  left_separator="$(get_tmux_option "@catppuccin_left_separator" "")"
+  readonly left_separator
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
   local show_directory
