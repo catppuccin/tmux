@@ -61,7 +61,7 @@ main() {
   # --------=== Statusline
 
   # NOTE: Checking for the value of @catppuccin_window_tabs_enabled
-  local wt_enabled 
+  local wt_enabled
   wt_enabled="$(get_tmux_option "@catppuccin_window_tabs_enabled" "off")"
   readonly wt_enabled
   
