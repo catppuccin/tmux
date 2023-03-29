@@ -73,6 +73,15 @@ set -g @catppuccin_left_separator "█"
 set -g @catppuccin_right_separator "█"
 ```
 
+##### Enable DateTime
+
+By default, the `date_time` componenet is set to off. 
+It can be enabled by specifing the tmux date and time format.
+
+```sh
+set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
+```
+
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
 
 ## 💝 Thanks to
