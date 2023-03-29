@@ -73,6 +73,14 @@ main() {
   left_separator="$(get_tmux_option "@catppuccin_left_separator" "")"
   readonly left_separator
 
+  local user
+  user="$(get_tmux_option "@catppuccin_user" "off")"
+  readonly user
+
+  local host
+  host="$(get_tmux_option "@catppuccin_host" "off")"
+  readonly host
+
   local date_time
   date_time="$(get_tmux_option "@catppuccin_date_time" "off")"
   readonly date_time
@@ -99,6 +107,12 @@ main() {
   local show_window_in_window_status_current
   readonly show_window_in_window_status_current="#[fg=$thm_fg,bg=$thm_gray] #W #[fg=$thm_bg,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg]$left_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
 
+  local show_user
+  readonly show_user="#[fg=$thm_blue,bg=$thm_gray]$right_separator#[fg=$thm_bg,bg=$thm_blue] #[fg=$thm_fg,bg=$thm_gray] #(whoami) "
+
+  local show_host
+  readonly show_host="#[fg=$thm_blue,bg=$thm_gray]$right_separator#[fg=$thm_bg,bg=$thm_blue]󰒋 #[fg=$thm_fg,bg=$thm_gray] #H "
+
   local show_date_time
   readonly show_date_time="#[fg=$thm_blue,bg=$thm_gray]$right_separator#[fg=$thm_bg,bg=$thm_blue] #[fg=$thm_fg,bg=$thm_gray] $date_time "
 
@@ -118,6 +132,14 @@ main() {
     right_column1=$show_directory
     window_status_format=$show_window_in_window_status
     window_status_current_format=$show_window_in_window_status_current
+  fi
+
+  if [[ "${user}" == "on" ]]; then
+    right_column2=$right_column2$show_user
+  fi
+
+  if [[ "${host}" == "on" ]]; then
+    right_column2=$right_column2$show_host
   fi
 
   if [[ "${date_time}" != "off" ]]; then
