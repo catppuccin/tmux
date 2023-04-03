@@ -52,6 +52,8 @@ All flavours support certain levels of customization that match our [Catppuccin
 Style Guide][style-guide]. To add these customizations, add any of the following
 options to your Tmux configuration.
 
+In order to have the correct icons displayed please use your favorite nerd fonts patched font.
+
 ##### Enable window tabs
 
 By default, the theme places the `window-status` in the `status-right`. With
@@ -71,6 +73,33 @@ To overwrite it use `@catppuccin_left_separator` and `@catppuccin_right_separato
 ```sh
 set -g @catppuccin_left_separator "█"
 set -g @catppuccin_right_separator "█"
+```
+
+##### Enable DateTime
+
+By default, the `date_time` componenet is set to off.
+It can be enabled by specifing any tmux date and time format.
+
+```sh
+set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
+```
+
+##### Enable User
+
+By default, the `user` componenet is set to off.
+It can be enabled by toggoling it on.
+
+```sh
+set -g @catppuccin_user "on"
+```
+
+##### Enable Host
+
+By default, the `host` componenet is set to off.
+It can be enabled by toggoling it on.
+
+```sh
+set -g @catppuccin_host "on"
 ```
 
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
