@@ -15,6 +15,23 @@
   <img src="./assets/preview.webp"/>
 </p>
 
+## Content
+
+1. [Themes](#themes)
+2. [Installation](#installation)
+3. [Status line themes](#status-line-themes)
+   1. [Default](#default)
+   2. [Pill](#pill-shape)
+   3. [Powerline](#powerline)
+   4. [Powerline with icons](#powerline-with-icons)
+   5. [No patched fonts](#no-patched-fonts)
+4. [Configuration options](#configuration-options)
+   1. [Enable window tabs](#enable-window-tabs)
+   2. [Configure separators](#configure-separator)
+   3. [Enable date and time](#enable-datetime)
+   4. [Enable user](#enable-user)
+   5. [Enable host](#enable-host)
+
 ## Themes
 
 - 🌻 [Latte](./catppuccin-latte.tmuxtheme)
@@ -22,7 +39,10 @@
 - 🌺 [Macchiato](./catppuccin-macchiato.tmuxtheme)
 - 🌿 [Mocha](./catppuccin-mocha.tmuxtheme)
 
-## Usage
+## Installation
+
+In order to have the icons displayed correctly please use / update your favorite patched font.
+If you do not have patched font installed, you can use the [No patched fonts](#no-patched-fonts) status line theme.
 
 ### TPM
 
@@ -46,15 +66,63 @@ set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
 1. Copy your desired theme's configuration contents into your Tmux config (usually stored at `~/.tmux.conf`)
 2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
-#### Configuration options
+## Status line themes
+
+### Default
+
+![Default](./assets/default-no-wt.webp)
+
+With window tabs option enabled
+
+![Default with wt enabled](./assets/default.webp)
+
+### Pill shape
+
+```sh
+set -g @catppuccin_pill_theme_enabled on
+```
+
+![Pill shape](./assets/pill.webp)
+
+### Powerline
+
+```sh
+set -g @catppuccin_powerline_theme_enabled on
+set -g @catppuccin_l_left_separator ""
+set -g @catppuccin_l_right_separator ""
+set -g @catppuccin_r_left_separator ""
+set -g @catppuccin_r_right_separator ""
+```
+
+![Powerline](./assets/powerline.webp)
+
+### Powerline with icons
+
+```sh
+set -g @catppuccin_powerline_icons_theme_enabled on
+set -g @catppuccin_l_left_separator ""
+set -g @catppuccin_l_right_separator ""
+set -g @catppuccin_r_left_separator ""
+set -g @catppuccin_r_right_separator ""
+```
+
+![Powerline with icons](./assets/powerline-icons.webp)
+
+### No patched fonts
+
+```sh
+set -g @catppuccin_no_patched_fonts_theme_enabled on
+```
+
+![No patched fonts](./assets/no-patched-fonts.webp)
+
+## Configuration options
 
 All flavours support certain levels of customization that match our [Catppuccin
 Style Guide][style-guide]. To add these customizations, add any of the following
 options to your Tmux configuration.
 
-In order to have the correct icons displayed please use your favorite nerd fonts patched font.
-
-##### Enable window tabs
+### Enable window tabs
 
 By default, the theme places the `window-status` in the `status-right`. With
 `@catppuccin_window_tabs_enabled` set to `on`, the theme will place the
@@ -65,17 +133,19 @@ directory within the `status-right` and move the window names to the
 set -g @catppuccin_window_tabs_enabled on # or off to disable window_tabs
 ```
 
-##### Configure separator
+### Configure separator
 
-By default, the theme will use a round separator for left and right.
-To overwrite it use `@catppuccin_left_separator` and `@catppuccin_right_separator` 
+By default, the theme will use a round separator.
+To overwrite it use `@catppuccin_l_left_separator`, `@catppuccin_l_right_separator` for left status / window tabs and `@catppuccin_r_left_separator`, `@catppuccin_r_right_separator` for right status.
+
+With the default status line theme
 
 ```sh
-set -g @catppuccin_left_separator "█"
-set -g @catppuccin_right_separator "█"
+set -g @catppuccin_l_right_separator "█"
+set -g @catppuccin_r_left_separator "█"
 ```
 
-##### Enable DateTime
+### Enable DateTime
 
 By default, the `date_time` componenet is set to off.
 It can be enabled by specifing any tmux date and time format.
@@ -84,19 +154,19 @@ It can be enabled by specifing any tmux date and time format.
 set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
 ```
 
-##### Enable User
+### Enable User
 
 By default, the `user` componenet is set to off.
-It can be enabled by toggoling it on.
+It can be enabled by toggling it on.
 
 ```sh
 set -g @catppuccin_user "on"
 ```
 
-##### Enable Host
+### Enable Host
 
 By default, the `host` componenet is set to off.
-It can be enabled by toggoling it on.
+It can be enabled by toggling it on.
 
 ```sh
 set -g @catppuccin_host "on"
