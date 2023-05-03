@@ -61,17 +61,26 @@ main() {
   # --------=== Statusline
 
   # NOTE: Checking for the value of @catppuccin_window_tabs_enabled
-  local wt_enabled
-  wt_enabled="$(get_tmux_option "@catppuccin_window_tabs_enabled" "off")"
-  readonly wt_enabled
-  
+
   local right_separator
   right_separator="$(get_tmux_option "@catppuccin_right_separator" "")"
   readonly right_separator
-  
+
   local left_separator
   left_separator="$(get_tmux_option "@catppuccin_left_separator" "")"
   readonly left_separator
+
+  local wt_enabled
+  wt_enabled="$(get_tmux_option "@catppuccin_window_tabs_enabled" "off")"
+  readonly wt_enabled
+
+  local window
+  window="$(get_tmux_option "@catppuccin_window" "on")"
+  readonly window
+
+  local session
+  session="$(get_tmux_option "@catppuccin_session" "on")"
+  readonly session
 
   local user
   user="$(get_tmux_option "@catppuccin_user" "off")"
@@ -87,13 +96,13 @@ main() {
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
   local show_directory
-  readonly show_directory="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]$right_separator#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]  #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} #{?client_prefix,#[fg=$thm_red]"
+  readonly show_directory="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]$right_separator#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]  #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} #{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}"
 
   local show_window
-  readonly show_window="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]$right_separator#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red]"
+  readonly show_window="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]$right_separator#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}"
 
   local show_session
-  readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]$right_separator#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
+  readonly show_session="#[bg=$thm_gray]$right_separator#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
 
   local show_directory_in_window_status
   readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
@@ -116,11 +125,12 @@ main() {
   local show_date_time
   readonly show_date_time="#[fg=$thm_blue,bg=$thm_gray]$right_separator#[fg=$thm_bg,bg=$thm_blue] #[fg=$thm_fg,bg=$thm_gray] $date_time "
 
-  # Right column 1 by default shows the Window name.
-  local right_column1=$show_window
+  local right_column=""
 
-  # Right column 2 by default shows the current Session name.
-  local right_column2=$show_session
+  # Right column 1 by default shows the Window name.
+  if [[ "${window}" == "on" ]]; then
+    right_column=$show_window
+  fi
 
   # Window status by default shows the current directory basename.
   local window_status_format=$show_directory_in_window_status
@@ -129,26 +139,30 @@ main() {
   # NOTE: With the @catppuccin_window_tabs_enabled set to on, we're going to
   # update the right_column1 and the window_status_* variables.
   if [[ "${wt_enabled}" == "on" ]]; then
-    right_column1=$show_directory
+    right_column=$show_directory
     window_status_format=$show_window_in_window_status
     window_status_current_format=$show_window_in_window_status_current
   fi
 
+  if [[ "${session}" == "on" ]]; then
+    right_column=$right_column$show_session
+  fi
+
   if [[ "${user}" == "on" ]]; then
-    right_column2=$right_column2$show_user
+    right_column=$right_column$show_user
   fi
 
   if [[ "${host}" == "on" ]]; then
-    right_column2=$right_column2$show_host
+    right_column=$right_column$show_host
   fi
 
   if [[ "${date_time}" != "off" ]]; then
-    right_column2=$right_column2$show_date_time
+    right_column=$right_column$show_date_time
   fi
 
   set status-left ""
 
-  set status-right "${right_column1},${right_column2}"
+  set status-right "${right_column}"
 
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
