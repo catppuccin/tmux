@@ -78,7 +78,7 @@ main() {
   readonly user
 
   local user_icon
-  user_icon="$(get_tmux_option "@catppuccin_user_icon", "")"
+  user_icon="$(get_tmux_option "@catppuccin_user_icon" "")"
   readonly user_icon
 
   local host
@@ -86,7 +86,7 @@ main() {
   readonly host
 
   local host_icon
-  host_icon="$(get_tmux_option "@catppuccin_host_icon", "󰒋")"
+  host_icon="$(get_tmux_option "@catppuccin_host_icon" "󰒋")"
   readonly host_icon
 
   local date_time
@@ -94,7 +94,7 @@ main() {
   readonly date_time
 
   local datetime_icon
-  datetime_icon="$(get_tmux_option "@catppuccin_datetime_icon", "")"
+  datetime_icon="$(get_tmux_option "@catppuccin_datetime_icon" "")"
   readonly datetime_icon
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
