@@ -79,6 +79,7 @@ main() {
 
   local user_icon
   user_icon="$(get_tmux_option "@catppuccin_user_icon", "")"
+  readonly user_icon
 
   local host
   host="$(get_tmux_option "@catppuccin_host" "off")"
@@ -86,6 +87,7 @@ main() {
 
   local host_icon
   host_icon="$(get_tmux_option "@catppuccin_host_icon", "󰒋")"
+  readonly host_icon
 
   local date_time
   date_time="$(get_tmux_option "@catppuccin_date_time" "off")"
@@ -93,6 +95,7 @@ main() {
 
   local datetime_icon
   datetime_icon="$(get_tmux_option "@catppuccin_datetime_icon", "HELLO")"
+  readonly datetime_icon
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
   local show_directory
