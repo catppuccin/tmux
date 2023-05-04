@@ -94,7 +94,7 @@ main() {
   readonly date_time
 
   local datetime_icon
-  datetime_icon="$(get_tmux_option "@catppuccin_datetime_icon", "HELLO")"
+  datetime_icon="$(get_tmux_option "@catppuccin_datetime_icon", "")"
   readonly datetime_icon
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
