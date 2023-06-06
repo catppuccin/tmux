@@ -115,7 +115,32 @@ main() {
   local date_time
   date_time="$(get_tmux_option "@catppuccin_date_time" "off")"
   readonly date_time
-  
+ 
+  # Icons
+  local directory_icon
+  directory_icon="$(get_tmux_option "@catppuccin_directory_icon" "")"
+  readonly directory_icon
+
+  local window_icon
+  window_icon="$(get_tmux_option "@catppuccin_window_icon" "")"
+  readonly window_icon
+
+  local session_icon
+  session_icon="$(get_tmux_option "@catppuccin_session_icon" "")"
+  readonly session_icon
+
+  local user_icon
+  user_icon="$(get_tmux_option "@catppuccin_user_icon" "")"
+  readonly user_icon
+
+  local host_icon
+  host_icon="$(get_tmux_option "@catppuccin_host_icon" "󰒋")"
+  readonly host_icon
+
+  local datetime_icon
+  datetime_icon="$(get_tmux_option "@catppuccin_datetime_icon" "")"
+  readonly datetime_icon
+
   # Source status line themes
   if [[ "${pill_theme_enabled}" == "off" ]] &&
     [[ "${powerline_theme_enabled}"  == "off" ]] && 
