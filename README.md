@@ -77,8 +77,8 @@ set -g @catppuccin_right_separator "█"
 
 ##### Enable DateTime
 
-By default, the `date_time` componenet is set to off.
-It can be enabled by specifing any tmux date and time format.
+By default, the `date_time` component is set to off.
+It can be enabled by specifying any tmux date and time format.
 
 ```sh
 set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
@@ -86,8 +86,8 @@ set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
 
 ##### Enable User
 
-By default, the `user` componenet is set to off.
-It can be enabled by toggoling it on.
+By default, the `user` component is set to off.
+It can be enabled by toggling it on.
 
 ```sh
 set -g @catppuccin_user "on"
@@ -95,11 +95,27 @@ set -g @catppuccin_user "on"
 
 ##### Enable Host
 
-By default, the `host` componenet is set to off.
-It can be enabled by toggoling it on.
+By default, the `host` component is set to off.
+It can be enabled by toggling it on.
 
 ```sh
 set -g @catppuccin_host "on"
+```
+
+##### Customize Icons
+
+Each of the components comes with their own default icon, which
+can be changed to fit your preference or requirements of your font.
+
+*Note: NerdFont Icons do not render properly in the Github UI, so the below example
+does not use them*
+```sh
+set -g @catppuccin_datetime_icon "A"
+set -g @catppuccin_user_icon "B"
+set -g @catppuccin_directory_icon "C"
+set -g @catppuccin_window_icon "D"
+set -g @catppuccin_session_icon "E"
+set -g @catppuccin_host_icon "F"
 ```
 
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
