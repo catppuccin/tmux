@@ -76,6 +76,14 @@ main() {
   local user
   user="$(get_tmux_option "@catppuccin_user" "off")"
   readonly user
+  
+  local prepend
+  prepend="$(get_tmux_option "@catppuccin_prepend" "")"
+  readonly prepend
+  
+  local append
+  append="$(get_tmux_option "@catppuccin_append" "")"
+  readonly append
 
   local user_icon
   user_icon="$(get_tmux_option "@catppuccin_user_icon" "")"
@@ -172,7 +180,7 @@ main() {
 
   set status-left ""
 
-  set status-right "${right_column1},${right_column2}"
+  set status-right "${prepend}${right_column1},${right_column2}${append}"
 
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
