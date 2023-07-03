@@ -116,6 +116,14 @@ main() {
   append="$(get_tmux_option "@catppuccin_append" "")"
   readonly append
 
+  local prepend
+  prepend="$(get_tmux_option "@catppuccin_prepend" "")"
+  readonly prepend
+
+  local append
+  append="$(get_tmux_option "@catppuccin_append" "")"
+  readonly append
+
   local host
   host="$(get_tmux_option "@catppuccin_host" "off")"
   readonly host
@@ -204,6 +212,7 @@ main() {
   fi
 
   set status-right "${prepend}${right_column1}${right_column2}${append}"
+  set status-left ""
 
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
