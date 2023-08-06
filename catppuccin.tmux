@@ -31,6 +31,31 @@ setw() {
   tmux_commands+=(set-window-option -gq "$option" "$value" ";")
 }
 
+load_modules() {
+  local loaded_modules
+
+  local modules_path=$1
+  local modules_list=$2
+
+  local modules_array
+  read -a modules_array <<< "$modules_list"
+
+  local module_name
+  for module_name in ${modules_array[@]}
+  do
+    local module_path=$modules_path/$module_name.sh
+    source $module_path
+
+    if [[ 0 -eq $? ]]
+    then
+      loaded_modules=$loaded_modules$( show_$module_name )
+    fi
+
+  done
+
+  echo $loaded_modules
+}
+
 main() {
   local theme
   theme="$(get_tmux_option "@catppuccin_flavour" "mocha")"
@@ -196,7 +221,16 @@ main() {
   fi
 
   set status-left ""
-  set status-right "${right_column1}${right_column2}"
+
+
+  local status_left_separator=$r_left_separator
+  local status_right_separator=$l_right_separator
+
+  local status_modules="$(get_tmux_option "@catppuccin_status_modules" "")"
+
+  local loaded_modules=$( load_modules "$PLUGIN_DIR/modules" "$status_modules")
+  set status-right "${right_column1}${right_column2}${loaded_modules}"
+
 
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
