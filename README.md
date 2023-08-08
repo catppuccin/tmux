@@ -67,55 +67,10 @@ set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
 1. Copy your desired theme's configuration contents into your Tmux config (usually stored at `~/.tmux.conf`)
 2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
-## Status line themes
+## Overview
+![Default](./assets/overview.png)
 
-### Default
-
-![Default](./assets/default-no-wt.webp)
-
-With window tabs option enabled
-
-![Default with wt enabled](./assets/default.webp)
-
-### Pill shape
-
-```sh
-set -g @catppuccin_pill_theme_enabled on
-```
-
-![Pill shape](./assets/pill.webp)
-
-### Powerline
-
-```sh
-set -g @catppuccin_powerline_theme_enabled on
-set -g @catppuccin_l_left_separator ""
-set -g @catppuccin_l_right_separator ""
-set -g @catppuccin_r_left_separator ""
-set -g @catppuccin_r_right_separator ""
-```
-
-![Powerline](./assets/powerline.webp)
-
-### Powerline with icons
-
-```sh
-set -g @catppuccin_powerline_icons_theme_enabled on
-set -g @catppuccin_l_left_separator ""
-set -g @catppuccin_l_right_separator ""
-set -g @catppuccin_r_left_separator ""
-set -g @catppuccin_r_right_separator ""
-```
-
-![Powerline with icons](./assets/powerline-icons.webp)
-
-### No patched fonts
-
-```sh
-set -g @catppuccin_no_patched_fonts_theme_enabled on
-```
-
-![No patched fonts](./assets/no-patched-fonts.webp)
+This is a diagram on how the theme is split between it's components.
 
 ## Configuration options
 
@@ -123,70 +78,183 @@ All flavours support certain levels of customization that match our [Catppuccin
 Style Guide][style-guide]. To add these customizations, add any of the following
 options to your Tmux configuration.
 
-### Enable window tabs
+### Window
 
-By default, the theme places the `window-status` in the `status-right`. With
-`@catppuccin_window_tabs_enabled` set to `on`, the theme will place the
-directory within the `status-right` and move the window names to the
-`window-status` format variables.
-
+#### Set the window left separator:
 ```sh
-set -g @catppuccin_window_tabs_enabled on # or off to disable window_tabs
+set -g @catppuccin_window_left_separator "█"
 ```
 
-### Configure separator
-
-By default, the theme will use a round separator.
-To overwrite it use `@catppuccin_l_left_separator`, `@catppuccin_l_right_separator` for left status / window tabs and `@catppuccin_r_left_separator`, `@catppuccin_r_right_separator` for right status.
-
-With the default status line theme
-
+#### Set the window middle separator:
 ```sh
-set -g @catppuccin_l_right_separator "█"
-set -g @catppuccin_r_left_separator "█"
+set -g @catppuccin_window_middle_separator "█"
 ```
 
-### Enable DateTime
-
-By default, the `date_time` component is set to off.
-It can be enabled by specifying any tmux date and time format.
-
+#### Set the window right separator:
 ```sh
-set -g @catppuccin_date_time "%Y-%m-%d %H:%M"
+set -g @catppuccin_window_right_separator "█"
 ```
 
-### Enable User
-
-By default, the `user` component is set to off.
-It can be enabled by toggling it on.
-
+#### Set the color fill:
 ```sh
-set -g @catppuccin_user "on"
+set -g @catppuccin_window_color_fill "number"
+```
+Values:
+- number - only the number of the window part will have color
+- all - the entire window part will have the same color
+
+#### Position the number:
+```sh
+set -g @catppuccin_window_icon_position "left"
+```
+Values:
+- left - the number will be on the left part of the window
+- right - the number will be on the right part of the window
+
+#### Set the window style format
+```sh
+set -g @catppuccin_window_format_style "directory"
+```
+Values:
+- directory - will display the basename of the window path
+- application - will display the running application of the window
+
+#### Set the current directory format
+```sh
+set -g @catppuccin_window_current_format_directory_text "#{b:pane_current_path}"
+```
+Use this to overide the way the current directory is displayed.
+
+#### Set the directory format
+```sh
+set -g @catppuccin_window_format_directory_text "#{b:pane_current_path}"
+```
+Use this to overide the way the directory is displayed.
+
+### Status
+
+#### Set the status module left separator:
+```sh
+set -g @catppuccin_status_left_separator ""
 ```
 
-### Enable Host
-
-By default, the `host` component is set to off.
-It can be enabled by toggling it on.
-
+#### Set the status module right separator:
 ```sh
-set -g @catppuccin_host "on"
+set -g @catppuccin_status_right_separator "█"
 ```
 
-### Customize Icons
-
-Each of the components comes with their own default icon, which
-can be changed to fit your preference or requirements of your font.
-
-*Note: NerdFont Icons do not render properly in the Github UI, so the below example
-does not use them*
+#### Set the status module right separator inverse:
 ```sh
-set -g @catppuccin_datetime_icon "A"
-set -g @catppuccin_user_icon "B"
-set -g @catppuccin_directory_icon "C"
-set -g @catppuccin_window_icon "D"
-set -g @catppuccin_session_icon "E"
-set -g @catppuccin_host_icon "F"
+set -g @catppuccin_status_right_separator_inverse "no"
+```
+Values:
+- yes - the colors will be inverted for the right separator
+- no - the colors will not be inverted for the right separator
+
+#### Set the status connect separator:
+```sh
+set -g @catppuccin_status_connect_separator "yes"
+```
+Values:
+- yes - the background color of the separator will not blend in with the brackground color of tmux
+- no - the background color of the separator will blend in with the brackground color of tmux
+
+#### Set the status module color fill:
+```sh
+set -g @catppuccin_status_color_fill "icon"
+```
+Values:
+- icon - only the icon of the module will have color
+- all - the entire module will have the same color
+
+#### Set the module list
+```sh
+set -g @catppuccin_status_modules" "application session"
+```
+Provide a list of modules and the order in which you want them to appear in the status. 
+
+Available modules:
+- application - display the current window running application
+- directory - display the basename of the current window path
+- session - display the number of tmux sessions running
+- user - display the username
+- host - display the hostname
+- date_time - display the date and time
+
+### Customizing modules
+
+Every module (except the module "session") supports the following overrides:
+
+#### Override the specific module icon
+```sh
+set -g @catppuccin_[module_name]_icon" "icon"
+```
+
+#### Override the specific module color
+```sh
+set -g @catppuccin_[module_name]_color" "color"
+```
+
+#### Override the specific module text
+```sh
+set -g @catppuccin_[module_name]_text" "text"
+```
+
+## Configuration Recipes
+
+### Config 1
+![Default](./assets/config1.png)
+
+```sh
+set -g @catppuccin_window_right_separator "█ "
+set -g @catppuccin_window_icon_position "right"
+set -g @catppuccin_window_middle_separator " | "
+set -g @catppuccin_window_color_fill "all"
+
+set -g @catppuccin_status_modules "application session user host date_time"
+set -g @catppuccin_status_left_separator  "█"
+
+set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
+```
+
+### Config 2
+![Default](./assets/config2.png)
+
+```sh
+set -g @catppuccin_window_left_separator "█"
+set -g @catppuccin_window_right_separator "█ "
+set -g @catppuccin_window_icon_position "right"
+set -g @catppuccin_window_middle_separator "  █"
+set -g @catppuccin_window_color_fill "number"
+set -g @catppuccin_window_current_format_directory_text "#{pane_current_path}"
+
+set -g @catppuccin_status_modules "application session date_time"
+set -g @catppuccin_status_left_separator  ""
+set -g @catppuccin_status_right_separator " "
+set -g @catppuccin_status_right_separator_inverse "yes"
+set -g @catppuccin_status_color_fill "all"
+set -g @catppuccin_status_connect_separator "no"
+```
+
+### Config 3
+![Default](./assets/config3.png)
+
+```sh
+set -g @catppuccin_window_left_separator ""
+set -g @catppuccin_window_right_separator " "
+set -g @catppuccin_window_icon_position "right"
+set -g @catppuccin_window_middle_separator " █"
+set -g @catppuccin_window_color_fill "number"
+set -g @catppuccin_window_format_style "application"
+
+set -g @catppuccin_status_modules "directory user host session"
+set -g @catppuccin_status_left_separator  " "
+set -g @catppuccin_status_right_separator ""
+set -g @catppuccin_status_right_separator_inverse "no"
+set -g @catppuccin_status_color_fill "icon"
+set -g @catppuccin_status_connect_separator "no"
+
+set -g @catppuccin_directory_text "#{pane_current_path}"
 ```
 
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
