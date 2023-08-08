@@ -130,7 +130,7 @@ main() {
 
   local window_left_separator="$(get_tmux_option "@catppuccin_window_left_separator" "█")"
   local window_right_separator="$(get_tmux_option "@catppuccin_window_right_separator" "█")"
-  local window_middle_separator="$(get_tmux_option "@catppuccin_window_middle_separator" "█")"
+  local window_middle_separator="$(get_tmux_option "@catppuccin_window_middle_separator" " █")"
   local window_color_fill="$(get_tmux_option "@catppuccin_window_color_fill" "number")" # number, all
   local window_icon_position="$(get_tmux_option "@catppuccin_window_icon_position" "right")" # right, left
   local window_format_style="$(get_tmux_option "@catppuccin_window_format_style" "directory")" # directory, application
