@@ -31,6 +31,39 @@ setw() {
   tmux_commands+=(set-window-option -gq "$option" "$value" ";")
 }
 
+
+build_status_module() {
+  local index=$1 
+  local icon="$2"
+  local color="$3"
+  local text="$4"
+
+  if [[ $index -eq 0 || $status_connect_separator == "no" ]]
+  then
+    local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
+  else
+    local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
+  fi
+
+  if [[ $status_color_fill == "icon" ]]
+  then
+    local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
+    local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
+    local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
+  fi
+
+  if [[ $status_color_fill == "all" ]]
+  then
+    local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
+    local show_text="#[fg=$thm_bg,bg=$color]$text"
+    local show_right_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
+  fi
+
+
+  echo "$show_left_separator$show_icon$show_text$show_right_separator"
+
+}
+
 load_modules() {
   local loaded_modules
 
@@ -95,21 +128,20 @@ main() {
   local window_left_separator="$(get_tmux_option "@catppuccin_window_left_separator" "█")"
   local window_right_separator="$(get_tmux_option "@catppuccin_window_right_separator" "█")"
   local window_middle_separator="$(get_tmux_option "@catppuccin_window_middle_separator" "█")"
-  local window_color_fill="$(get_tmux_option "@catppuccin_window_color_fill" "number")"
-  local window_icon_position="$(get_tmux_option "@catppuccin_window_icon_position" "right")"
+  local window_color_fill="$(get_tmux_option "@catppuccin_window_color_fill" "number")" # number, all
+  local window_icon_position="$(get_tmux_option "@catppuccin_window_icon_position" "right")" # right, left
+  local window_format_style="$(get_tmux_option "@catppuccin_window_format_style" "directory")" # directory, application
 
-  local window_module="$(get_tmux_option "@catppuccin_window_module" "directory_in_window")"
-  local window_current_module="$(get_tmux_option "@catppuccin_window_current_module" "directory_in_window_current")"
-
-  local window_format=$( load_modules "$PLUGIN_DIR/window" "$window_module")
-  local window_current_format=$( load_modules "$PLUGIN_DIR/window" "$window_current_module")
+  local window_format=$( load_modules "$PLUGIN_DIR/window" "window_format")
+  local window_current_format=$( load_modules "$PLUGIN_DIR/window" "window_current_format")
 
   setw window-status-format "${window_format}"
   setw window-status-current-format "${window_current_format}"
 
-  local status_left_separator="$(get_tmux_option "@catppuccin_status_left_separator" " ")"
+  local status_left_separator="$(get_tmux_option "@catppuccin_status_left_separator" "")"
   local status_right_separator="$(get_tmux_option "@catppuccin_status_right_separator" "█")"
   local status_connect_separator="$(get_tmux_option "@catppuccin_status_connect_separator" "yes")"
+  local status_color_fill="$(get_tmux_option "@catppuccin_status_color_fill" "icon")"
 
   local status_modules="$(get_tmux_option "@catppuccin_status_modules" "application session")"
   local loaded_modules=$( load_modules "$PLUGIN_DIR/status" "$status_modules")
