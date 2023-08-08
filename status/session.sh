@@ -1,7 +1,7 @@
 show_session() {
   local index=$1 
   local icon="$(get_tmux_option "@catppuccin_session_icon" "")"
-  local text="$(get_tmux_option "@catppuccin_host_text" "#S")"
+  local text="$(get_tmux_option "@catppuccin_session_text" "#S")"
 
   if [[ $index -eq 0 || $status_connect_separator == "no" ]]
   then
@@ -22,6 +22,11 @@ show_session() {
   then
     local show_text="#[fg=$thm_bg]$text"
     local show_right_separator="#[fg=$thm_green]#[bg=$thm_bg]#{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}$status_right_separator"
+  fi
+
+  if [[ $status_right_separator_inverse == "yes" ]]
+  then
+    local show_right_separator="#[fg=$thm_bg]$status_right_separator"
   fi
 
   echo "$show_left_separator$show_icon$show_text$show_right_separator"

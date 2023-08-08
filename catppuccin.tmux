@@ -59,9 +59,12 @@ build_status_module() {
     local show_right_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
   fi
 
+  if [[ $status_right_separator_inverse == "yes" ]]
+  then
+    local show_right_separator="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
+  fi
 
   echo "$show_left_separator$show_icon$show_text$show_right_separator"
-
 }
 
 load_modules() {
@@ -140,6 +143,7 @@ main() {
 
   local status_left_separator="$(get_tmux_option "@catppuccin_status_left_separator" "")"
   local status_right_separator="$(get_tmux_option "@catppuccin_status_right_separator" "█")"
+  local status_right_separator_inverse="$(get_tmux_option "@catppuccin_status_right_separator_inverse" "no")"
   local status_connect_separator="$(get_tmux_option "@catppuccin_status_connect_separator" "yes")"
   local status_color_fill="$(get_tmux_option "@catppuccin_status_color_fill" "icon")"
 
