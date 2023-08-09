@@ -63,15 +63,12 @@ build_window_format() {
   local fill="$5"
 
   local icon="$( build_window_icon )"
-
   text="$text $icon" 
-
-  local window_format
 
   if [[ $fill == "none" ]] 
   then
     local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
-    local show_icon="#[fg=$thm_fg,bg=$thm_gray]$number"
+    local show_number="#[fg=$thm_fg,bg=$thm_gray]$number"
     local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
     local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$window_right_separator"
@@ -81,7 +78,7 @@ build_window_format() {
   if [[ $fill == "all" ]] 
   then
     local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
-    local show_icon="#[fg=$background,bg=$color]$number"
+    local show_number="#[fg=$background,bg=$color]$number"
     local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$background,bg=$color]$text"
     local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
@@ -90,7 +87,7 @@ build_window_format() {
   
   if [[ $fill == "number" ]] 
   then
-    local show_icon="#[fg=$background,bg=$color]$number"
+    local show_number="#[fg=$background,bg=$color]$number"
     local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$background]$text"
 
@@ -108,21 +105,23 @@ build_window_format() {
 
   fi
 
+  local window_format
+
   if [[ $window_number_position == "right" ]]
   then
-    window_format="$show_left_separator$show_text$show_middle_separator$show_icon$show_right_separator"
+    window_format="$show_left_separator$show_text$show_middle_separator$show_number$show_right_separator"
   fi
 
   if [[ $window_number_position == "left" ]]
   then
-    window_format="$show_left_separator$show_icon$show_middle_separator$show_text$show_right_separator"
+    window_format="$show_left_separator$show_number$show_middle_separator$show_text$show_right_separator"
   fi
 
   echo $window_format
 }
 
 build_status_module() {
-  local index=$1 
+  local index="$1"
   local icon="$2"
   local color="$3"
   local text="$4"
