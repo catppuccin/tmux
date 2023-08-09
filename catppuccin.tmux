@@ -31,6 +31,30 @@ setw() {
   tmux_commands+=(set-window-option -gq "$option" "$value" ";")
 }
 
+build_window_icon() {
+  local window_icon_enable="$(get_tmux_option "@catppuccin_window_icon_enable" "yes")"
+
+  local custom_icon_window_last="$(get_tmux_option "@catppuccin_icon_window_last" "󰖰")"
+  local custom_icon_window_current="$(get_tmux_option "@catppuccin_icon_window_current" "󰖯")"
+  local custom_icon_window_zoom="$(get_tmux_option "@catppuccin_icon_window_zoom" "󰁌")"
+  local custom_icon_window_mark="$(get_tmux_option "@catppuccin_icon_window_mark" "󰃀")"
+  local custom_icon_window_silent="$(get_tmux_option "@catppuccin_icon_window_silent" "󰂛")"
+  local custom_icon_window_activity="$(get_tmux_option "@catppuccin_icon_window_activity" "󰖲")"
+  local custom_icon_window_bell="$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞")"
+
+  if [[ $window_icon_enable == "yes" ]]
+  then
+    local show_window_status="#(printf '%%s\n' '#F' | sed \"s/*/${custom_icon_window_current}/\" | sed \"s/-/${custom_icon_window_last}/\" | sed \"s/#/${custom_icon_window_activity}/\" | sed \"s/#//g\"| sed \"s/~/${custom_icon_window_silent}/\" | sed \"s/!/${custom_icon_window_bell}/\" | sed \"s/M/${custom_icon_window_mark}/\" | sed \"s/Z/${custom_icon_window_zoom}/\")"
+  fi
+
+  if [[ $window_icon_enable == "no" ]]
+  then
+    local show_window_status="#F"
+  fi
+
+  echo $show_window_status
+}
+
 build_window_format() {
   local number="$1"
   local color="$2"
@@ -38,7 +62,9 @@ build_window_format() {
   local text="$4"
   local fill="$5"
 
-  text="$text #F" 
+  local icon="$( build_window_icon )"
+
+  text="$text $icon" 
 
   local window_format
 
