@@ -32,7 +32,7 @@ setw() {
 }
 
 build_window_icon() {
-  local window_icon_enable="$(get_tmux_option "@catppuccin_window_icon_enable" "yes")"
+  local window_status_icon_enable="$(get_tmux_option "@catppuccin_window_status_icon_enable" "yes")"
 
   local custom_icon_window_last="$(get_tmux_option "@catppuccin_icon_window_last" "󰖰")"
   local custom_icon_window_current="$(get_tmux_option "@catppuccin_icon_window_current" "󰖯")"
@@ -42,12 +42,12 @@ build_window_icon() {
   local custom_icon_window_activity="$(get_tmux_option "@catppuccin_icon_window_activity" "󰖲")"
   local custom_icon_window_bell="$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞")"
 
-  if [[ $window_icon_enable == "yes" ]]
+  if [[ $window_status_icon_enable == "yes" ]]
   then
     local show_window_status="#(printf '%%s\n' '#F' | sed \"s/*/${custom_icon_window_current}/\" | sed \"s/-/${custom_icon_window_last}/\" | sed \"s/#/${custom_icon_window_activity}/\" | sed \"s/#//g\"| sed \"s/~/${custom_icon_window_silent}/\" | sed \"s/!/${custom_icon_window_bell}/\" | sed \"s/M/${custom_icon_window_mark}/\" | sed \"s/Z/${custom_icon_window_zoom}/\")"
   fi
 
-  if [[ $window_icon_enable == "no" ]]
+  if [[ $window_status_icon_enable == "no" ]]
   then
     local show_window_status="#F"
   fi
@@ -62,8 +62,11 @@ build_window_format() {
   local text="$4"
   local fill="$5"
 
-  local icon="$( build_window_icon )"
-  text="$text $icon" 
+  if [[ $window_status_enable == "yes" ]]
+  then
+    local icon="$( build_window_icon )"
+    text="$text $icon" 
+  fi
 
   if [[ $fill == "none" ]] 
   then
@@ -220,6 +223,7 @@ main() {
   local window_right_separator="$(get_tmux_option "@catppuccin_window_right_separator" "█")"
   local window_middle_separator="$(get_tmux_option "@catppuccin_window_middle_separator" "█ ")"
   local window_number_position="$(get_tmux_option "@catppuccin_window_number_position" "left")" # right, left
+  local window_status_enable="$(get_tmux_option "@catppuccin_window_status_enable" "no")" # right, left
 
   local window_format=$( load_modules "$PLUGIN_DIR/window" "window_default_format")
   local window_current_format=$( load_modules "$PLUGIN_DIR/window" "window_current_format")
