@@ -31,6 +31,69 @@ setw() {
   tmux_commands+=(set-window-option -gq "$option" "$value" ";")
 }
 
+build_window_format() {
+  local icon="$1"
+  local color="$2"
+  local background="$3"
+  local text="$4"
+  local fill="$5"
+
+  text="$text #F" 
+
+  local window_format
+
+  if [[ $fill == "none" ]] 
+  then
+    local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
+    local show_icon="#[fg=$thm_fg,bg=$thm_gray]$icon"
+    local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$window_middle_separator"
+    local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
+    local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$window_right_separator"
+
+  fi
+
+  if [[ $fill == "all" ]] 
+  then
+    local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
+    local show_icon="#[fg=$background,bg=$color]$icon"
+    local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$window_middle_separator"
+    local show_text="#[fg=$background,bg=$color]$text"
+    local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
+
+  fi
+  
+  if [[ $fill == "number" ]] 
+  then
+    local show_icon="#[fg=$background,bg=$color]$icon"
+    local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$window_middle_separator"
+    local show_text="#[fg=$thm_fg,bg=$background]$text"
+
+    if [[ $window_icon_position == "right" ]]
+    then
+      local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
+      local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
+    fi
+
+    if [[ $window_icon_position == "left" ]]
+    then
+      local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
+      local show_left_separator="#[fg=$color,bg=$thm_bg]$window_left_separator"
+    fi
+
+  fi
+
+  if [[ $window_icon_position == "right" ]]
+  then
+    window_format="$show_left_separator$show_text$show_middle_separator$show_icon$show_right_separator"
+  fi
+
+  if [[ $window_icon_position == "left" ]]
+  then
+    window_format="$show_left_separator$show_icon$show_middle_separator$show_text$show_right_separator"
+  fi
+
+  echo $window_format
+}
 
 build_status_module() {
   local index=$1 
@@ -131,7 +194,6 @@ main() {
   local window_left_separator="$(get_tmux_option "@catppuccin_window_left_separator" "█")"
   local window_right_separator="$(get_tmux_option "@catppuccin_window_right_separator" "█")"
   local window_middle_separator="$(get_tmux_option "@catppuccin_window_middle_separator" "█ ")"
-  local window_color_fill="$(get_tmux_option "@catppuccin_window_color_fill" "number")" # number, all
   local window_icon_position="$(get_tmux_option "@catppuccin_window_icon_position" "left")" # right, left
   local window_format_style="$(get_tmux_option "@catppuccin_window_format_style" "directory")" # directory, application
 
