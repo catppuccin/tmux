@@ -95,29 +95,72 @@ set -g @catppuccin_window_middle_separator "█"
 set -g @catppuccin_window_right_separator "█"
 ```
 
-#### Set the color fill:
-```sh
-set -g @catppuccin_window_color_fill "number"
-```
-Values:
-- number - only the number of the window part will have color
-- all - the entire window part will have the same color
-
 #### Position the number:
 ```sh
-set -g @catppuccin_window_icon_position "left"
+set -g @catppuccin_window_number_position "left"
 ```
 Values:
 - left - the number will be on the left part of the window
 - right - the number will be on the right part of the window
 
-#### Set the window style format
+#### Enable window status:
 ```sh
-set -g @catppuccin_window_format_style "directory"
+set -g @ccatppuccin_window_status_enable "yes"
 ```
 Values:
-- directory - will display the basename of the window path
-- application - will display the running application of the window
+- yes - this will enable the window status part
+- no - this will disable the window status part
+
+#### Enable window status icons instead of text:
+```sh
+set -g @catppuccin_window_status_icon_enable "yes"
+```
+Values:
+- yes - this will replace the windows status text with icons
+- no - this will keep the windows status in text format
+
+### Override windows status icons
+```sh
+set -g @catppuccin_icon_window_last "󰖰"
+set -g @catppuccin_icon_window_current "󰖯"
+set -g @catppuccin_icon_window_zoom "󰁌"
+set -g @catppuccin_icon_window_mark "󰃀"
+set -g @catppuccin_icon_window_silent "󰂛"
+set -g @catppuccin_icon_window_activity "󰖲"
+set -g @catppuccin_icon_window_bell "󰂞"
+```
+
+### Window default
+
+#### Set the window default color fill:
+```sh
+set -g @catppuccin_window_default_fill "number"
+```
+Values:
+- number - only the number of the window part will have color
+- all - the entire window part will have the same color
+- none - the entire window part will have no color
+
+#### Override the window default text:
+```sh
+set -g @catppuccin_window_default_text "#{b:pane_current_path}" # use "#W" for application instead of directory 
+```
+
+### Window current
+
+#### Set the window current color fill:
+```sh
+set -g @catppuccin_window_current_fill "number"
+```
+Values:
+- number - only the number of the window part will have color
+- all - the entire window part will have the same color
+- none - the entire window part will have no color
+
+#### Override the window current text:
+```sh
+set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory 
+```
 
 #### Set the current directory format
 ```sh
