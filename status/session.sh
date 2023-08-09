@@ -12,13 +12,13 @@ show_session() {
   
   local show_icon="#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg]$icon "
   
-  if [[ $status_color_fill == "icon" ]]
+  if [[ $status_fill == "icon" ]]
   then
     local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
     local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
   fi
 
-  if [[ $status_color_fill == "all" ]]
+  if [[ $status_fill == "all" ]]
   then
     local show_text="#[fg=$thm_bg]$text"
     local show_right_separator="#[fg=$thm_green]#[bg=$thm_bg]#{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}$status_right_separator"

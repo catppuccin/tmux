@@ -32,7 +32,7 @@ setw() {
 }
 
 build_window_format() {
-  local icon="$1"
+  local number="$1"
   local color="$2"
   local background="$3"
   local text="$4"
@@ -45,7 +45,7 @@ build_window_format() {
   if [[ $fill == "none" ]] 
   then
     local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
-    local show_icon="#[fg=$thm_fg,bg=$thm_gray]$icon"
+    local show_icon="#[fg=$thm_fg,bg=$thm_gray]$number"
     local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
     local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$window_right_separator"
@@ -55,7 +55,7 @@ build_window_format() {
   if [[ $fill == "all" ]] 
   then
     local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
-    local show_icon="#[fg=$background,bg=$color]$icon"
+    local show_icon="#[fg=$background,bg=$color]$number"
     local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$background,bg=$color]$text"
     local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
@@ -64,17 +64,17 @@ build_window_format() {
   
   if [[ $fill == "number" ]] 
   then
-    local show_icon="#[fg=$background,bg=$color]$icon"
+    local show_icon="#[fg=$background,bg=$color]$number"
     local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$background]$text"
 
-    if [[ $window_icon_position == "right" ]]
+    if [[ $window_number_position == "right" ]]
     then
       local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
       local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
     fi
 
-    if [[ $window_icon_position == "left" ]]
+    if [[ $window_number_position == "left" ]]
     then
       local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
       local show_left_separator="#[fg=$color,bg=$thm_bg]$window_left_separator"
@@ -82,12 +82,12 @@ build_window_format() {
 
   fi
 
-  if [[ $window_icon_position == "right" ]]
+  if [[ $window_number_position == "right" ]]
   then
     window_format="$show_left_separator$show_text$show_middle_separator$show_icon$show_right_separator"
   fi
 
-  if [[ $window_icon_position == "left" ]]
+  if [[ $window_number_position == "left" ]]
   then
     window_format="$show_left_separator$show_icon$show_middle_separator$show_text$show_right_separator"
   fi
@@ -108,14 +108,14 @@ build_status_module() {
     local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
   fi
 
-  if [[ $status_color_fill == "icon" ]]
+  if [[ $status_fill == "icon" ]]
   then
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
     local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
     local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
   fi
 
-  if [[ $status_color_fill == "all" ]]
+  if [[ $status_fill == "all" ]]
   then
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
     local show_text="#[fg=$thm_bg,bg=$color]$text"
@@ -194,10 +194,9 @@ main() {
   local window_left_separator="$(get_tmux_option "@catppuccin_window_left_separator" "█")"
   local window_right_separator="$(get_tmux_option "@catppuccin_window_right_separator" "█")"
   local window_middle_separator="$(get_tmux_option "@catppuccin_window_middle_separator" "█ ")"
-  local window_icon_position="$(get_tmux_option "@catppuccin_window_icon_position" "left")" # right, left
-  local window_format_style="$(get_tmux_option "@catppuccin_window_format_style" "directory")" # directory, application
+  local window_number_position="$(get_tmux_option "@catppuccin_window_number_position" "left")" # right, left
 
-  local window_format=$( load_modules "$PLUGIN_DIR/window" "window_format")
+  local window_format=$( load_modules "$PLUGIN_DIR/window" "window_default_format")
   local window_current_format=$( load_modules "$PLUGIN_DIR/window" "window_current_format")
 
   setw window-status-format "${window_format}"
@@ -207,7 +206,7 @@ main() {
   local status_right_separator="$(get_tmux_option "@catppuccin_status_right_separator" "█")"
   local status_right_separator_inverse="$(get_tmux_option "@catppuccin_status_right_separator_inverse" "no")"
   local status_connect_separator="$(get_tmux_option "@catppuccin_status_connect_separator" "yes")"
-  local status_color_fill="$(get_tmux_option "@catppuccin_status_color_fill" "icon")"
+  local status_fill="$(get_tmux_option "@catppuccin_status_fill" "icon")"
 
   local status_modules="$(get_tmux_option "@catppuccin_status_modules" "application session")"
   local loaded_modules=$( load_modules "$PLUGIN_DIR/status" "$status_modules")
