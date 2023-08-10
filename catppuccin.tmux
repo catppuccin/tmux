@@ -42,17 +42,17 @@ build_window_icon() {
   local custom_icon_window_activity="$(get_tmux_option "@catppuccin_icon_window_activity" "󰖲")"
   local custom_icon_window_bell="$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞")"
 
-  if [[ $window_status_icon_enable == "yes" ]]
+  if [ "$window_status_icon_enable" = "yes" ]
   then
     local show_window_status="#(printf '%%s\n' '#F' | sed \"s/*/${custom_icon_window_current}/\" | sed \"s/-/${custom_icon_window_last}/\" | sed \"s/#/${custom_icon_window_activity}/\" | sed \"s/#//g\"| sed \"s/~/${custom_icon_window_silent}/\" | sed \"s/!/${custom_icon_window_bell}/\" | sed \"s/M/${custom_icon_window_mark}/\" | sed \"s/Z/${custom_icon_window_zoom}/\")"
   fi
 
-  if [[ $window_status_icon_enable == "no" ]]
+  if [ "$window_status_icon_enable" = "no" ]
   then
     local show_window_status="#F"
   fi
 
-  echo $show_window_status
+  echo "$show_window_status"
 }
 
 build_window_format() {
@@ -62,13 +62,13 @@ build_window_format() {
   local text="$4"
   local fill="$5"
 
-  if [[ $window_status_enable == "yes" ]]
+  if [ "$window_status_enable" = "yes" ]
   then
     local icon="$( build_window_icon )"
     text="$text $icon" 
   fi
 
-  if [[ $fill == "none" ]] 
+  if [ "$fill" = "none" ] 
   then
     local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
     local show_number="#[fg=$thm_fg,bg=$thm_gray]$number"
@@ -78,7 +78,7 @@ build_window_format() {
 
   fi
 
-  if [[ $fill == "all" ]] 
+  if [ "$fill" = "all" ] 
   then
     local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
     local show_number="#[fg=$background,bg=$color]$number"
@@ -88,19 +88,19 @@ build_window_format() {
 
   fi
   
-  if [[ $fill == "number" ]] 
+  if [ "$fill" = "number" ] 
   then
     local show_number="#[fg=$background,bg=$color]$number"
     local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$background]$text"
 
-    if [[ $window_number_position == "right" ]]
+    if [ "$window_number_position" = "right" ]
     then
       local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
       local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
     fi
 
-    if [[ $window_number_position == "left" ]]
+    if [ "$window_number_position" = "left" ]
     then
       local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
       local show_left_separator="#[fg=$color,bg=$thm_bg]$window_left_separator"
@@ -110,17 +110,17 @@ build_window_format() {
 
   local final_window_format
 
-  if [[ $window_number_position == "right" ]]
+  if [ "$window_number_position" = "right" ]
   then
     final_window_format="$show_left_separator$show_text$show_middle_separator$show_number$show_right_separator"
   fi
 
-  if [[ $window_number_position == "left" ]]
+  if [ "$window_number_position" = "left" ]
   then
     final_window_format="$show_left_separator$show_number$show_middle_separator$show_text$show_right_separator"
   fi
 
-  echo $final_window_format
+  echo "$final_window_format"
 }
 
 build_status_module() {
@@ -129,28 +129,28 @@ build_status_module() {
   local color="$3"
   local text="$4"
 
-  if [[ $index -eq 0 || $status_connect_separator == "no" ]]
+  if [ "$index" -eq 0 ] || [ "$status_connect_separator" = "no" ]
   then
     local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
   else
     local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
   fi
 
-  if [[ $status_fill == "icon" ]]
+  if [ "$status_fill" = "icon" ]
   then
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
     local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
     local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
   fi
 
-  if [[ $status_fill == "all" ]]
+  if [ "$status_fill" = "all" ]
   then
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
     local show_text="#[fg=$thm_bg,bg=$color]$text"
     local show_right_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
   fi
 
-  if [[ $status_right_separator_inverse == "yes" ]]
+  if [ "$status_right_separator_inverse" = "yes" ]
   then
     local show_right_separator="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
   fi
@@ -159,25 +159,31 @@ build_status_module() {
 }
 
 load_modules() {
-  local loaded_modules
-
   local modules_list=$1
   
   local modules_custom_path=$PLUGIN_DIR/custom
   local modules_status_path=$PLUGIN_DIR/status
   local modules_window_path=$PLUGIN_DIR/window
 
-  local modules_array
-  read -a modules_array <<< "$modules_list"
-
   local module_index=0;
   local module_name
-  for module_name in ${modules_array[@]}
-  do
+  local loaded_modules
+  local IN=$modules_list
+
+  # https://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash#15988793
+  while [ "$IN" != "$iter" ] ;do
+    # extract the substring from start of string up to delimiter.
+    iter=${IN%% *}
+    # delete this first "element" AND next separator, from $IN.
+    IN="${IN#$iter }"
+    # Print (or doing anything with) the first "element".
+
+    module_name=$iter
+
     local module_path=$modules_custom_path/$module_name.sh
     source $module_path
 
-    if [[ 0 -eq $? ]]
+    if [ 0 -eq $? ]
     then
       loaded_modules="$loaded_modules$( show_$module_name $module_index )"
       module_index=$module_index+1
@@ -187,7 +193,7 @@ load_modules() {
     local module_path=$modules_status_path/$module_name.sh
     source $module_path
 
-    if [[ 0 -eq $? ]]
+    if [ 0 -eq $? ]
     then
       loaded_modules="$loaded_modules$( show_$module_name $module_index )"
       module_index=$module_index+1
@@ -197,7 +203,7 @@ load_modules() {
     local module_path=$modules_window_path/$module_name.sh
     source $module_path
 
-    if [[ 0 -eq $? ]]
+    if [ 0 -eq $? ]
     then
       loaded_modules="$loaded_modules$( show_$module_name $module_index )"
       module_index=$module_index+1
@@ -252,8 +258,8 @@ main() {
   local window_format=$( load_modules "window_default_format")
   local window_current_format=$( load_modules "window_current_format")
 
-  setw window-status-format "${window_format}"
-  setw window-status-current-format "${window_current_format}"
+  setw window-status-format "$window_format"
+  setw window-status-current-format "$window_current_format"
 
   local status_left_separator="$(get_tmux_option "@catppuccin_status_left_separator" "")"
   local status_right_separator="$(get_tmux_option "@catppuccin_status_right_separator" "█")"
@@ -265,7 +271,7 @@ main() {
   local loaded_modules=$( load_modules "$status_modules")
 
   set status-left ""
-  set status-right "${loaded_modules}"
+  set status-right "$loaded_modules"
 
   # --------=== Modes
   #
