@@ -274,6 +274,15 @@ Look into custom/README.md for more details.
 Any file added to the custom folder will be preserved when updating catppuccin.
 
 ## Configuration Examples
+Below are provided a few configurations as examples or starting points.
+
+Note:
+When switching bettwen configurations run:
+```sh
+tmux kill-server
+```
+In order to kill the tmux server and clear all global variables.
+
 
 ### Config 1
 ![Default](./assets/config1.png)
@@ -288,7 +297,8 @@ set -g @catppuccin_window_default_fill "none"
 set -g @catppuccin_window_current_fill "all"
 
 set -g @catppuccin_status_modules "application session user host date_time"
-set -g @catppuccin_status_left_separator  "█"
+set -g @catppuccin_status_left_separator "█"
+set -g @catppuccin_status_right_separator "█"
 
 set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
 ```
