@@ -26,7 +26,8 @@
    3. [Status](#status)
    4. [Customizing modules](#customizing-modules)
    5. [Battery module](#battery-module)
-5. [Configuration Examples](#configuration-examples)
+5. [Custom module](#custom-module)
+6. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
    2. [Config 2](#config-2)
    3. [Config 3](#config-3)
@@ -263,6 +264,13 @@ Add the battery module to the status modules list.
 set -g @catppuccin_status_modules "... battery ..."
 ```
 
+## Custom module
+
+It is possible to add a new custom module or overrite any of the existing modules.
+
+Look into custom/README.md for more details.
+
+Any file added to the custom folder will be preserved when updating catppuccin.
 
 ## Configuration Examples
 
