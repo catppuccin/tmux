@@ -19,20 +19,18 @@
 
 1. [Themes](#themes)
 2. [Installation](#installation)
-3. [Status line themes](#status-line-themes)
-   1. [Default](#default)
-   2. [Pill](#pill-shape)
-   3. [Powerline](#powerline)
-   4. [Powerline with icons](#powerline-with-icons)
-   5. [No patched fonts](#no-patched-fonts)
+3. [Overview](#overview)
 4. [Configuration options](#configuration-options)
-   1. [Enable window tabs](#enable-window-tabs)
-   2. [Configure separators](#configure-separator)
-   3. [Enable date and time](#enable-datetime)
-   4. [Enable user](#enable-user)
-   5. [Enable host](#enable-host)
-   6. [Customize icons](#customize-icons)
-
+   1. [Window](#window)
+   2. [Window default](#window-default)
+   3. [Status](#status)
+   4. [Customizing modules](#customizing-modules)
+   5. [Battery module](#battery-module)
+5. [Configuration Examples](#configuration-examples)
+   1. [Config 1](#config-1)
+   2. [Config 2](#config-2)
+   3. [Config 3](#config-3)
+   
 ## Themes
 
 - 🌻 [Latte](./catppuccin-latte.tmuxtheme)
@@ -68,8 +66,8 @@ set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
 2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
 ## Overview
-![Default](./assets/overview.png)
 
+![Default](./assets/overview.png)
 This is a diagram on how the theme is split between it's components.
 
 ## Configuration options
@@ -119,7 +117,7 @@ Values:
 - yes - this will replace the windows status text with icons
 - no - this will keep the windows status in text format
 
-### Override windows status icons
+#### Override windows status icons
 ```sh
 set -g @catppuccin_icon_window_last "󰖰"
 set -g @catppuccin_icon_window_current "󰖯"
@@ -223,6 +221,7 @@ Available modules:
 - user - display the username
 - host - display the hostname
 - date_time - display the date and time
+- [battery](#battery-module) - display the battery
 
 ### Customizing modules
 
@@ -242,6 +241,28 @@ set -g @catppuccin_[module_name]_color" "color"
 ```sh
 set -g @catppuccin_[module_name]_text" "text"
 ```
+
+### Battery module
+
+#### Requirements
+This module depends on [tmux-battery](https://github.com/tmux-plugins/tmux-battery/tree/master). 
+
+#### Install
+The prefered way to install tmux-battery is using [TPM](https://github.com/tmux-plugins/tpm).
+
+#### Configure
+Load tmux-battery after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'tmux-plugins/tmux-battery'
+```
+
+Add the battery module to the status modules list.
+```sh
+set -g @catppuccin_status_modules" "... battery ..."
+```
+
 
 ## Configuration Examples
 
