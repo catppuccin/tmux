@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DEFAULT_STATUS_LINE_FILE=src/default.conf
+VIOLET_STATUS_LINE_FILE=src/violet-status-line.conf
 PILL_STATUS_LINE_FILE=src/pill-status-line.conf
 POWERLINE_STATUS_LINE_FILE=src/powerline-status-line.conf
 POWERLINE_ICONS_STATUS_LINE_FILE=src/powerline-icons-status-line.conf
@@ -69,11 +70,15 @@ main() {
   local wt_enabled
   wt_enabled="$(get_tmux_option "@catppuccin_window_tabs_enabled" "off")"
   readonly wt_enabled
- 
+
+  local violet_theme_enabled
+  violet_theme_enabled="$(get_tmux_option "@catppuccin_violet_theme_enabled" "on")"
+  readonly violet_theme_enabled
+
   local pill_theme_enabled
   pill_theme_enabled="$(get_tmux_option "@catppuccin_pill_theme_enabled" "off")"
   readonly pill_theme_enabled
-  
+
   local powerline_theme_enabled
   powerline_theme_enabled="$(get_tmux_option "@catppuccin_powerline_theme_enabled" "off")"
   readonly powerline_theme_enabled
@@ -85,8 +90,8 @@ main() {
   local no_patched_fonts_theme_enabled
   no_patched_fonts_theme_enabled="$(get_tmux_option "@catppuccin_no_patched_fonts_theme_enabled" "off")"
   readonly no_patched_fonts_theme_enabled
-  
-  # Separators for the left status / window list 
+
+  # Separators for the left status / window list
   local l_left_separator
   l_left_separator="$(get_tmux_option "@catppuccin_l_left_separator" "")"
   readonly l_left_separator
@@ -95,7 +100,7 @@ main() {
   l_right_separator="$(get_tmux_option "@catppuccin_l_right_separator" "")"
   readonly l_right_separator
 
-  # Separators for the right status 
+  # Separators for the right status
   local r_left_separator
   r_left_separator="$(get_tmux_option "@catppuccin_r_left_separator" "")"
   readonly r_left_separator
@@ -103,7 +108,15 @@ main() {
   local r_right_separator
   r_right_separator="$(get_tmux_option "@catppuccin_r_right_separator" "")"
   readonly r_right_separator
-  
+
+  local session
+  session="$(get_tmux_option "@catppuccin_session" "on")"
+  readonly session
+
+  local window
+  window="$(get_tmux_option "@catppuccin_window" "off")"
+  readonly window
+
   local user
   user="$(get_tmux_option "@catppuccin_user" "off")"
   readonly user
@@ -115,7 +128,11 @@ main() {
   local date_time
   date_time="$(get_tmux_option "@catppuccin_date_time" "off")"
   readonly date_time
- 
+
+  local resource_usage
+  resource_usage="$(get_tmux_option "@catppuccin_resource_usage" "off")"
+  readonly resource_usage
+
   # Icons
   local directory_icon
   directory_icon="$(get_tmux_option "@catppuccin_directory_icon" "")"
@@ -141,12 +158,21 @@ main() {
   datetime_icon="$(get_tmux_option "@catppuccin_datetime_icon" "")"
   readonly datetime_icon
 
+  local resource_usage_icon
+  resource_usage_icon="$(get_tmux_option "@catppuccin_resource_usage_icon" "")"
+  readonly resource_usage_icon
+
   # Source status line themes
   if [[ "${pill_theme_enabled}" == "off" ]] &&
-    [[ "${powerline_theme_enabled}"  == "off" ]] && 
+    [[ "${powerline_theme_enabled}"  == "off" ]] &&
     [[ "${powerline_icons_theme_enabled}" == "off" ]] &&
-    [[ "${no_patched_fonts_theme_enabled}" == "off" ]]; then
+    [[ "${no_patched_fonts_theme_enabled}" == "off" ]] &&
+    [[ "${violet_theme_enabled}" == "off" ]]; then
     source "$PLUGIN_DIR/$DEFAULT_STATUS_LINE_FILE"
+  fi
+
+  if [[ "${violet_theme_enabled}" == "on" ]]; then
+    source "$PLUGIN_DIR/$VIOLET_STATUS_LINE_FILE"
   fi
 
   if [[ "${pill_theme_enabled}" == "on" ]]; then
@@ -166,10 +192,10 @@ main() {
   fi
 
   # Right column 1 by default shows the Window name.
-  local right_column1=$show_window
+  local right_column1=""
 
   # Right column 2 by default shows the current Session name.
-  local right_column2=$show_session
+  local right_column2=""
 
   # Window status by default shows the current directory basename.
   local window_status_format=$show_directory_in_window_status
@@ -195,9 +221,17 @@ main() {
     right_column2="$right_column2$show_date_time"
   fi
 
+  if [[ "${resource_usage}" != "off" ]]; then
+    right_column2="$right_column2$show_resource_usage"
+  fi
+
   set status-left ""
+  if [[ "${session}" == "on" ]]; then
+    set status-left "${show_session}"
+  fi
   set status-right "${right_column1}${right_column2}"
 
+  echo "$l_right_separator"
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
 
