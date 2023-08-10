@@ -26,7 +26,8 @@
    3. [Status](#status)
    4. [Customizing modules](#customizing-modules)
    5. [Battery module](#battery-module)
-5. [Configuration Examples](#configuration-examples)
+5. [Custom module](#custom-module)
+6. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
    2. [Config 2](#config-2)
    3. [Config 3](#config-3)
@@ -210,7 +211,7 @@ Values:
 
 #### Set the module list
 ```sh
-set -g @catppuccin_status_modules" "application session"
+set -g @catppuccin_status_modules "application session"
 ```
 Provide a list of modules and the order in which you want them to appear in the status. 
 
@@ -229,17 +230,17 @@ Every module (except the module "session") supports the following overrides:
 
 #### Override the specific module icon
 ```sh
-set -g @catppuccin_[module_name]_icon" "icon"
+set -g @catppuccin_[module_name]_icon "icon"
 ```
 
 #### Override the specific module color
 ```sh
-set -g @catppuccin_[module_name]_color" "color"
+set -g @catppuccin_[module_name]_color "color"
 ```
 
 #### Override the specific module text
 ```sh
-set -g @catppuccin_[module_name]_text" "text"
+set -g @catppuccin_[module_name]_text "text"
 ```
 
 ### Battery module
@@ -260,9 +261,16 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 
 Add the battery module to the status modules list.
 ```sh
-set -g @catppuccin_status_modules" "... battery ..."
+set -g @catppuccin_status_modules "... battery ..."
 ```
 
+## Custom module
+
+It is possible to add a new custom module or overrite any of the existing modules.
+
+Look into custom/README.md for more details.
+
+Any file added to the custom folder will be preserved when updating catppuccin.
 
 ## Configuration Examples
 
