@@ -108,19 +108,19 @@ build_window_format() {
 
   fi
 
-  local window_format
+  local final_window_format
 
   if [[ $window_number_position == "right" ]]
   then
-    window_format="$show_left_separator$show_text$show_middle_separator$show_number$show_right_separator"
+    final_window_format="$show_left_separator$show_text$show_middle_separator$show_number$show_right_separator"
   fi
 
   if [[ $window_number_position == "left" ]]
   then
-    window_format="$show_left_separator$show_number$show_middle_separator$show_text$show_right_separator"
+    final_window_format="$show_left_separator$show_number$show_middle_separator$show_text$show_right_separator"
   fi
 
-  echo $window_format
+  echo $final_window_format
 }
 
 build_status_module() {
