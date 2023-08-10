@@ -331,7 +331,6 @@ set -g @catppuccin_status_connect_separator "no"
 ```sh
 set -g @catppuccin_window_left_separator ""
 set -g @catppuccin_window_right_separator " "
-set -g @catppuccin_window_icon_position "right"
 set -g @catppuccin_window_middle_separator " █"
 set -g @catppuccin_window_number_position "right"
 
