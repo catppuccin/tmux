@@ -210,7 +210,7 @@ Values:
 
 #### Set the module list
 ```sh
-set -g @catppuccin_status_modules" "application session"
+set -g @catppuccin_status_modules "application session"
 ```
 Provide a list of modules and the order in which you want them to appear in the status. 
 
@@ -229,17 +229,17 @@ Every module (except the module "session") supports the following overrides:
 
 #### Override the specific module icon
 ```sh
-set -g @catppuccin_[module_name]_icon" "icon"
+set -g @catppuccin_[module_name]_icon "icon"
 ```
 
 #### Override the specific module color
 ```sh
-set -g @catppuccin_[module_name]_color" "color"
+set -g @catppuccin_[module_name]_color "color"
 ```
 
 #### Override the specific module text
 ```sh
-set -g @catppuccin_[module_name]_text" "text"
+set -g @catppuccin_[module_name]_text "text"
 ```
 
 ### Battery module
@@ -260,7 +260,7 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 
 Add the battery module to the status modules list.
 ```sh
-set -g @catppuccin_status_modules" "... battery ..."
+set -g @catppuccin_status_modules "... battery ..."
 ```
 
 

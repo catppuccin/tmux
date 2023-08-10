@@ -161,8 +161,11 @@ build_status_module() {
 load_modules() {
   local loaded_modules
 
-  local modules_path=$1
-  local modules_list=$2
+  local modules_list=$1
+  
+  local modules_custom_path=$PLUGIN_DIR/custom
+  local modules_status_path=$PLUGIN_DIR/status
+  local modules_window_path=$PLUGIN_DIR/window
 
   local modules_array
   read -a modules_array <<< "$modules_list"
@@ -171,13 +174,34 @@ load_modules() {
   local module_name
   for module_name in ${modules_array[@]}
   do
-    local module_path=$modules_path/$module_name.sh
+    local module_path=$modules_custom_path/$module_name.sh
     source $module_path
 
     if [[ 0 -eq $? ]]
     then
       loaded_modules="$loaded_modules$( show_$module_name $module_index )"
       module_index=$module_index+1
+      continue
+    fi
+
+    local module_path=$modules_status_path/$module_name.sh
+    source $module_path
+
+    if [[ 0 -eq $? ]]
+    then
+      loaded_modules="$loaded_modules$( show_$module_name $module_index )"
+      module_index=$module_index+1
+      continue
+    fi
+
+    local module_path=$modules_window_path/$module_name.sh
+    source $module_path
+
+    if [[ 0 -eq $? ]]
+    then
+      loaded_modules="$loaded_modules$( show_$module_name $module_index )"
+      module_index=$module_index+1
+      continue
     fi
 
   done
@@ -225,8 +249,8 @@ main() {
   local window_number_position="$(get_tmux_option "@catppuccin_window_number_position" "left")" # right, left
   local window_status_enable="$(get_tmux_option "@catppuccin_window_status_enable" "no")" # right, left
 
-  local window_format=$( load_modules "$PLUGIN_DIR/window" "window_default_format")
-  local window_current_format=$( load_modules "$PLUGIN_DIR/window" "window_current_format")
+  local window_format=$( load_modules "window_default_format")
+  local window_current_format=$( load_modules "window_current_format")
 
   setw window-status-format "${window_format}"
   setw window-status-current-format "${window_current_format}"
@@ -238,7 +262,7 @@ main() {
   local status_fill="$(get_tmux_option "@catppuccin_status_fill" "icon")"
 
   local status_modules="$(get_tmux_option "@catppuccin_status_modules" "application session")"
-  local loaded_modules=$( load_modules "$PLUGIN_DIR/status" "$status_modules")
+  local loaded_modules=$( load_modules "$status_modules")
 
   set status-left ""
   set status-right "${loaded_modules}"
