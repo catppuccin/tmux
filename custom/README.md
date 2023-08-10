@@ -18,7 +18,7 @@ set -g @catppuccin_status_modules "... <module_name> ..."
 ```
 
 ## Module template
-
+```sh
 show_<module_name>() { # save this module in a file with the name <module_name>.sh
   local index=$1 # this variable is used by the module loader in order to know the position of this module 
   local icon="$(get_tmux_option "@catppuccin_<module_name>_icon" "<Use an icon from [nerdfonts](https://www.nerdfonts.com/cheat-sheet)>")"
@@ -29,3 +29,4 @@ show_<module_name>() { # save this module in a file with the name <module_name>.
 
   echo $module 
 }
+```
