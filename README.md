@@ -105,7 +105,7 @@ Values:
 
 #### Enable window status:
 ```sh
-set -g @ccatppuccin_window_status_enable "yes"
+set -g @catppuccin_window_status_enable "yes"
 ```
 Values:
 - yes - this will enable the window status part
@@ -204,7 +204,7 @@ Values:
 
 #### Set the status module color fill:
 ```sh
-set -g @catppuccin_status_color_fill "icon"
+set -g @catppuccin_status_fill "icon"
 ```
 Values:
 - icon - only the icon of the module will have color
@@ -311,7 +311,7 @@ set -g @catppuccin_status_modules "application session date_time"
 set -g @catppuccin_status_left_separator  ""
 set -g @catppuccin_status_right_separator " "
 set -g @catppuccin_status_right_separator_inverse "yes"
-set -g @catppuccin_status_color_fill "all"
+set -g @catppuccin_status_fill "all"
 set -g @catppuccin_status_connect_separator "no"
 ```
 
@@ -334,7 +334,7 @@ set -g @catppuccin_status_modules "directory user host session"
 set -g @catppuccin_status_left_separator  " "
 set -g @catppuccin_status_right_separator ""
 set -g @catppuccin_status_right_separator_inverse "no"
-set -g @catppuccin_status_color_fill "icon"
+set -g @catppuccin_status_fill "icon"
 set -g @catppuccin_status_connect_separator "no"
 
 set -g @catppuccin_directory_text "#{pane_current_path}"
