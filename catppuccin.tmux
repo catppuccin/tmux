@@ -225,7 +225,16 @@ main() {
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   # shellcheck source=catppuccin-frappe.tmuxtheme
-  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme")"
+  # https://github.com/dylanaraps/pure-sh-bible#parsing-a-keyval-file
+  while IFS='=' read -r key val; do
+      # Skip over lines containing comments.
+      # (Lines starting with '#').
+      [ "${key##\#*}" ] || continue
+
+      # '$key' stores the key.
+      # '$val' stores the value.
+      local "$key"="${val:1:-1}"
+  done < "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
 
   # status
   set status "on"
