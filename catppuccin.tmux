@@ -44,7 +44,8 @@ build_window_icon() {
 
   if [ "$window_status_icon_enable" = "yes" ]
   then
-    local show_window_status="#(printf '%%s\n' '#F' | sed 's/*/${custom_icon_window_current}/; s/-/${custom_icon_window_last}/; s/#/${custom_icon_window_activity}/; s/~/${custom_icon_window_silent}/; s/!/${custom_icon_window_bell}/; s/M/${custom_icon_window_mark}/; s/Z/${custom_icon_window_zoom}/')"
+    # #!~[*-]MZ
+    local show_window_status="#{?window_activity_flag,${custom_icon_window_activity},}#{?window_bell_flag,${custom_icon_window_bell},}#{?window_silence_flag,${custom_icon_window_silent},}#{?window_active,${custom_icon_window_current},}#{?window_last_flag,${custom_icon_window_last},}#{?window_marked_flag,${custom_icon_window_mark},}#{?window_zoomed_flag,${custom_icon_window_zoom},}"
   fi
 
   if [ "$window_status_icon_enable" = "no" ]
@@ -225,7 +226,16 @@ main() {
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   # shellcheck source=catppuccin-frappe.tmuxtheme
-  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme")"
+  # https://github.com/dylanaraps/pure-sh-bible#parsing-a-keyval-file
+  while IFS='=' read -r key val; do
+      # Skip over lines containing comments.
+      # (Lines starting with '#').
+      [ "${key##\#*}" ] || continue
+
+      # '$key' stores the key.
+      # '$val' stores the value.
+      local "$key"="${val:1:-1}"
+  done < "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
 
   # status
   set status "on"
