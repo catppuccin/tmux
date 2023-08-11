@@ -44,7 +44,8 @@ build_window_icon() {
 
   if [ "$window_status_icon_enable" = "yes" ]
   then
-    local show_window_status="#(printf '%%s\n' '#F' | sed 's/*/${custom_icon_window_current}/; s/-/${custom_icon_window_last}/; s/#/${custom_icon_window_activity}/; s/~/${custom_icon_window_silent}/; s/!/${custom_icon_window_bell}/; s/M/${custom_icon_window_mark}/; s/Z/${custom_icon_window_zoom}/')"
+    # #!~[*-]MZ
+    local show_window_status="#{?window_activity_flag,${custom_icon_window_activity},}#{?window_bell_flag,${custom_icon_window_bell},}#{?window_silence_flag,${custom_icon_window_silent},}#{?window_active,${custom_icon_window_current},}#{?window_last_flag,${custom_icon_window_last},}#{?window_marked_flag,${custom_icon_window_mark},}#{?window_zoomed_flag,${custom_icon_window_zoom},}"
   fi
 
   if [ "$window_status_icon_enable" = "no" ]
