@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DEFAULT_STATUS_LINE_FILE=src/default.conf
-PILL_STATUS_LINE_FILE=src/pill-status-line.conf
-POWERLINE_STATUS_LINE_FILE=src/powerline-status-line.conf
-POWERLINE_ICONS_STATUS_LINE_FILE=src/powerline-icons-status-line.conf
-NO_PATCHED_FONTS_STATUS_LINE_FILE=src/no-patched-fonts-status-line.conf
 
 get_tmux_option() {
   local option value default
