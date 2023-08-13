@@ -6,6 +6,7 @@ TRUE=0
 FALSE=1
 # it might take long time to get disk usage, so disable by default
 SHOW_DISK_USAGE=$TRUE
+ONLY_SHOW_DAYS_IN_UP_TIME=$TRUE
 
 percentage(){
     local var1="$1"
@@ -54,7 +55,7 @@ resource_usage(){
     else
       fg_cpu=$strong_green
     fi
-    cpu_usage="#[fg=$thm_fg] CPU:#[fg=$fg_cpu] $str_cpu_usage "
+    cpu_usage="#[fg=$thm_fg] #[fg=$fg_cpu,bg=$thm_gray]$str_cpu_usage "
 
     disk_usage_percentage=""
     if [ $SHOW_DISK_USAGE -eq $TRUE ];then
@@ -68,7 +69,7 @@ resource_usage(){
         else
           fg_disk=$strong_green
         fi
-        disk_usage_percentage="#[fg=$thm_fg] Disk:#[fg=$fg_disk]${disk_usage_percentage} "
+        disk_usage_percentage="#[fg=$thm_fg] #[fg=$fg_disk]${disk_usage_percentage} "
     fi
 
     mem_total_and_used=$(free | grep Mem | sed -E -e's/\s+/ /g' | cut -d' ' -f2,3)
@@ -81,12 +82,16 @@ resource_usage(){
     else
       fg_mem=$strong_green
     fi
-    mem_usage_percentage="#[fg=$thm_fg] Mem:#[fg=$fg_mem] ${mem_usage_percentage}"
-    echo "${cpu_usage}${disk_usage_percentage}${mem_usage_percentage}"
+    mem_usage_percentage="#[fg=$thm_fg] #[fg=$fg_mem,bg=$thm_gray]${mem_usage_percentage}"
+    echo "${disk_usage_percentage}${cpu_usage}${mem_usage_percentage}"
 }
 
 sys_uptime(){
+  if [ $ONLY_SHOW_DAYS_IN_UP_TIME -eq $TRUE ];then
+    neofetch uptime --uptime_shorthand tiny | grep -Eo '[0-9]+.*' | cut -d' ' -f1
+  else
     neofetch uptime --uptime_shorthand tiny | grep -Eo '[0-9]+.*'
+  fi
 }
 
 status_info="$(sys_uptime) $(resource_usage)"
