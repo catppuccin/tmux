@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-
+_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../" && pwd)"
 E_ABNORMAL_STATE=2
 TRUE=0
 FALSE=1
 # it might take long time to get disk usage, so disable by default
-SHOW_DISK_USAGE=$FALSE
+SHOW_DISK_USAGE=$TRUE
 
 percentage(){
     local var1="$1"
@@ -19,21 +20,68 @@ percentage(){
     echo "$result"
 }
 
+_is_highly_used(){
+  local usage=$1
+  local total=$2
+
+  _is_high=`bc << EOF
+    scale = 2
+    benchmark = .60
+    quotient = $usage / $total
+    define flag(q){
+      if (q < benchmark) return $FALSE
+      return $TRUE
+    }
+    flag(quotient)
+EOF
+`
+  echo $_is_high
+}
+
 resource_usage(){
+    source "$_DIR/default.conf"
+    source "$PLUGIN_DIR/catppuccin-violet.tmuxtheme"
+    COLOR_HIGHLY_USED=$light_red
+
+    cpu_total=100
     cpu_usage="$(ps -eo %cpu,pid,cmd --sort -%cpu | sed -e '1d' | awk '{sum +=\
+    $1};END {print sum}')"
+    str_cpu_usage="$(ps -eo %cpu,pid,cmd --sort -%cpu | sed -e '1d' | awk '{sum +=\
     $1};END {print sum}')%"
-    cpu_usage="CPU:$cpu_usage "
+    cpu_highly_used=$(_is_highly_used $cpu_usage $cpu_total)
+    if [ $cpu_highly_used -eq $TRUE ];then
+      fg_cpu=$COLOR_HIGHLY_USED
+    else
+      fg_cpu=$strong_green
+    fi
+    cpu_usage="#[fg=$thm_fg] CPU:#[fg=$fg_cpu] $str_cpu_usage "
+
     disk_usage_percentage=""
     if [ $SHOW_DISK_USAGE -eq $TRUE ];then
-        disk_usage_percentage=$(df -h | grep rootvg-root | sed -E -e's/\s+/ /g' | cut -d ' '\
-            -f5)
-        disk_usage_percentage="Disk:${disk_usage_percentage} "
+        disk_usage=$(df -h | grep rootvg-root | sed -E -e's/\s+/ /g' | cut -d ' '\
+            -f5 | cut -d% -f1)
+        disk_usage_percentage="${disk_usage}%"
+        disk_total=100
+        disk_highly_used=$(_is_highly_used $disk_usage $disk_total)
+        if [ $disk_highly_used -eq $TRUE ];then
+          fg_disk=$COLOR_HIGHLY_USED
+        else
+          fg_disk=$strong_green
+        fi
+        disk_usage_percentage="#[fg=$thm_fg] Disk:#[fg=$fg_disk]${disk_usage_percentage} "
     fi
+
     mem_total_and_used=$(free | grep Mem | sed -E -e's/\s+/ /g' | cut -d' ' -f2,3)
     mem_total=$(echo $mem_total_and_used | cut -d' ' -f1)
     mem_used=$(echo $mem_total_and_used | cut -d' ' -f2)
     mem_usage_percentage=$(percentage $mem_used $mem_total)
-    mem_usage_percentage="Mem: ${mem_usage_percentage}"
+    mem_highly_used=$(_is_highly_used $mem_used $mem_total)
+    if [ $mem_highly_used -eq $TRUE ];then
+      fg_mem=$COLOR_HIGHLY_USED
+    else
+      fg_mem=$strong_green
+    fi
+    mem_usage_percentage="#[fg=$thm_fg] Mem:#[fg=$fg_mem] ${mem_usage_percentage}"
     echo "${cpu_usage}${disk_usage_percentage}${mem_usage_percentage}"
 }
 
