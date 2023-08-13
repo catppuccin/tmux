@@ -39,6 +39,7 @@ main() {
   # Aggregate all commands in one array
   local tmux_commands=()
 
+  source "$PLUGIN_DIR/palette.theme"
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   # shellcheck source=catppuccin-frappe.tmuxtheme
@@ -204,7 +205,6 @@ main() {
   # NOTE: With the @catppuccin_window_tabs_enabled set to on, we're going to
   # update the right_column1 and the window_status_* variables.
   if [[ "${wt_enabled}" == "on" ]]; then
-    right_column1=$show_directory
     window_status_format=$show_window_in_window_status
     window_status_current_format=$show_window_in_window_status_current
   fi

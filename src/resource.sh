@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../" && pwd)"
 E_ABNORMAL_STATE=2
 TRUE=0
@@ -41,6 +41,7 @@ EOF
 
 resource_usage(){
     source "$_DIR/default.conf"
+    source "$PLUGIN_DIR/palette.theme"
     source "$PLUGIN_DIR/catppuccin-violet.tmuxtheme"
     COLOR_HIGHLY_USED=$light_red
 
@@ -55,7 +56,7 @@ resource_usage(){
     else
       fg_cpu=$strong_green
     fi
-    cpu_usage="#[fg=$thm_fg] #[fg=$fg_cpu,bg=$thm_gray]$str_cpu_usage "
+    cpu_usage="#[fg=$fg_icon] #[fg=$fg_cpu,bg=$thm_gray]$str_cpu_usage "
 
     disk_usage_percentage=""
     if [ $SHOW_DISK_USAGE -eq $TRUE ];then
@@ -69,7 +70,7 @@ resource_usage(){
         else
           fg_disk=$strong_green
         fi
-        disk_usage_percentage="#[fg=$thm_fg] #[fg=$fg_disk]${disk_usage_percentage} "
+        disk_usage_percentage="#[fg=$fg_icon] #[fg=$fg_disk]${disk_usage_percentage} "
     fi
 
     mem_total_and_used=$(free | grep Mem | sed -E -e's/\s+/ /g' | cut -d' ' -f2,3)
@@ -82,7 +83,7 @@ resource_usage(){
     else
       fg_mem=$strong_green
     fi
-    mem_usage_percentage="#[fg=$thm_fg] #[fg=$fg_mem,bg=$thm_gray]${mem_usage_percentage}"
+    mem_usage_percentage="#[fg=$fg_icon] #[fg=$fg_mem,bg=$thm_gray]${mem_usage_percentage}"
     echo "${disk_usage_percentage}${cpu_usage}${mem_usage_percentage}"
 }
 
