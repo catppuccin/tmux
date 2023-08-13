@@ -230,8 +230,6 @@ main() {
     set status-left "${show_session}"
   fi
   set status-right "${right_column1}${right_column2}"
-
-  echo "$l_right_separator"
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
 
