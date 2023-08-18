@@ -202,6 +202,7 @@ Values:
 - yes - the background color of the separator will not blend in with the brackground color of tmux
 - no - the background color of the separator will blend in with the brackground color of tmux
 
+
 #### Set the status module color fill:
 ```sh
 set -g @catppuccin_status_fill "icon"
