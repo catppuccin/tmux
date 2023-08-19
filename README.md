@@ -42,8 +42,8 @@
 
 ## Installation
 
-In order to have the icons displayed correctly please use / update your favorite patched font or overwrite the defaults - refer to [Customize icons](#customize-icons) section.
-If you do not have patched font installed, you can use the [No patched fonts](#no-patched-fonts) status line theme.
+In order to have the icons displayed correctly please use / update your favorite [patched font](https://www.nerdfonts.com/font-downloads).
+If you do not have a patched font installed, you can override or remove any icon. Check the documentation bellow on the options available.
 
 ### TPM
 
