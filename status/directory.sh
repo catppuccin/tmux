@@ -6,5 +6,5 @@ show_directory() {
 
   local module=$( build_status_module "$index" "$icon" "$color" "$text" )
 
-  echo $module
+  echo "$module"
 }

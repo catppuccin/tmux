@@ -248,7 +248,7 @@ load_modules() {
 
   done
 
-  echo $loaded_modules
+  echo "$loaded_modules"
 }
 
 main() {

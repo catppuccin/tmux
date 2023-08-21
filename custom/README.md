@@ -27,6 +27,6 @@ show_<module_name>() { # save this module in a file with the name <module_name>.
 
   local module=$( build_status_module "$index" "$icon" "$color" "$text" )
 
-  echo $module 
+  echo "$module"
 }
 ```
