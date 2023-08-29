@@ -315,7 +315,10 @@ main() {
   local status_modules=$(get_tmux_option "@catppuccin_status_modules" "application session")
   local loaded_modules=$( load_modules "$status_modules")
 
-  set status-left ""
+  local left_status_modules=$(get_tmux_option "@catppuccin_left_status_modules" "")
+  local left_loaded_modules=$( load_modules "$left_status_modules")
+
+  set status-left "$left_loaded_modules"
   set status-right "$loaded_modules"
 
   # --------=== Modes
