@@ -32,7 +32,7 @@ repos:
     name: shellcheck
     entry: shellcheck
     language: system
-    types: [sh, csh ]
+    types: [sh, csh]
     args:
      [
        "-i", "SC2154"
