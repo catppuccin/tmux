@@ -28,3 +28,12 @@ repos:
      [
        "-d", "{extends: relaxed, rules: {line-length: {max: 120}}}"
      ]
+  - id: shellcheck
+    name: shellcheck
+    entry: shellcheck
+    language: system
+    types: [sh, csh ]
+    args:
+     [
+       "-i", "SC2154"
+     ]
