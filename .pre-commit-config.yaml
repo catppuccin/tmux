@@ -1,0 +1,30 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.2.0
+  hooks:
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: check-yaml
+  - id: check-added-large-files
+- repo: local
+  hooks:
+  - id: pylint
+    name: pylint
+    entry: pylint
+    language: system
+    types: [python]
+    args:
+     [
+      "-rn", "-sn", "--confidence=HIGH"
+     ]
+  - id: yamllint
+    name: yamllint
+    entry: yamllint
+    language: system
+    types: [yaml]
+    args:
+     [
+       "-d", "{extends: relaxed, rules: {line-length: {max: 120}}}"
+     ]
