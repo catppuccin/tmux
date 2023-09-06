@@ -32,7 +32,7 @@
    1. [Config 1](#config-1)
    2. [Config 2](#config-2)
    3. [Config 3](#config-3)
-   
+
 ## Themes
 
 - 🌻 [Latte](./catppuccin-latte.tmuxtheme)
@@ -143,7 +143,7 @@ Values:
 
 #### Override the window default text:
 ```sh
-set -g @catppuccin_window_default_text "#{b:pane_current_path}" # use "#W" for application instead of directory 
+set -g @catppuccin_window_default_text "#{b:pane_current_path}" # use "#W" for application instead of directory
 ```
 
 ### Window current
@@ -159,7 +159,7 @@ Values:
 
 #### Override the window current text:
 ```sh
-set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory 
+set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory
 ```
 
 #### Set the current directory format
@@ -213,9 +213,10 @@ Values:
 
 #### Set the module list
 ```sh
-set -g @catppuccin_status_modules "application session"
+set -g @catppuccin_status_modules_right "application session"
+set -g @catppuccin_status_modules_left ""
 ```
-Provide a list of modules and the order in which you want them to appear in the status. 
+Provide a list of modules and the order in which you want them to appear in the status.
 
 Available modules:
 - application - display the current window running application
@@ -245,7 +246,7 @@ set -g @catppuccin_[module_name]_color "color"
 set -g @catppuccin_[module_name]_text "text"
 ```
 
-#### Removing a specific module option 
+#### Removing a specific module option
 ```sh
 set -g @catppuccin_[module_name]_[option] "null"
 ```
@@ -258,7 +259,7 @@ set -g @catppuccin_date_time_icon "null"
 ### Battery module
 
 #### Requirements
-This module depends on [tmux-battery](https://github.com/tmux-plugins/tmux-battery/tree/master). 
+This module depends on [tmux-battery](https://github.com/tmux-plugins/tmux-battery/tree/master).
 
 #### Install
 The prefered way to install tmux-battery is using [TPM](https://github.com/tmux-plugins/tpm).
