@@ -213,14 +213,10 @@ Values:
 
 #### Set the module list
 ```sh
-set -g @catppuccin_status_modules "application session"
+set -g @catppuccin_status_modules_right "application session"
+set -g @catppuccin_status_modules_left ""
 ```
 Provide a list of modules and the order in which you want them to appear in the status.
-
-Modules can also be added to the left status:
-```sh
-set -g @catppuccin_left_status_modules "session"
-```
 
 Available modules:
 - application - display the current window running application

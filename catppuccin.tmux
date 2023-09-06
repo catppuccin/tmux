@@ -312,14 +312,14 @@ main() {
   local status_connect_separator=$(get_tmux_option "@catppuccin_status_connect_separator" "yes")
   local status_fill=$(get_tmux_option "@catppuccin_status_fill" "icon")
 
-  local status_modules=$(get_tmux_option "@catppuccin_status_modules" "application session")
-  local loaded_modules=$( load_modules "$status_modules")
+  local status_modules_right=$(get_tmux_option "@catppuccin_status_modules_right" "application session")
+  local loaded_modules_right=$( load_modules "$status_modules_right")
 
-  local left_status_modules=$(get_tmux_option "@catppuccin_left_status_modules" "")
-  local left_loaded_modules=$( load_modules "$left_status_modules")
+  local status_modules_left=$(get_tmux_option "@catppuccin_status_modules_left" "")
+  local loaded_modules_left=$( load_modules "$status_modules_left")
 
-  set status-left "$left_loaded_modules"
-  set status-right "$loaded_modules"
+  set status-left "$loaded_modules_left"
+  set status-right "$loaded_modules_right"
 
   # --------=== Modes
   #
