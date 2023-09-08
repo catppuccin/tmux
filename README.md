@@ -274,7 +274,7 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 
 Add the battery module to the status modules list.
 ```sh
-set -g @catppuccin_status_modules "... battery ..."
+set -g @catppuccin_status_modules_right "... battery ..."
 ```
 
 ## Create a custom module
@@ -308,7 +308,7 @@ set -g @catppuccin_window_default_fill "none"
 
 set -g @catppuccin_window_current_fill "all"
 
-set -g @catppuccin_status_modules "application session user host date_time"
+set -g @catppuccin_status_modules_right "application session user host date_time"
 set -g @catppuccin_status_left_separator "█"
 set -g @catppuccin_status_right_separator "█"
 
@@ -329,7 +329,7 @@ set -g @catppuccin_window_default_fill "number"
 set -g @catppuccin_window_current_fill "number"
 set -g @catppuccin_window_current_text "#{pane_current_path}"
 
-set -g @catppuccin_status_modules "application session date_time"
+set -g @catppuccin_status_modules_right "application session date_time"
 set -g @catppuccin_status_left_separator  ""
 set -g @catppuccin_status_right_separator " "
 set -g @catppuccin_status_right_separator_inverse "yes"
@@ -352,7 +352,7 @@ set -g @catppuccin_window_default_text "#W"
 set -g @catppuccin_window_current_fill "number"
 set -g @catppuccin_window_current_text "#W"
 
-set -g @catppuccin_status_modules "directory user host session"
+set -g @catppuccin_status_modules_right "directory user host session"
 set -g @catppuccin_status_left_separator  " "
 set -g @catppuccin_status_right_separator ""
 set -g @catppuccin_status_right_separator_inverse "no"
@@ -375,3 +375,4 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
 <p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
 <p align="center">Copyright &copy; 2021-present <a href="https://github.com/catppuccin" target="_blank">Catppuccin Org</a>
 <p align="center"><a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
+
