@@ -1,7 +1,10 @@
 <h1>Under construction</h1>
 
 <h3 align="center">
+	<img src="https://raw.githubusercontent.com/CyberPi/tmux-tomorrow-theme/main/assets/tmux-tomorrow-theme.webp" width="100" alt="Logo"/><br/>
+    <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
 	Tomorrow Theme for <a href="https://github.com/tmux/tmux">Tmux</a>
+    <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
 </h3>
 
 <p align="center">
