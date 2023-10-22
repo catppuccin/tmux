@@ -290,9 +290,11 @@ tmux kill-server
 ```
 In order to kill the tmux server and clear all global variables.
 
-
 ### Config 00
 ![Default](./assets/config-00.webp)
+
+### Config 01
+![Default](./assets/config-01.webp)
 
 ```sh
 set -g @tomorrow_window_right_separator "█ "
@@ -310,8 +312,8 @@ set -g @tomorrow_status_right_separator "█"
 set -g @tomorrow_date_time_text "%Y-%m-%d %H:%M:%S"
 ```
 
-### Config 01
-![Default](./assets/config-01.webp)
+### Config 02
+![Default](./assets/config-02.webp)
 
 ```sh
 set -g @tomorrow_window_left_separator "█"
@@ -332,8 +334,8 @@ set -g @tomorrow_status_fill "all"
 set -g @tomorrow_status_connect_separator "no"
 ```
 
-### Config 02
-![Default](./assets/config-02.webp)
+### Config 03
+![Default](./assets/config-03.webp)
 ```sh
 set -g @tomorrow_window_left_separator ""
 set -g @tomorrow_window_right_separator " "
