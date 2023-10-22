@@ -35,10 +35,11 @@
 
 ## Themes
 
-- 🌻 [Latte](./catppuccin-latte.tmuxtheme)
-- 🪴 [Frappé](./catppuccin-frappe.tmuxtheme)
-- 🌺 [Macchiato](./catppuccin-macchiato.tmuxtheme)
-- 🌿 [Mocha](./catppuccin-mocha.tmuxtheme)
+- [tomorrow](./tomorrow.tmuxtheme)
+- [tomorrow-night](./tomorrow-night.tmuxtheme)
+- [tomorrow-night-bright](./tomorrow-night-bright.tmuxtheme)
+- [tomorrow-night-eighties](./tomorrow-night-eighties.tmuxtheme)
+- [tomorrow-night-eighties-blue](./tomorrow-night-eighties-blue.tmuxtheme)
 
 ## Installation
 
@@ -51,7 +52,7 @@ If you do not have a patched font installed, you can override or remove any icon
 2. Add the Catppuccin plugin:
 
 ```bash
-set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'CyberPi/tmux-tomorrow-theme'
 # ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```
@@ -59,7 +60,7 @@ set -g @plugin 'tmux-plugins/tpm'
 3. (Optional) Set your preferred flavour, it defaults to `"mocha"`:
 
 ```bash
-set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
+set -g @catppuccin_flavour 'tomorrow-night'
 ```
 
 ### Manual
@@ -366,13 +367,7 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
 
 ## 💝 Thanks to
 
+- [Catppuccin Org](https://github.com/catppuccin)
 - [Pocco81](https://github.com/catppuccin)
 - [vinnyA3](https://github.com/vinnyA3)
 - [rogeruiz](https://github.com/rogeruiz)
-
-&nbsp;
-
-<p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
-<p align="center">Copyright &copy; 2021-present <a href="https://github.com/catppuccin" target="_blank">Catppuccin Org</a>
-<p align="center"><a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
-
