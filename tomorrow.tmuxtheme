@@ -1,0 +1,31 @@
+# NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
+# WARNING: hex colors can't contain capital letters
+
+# Color key:
+#   #ffffff Background
+#   #efefef Current Line
+#   #d6d6d6 Selection
+#   #4d4d4c Foreground
+#   #8e908c Comment
+#   #c82829 Red
+#   #f5871f Orange
+#   #eab700 Yellow
+#   #718c00 Green
+#   #3e999f Aqua
+#   #4271ae Blue
+#   #8959a8 Purple
+
+# --> tomorrow
+thm_bg="#ffffff"
+thm_black="#efefef" #Current Line
+thm_gray="#d6d6d6" #Selection
+thm_fg="#4d4d4c"
+thm_black4="#8e908c" #Comment
+thm_red="#c82829"
+thm_orange="#f5871f"
+thm_yellow="#eab700"
+thm_green="#718c00"
+thm_cyan="#3e999f"
+thm_blue="#4271ae"
+thm_magenta="#b777e0"
+thm_pink="#8959a8"
