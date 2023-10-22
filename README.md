@@ -363,3 +363,12 @@ set -g @tomorrow_directory_text "#{pane_current_path}"
 - [Pocco81](https://github.com/catppuccin)
 - [vinnyA3](https://github.com/vinnyA3)
 - [rogeruiz](https://github.com/rogeruiz)
+
+&nbsp;
+
+<p align="center">Copyright &copy; 2023-present <a href="https://github.com/CyberPi" target="_blank">CyberPi DE</a>
+<p align="center">
+  <a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE">
+    <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=373b41&colorB=81a2be"/>
+  </a>
+</p>
