@@ -57,7 +57,7 @@ set -g @plugin 'CyberPi/tmux-tomorrow-theme'
 set -g @plugin 'tmux-plugins/tpm'
 ```
 
-3. (Optional) Set your preferred flavour, it defaults to `"mocha"`:
+3. (Optional) Set your preferred flavour, it defaults to `"tomorrow"`:
 
 ```bash
 set -g @tomorrow_flavour 'tomorrow-night'

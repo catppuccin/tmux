@@ -13,9 +13,9 @@ show_battery() {
   tmux set-option -g @batt_icon_status_unknown '󰂑'
 
   local index=$1
-  local icon=$(get_tmux_option "@tomrrow_battery_icon" "#{battery_icon}")
-  local color=$(get_tmux_option "@tomrrow_battery_color" "$thm_yellow")
-  local text=$(get_tmux_option "@tomrrow_battery_text" "#{battery_percentage}")
+  local icon=$(get_tmux_option "@tomorrow_battery_icon" "#{battery_icon}")
+  local color=$(get_tmux_option "@tomorrow_battery_color" "$thm_yellow")
+  local text=$(get_tmux_option "@tomorrow_battery_text" "#{battery_percentage}")
 
   local module=$( build_status_module "$index" "$icon" "$color" "$text" )
 

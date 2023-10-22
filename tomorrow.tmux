@@ -36,15 +36,15 @@ setw() {
 }
 
 build_window_icon() {
-  local window_status_icon_enable=$(get_tmux_option "@tomrrow_window_status_icon_enable" "yes")
+  local window_status_icon_enable=$(get_tmux_option "@tomorrow_window_status_icon_enable" "yes")
 
-  local custom_icon_window_last=$(get_tmux_option "@tomrrow_icon_window_last" "󰖰")
-  local custom_icon_window_current=$(get_tmux_option "@tomrrow_icon_window_current" "󰖯")
-  local custom_icon_window_zoom=$(get_tmux_option "@tomrrow_icon_window_zoom" "󰁌")
-  local custom_icon_window_mark=$(get_tmux_option "@tomrrow_icon_window_mark" "󰃀")
-  local custom_icon_window_silent=$(get_tmux_option "@tomrrow_icon_window_silent" "󰂛")
-  local custom_icon_window_activity=$(get_tmux_option "@tomrrow_icon_window_activity" "󰖲")
-  local custom_icon_window_bell=$(get_tmux_option "@tomrrow_icon_window_bell" "󰂞")
+  local custom_icon_window_last=$(get_tmux_option "@tomorrow_icon_window_last" "󰖰")
+  local custom_icon_window_current=$(get_tmux_option "@tomorrow_icon_window_current" "󰖯")
+  local custom_icon_window_zoom=$(get_tmux_option "@tomorrow_icon_window_zoom" "󰁌")
+  local custom_icon_window_mark=$(get_tmux_option "@tomorrow_icon_window_mark" "󰃀")
+  local custom_icon_window_silent=$(get_tmux_option "@tomorrow_icon_window_silent" "󰂛")
+  local custom_icon_window_activity=$(get_tmux_option "@tomorrow_icon_window_activity" "󰖲")
+  local custom_icon_window_bell=$(get_tmux_option "@tomorrow_icon_window_bell" "󰂞")
 
   if [ "$window_status_icon_enable" = "yes" ]
   then
@@ -253,14 +253,14 @@ load_modules() {
 
 main() {
   local theme
-  theme="$(get_tmux_option "@tomrrow_flavour" "mocha")"
+  theme="$(get_tmux_option "@tomorrow_flavour" "tomorrow")"
 
   # Aggregate all commands in one array
   local tmux_commands=()
 
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
-  # shellcheck source=tomrrow-frappe.tmuxtheme
+  # shellcheck source=tomorrow-frappe.tmuxtheme
   # https://github.com/dylanaraps/pure-sh-bible#parsing-a-keyval-file
   while IFS='=' read -r key val; do
       # Skip over lines containing comments.
@@ -270,7 +270,7 @@ main() {
       # '$key' stores the key.
       # '$val' stores the value.
       eval "local $key"="$val"
-  done < "${PLUGIN_DIR}/tomrrow-${theme}.tmuxtheme"
+  done < "${PLUGIN_DIR}/${theme}.tmuxtheme"
 
   # status
   set status "on"
@@ -294,11 +294,11 @@ main() {
 
   # --------=== Statusline
 
-  local window_left_separator=$(get_tmux_option "@tomrrow_window_left_separator" "█")
-  local window_right_separator=$(get_tmux_option "@tomrrow_window_right_separator" "█")
-  local window_middle_separator=$(get_tmux_option "@tomrrow_window_middle_separator" "█ ")
-  local window_number_position=$(get_tmux_option "@tomrrow_window_number_position" "left") # right, left
-  local window_status_enable=$(get_tmux_option "@tomrrow_window_status_enable" "no") # right, left
+  local window_left_separator=$(get_tmux_option "@tomorrow_window_left_separator" "█")
+  local window_right_separator=$(get_tmux_option "@tomorrow_window_right_separator" "█")
+  local window_middle_separator=$(get_tmux_option "@tomorrow_window_middle_separator" "█ ")
+  local window_number_position=$(get_tmux_option "@tomorrow_window_number_position" "left") # right, left
+  local window_status_enable=$(get_tmux_option "@tomorrow_window_status_enable" "no") # right, left
 
   local window_format=$( load_modules "window_default_format")
   local window_current_format=$( load_modules "window_current_format")
@@ -306,16 +306,16 @@ main() {
   setw window-status-format "$window_format"
   setw window-status-current-format "$window_current_format"
 
-  local status_left_separator=$(get_tmux_option "@tomrrow_status_left_separator" "")
-  local status_right_separator=$(get_tmux_option "@tomrrow_status_right_separator" "█")
-  local status_right_separator_inverse=$(get_tmux_option "@tomrrow_status_right_separator_inverse" "no")
-  local status_connect_separator=$(get_tmux_option "@tomrrow_status_connect_separator" "yes")
-  local status_fill=$(get_tmux_option "@tomrrow_status_fill" "icon")
+  local status_left_separator=$(get_tmux_option "@tomorrow_status_left_separator" "")
+  local status_right_separator=$(get_tmux_option "@tomorrow_status_right_separator" "█")
+  local status_right_separator_inverse=$(get_tmux_option "@tomorrow_status_right_separator_inverse" "no")
+  local status_connect_separator=$(get_tmux_option "@tomorrow_status_connect_separator" "yes")
+  local status_fill=$(get_tmux_option "@tomorrow_status_fill" "icon")
 
-  local status_modules_right=$(get_tmux_option "@tomrrow_status_modules_right" "application session")
+  local status_modules_right=$(get_tmux_option "@tomorrow_status_modules_right" "application session")
   local loaded_modules_right=$( load_modules "$status_modules_right")
 
-  local status_modules_left=$(get_tmux_option "@tomrrow_status_modules_left" "")
+  local status_modules_left=$(get_tmux_option "@tomorrow_status_modules_left" "")
   local loaded_modules_left=$( load_modules "$status_modules_left")
 
   set status-left "$loaded_modules_left"
