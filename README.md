@@ -282,7 +282,7 @@ Any file added to the custom folder will be preserved when updating tomorrow.
 Below are provided a few configurations as examples or starting points.
 
 Note:
-When switching bettwen configurations run:
+When switching between configurations run:
 ```sh
 tmux kill-server
 ```
