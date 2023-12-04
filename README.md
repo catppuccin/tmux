@@ -227,6 +227,23 @@ Available modules:
 - date_time - display the date and time
 - [battery](#battery-module) - display the battery
 
+#### Set the module edge separator
+```sh
+set -g @catppuccin_status_modules_right_separator_left  " "  # default is @catppuccin_status_left_separator
+set -g @catppuccin_status_modules_right_separator_right " "  # default is @catppuccin_status_right_separator
+set -g @catppuccin_status_modules_left_separator_left   " "  # default is @catppuccin_status_left_separator
+set -g @catppuccin_status_modules_left_separator_right  " "  # default is @catppuccin_status_right_separator
+```
+
+### Set the module edge colors
+```sh
+set -g @catppuccin_status_modules_right_separator_left_color  "color"  # default is @catppuccin_[module_name]_color
+set -g @catppuccin_status_modules_right_separator_right_color "color"  # default is @catppuccin_[module_name]_color
+set -g @catppuccin_status_modules_left_separator_left_color   "color"  # default is @catppuccin_[module_name]_color
+set -g @catppuccin_status_modules_left_separator_right_color  "color"  # default is @catppuccin_[module_name]_color
+```
+
+
 ### Customizing modules
 
 Every module (except the module "session") supports the following overrides:

@@ -188,7 +188,18 @@ build_status_module() {
 
   if [ $(($index)) -eq 0  ]
   then
-      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
+    local left_edge_separator_color=$(get_tmux_option "@catppuccin_status_modules_${modules_side}_separator_left_color" "$color")
+    local left_edge_separator=$(get_tmux_option "@catppuccin_status_modules_${modules_side}_separator_left" "$status_left_separator")
+    local show_left_separator="#[fg=$left_edge_separator_color,bg=$thm_bg,nobold,nounderscore,noitalics]$left_edge_separator"
+  fi
+
+  modules_arr=($modules_list)
+  modules_len=$((${#modules_arr[@]} - 1 ))
+  if [ $(($index)) -eq $modules_len ]
+  then
+    local right_edge_separator_color=$(get_tmux_option "@catppuccin_status_modules_${modules_side}_separator_right_color" "$color")
+    local right_edge_separator=$(get_tmux_option "@catppuccin_status_modules_${modules_side}_separator_right" "$status_right_separator")
+    local show_right_separator="#[fg=$right_edge_separator_color,bg=$thm_bg,nobold,nounderscore,noitalics]$right_edge_separator"
   fi
 
   echo "$show_left_separator$show_icon$show_text$show_right_separator"
@@ -196,6 +207,7 @@ build_status_module() {
 
 load_modules() {
   local modules_list=$1
+  local modules_side=$2
 
   local modules_custom_path=$PLUGIN_DIR/custom
   local modules_status_path=$PLUGIN_DIR/status
@@ -204,20 +216,12 @@ load_modules() {
   local module_index=0;
   local module_name
   local loaded_modules
-  local IN=$modules_list
 
-  # https://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash#15988793
-  while [ "$IN" != "$iter" ] ;do
-    # extract the substring from start of string up to delimiter.
-    iter=${IN%% *}
-    # delete this first "element" AND next separator, from $IN.
-    IN="${IN#$iter }"
-    # Print (or doing anything with) the first "element".
-
-    module_name=$iter
+  for module_name in $modules_list;
+  do
 
     local module_path=$modules_custom_path/$module_name.sh
-    source $module_path
+    source $module_path 2>/dev/null
 
     if [ 0 -eq $? ]
     then
@@ -227,7 +231,7 @@ load_modules() {
     fi
 
     local module_path=$modules_status_path/$module_name.sh
-    source $module_path
+    source $module_path 2>/dev/null
 
     if [ 0 -eq $? ]
     then
@@ -237,7 +241,7 @@ load_modules() {
     fi
 
     local module_path=$modules_window_path/$module_name.sh
-    source $module_path
+    source $module_path 2>/dev/null
 
     if [ 0 -eq $? ]
     then
@@ -312,11 +316,11 @@ main() {
   local status_connect_separator=$(get_tmux_option "@catppuccin_status_connect_separator" "yes")
   local status_fill=$(get_tmux_option "@catppuccin_status_fill" "icon")
 
-  local status_modules_right=$(get_tmux_option "@catppuccin_status_modules_right" "application session")
-  local loaded_modules_right=$( load_modules "$status_modules_right")
-
   local status_modules_left=$(get_tmux_option "@catppuccin_status_modules_left" "")
-  local loaded_modules_left=$( load_modules "$status_modules_left")
+  local loaded_modules_left=$( load_modules "$status_modules_left" "left")
+
+  local status_modules_right=$(get_tmux_option "@catppuccin_status_modules_right" "application session")
+  local loaded_modules_right=$( load_modules "$status_modules_right" "right")
 
   set status-left "$loaded_modules_left"
   set status-right "$loaded_modules_right"
