@@ -402,9 +402,7 @@ main() {
   #
 
   local pane_format=$( load_modules "pane_default_format")
-  local pane_current_format=$( load_modules "pane_current_format")
-  setw window-status-format "$window_format"
-  setw window-status-current-format "$window_current_format"
+  setw pane-border-format "$pane_format"
 
   # --------=== Modes
   #
