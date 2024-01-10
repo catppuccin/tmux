@@ -268,6 +268,7 @@ load_modules() {
   local modules_custom_path=$PLUGIN_DIR/custom
   local modules_status_path=$PLUGIN_DIR/status
   local modules_window_path=$PLUGIN_DIR/window
+  local modules_pane_path=$PLUGIN_DIR/pane
 
   local module_index=0;
   local module_name
@@ -305,6 +306,9 @@ load_modules() {
     fi
 
     local module_path=$modules_window_path/$module_name.sh
+    source $module_path
+
+    local module_path=$modules_pane_path/$module_name.sh
     source $module_path
 
     if [ 0 -eq $? ]
