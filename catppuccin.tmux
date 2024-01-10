@@ -266,7 +266,7 @@ load_modules() {
   local modules_window_path=$PLUGIN_DIR/window
   local modules_pane_path=$PLUGIN_DIR/pane
 
-  local module_index=0;
+  local -i module_index=0;
   local module_name
   local loaded_modules
   local IN=$modules_list
@@ -281,47 +281,16 @@ load_modules() {
 
     module_name=$iter
 
-    local module_path=$modules_custom_path/$module_name.sh
-    source $module_path
+    for module_dir in "${modules_custom_path}" "${modules_status_path}" "${modules_window_path}" "${modules_pane_path}" ; do
+      local module_path="$module_dir/$module_name.sh"
 
-    if [ 0 -eq $? ]
-    then
-      loaded_modules="$loaded_modules$( show_$module_name $module_index )"
-      module_index=$module_index+1
-      continue
-    fi
-
-    local module_path=$modules_status_path/$module_name.sh
-    source $module_path
-
-    if [ 0 -eq $? ]
-    then
-      loaded_modules="$loaded_modules$( show_$module_name $module_index )"
-      module_index=$module_index+1
-      continue
-    fi
-
-    local module_path=$modules_window_path/$module_name.sh
-    source $module_path
-
-    if [ 0 -eq $? ]
-    then
-      loaded_modules="$loaded_modules$( show_$module_name $module_index )"
-      module_index=$module_index+1
-      continue
-    fi
-
-    local module_path=$modules_pane_path/$module_name.sh
-    source $module_path
-
-    if [ 0 -eq $? ]
-    then
-      loaded_modules="$loaded_modules$( show_$module_name $module_index )"
-      module_index=$module_index+1
-      continue
-    fi
-
-
+      if [ -r "$module_path" ]; then
+        source $module_path
+        loaded_modules="$loaded_modules$( show_$module_name $module_index )"
+        module_index+=1
+        break
+      fi
+    done
   done
 
   echo "$loaded_modules"
