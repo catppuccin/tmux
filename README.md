@@ -25,6 +25,7 @@
    2. [Window default](#window-default)
    3. [Window current](#window-current)
    4. [Status](#status)
+   4. [Pane](#pane)
    5. [Customizing modules](#customizing-modules)
    6. [Battery module](#battery-module)
 5. [Create a custom module](#create-a-custom-module)
@@ -213,6 +214,8 @@ Values:
 
 ### Pane
 
+```sh
+tmux_orange="#fab387"
 set -g @catppuccin_pane_status_enabled "yes"
 set -g @catppuccin_pane_border_status "top"
 set -g @catppuccin_pane_left_separator ""
@@ -221,8 +224,11 @@ set -g @catppuccin_pane_middle_separator "█ "
 set -g @catppuccin_pane_number_position "left"
 set -g @catppuccin_pane_default_fill "number"
 set -g @catppuccin_pane_default_text "#{b:pane_current_path}"
-set -g @catppuccin_pane_border_style "fg=$tmux_gray"
+set -g @catppuccin_pane_border_style "fg=$tmux_orange"
 set -g @catppuccin_pane_active_border_style "fg=$tmux_orange"
+set -g @catppuccin_pane_color "$tmux_orange"
+set -g @catppuccin_pane_background_color "$tmux_orange"
+```
 
 #### Set the module list
 ```sh
