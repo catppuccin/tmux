@@ -69,62 +69,58 @@ build_pane_format() {
 
   if [ "$pane_status_enable" = "yes" ]
   then
-    local icon="$( build_pane_icon )"
-    text="$text $icon"
-  fi
+    if [ "$fill" = "none" ]
+    then
+      local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
+      local show_number="#[fg=$thm_fg,bg=$thm_gray]$number"
+      local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$pane_middle_separator"
+      local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
+      local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$pane_right_separator"
+    fi
 
-  if [ "$fill" = "none" ]
-  then
-    local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
-    local show_number="#[fg=$thm_fg,bg=$thm_gray]$number"
-    local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$pane_middle_separator"
-    local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
-    local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$pane_right_separator"
+    if [ "$fill" = "all" ]
+    then
+      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
+      local show_number="#[fg=$background,bg=$color]$number"
+      local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$pane_middle_separator"
+      local show_text="#[fg=$background,bg=$color]$text"
+      local show_right_separator="#[fg=$color,bg=$thm_bg]$pane_right_separator"
+    fi
 
-  fi
+    if [ "$fill" = "number" ]
+    then
+      local show_number="#[fg=$background,bg=$color]$number"
+      local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$pane_middle_separator"
+      local show_text="#[fg=$thm_fg,bg=$background]$text"
 
-  if [ "$fill" = "all" ]
-  then
-    local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
-    local show_number="#[fg=$background,bg=$color]$number"
-    local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$pane_middle_separator"
-    local show_text="#[fg=$background,bg=$color]$text"
-    local show_right_separator="#[fg=$color,bg=$thm_bg]$pane_right_separator"
-  fi
+      if [ "$pane_number_position" = "right" ]
+      then
+        local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
+        local show_right_separator="#[fg=$color,bg=$thm_bg]$pane_right_separator"
+      fi
 
-  if [ "$fill" = "number" ]
-  then
-    local show_number="#[fg=$background,bg=$color]$number"
-    local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$pane_middle_separator"
-    local show_text="#[fg=$thm_fg,bg=$background]$text"
+      if [ "$pane_number_position" = "left" ]
+      then
+        local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_right_separator"
+        local show_left_separator="#[fg=$color,bg=$thm_bg]$pane_left_separator"
+      fi
+
+    fi
+
+    local final_pane_format
 
     if [ "$pane_number_position" = "right" ]
     then
-      local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
-      local show_right_separator="#[fg=$color,bg=$thm_bg]$pane_right_separator"
+      final_pane_format="$show_left_separator$show_text$show_middle_separator$show_number$show_right_separator"
     fi
 
     if [ "$pane_number_position" = "left" ]
     then
-      local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_right_separator"
-      local show_left_separator="#[fg=$color,bg=$thm_bg]$pane_left_separator"
+      final_pane_format="$show_left_separator$show_number$show_middle_separator$show_text$show_right_separator"
     fi
 
+    echo "$final_pane_format"
   fi
-
-  local final_pane_format
-
-  if [ "$pane_number_position" = "right" ]
-  then
-    final_pane_format="$show_left_separator$show_text$show_middle_separator$show_number$show_right_separator"
-  fi
-
-  if [ "$pane_number_position" = "left" ]
-  then
-    final_pane_format="$show_left_separator$show_number$show_middle_separator$show_text$show_right_separator"
-  fi
-
-  echo "$final_pane_format"
 }
 
 build_window_format() {
@@ -363,15 +359,17 @@ main() {
   set message-command-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
 
   # panes
+  local pane_status_enable=$(get_tmux_option "@catppuccin_pane_status_enabled" "no") # yes
+  local pane_border_status=$(get_tmux_option "@catppuccin_pane_border_status" "top") # bottom
   local pane_border_style=$(get_tmux_option "@catppuccin_pane_border_style" "fg=${thm_gray}")
   local pane_active_border_style=$(get_tmux_option "@catppuccin_pane_active_border_style" "fg=${thm_orange}")
   local pane_left_separator=$(get_tmux_option "@catppuccin_pane_left_separator" "█")
   local pane_middle_separator=$(get_tmux_option "@catppuccin_pane_middle_separator" "█")
   local pane_right_separator=$(get_tmux_option "@catppuccin_pane_right_separator" "█")
   local pane_number_position=$(get_tmux_option "@catppuccin_pane_number_position" "left") # right, left
-  local pane_status_enable=$(get_tmux_option "@catppuccin_pane_status_enable" "no")
-
   local pane_format=$( load_modules "pane_default_format")
+
+  setw pane-border-status "$pane_border_status"
   setw pane-active-border-style "$pane_active_border_style"
   setw pane-border-style "$pane_border_style"
   setw pane-border-format "$pane_format"
