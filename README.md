@@ -211,6 +211,19 @@ Values:
 - icon - only the icon of the module will have color
 - all - the entire module will have the same color
 
+### Pane
+
+set -g @catppuccin_pane_status_enabled "yes"
+set -g @catppuccin_pane_border_status "top"
+set -g @catppuccin_pane_left_separator ""
+set -g @catppuccin_pane_right_separator ""
+set -g @catppuccin_pane_middle_separator "█ "
+set -g @catppuccin_pane_number_position "left"
+set -g @catppuccin_pane_default_fill "number"
+set -g @catppuccin_pane_default_text "#{b:pane_current_path}"
+set -g @catppuccin_pane_border_style "fg=$tmux_gray"
+set -g @catppuccin_pane_active_border_style "fg=$tmux_orange"
+
 #### Set the module list
 ```sh
 set -g @catppuccin_status_modules_right "application session"
