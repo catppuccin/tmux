@@ -90,7 +90,6 @@ build_pane_format() {
     local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$pane_middle_separator"
     local show_text="#[fg=$background,bg=$color]$text"
     local show_right_separator="#[fg=$color,bg=$thm_bg]$pane_right_separator"
-
   fi
 
   if [ "$fill" = "number" ]
@@ -308,6 +307,13 @@ load_modules() {
     local module_path=$modules_window_path/$module_name.sh
     source $module_path
 
+    if [ 0 -eq $? ]
+    then
+      loaded_modules="$loaded_modules$( show_$module_name $module_index )"
+      module_index=$module_index+1
+      continue
+    fi
+
     local module_path=$modules_pane_path/$module_name.sh
     source $module_path
 
@@ -317,6 +323,7 @@ load_modules() {
       module_index=$module_index+1
       continue
     fi
+
 
   done
 
@@ -356,17 +363,18 @@ main() {
   set message-command-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
 
   # panes
-  local pane_border_style=$(get_tmux_option "@catppuccin_pane_border_style" "fg=${thm_blue}")
+  local pane_border_style=$(get_tmux_option "@catppuccin_pane_border_style" "fg=${thm_gray}")
   local pane_active_border_style=$(get_tmux_option "@catppuccin_pane_active_border_style" "fg=${thm_orange}")
   local pane_left_separator=$(get_tmux_option "@catppuccin_pane_left_separator" "█")
   local pane_middle_separator=$(get_tmux_option "@catppuccin_pane_middle_separator" "█")
   local pane_right_separator=$(get_tmux_option "@catppuccin_pane_right_separator" "█")
   local pane_number_position=$(get_tmux_option "@catppuccin_pane_number_position" "left") # right, left
   local pane_status_enable=$(get_tmux_option "@catppuccin_pane_status_enable" "no")
+
   local pane_format=$( load_modules "pane_default_format")
-  local pane_current_format=$( load_modules "pane_current_format")
-  set pane-border-style "${pane_border_style}"
-  set pane-active-border-style "${pane_active_border_style}"
+  setw pane-active-border-style "$pane_active_border_style"
+  setw pane-border-style "$pane_border_style"
+  setw pane-border-format "$pane_format"
 
   # windows
   setw window-status-activity-style "fg=${thm_fg},bg=${thm_bg},none"
@@ -401,12 +409,6 @@ main() {
 
   set status-left "$loaded_modules_left"
   set status-right "$loaded_modules_right"
-
-  # --------=== Panes
-  #
-
-  local pane_format=$( load_modules "pane_default_format")
-  setw pane-border-format "$pane_format"
 
   # --------=== Modes
   #
