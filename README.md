@@ -29,6 +29,7 @@
    5. [Customizing modules](#customizing-modules)
    6. [Battery module](#battery-module)
    7. [CPU module](#CPU-module)
+   8. [Weather module](#weather-module)
 5. [Create a custom module](#create-a-custom-module)
 6. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
@@ -345,6 +346,27 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 Add the cpu module to the status modules list.
 ```sh
 set -g @catppuccin_status_modules_right "... cpu ..."
+```
+
+### Weather module
+
+#### Requirements
+This module depends on [tmux-weather](https://github.com/xamut/tmux-weather).
+
+#### Install
+The prefered way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+
+#### Configure
+Load tmux-weather after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'xamut/tmux-weather'
+```
+
+Add the weather module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... weather ..."
 ```
 
 ## Create a custom module
