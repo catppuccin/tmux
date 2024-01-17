@@ -174,6 +174,17 @@ set -g @catppuccin_window_format_directory_text "#{b:pane_current_path}"
 ```
 Use this to overide the way the directory is displayed.
 
+### Pane
+
+#### Set the pane border style:
+
+set -g @catppuccin_pane_border_style "fg=blue" # Use a value compatible with the standard tmux 'pane-border-style'
+
+#### Set the pane active border style:
+
+set -g @catppuccin_pane_active_border_style "fg=red" # Use a value compatible with the standard tmux 'pane-border-active-style'
+
+
 ### Status
 
 #### Set the status module left separator:
