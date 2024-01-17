@@ -37,3 +37,7 @@ You can configure a custom path for your modules by setting the `@catppuccin_cus
 ```sh 
 set -g @catppuccin_custom_plugin_dir "<path>"
 ```
+
+To use the output of a command, use e.g. `local text="$(get_tmux_option "@catppuccin_test_text" "#(date +%T)")"`.
+
+To use the output of a script, use e.g. `local text="$(get_tmux_option "@catppuccin_test_text" "#($HOME/my_script.sh)")"`.
