@@ -27,6 +27,7 @@
    4. [Status](#status)
    5. [Customizing modules](#customizing-modules)
    6. [Battery module](#battery-module)
+   7. [CPU module](#CPU-module)
 5. [Create a custom module](#create-a-custom-module)
 6. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
@@ -286,6 +287,27 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 Add the battery module to the status modules list.
 ```sh
 set -g @catppuccin_status_modules_right "... battery ..."
+```
+
+### CPU module
+
+#### Requirements
+This module depends on [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu/tree/master).
+
+#### Install
+The prefered way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+
+#### Configure
+Load tmux-cpu after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'tmux-plugins/tmux-cpu'
+```
+
+Add the cpu module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... cpu ..."
 ```
 
 ## Create a custom module
