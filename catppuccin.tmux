@@ -260,7 +260,8 @@ build_status_module() {
 load_modules() {
   local modules_list=$1
 
-  local modules_custom_path=$PLUGIN_DIR/custom
+  local custom_path="$(get_tmux_option "@catppuccin_custom_plugin_dir" "${PLUGIN_DIR}/custom")"
+  local modules_custom_path=$custom_path
   local modules_status_path=$PLUGIN_DIR/status
   local modules_window_path=$PLUGIN_DIR/window
   local modules_pane_path=$PLUGIN_DIR/pane
@@ -373,6 +374,7 @@ main() {
   setw pane-active-border-style "$pane_active_border_style"
   setw pane-border-style "$pane_border_style"
   setw pane-border-format "$pane_format"
+
 
   # windows
   setw window-status-activity-style "fg=${thm_fg},bg=${thm_bg},none"
