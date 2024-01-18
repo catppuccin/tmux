@@ -141,6 +141,15 @@ Values:
 - all - the entire window part will have the same color
 - none - the entire window part will have no color
 
+#### Override the window default colors:
+```sh
+set -g @catppuccin_window_default_text "color" # text color
+set -g @catppuccin_window_default_background "color"
+```
+
+Values:
+- color - a hexadecimal color value
+
 #### Override the window default text:
 ```sh
 set -g @catppuccin_window_default_text "#{b:pane_current_path}" # use "#W" for application instead of directory
@@ -156,6 +165,15 @@ Values:
 - number - only the number of the window part will have color
 - all - the entire window part will have the same color
 - none - the entire window part will have no color
+
+#### Override the window current colors:
+```sh
+set -g @catppuccin_window_current_color "color" # text color
+set -g @catppuccin_window_current_background "color"
+```
+
+Values:
+- color - a hexadecimal color value
 
 #### Override the window current text:
 ```sh
