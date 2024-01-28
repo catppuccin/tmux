@@ -450,14 +450,14 @@ set -g @tomorrow_directory_text "#{pane_current_path}"
 
 ## Thanks to
 
-- [tomorrow Org](https://github.com/tomorrow)
+- [Catppuccin Org](https://github.com/catppuccin)
 - [Chris Kempson](https://github.com/chriskempson)
 
 &nbsp;
 
 <p align="center">Copyright &copy; 2022-present <a href="https://github.com/CyberPi" target="_blank">CyberPi DE</a>
 <p align="center">
-  <a href="https://github.com/tomorrow/tomorrow/blob/main/LICENSE">
+  <a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE">
     <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=373b41&colorB=81a2be"/>
   </a>
 </p>

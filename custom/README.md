@@ -34,7 +34,7 @@ show_<module_name>() { # save this module in a file with the name <module_name>.
 ## Configure custom modules path
 
 You can configure a custom path for your modules by setting the `@tomorrow_custom_plugin_dir` option.
-```sh 
+```sh
 set -g @tomorrow_custom_plugin_dir "<path>"
 ```
 
