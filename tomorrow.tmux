@@ -260,7 +260,7 @@ build_status_module() {
 load_modules() {
   local modules_list=$1
 
-  local custom_path="$(get_tmux_option "@catppuccin_custom_plugin_dir" "${PLUGIN_DIR}/custom")"
+  local custom_path="$(get_tmux_option "@tomorrow_custom_plugin_dir" "${PLUGIN_DIR}/custom")"
   local modules_custom_path=$custom_path
   local modules_status_path=$PLUGIN_DIR/status
   local modules_window_path=$PLUGIN_DIR/window
@@ -360,14 +360,14 @@ main() {
   set message-command-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
 
   # panes
-  local pane_status_enable=$(get_tmux_option "@catppuccin_pane_status_enabled" "no") # yes
-  local pane_border_status=$(get_tmux_option "@catppuccin_pane_border_status" "off") # bottom
-  local pane_border_style=$(get_tmux_option "@catppuccin_pane_border_style" "fg=${thm_gray}")
-  local pane_active_border_style=$(get_tmux_option "@catppuccin_pane_active_border_style" "fg=${thm_orange}")
-  local pane_left_separator=$(get_tmux_option "@catppuccin_pane_left_separator" "█")
-  local pane_middle_separator=$(get_tmux_option "@catppuccin_pane_middle_separator" "█")
-  local pane_right_separator=$(get_tmux_option "@catppuccin_pane_right_separator" "█")
-  local pane_number_position=$(get_tmux_option "@catppuccin_pane_number_position" "left") # right, left
+  local pane_status_enable=$(get_tmux_option "@tomorrow_pane_status_enabled" "no") # yes
+  local pane_border_status=$(get_tmux_option "@tomorrow_pane_border_status" "off") # bottom
+  local pane_border_style=$(get_tmux_option "@tomorrow_pane_border_style" "fg=${thm_gray}")
+  local pane_active_border_style=$(get_tmux_option "@tomorrow_pane_active_border_style" "fg=${thm_orange}")
+  local pane_left_separator=$(get_tmux_option "@tomorrow_pane_left_separator" "█")
+  local pane_middle_separator=$(get_tmux_option "@tomorrow_pane_middle_separator" "█")
+  local pane_right_separator=$(get_tmux_option "@tomorrow_pane_right_separator" "█")
+  local pane_number_position=$(get_tmux_option "@tomorrow_pane_number_position" "left") # right, left
   local pane_format=$( load_modules "pane_default_format")
 
   setw pane-border-status "$pane_border_status"

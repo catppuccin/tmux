@@ -23,11 +23,11 @@
    2. [Window default](#window-default)
    3. [Window current](#window-current)
    4. [Status](#status)
-   4. [Pane](#pane)
-   5. [Customizing modules](#customizing-modules)
-   6. [Battery module](#battery-module)
-   7. [CPU module](#CPU-module)
-   8. [Weather module](#weather-module)
+   5. [Pane](#pane)
+   6. [Customizing modules](#customizing-modules)
+   7. [Battery module](#battery-module)
+   8. [CPU module](#CPU-module)
+   9. [Weather module](#weather-module)
 5. [Create a custom module](#create-a-custom-module)
 6. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
@@ -139,8 +139,8 @@ Values:
 
 #### Override the window default colors:
 ```sh
-set -g @catppuccin_window_default_text "color" # text color
-set -g @catppuccin_window_default_background "color"
+set -g @tomorrow_window_default_text "color" # text color
+set -g @tomorrow_window_default_background "color"
 ```
 
 Values:
@@ -164,8 +164,8 @@ Values:
 
 #### Override the window current colors:
 ```sh
-set -g @catppuccin_window_current_color "color" # text color
-set -g @catppuccin_window_current_background "color"
+set -g @tomorrow_window_current_color "color" # text color
+set -g @tomorrow_window_current_background "color"
 ```
 
 Values:
@@ -192,11 +192,11 @@ Use this to overide the way the directory is displayed.
 
 #### Set the pane border style:
 
-set -g @catppuccin_pane_border_style "fg=blue" # Use a value compatible with the standard tmux 'pane-border-style'
+set -g @tomorrow_pane_border_style "fg=blue" # Use a value compatible with the standard tmux 'pane-border-style'
 
 #### Set the pane active border style:
 
-set -g @catppuccin_pane_active_border_style "fg=red" # Use a value compatible with the standard tmux 'pane-border-active-style'
+set -g @tomorrow_pane_active_border_style "fg=red" # Use a value compatible with the standard tmux 'pane-border-active-style'
 
 
 ### Status
@@ -240,18 +240,18 @@ Values:
 
 ```sh
 tmux_orange="#fab387"
-set -g @catppuccin_pane_status_enabled "yes"
-set -g @catppuccin_pane_border_status "top"
-set -g @catppuccin_pane_left_separator ""
-set -g @catppuccin_pane_right_separator ""
-set -g @catppuccin_pane_middle_separator "█ "
-set -g @catppuccin_pane_number_position "left"
-set -g @catppuccin_pane_default_fill "number"
-set -g @catppuccin_pane_default_text "#{b:pane_current_path}"
-set -g @catppuccin_pane_border_style "fg=$tmux_orange"
-set -g @catppuccin_pane_active_border_style "fg=$tmux_orange"
-set -g @catppuccin_pane_color "$tmux_orange"
-set -g @catppuccin_pane_background_color "$tmux_orange"
+set -g @tomorrow_pane_status_enabled "yes"
+set -g @tomorrow_pane_border_status "top"
+set -g @tomorrow_pane_left_separator ""
+set -g @tomorrow_pane_right_separator ""
+set -g @tomorrow_pane_middle_separator "█ "
+set -g @tomorrow_pane_number_position "left"
+set -g @tomorrow_pane_default_fill "number"
+set -g @tomorrow_pane_default_text "#{b:pane_current_path}"
+set -g @tomorrow_pane_border_style "fg=$tmux_orange"
+set -g @tomorrow_pane_active_border_style "fg=$tmux_orange"
+set -g @tomorrow_pane_color "$tmux_orange"
+set -g @tomorrow_pane_background_color "$tmux_orange"
 ```
 
 #### Set the module list
@@ -329,16 +329,16 @@ This module depends on [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu/tree/
 The prefered way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
 
 #### Configure
-Load tmux-cpu after you load catppuccin.
+Load tmux-cpu after you load tomorrow.
 ```sh
-set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'tomorrow/tmux'
 ...
 set -g @plugin 'tmux-plugins/tmux-cpu'
 ```
 
 Add the cpu module to the status modules list.
 ```sh
-set -g @catppuccin_status_modules_right "... cpu ..."
+set -g @tomorrow_status_modules_right "... cpu ..."
 ```
 
 ### Weather module
@@ -350,16 +350,16 @@ This module depends on [tmux-weather](https://github.com/xamut/tmux-weather).
 The prefered way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
 
 #### Configure
-Load tmux-weather after you load catppuccin.
+Load tmux-weather after you load tomorrow.
 ```sh
-set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'tomorrow/tmux'
 ...
 set -g @plugin 'xamut/tmux-weather'
 ```
 
 Add the weather module to the status modules list.
 ```sh
-set -g @catppuccin_status_modules_right "... weather ..."
+set -g @tomorrow_status_modules_right "... weather ..."
 ```
 
 ## Create a custom module
@@ -450,14 +450,14 @@ set -g @tomorrow_directory_text "#{pane_current_path}"
 
 ## Thanks to
 
-- [Catppuccin Org](https://github.com/catppuccin)
+- [tomorrow Org](https://github.com/tomorrow)
 - [Chris Kempson](https://github.com/chriskempson)
 
 &nbsp;
 
 <p align="center">Copyright &copy; 2022-present <a href="https://github.com/CyberPi" target="_blank">CyberPi DE</a>
 <p align="center">
-  <a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE">
+  <a href="https://github.com/tomorrow/tomorrow/blob/main/LICENSE">
     <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=373b41&colorB=81a2be"/>
   </a>
 </p>
