@@ -268,6 +268,7 @@ load_modules() {
 
   local -i module_index=0;
   local module_name
+  local module_path
   local loaded_modules
   local IN=$modules_list
 
@@ -282,11 +283,11 @@ load_modules() {
     module_name=$iter
 
     for module_dir in "${modules_custom_path}" "${modules_status_path}" "${modules_window_path}" "${modules_pane_path}" ; do
-      local module_path="$module_dir/$module_name.sh"
+      module_path="$module_dir/$module_name.sh"
 
       if [ -r "$module_path" ]; then
-        source $module_path
-        loaded_modules="$loaded_modules$( show_$module_name $module_index )"
+        source "$module_path"
+        loaded_modules="$loaded_modules$( "show_$module_name" "$module_index" )"
         module_index+=1
         break
       fi
