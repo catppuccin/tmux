@@ -259,12 +259,8 @@ build_status_module() {
 
 load_modules() {
   local modules_list=$1
-
-  local custom_path="$(get_tmux_option "@catppuccin_custom_plugin_dir" "${PLUGIN_DIR}/custom")"
-  local modules_custom_path=$custom_path
-  local modules_status_path=$PLUGIN_DIR/status
-  local modules_window_path=$PLUGIN_DIR/window
-  local modules_pane_path=$PLUGIN_DIR/pane
+  shift
+  local module_directories=("$@")
 
   local -i module_index=0;
   local module_name
@@ -282,7 +278,7 @@ load_modules() {
 
     module_name=$iter
 
-    for module_dir in "${modules_custom_path}" "${modules_status_path}" "${modules_window_path}" "${modules_pane_path}" ; do
+    for module_dir in "${module_directories[@]}" ; do
       module_path="$module_dir/$module_name.sh"
 
       if [ -r "$module_path" ]; then
@@ -318,6 +314,13 @@ main() {
       eval "local $key"="$val"
   done < "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
 
+  # module directories
+  local custom_path="$(get_tmux_option "@catppuccin_custom_plugin_dir" "${PLUGIN_DIR}/custom")"
+  local modules_custom_path=$custom_path
+  local modules_status_path=$PLUGIN_DIR/status
+  local modules_window_path=$PLUGIN_DIR/window
+  local modules_pane_path=$PLUGIN_DIR/pane
+
   # status
   set status "on"
   set status-bg "${thm_bg}"
@@ -338,7 +341,7 @@ main() {
   local pane_middle_separator=$(get_tmux_option "@catppuccin_pane_middle_separator" "█")
   local pane_right_separator=$(get_tmux_option "@catppuccin_pane_right_separator" "█")
   local pane_number_position=$(get_tmux_option "@catppuccin_pane_number_position" "left") # right, left
-  local pane_format=$( load_modules "pane_default_format")
+  local pane_format=$(load_modules "pane_default_format" "$modules_custom_path" "$modules_pane_path")
 
   setw pane-border-status "$pane_border_status"
   setw pane-active-border-style "$pane_active_border_style"
@@ -359,8 +362,8 @@ main() {
   local window_number_position=$(get_tmux_option "@catppuccin_window_number_position" "left") # right, left
   local window_status_enable=$(get_tmux_option "@catppuccin_window_status_enable" "no") # right, left
 
-  local window_format=$( load_modules "window_default_format")
-  local window_current_format=$( load_modules "window_current_format")
+  local window_format=$(load_modules "window_default_format" "$modules_custom_path" "$modules_window_path")
+  local window_current_format=$(load_modules "window_current_format" "$modules_custom_path" "$modules_window_path")
 
   setw window-status-format "$window_format"
   setw window-status-current-format "$window_current_format"
@@ -372,10 +375,10 @@ main() {
   local status_fill=$(get_tmux_option "@catppuccin_status_fill" "icon")
 
   local status_modules_right=$(get_tmux_option "@catppuccin_status_modules_right" "application session")
-  local loaded_modules_right=$( load_modules "$status_modules_right")
+  local loaded_modules_right=$(load_modules "$status_modules_right" "$modules_custom_path" "$modules_status_path")
 
   local status_modules_left=$(get_tmux_option "@catppuccin_status_modules_left" "")
-  local loaded_modules_left=$( load_modules "$status_modules_left")
+  local loaded_modules_left=$(load_modules "$status_modules_left" "$modules_custom_path" "$modules_status_path")
 
   set status-left "$loaded_modules_left"
   set status-right "$loaded_modules_right"
