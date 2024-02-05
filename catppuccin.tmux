@@ -46,15 +46,14 @@ build_window_icon() {
   local custom_icon_window_activity=$(get_tmux_option "@catppuccin_icon_window_activity" "󰖲")
   local custom_icon_window_bell=$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞")
 
+  local show_window_status
+
   if [ "$window_status_icon_enable" = "yes" ]
   then
     # #!~[*-]MZ
-    local show_window_status="#{?window_activity_flag,${custom_icon_window_activity},}#{?window_bell_flag,${custom_icon_window_bell},}#{?window_silence_flag,${custom_icon_window_silent},}#{?window_active,${custom_icon_window_current},}#{?window_last_flag,${custom_icon_window_last},}#{?window_marked_flag,${custom_icon_window_mark},}#{?window_zoomed_flag,${custom_icon_window_zoom},}"
-  fi
-
-  if [ "$window_status_icon_enable" = "no" ]
-  then
-    local show_window_status="#F"
+    show_window_status="#{?window_activity_flag,${custom_icon_window_activity},}#{?window_bell_flag,${custom_icon_window_bell},}#{?window_silence_flag,${custom_icon_window_silent},}#{?window_active,${custom_icon_window_current},}#{?window_last_flag,${custom_icon_window_last},}#{?window_marked_flag,${custom_icon_window_mark},}#{?window_zoomed_flag,${custom_icon_window_zoom},}"
+  else
+    show_window_status="#F"
   fi
 
   echo "$show_window_status"
