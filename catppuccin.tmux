@@ -66,55 +66,69 @@ build_pane_format() {
   local text=$4
   local fill=$5
 
+  local style="nobold,nounderscore,noitalics"
+  local left_separator_fgbg
+  local middle_separator_fgbg
+  local right_separator_fgbg
+  local text_fgbg
+  local number_fgbg
+
   if [ "$pane_status_enable" = "yes" ]
   then
-    if [ "$fill" = "none" ]
-    then
-      local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
-      local show_number="#[fg=$thm_fg,bg=$thm_gray]$number"
-      local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$pane_middle_separator"
-      local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
-      local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$pane_right_separator"
-    fi
-
-    if [ "$fill" = "all" ]
-    then
-      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
-      local show_number="#[fg=$background,bg=$color]$number"
-      local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$pane_middle_separator"
-      local show_text="#[fg=$background,bg=$color]$text"
-      local show_right_separator="#[fg=$color,bg=$thm_bg]$pane_right_separator"
-    fi
-
-    if [ "$fill" = "number" ]
-    then
-      local show_number="#[fg=$background,bg=$color]$number"
-      local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$pane_middle_separator"
-      local show_text="#[fg=$thm_fg,bg=$background]$text"
-
-      if [ "$pane_number_position" = "right" ]
+      if [ "$fill" = "none" ]
       then
-        local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_left_separator"
-        local show_right_separator="#[fg=$color,bg=$thm_bg]$pane_right_separator"
+        left_separator_fgbg="fg=$thm_gray,bg=$thm_bg"
+        middle_separator_fgbg="fg=$thm_fg,bg=$thm_gray"
+        right_separator_fgbg="fg=$thm_gray,bg=$thm_bg"
+        text_fgbg="fg=$thm_fg,bg=$thm_gray"
+        number_fgbg="fg=$thm_fg,bg=$thm_gray"
+
+      elif [ "$fill" = "all" ]
+      then
+        left_separator_fgbg="fg=$color,bg=$thm_bg"
+        middle_separator_fgbg="fg=$background,bg=$color"
+        right_separator_fgbg="fg=$color,bg=$thm_bg"
+        text_fgbg="fg=$background,bg=$color"
+        number_fgbg="fg=$background,bg=$color"
+
+      elif [ "$fill" = "number" ]
+      then
+        middle_separator_fgbg="fg=$color,bg=$background"
+        text_fgbg="fg=$thm_fg,bg=$background"
+        number_fgbg="fg=$background,bg=$color"
+
+        if [ "$pane_number_position" = "right" ]
+        then
+          left_separator_fgbg="fg=$background,bg=$thm_bg"
+          right_separator_fgbg="fg=$color,bg=$thm_bg"
+        elif [ "$pane_number_position" = "left" ]
+        then
+          left_separator_fgbg="fg=$color,bg=$thm_bg"
+          right_separator_fgbg="fg=$background,bg=$thm_bg"
+        fi
       fi
 
-      if [ "$pane_number_position" = "left" ]
-      then
-        local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$pane_right_separator"
-        local show_left_separator="#[fg=$color,bg=$thm_bg]$pane_left_separator"
-      fi
 
-    fi
+    local show_left_separator
+    local show_right_separator
+    local show_middle_separator="#[$middle_separator_fgbg,$style]$pane_middle_separator"
+    local show_number="#[$number_fgbg]$number"
+    local show_text="#[$text_fgbg]$text"
 
     local final_pane_format
 
     if [ "$pane_number_position" = "right" ]
     then
-      final_pane_format="$show_left_separator$show_text$show_middle_separator$show_number$show_right_separator"
-    fi
+      show_left_separator="#[$left_separator_fgbg,$style]$pane_left_separator"
+      show_right_separator="#[$right_separator_fgbg]$pane_right_separator"
 
-    if [ "$pane_number_position" = "left" ]
+      final_pane_format="$show_left_separator$show_text$show_middle_separator$show_number$show_right_separator"
+
+    elif [ "$pane_number_position" = "left" ]
     then
+      show_left_separator="#[$left_separator_fgbg]$pane_left_separator"
+      show_right_separator="#[$right_separator_fgbg,$style]$pane_right_separator"
+
       final_pane_format="$show_left_separator$show_number$show_middle_separator$show_text$show_right_separator"
     fi
 
