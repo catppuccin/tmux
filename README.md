@@ -146,7 +146,7 @@ Values:
 
 #### Override the window default colors:
 ```sh
-set -g @catppuccin_window_default_text "color" # text color
+set -g @catppuccin_window_default_color "color" # text color
 set -g @catppuccin_window_default_background "color"
 ```
 
