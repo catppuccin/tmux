@@ -67,8 +67,13 @@ set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
 
 ### Manual
 
-1. Copy your desired theme's configuration contents into your Tmux config (usually stored at `~/.tmux.conf`)
-2. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
+1. Clone this repository to your desired location (e.g.
+   `~/.config/tmux/plugins/catppuccin`)
+2. Add the following line to your `tmux.conf` file:
+    `run ~/.config/tmux/plugins/catppuccin/catppuccin.tmux`
+3. (Optional) Set your preferred flavor and/or add configuration options as
+   listed in [Configuration Options](#configuration-options).
+4. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
 
 ## Overview
 
