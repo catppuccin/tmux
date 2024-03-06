@@ -45,8 +45,8 @@
 
 ## Installation
 
-In order to have the icons displayed correctly please use / update your favorite [patched font](https://www.nerdfonts.com/font-downloads).
-If you do not have a patched font installed, you can override or remove any icon. Check the documentation bellow on the options available.
+In order to have the icons displayed correctly please use/update your favorite [patched font](https://www.nerdfonts.com/font-downloads).
+If you do not have a patched font installed, you can override or remove any icon. Check the documentation below on the options available.
 
 ### TPM
 
@@ -59,7 +59,7 @@ set -g @plugin 'catppuccin/tmux'
 set -g @plugin 'tmux-plugins/tpm'
 ```
 
-3. (Optional) Set your preferred flavour, it defaults to `"mocha"`:
+3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
 ```bash
 set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
@@ -73,11 +73,11 @@ set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
 ## Overview
 
 ![Default](./assets/overview.png)
-This is a diagram on how the theme is split between it's components.
+This is a diagram of how the theme is split between its components.
 
 ## Configuration options
 
-All flavours support certain levels of customization that match our [Catppuccin
+All flavors support certain levels of customization that match our [Catppuccin
 Style Guide][style-guide]. To add these customizations, add any of the following
 options to your Tmux configuration.
 
@@ -187,13 +187,13 @@ set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for a
 ```sh
 set -g @catppuccin_window_current_format_directory_text "#{b:pane_current_path}"
 ```
-Use this to overide the way the current directory is displayed.
+Use this to override the way the current directory is displayed.
 
 #### Set the directory format
 ```sh
 set -g @catppuccin_window_format_directory_text "#{b:pane_current_path}"
 ```
-Use this to overide the way the directory is displayed.
+Use this to override the way the directory is displayed.
 
 ### Pane
 
@@ -231,8 +231,8 @@ Values:
 set -g @catppuccin_status_connect_separator "yes"
 ```
 Values:
-- yes - the background color of the separator will not blend in with the brackground color of tmux
-- no - the background color of the separator will blend in with the brackground color of tmux
+- yes - the background color of the separator will not blend in with the background color of tmux
+- no - the background color of the separator will blend in with the background color of tmux
 
 
 #### Set the status module color fill:
@@ -312,7 +312,7 @@ set -g @catppuccin_date_time_icon "null"
 This module depends on [tmux-battery](https://github.com/tmux-plugins/tmux-battery/tree/master).
 
 #### Install
-The prefered way to install tmux-battery is using [TPM](https://github.com/tmux-plugins/tpm).
+The preferred way to install tmux-battery is using [TPM](https://github.com/tmux-plugins/tpm).
 
 #### Configure
 Load tmux-battery after you load catppuccin.
@@ -333,7 +333,7 @@ set -g @catppuccin_status_modules_right "... battery ..."
 This module depends on [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu/tree/master).
 
 #### Install
-The prefered way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+The preferred way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
 
 #### Configure
 Load tmux-cpu after you load catppuccin.
@@ -354,7 +354,7 @@ set -g @catppuccin_status_modules_right "... cpu ..."
 This module depends on [tmux-weather](https://github.com/xamut/tmux-weather).
 
 #### Install
-The prefered way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+The preferred way to install tmux-weather is using [TPM](https://github.com/tmux-plugins/tpm).
 
 #### Configure
 Load tmux-weather after you load catppuccin.
@@ -371,7 +371,7 @@ set -g @catppuccin_status_modules_right "... weather ..."
 
 ## Create a custom module
 
-It is possible to add a new custom module or overrite any of the existing modules.
+It is possible to add a new custom module or overwrite any of the existing modules.
 
 Look into custom/README.md for more details.
 
@@ -385,7 +385,7 @@ When switching between configurations run:
 ```sh
 tmux kill-server
 ```
-In order to kill the tmux server and clear all global variables.
+To kill the tmux server and clear all global variables.
 
 
 ### Config 1
