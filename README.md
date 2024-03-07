@@ -218,6 +218,10 @@ set -g @catppuccin_pane_active_border_style "fg=red" # Use a value compatible wi
 
 
 ### Status
+#### Set the default status bar visibility
+```sh
+set -g @catppuccin_status_default "off" # defaults to "on"
+```
 
 #### Set the status module left separator:
 ```sh
