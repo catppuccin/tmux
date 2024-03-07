@@ -13,7 +13,7 @@ Use the [Module template](#module-template) (or example.sh) as a starting point 
 Save the new module under this folder using the module name as the file name and .sh as the extension.
 Update the status module list with your module.
 ```sh
-set -g @catppuccin_status_modules "... <module_name> ..."
+set -g @catppuccin_status_modules_right "... <module_name> ..."
 
 ```
 
