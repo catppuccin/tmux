@@ -32,6 +32,7 @@
    8. [Weather module](#weather-module)
    9. [Load module](#load-module)
    10. [Uptime module](#uptime-module)
+   11. [Now playing module](#now-playing-module)
 5. [Create a custom module](#create-a-custom-module)
 6. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
@@ -403,6 +404,7 @@ set -g @plugin 'jamesoff/tmux-loadavg'
 Add the weather module to the status modules list.
 ```sh
 set -g @catppuccin_status_modules_right "... load ..."
+```
 
 ### Uptime module
 
@@ -423,6 +425,27 @@ set -g @plugin 'robhurring/tmux-uptime'
 Add the uptime module to the status modules list.
 ```sh
 set -g @catppuccin_status_modules_right "... uptime ..."
+```
+
+### Now playing module
+
+#### Requirements
+This module depends on [tmux-nowplaying](https://github.com/xwjdsh/tmux-nowplaying).
+
+#### Install
+The prefered way to install tmux-nowplaying is using [TPM](https://github.com/tmux-plugins/tpm).
+
+#### Configure
+Load tmux-nowplaying after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'xwjdsh/tmux-nowplaying'
+```
+
+Add the nowplaying module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... nowplaying ..."
 ```
 
 ## Create a custom module
