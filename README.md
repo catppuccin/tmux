@@ -131,13 +131,13 @@ Values:
 
 #### Override windows status icons
 ```sh
-set -g @catppuccin_icon_window_last "󰖰"
-set -g @catppuccin_icon_window_current "󰖯"
-set -g @catppuccin_icon_window_zoom "󰁌"
-set -g @catppuccin_icon_window_mark "󰃀"
-set -g @catppuccin_icon_window_silent "󰂛"
-set -g @catppuccin_icon_window_activity "󰖲"
-set -g @catppuccin_icon_window_bell "󰂞"
+set -g @catppuccin_icon_window_last "󰖰 "
+set -g @catppuccin_icon_window_current "󰖯 "
+set -g @catppuccin_icon_window_zoom "󰁌 "
+set -g @catppuccin_icon_window_mark "󰃀 "
+set -g @catppuccin_icon_window_silent "󰂛 "
+set -g @catppuccin_icon_window_activity "󱅫 "
+set -g @catppuccin_icon_window_bell "󰂞 "
 ```
 
 ### Window default
