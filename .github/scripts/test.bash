@@ -9,7 +9,7 @@
 SOCKET_NAME="${SOCKET_NAME:-test}"
 
 tmux() {
-  command tmux -L "$SOCKET_NAME" $@
+  command tmux -L "$SOCKET_NAME" "$@"
 }
 
 start_tmux_server() {
@@ -23,7 +23,7 @@ kill_tmux_server() {
 }
 
 check() {
-  local error exit_code
+  local out exit_code
   exit_code="$1"
   out="$2"
 
@@ -68,4 +68,4 @@ main() {
   kill_tmux_server
 }
 
-main $@
+main "$@"
