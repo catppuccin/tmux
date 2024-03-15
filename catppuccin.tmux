@@ -37,14 +37,13 @@ setw() {
 
 build_window_icon() {
   local window_status_icon_enable=$(get_tmux_option "@catppuccin_window_status_icon_enable" "yes")
-
-  local custom_icon_window_last=$(get_tmux_option "@catppuccin_icon_window_last" "󰖰")
-  local custom_icon_window_current=$(get_tmux_option "@catppuccin_icon_window_current" "󰖯")
-  local custom_icon_window_zoom=$(get_tmux_option "@catppuccin_icon_window_zoom" "󰁌")
-  local custom_icon_window_mark=$(get_tmux_option "@catppuccin_icon_window_mark" "󰃀")
-  local custom_icon_window_silent=$(get_tmux_option "@catppuccin_icon_window_silent" "󰂛")
-  local custom_icon_window_activity=$(get_tmux_option "@catppuccin_icon_window_activity" "󰖲")
-  local custom_icon_window_bell=$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞")
+  local custom_icon_window_last=$(get_tmux_option "@catppuccin_icon_window_last" "󰖰 ")
+  local custom_icon_window_current=$(get_tmux_option "@catppuccin_icon_window_current" "󰖯 ")
+  local custom_icon_window_zoom=$(get_tmux_option "@catppuccin_icon_window_zoom" "󰁌 ")
+  local custom_icon_window_mark=$(get_tmux_option "@catppuccin_icon_window_mark" "󰃀 ")
+  local custom_icon_window_silent=$(get_tmux_option "@catppuccin_icon_window_silent" "󰂛 ")
+  local custom_icon_window_activity=$(get_tmux_option "@catppuccin_icon_window_activity" "󱅫 ")
+  local custom_icon_window_bell=$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞 ")
 
   if [ "$window_status_icon_enable" = "yes" ]
   then

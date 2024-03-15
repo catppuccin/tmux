@@ -131,13 +131,13 @@ Values:
 
 #### Override windows status icons
 ```sh
-set -g @catppuccin_icon_window_last "󰖰"
-set -g @catppuccin_icon_window_current "󰖯"
-set -g @catppuccin_icon_window_zoom "󰁌"
-set -g @catppuccin_icon_window_mark "󰃀"
-set -g @catppuccin_icon_window_silent "󰂛"
-set -g @catppuccin_icon_window_activity "󰖲"
-set -g @catppuccin_icon_window_bell "󰂞"
+set -g @catppuccin_icon_window_last "󰖰 "
+set -g @catppuccin_icon_window_current "󰖯 "
+set -g @catppuccin_icon_window_zoom "󰁌 "
+set -g @catppuccin_icon_window_mark "󰃀 "
+set -g @catppuccin_icon_window_silent "󰂛 "
+set -g @catppuccin_icon_window_activity "󱅫 "
+set -g @catppuccin_icon_window_bell "󰂞 "
 ```
 
 ### Window default
@@ -403,16 +403,17 @@ This module depends on [tmux-loadavg](https://github.com/jamesoff/tmux-loadavg).
 The prefered way to install tmux-loadavg is using [TPM](https://github.com/tmux-plugins/tpm).
 
 #### Configure
-Load tmux-weather after you load catppuccin.
+Load tmux-loadavg after you load catppuccin.
 ```sh
 set -g @plugin 'catppuccin/tmux'
 ...
 set -g @plugin 'jamesoff/tmux-loadavg'
 ```
 
-Add the weather module to the status modules list.
+Add the load module to the status modules list.
 ```sh
 set -g @catppuccin_status_modules_right "... load ..."
+```
 
 ### Uptime module
 
@@ -424,6 +425,7 @@ The prefered way to install tmux-uptime is using [TPM](https://github.com/tmux-p
 
 #### Configure
 Load tmux-uptime after you load catppuccin.
+
 ```sh
 set -g @plugin 'catppuccin/tmux'
 ...

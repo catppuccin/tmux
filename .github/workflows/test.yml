@@ -1,0 +1,53 @@
+---
+name: Tests
+permissions:
+  contents: read
+on:
+  pull_request:
+    paths-ignore:
+      - "*.md"
+      - "assets/**"
+  push:
+    paths-ignore:
+      - "*.md"
+      - "assets/**"
+    branches:
+      - main
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  ubuntu:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install tmux
+        run: sudo apt-get update && sudo apt-get install -y tmux=3.2a-4ubuntu0.2
+      - uses: actions/checkout@v4
+      - name: Config and Plugin
+        shell: bash
+        run: |
+          bash --version
+          tmux -V
+          ./.github/scripts/test.bash ./catppuccin.tmux
+
+  old-bash:
+    name: "Old Bash"
+    runs-on: ubuntu-latest
+    container:
+      image: bash:3.2.57 # Bash version used by macos
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Syntax is Valid
+        shell: bash
+        run: |
+          # No tmux available in this container
+          tmp="$(mktemp -d)"
+          touch "$tmp/tmux"
+          chmod +x "$tmp/tmux"
+          export PATH="$tmp:$PATH"
+          bash --version
+          ./.github/scripts/test.bash ./catppuccin.tmux
