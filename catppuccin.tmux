@@ -324,7 +324,7 @@ main() {
   local status_default=$(get_tmux_option "@catppuccin_status_default" "on")
   set status "$status_default"
   set status-bg "${thm_bg}"
-  set status-justify "left"
+  set status-justify "$(get_tmux_option "@catppuccin_status_justify" "left")"
   set status-left-length "100"
   set status-right-length "100"
 
