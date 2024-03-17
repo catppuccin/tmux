@@ -373,15 +373,22 @@ Add the cpu module to the status modules list.
 set -g @catppuccin_status_modules_right "... cpu ..."
 ```
 
-### Weather module
+### Weather modules
 
-#### Requirements
+There are a couple of modules that can be used to retrieve weather data.
+
+- [tmux-weather](https://github.com/xamut/tmux-weather)
+- [tmux-clima](https://github.com/vascomfnunes/tmux-clima)
+
+#### [tmux-weather](https://github.com/xamut/tmux-weather)
+
+##### Requirements
 This module depends on [tmux-weather](https://github.com/xamut/tmux-weather).
 
-#### Install
+##### Install
 The preferred way to install tmux-weather is using [TPM](https://github.com/tmux-plugins/tpm).
 
-#### Configure
+##### Configure
 Load tmux-weather after you load catppuccin.
 ```sh
 set -g @plugin 'catppuccin/tmux'
@@ -392,6 +399,27 @@ set -g @plugin 'xamut/tmux-weather'
 Add the weather module to the status modules list.
 ```sh
 set -g @catppuccin_status_modules_right "... weather ..."
+```
+
+#### [tmux-clima](https://github.com/vascomfnunes/tmux-clima)
+
+##### Requirements
+This module depends on [tmux-clima](https://github.com/vascomfnunes/tmux-clima).
+
+##### Install
+The preferred way to install tmux-clima is using [TPM](https://github.com/tmux-plugins/tpm).
+
+##### Configure
+Load tmux-clima after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'vascomfnunes/tmux-clima'
+```
+
+Add the weather module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... clima ..."
 ```
 
 ### Load module
