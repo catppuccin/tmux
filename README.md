@@ -29,7 +29,7 @@
    5. [Customizing modules](#customizing-modules)
    6. [Battery module](#battery-module)
    7. [CPU module](#CPU-module)
-   8. [Weather module](#weather-module)
+   8. [Weather modules](#weather-modules)
    9. [Load module](#load-module)
    10. [Uptime module](#uptime-module)
 5. [Create a custom module](#create-a-custom-module)
@@ -380,7 +380,7 @@ There are a couple of modules that can be used to retrieve weather data.
 - [tmux-weather](https://github.com/xamut/tmux-weather)
 - [tmux-clima](https://github.com/vascomfnunes/tmux-clima)
 
-#### [tmux-weather](https://github.com/xamut/tmux-weather)
+#### tmux-weather
 
 ##### Requirements
 This module depends on [tmux-weather](https://github.com/xamut/tmux-weather).
@@ -401,7 +401,7 @@ Add the weather module to the status modules list.
 set -g @catppuccin_status_modules_right "... weather ..."
 ```
 
-#### [tmux-clima](https://github.com/vascomfnunes/tmux-clima)
+#### tmux-clima
 
 ##### Requirements
 This module depends on [tmux-clima](https://github.com/vascomfnunes/tmux-clima).
