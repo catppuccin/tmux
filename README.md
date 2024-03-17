@@ -431,7 +431,7 @@ set -g @catppuccin_status_modules_right "... uptime ..."
 
 It is possible to add a new custom module or overwrite any of the existing modules.
 
-Look into [custom/README.md](https://github.com/catppuccin/tmux/blob/main/README.md) for more details.
+For further details, see the documentation in [custom/README.md](custom/README.md)
 
 Any file added to the custom folder will be preserved when updating catppuccin.
 
