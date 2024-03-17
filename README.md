@@ -400,7 +400,7 @@ set -g @catppuccin_status_modules_right "... weather ..."
 This module depends on [tmux-loadavg](https://github.com/jamesoff/tmux-loadavg).
 
 #### Install
-The prefered way to install tmux-loadavg is using [TPM](https://github.com/tmux-plugins/tpm).
+The preferred way to install tmux-loadavg is using [TPM](https://github.com/tmux-plugins/tpm).
 
 #### Configure
 Load tmux-loadavg after you load catppuccin.
@@ -421,7 +421,7 @@ set -g @catppuccin_status_modules_right "... load ..."
 This module depends on [tmux-uptime](https://github.com/robhurring/tmux-uptime).
 
 #### Install
-The prefered way to install tmux-uptime is using [TPM](https://github.com/tmux-plugins/tpm).
+The preferred way to install tmux-uptime is using [TPM](https://github.com/tmux-plugins/tpm).
 
 #### Configure
 Load tmux-uptime after you load catppuccin.
