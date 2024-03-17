@@ -1,3 +1,6 @@
+# If this module depends on an external Tmux plugin, say so in a comment.
+# E.g.: Requires https://github.com/aaronpowell/tmux-weather
+
 show_test() { # This function name must match the module name!
   local index icon color text module
 
