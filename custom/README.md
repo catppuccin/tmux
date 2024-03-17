@@ -1,6 +1,4 @@
-# User defined modules
-
-## Description
+# User Defined Modules
 
 This folder is used to store user defined modules. You can use this folder to
 add a new module or override any existing module. To override an existing
@@ -16,36 +14,35 @@ default window.
 You can create a custom module by following the steps outlined below. This can be something you create entirely by yourself or integrating an existing Tmux plugin.
 
 1. Create a new file in `~/.tmux/plugins/tmux/custom/<module_name>.sh` to store the custom module.
-
-- The file **must** end in `.sh`
-- The file **does not** need to be set as executable.
+    - The file **must** end in `.sh`
+    - The file **does not** need to be set as executable.
 
 2. Copy the following template to this new file. Make sure to replace every instance of `<module_name>` by the name you chose as filename.
 
-```bash
-# If this module depends on an external Tmux plugin, say so in a comment.
-# E.g.: Requires https://github.com/aaronpowell/tmux-weather
+    ```bash
+    # If this module depends on an external Tmux plugin, say so in a comment.
+    # E.g.: Requires https://github.com/aaronpowell/tmux-weather
 
-show_<module_name>() { # This function name must match the module name!
-  local index icon color text module
+    show_<module_name>() { # This function name must match the module name!
+      local index icon color text module
 
-  index=$1 # This variable is used internally by the module loader in order to know the position of this module
+      index=$1 # This variable is used internally by the module loader in order to know the position of this module
 
-  icon="$(  get_tmux_option "@catppuccin_<module_name>_icon"  ""           )"
-  color="$( get_tmux_option "@catppuccin_<module_name>_color" "$thm_orange" )"
-  text="$(  get_tmux_option "@catppuccin_<module_name>_text"  "hello world" )"
+      icon="$(  get_tmux_option "@catppuccin_<module_name>_icon"  ""           )"
+      color="$( get_tmux_option "@catppuccin_<module_name>_color" "$thm_orange" )"
+      text="$(  get_tmux_option "@catppuccin_<module_name>_text"  "hello world" )"
 
-  module=$( build_status_module "$index" "$icon" "$color" "$text" )
+      module=$( build_status_module "$index" "$icon" "$color" "$text" )
 
-  echo "$module"
-}
-```
+      echo "$module"
+    }
+    ```
 
 3. Add the custom module to the list of modules in `.tmux.conf`
 
-```bash
-set -g @catppuccin_status_modules_right "... <module_name> ..."
-```
+    ```bash
+    set -g @catppuccin_status_modules_right "... <module_name> ..."
+    ```
 
 ## Customization
 
