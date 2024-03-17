@@ -258,6 +258,16 @@ Values:
 - icon - only the icon of the module will have color
 - all - the entire module will have the same color
 
+#### Set the status module justify value:
+```sh
+set -g @catppuccin_status_justify "left"
+```
+Values:
+- left 
+- centre - puts the window list in the relative centre of the available free space
+- right
+- absolute-centre - uses the centre of the entire horizontal space
+
 ### Pane
 
 ```sh
