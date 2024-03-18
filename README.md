@@ -375,11 +375,6 @@ set -g @catppuccin_status_modules_right "... cpu ..."
 
 ### Weather modules
 
-There are a couple of modules that can be used to retrieve weather data.
-
-- [tmux-weather](https://github.com/xamut/tmux-weather)
-- [tmux-clima](https://github.com/vascomfnunes/tmux-clima)
-
 #### tmux-weather
 
 ##### Requirements
