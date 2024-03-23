@@ -229,13 +229,14 @@ set -g @catppuccin_status_default "off" # defaults to "on"
 
 ```
 
-#### overwrite the default status bar background color
+#### Override the default status background color
 ```sh
-set -g @catppuccin_status_background "#a83232"
+set -g @catppuccin_status_background "theme"
 ```
 This will overwrite the status bar background:
-- use hex color codes for other colors
+- "theme" will use the color from the selected theme
 - "default" will make the status bar transparent
+- use hex color codes for other colors
 
 Note: you need to restart tmux for this to take effect: 
 ```sh
