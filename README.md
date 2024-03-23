@@ -18,25 +18,25 @@
 ## Content
 
 1. [Themes](#themes)
-2. [Installation](#installation)
-3. [Overview](#overview)
-4. [Configuration options](#configuration-options)
+1. [Installation](#installation)
+1. [Overview](#overview)
+1. [Configuration options](#configuration-options)
    1. [Window](#window)
-   2. [Window default](#window-default)
-   3. [Window current](#window-current)
-   4. [Status](#status)
-   4. [Pane](#pane)
-   5. [Customizing modules](#customizing-modules)
-   6. [Battery module](#battery-module)
-   7. [CPU module](#CPU-module)
-   8. [Weather modules](#weather-modules)
-   9. [Load module](#load-module)
-   10. [Uptime module](#uptime-module)
-5. [Create a custom module](#create-a-custom-module)
-6. [Configuration Examples](#configuration-examples)
+   1. [Window default](#window-default)
+   1. [Window current](#window-current)
+   1. [Status](#status)
+   1. [Pane](#pane)
+   1. [Customizing modules](#customizing-modules)
+   1. [Battery module](#battery-module)
+   1. [CPU module](#CPU-module)
+   1. [Weather modules](#weather-modules)
+   1. [Load module](#load-module)
+   1. [Uptime module](#uptime-module)
+1. [Create a custom module](#create-a-custom-module)
+1. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
-   2. [Config 2](#config-2)
-   3. [Config 3](#config-3)
+   1. [Config 2](#config-2)
+   1. [Config 3](#config-3)
 
 ## Themes
 
@@ -89,6 +89,11 @@ Style Guide][style-guide]. To add these customizations, add any of the following
 options to your Tmux configuration.
 
 ### Window
+
+### Set the window separator
+```sh
+set -g @catppuccin_window_separator ""
+```
 
 #### Set the window left separator:
 ```sh
@@ -221,6 +226,20 @@ set -g @catppuccin_pane_active_border_style "fg=red" # Use a value compatible wi
 #### Set the default status bar visibility
 ```sh
 set -g @catppuccin_status_default "off" # defaults to "on"
+
+```
+
+#### overwrite the default status bar background color
+```sh
+set -g @catppuccin_status_background "#a83232"
+```
+This will overwrite the status bar background:
+- use hex color codes for other colors
+- "default" will make the status bar transparent
+
+Note: you need to restart tmux for this to take effect: 
+```sh
+tmux kill-server & tmux
 ```
 
 #### Set the status module left separator:
