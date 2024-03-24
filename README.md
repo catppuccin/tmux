@@ -344,12 +344,12 @@ set -g @catppuccin_[module_name]_text "text"
 
 #### Removing a specific module option
 ```sh
-set -g @catppuccin_[module_name]_[option] "null"
+set -g @catppuccin_[module_name]_[option] ""
 ```
 This is for the situation where you want to remove the icon from a module.
 Ex:
 ```sh
-set -g @catppuccin_date_time_icon "null"
+set -g @catppuccin_date_time_icon ""
 ```
 
 ### Battery module
