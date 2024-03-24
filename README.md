@@ -320,6 +320,7 @@ Available modules:
 - user - display the username
 - host - display the hostname
 - date_time - display the date and time
+- uptime - display the uptime
 - [battery](#battery-module) - display the battery
 
 ### Customizing modules
@@ -456,28 +457,6 @@ set -g @plugin 'jamesoff/tmux-loadavg'
 Add the load module to the status modules list.
 ```sh
 set -g @catppuccin_status_modules_right "... load ..."
-```
-
-### Uptime module
-
-#### Requirements
-This module depends on [tmux-uptime](https://github.com/robhurring/tmux-uptime).
-
-#### Install
-The preferred way to install tmux-uptime is using [TPM](https://github.com/tmux-plugins/tpm).
-
-#### Configure
-Load tmux-uptime after you load catppuccin.
-
-```sh
-set -g @plugin 'catppuccin/tmux'
-...
-set -g @plugin 'robhurring/tmux-uptime'
-```
-
-Add the uptime module to the status modules list.
-```sh
-set -g @catppuccin_status_modules_right "... uptime ..."
 ```
 
 ## Create a custom module
