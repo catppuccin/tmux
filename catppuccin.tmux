@@ -54,7 +54,7 @@ main() {
     then
       set status-style bg=default
     else
-      set status_bg "${status_background}"
+      set status-bg "${status_background}"
     fi
   fi
 
