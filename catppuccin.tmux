@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# set current path
+# Set path of script
 PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # import
