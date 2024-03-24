@@ -208,10 +208,10 @@ build_status_module() {
   then
     local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
 
-    local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
+    local show_icon="#[fg=$status_background,bg=$color,nobold,nounderscore,noitalics]$icon "
     local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
 
-    local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
+    local show_right_separator="#[fg=$thm_gray,bg=$status_background,nobold,nounderscore,noitalics]$status_right_separator"
 
     if [ "$status_connect_separator" = "yes" ]
     then
@@ -219,8 +219,8 @@ build_status_module() {
       local show_right_separator="#[fg=$thm_gray,bg=$thm_gray,nobold,nounderscore,noitalics]$status_right_separator"
 
     else
-      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
-      local show_right_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_left_separator="#[fg=$color,bg=$status_background,nobold,nounderscore,noitalics]$status_left_separator"
+      local show_right_separator="#[fg=$thm_gray,bg=$status_background,nobold,nounderscore,noitalics]$status_right_separator"
     fi
 
   fi
@@ -229,8 +229,8 @@ build_status_module() {
   then
     local show_left_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_left_separator"
 
-    local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
-    local show_text="#[fg=$thm_bg,bg=$color]$text"
+    local show_icon="#[fg=$status_background,bg=$color,nobold,nounderscore,noitalics]$icon "
+    local show_text="#[fg=$status_background,bg=$color]$text"
 
     local show_right_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_right_separator"
 
@@ -240,8 +240,8 @@ build_status_module() {
       local show_right_separator="#[fg=$color,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
 
     else
-      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
-      local show_right_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_left_separator="#[fg=$color,bg=$status_background,nobold,nounderscore,noitalics]$status_left_separator"
+      local show_right_separator="#[fg=$color,bg=$status_background,nobold,nounderscore,noitalics]$status_right_separator"
     fi
 
   fi
@@ -252,13 +252,13 @@ build_status_module() {
     then
       local show_right_separator="#[fg=$thm_gray,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
     else
-      local show_right_separator="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
+      local show_right_separator="#[fg=$status_background,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
     fi
   fi
 
   if [ $(($index)) -eq 0  ]
   then
-      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$status_left_separator"
+      local show_left_separator="#[fg=$color,bg=$status_background,nobold,nounderscore,noitalics]$status_left_separator"
   fi
 
   echo "$show_left_separator$show_icon$show_text$show_right_separator"
@@ -335,12 +335,15 @@ main() {
   set status-justify "$status_justify"
 
   local status_background=$(get_tmux_option "@catppuccin_status_background" "theme")
+
   if [ "${status_background}" = "theme" ];
   then
+    status_background="${thm_bg}"
     set status-bg "${thm_bg}"
   else
     if [ "${status_background}" = "default" ]
     then
+      status_background="${thm_bg}"
       set status-style bg=default
     else
       set status-bg "${status_background}"
