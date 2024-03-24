@@ -1,25 +1,17 @@
 #!/bin/sh
 
 get_tmux_option() {
-  local option value default
-  option="$1"
-  default="$2"
-  value=$(tmux show-option -gqv "$option")
+    local option value default
+    option="$1"
+    default="$2"
 
-  if [ -n "$value" ]
-  then
-    if [ "$value" = "null" ]
-    then
-      echo ""
-
-    else
-      echo "$value"
+    value="$(tmux show-option -gv "$option" 2>/dev/null)"
+    if [ ! "${?}" -eq 0 ]; then
+        # Option not set
+        value="$default"
     fi
 
-  else
-    echo "$default"
-
-  fi
+    echo "${value}"
 }
 
 set() {
