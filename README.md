@@ -253,14 +253,6 @@ set -g @catppuccin_status_left_separator ""
 set -g @catppuccin_status_right_separator "█"
 ```
 
-#### Set the status module right separator inverse:
-```sh
-set -g @catppuccin_status_right_separator_inverse "no"
-```
-Values:
-- yes - the colors will be inverted for the right separator
-- no - the colors will not be inverted for the right separator
-
 #### Set the status connect separator:
 ```sh
 set -g @catppuccin_status_connect_separator "yes"
@@ -514,9 +506,8 @@ set -g @catppuccin_window_current_text "#{pane_current_path}"
 set -g @catppuccin_status_modules_right "application session date_time"
 set -g @catppuccin_status_left_separator  ""
 set -g @catppuccin_status_right_separator " "
-set -g @catppuccin_status_right_separator_inverse "yes"
 set -g @catppuccin_status_fill "all"
-set -g @catppuccin_status_connect_separator "no"
+set -g @catppuccin_status_connect_separator "yes"
 ```
 
 ### Config 3
@@ -537,7 +528,6 @@ set -g @catppuccin_window_current_text "#W"
 set -g @catppuccin_status_modules_right "directory user host session"
 set -g @catppuccin_status_left_separator  " "
 set -g @catppuccin_status_right_separator ""
-set -g @catppuccin_status_right_separator_inverse "no"
 set -g @catppuccin_status_fill "icon"
 set -g @catppuccin_status_connect_separator "no"
 
