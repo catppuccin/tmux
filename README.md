@@ -253,17 +253,6 @@ set -g @catppuccin_status_left_separator ""
 set -g @catppuccin_status_right_separator "█"
 ```
 
-#### Set the status module right separator inverse:
-```sh
-set -g @catppuccin_status_right_separator_inverse "no"
-```
-Values:
-- yes - the colors will be inverted for the right separator
-- no - the colors will not be inverted for the right separator
-
-Note:
-- this only works for non transparent background
-
 #### Set the status connect separator:
 ```sh
 set -g @catppuccin_status_connect_separator "yes"

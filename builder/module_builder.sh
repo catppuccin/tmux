@@ -36,14 +36,6 @@ build_status_module() {
 
   fi
 
-  if [ "$status_right_separator_inverse" = "yes" ]; then
-    if [ "$status_connect_separator" = "yes" ]; then
-      local show_right_separator="#[fg=$thm_gray,bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
-    else
-      local show_right_separator="#[fg=${status_background},bg=$color,nobold,nounderscore,noitalics]$status_right_separator"
-    fi
-  fi
-
   if [ $(($index)) -eq 0 ]; then
     local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
   fi
