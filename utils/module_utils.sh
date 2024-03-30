@@ -16,7 +16,7 @@ load_modules() {
     # extract the substring from start of string up to delimiter.
     iter=${IN%% *}
     # delete this first "element" AND next separator, from $IN.
-    IN="${IN#$iter }"
+    IN="${IN#"$iter "}"
     # Print (or doing anything with) the first "element".
 
     module_name=$iter
@@ -25,6 +25,7 @@ load_modules() {
       module_path="$module_dir/$module_name.sh"
 
       if [ -r "$module_path" ]; then
+        # shellcheck source=/dev/null
         source "$module_path"
         loaded_modules="$loaded_modules$( "show_$module_name" "$module_index" )"
         module_index+=1

@@ -1,0 +1,6 @@
+shell=bash
+
+# TODO: Find a way to declare color variables
+disable=SC2154
+
+external-sources=true
