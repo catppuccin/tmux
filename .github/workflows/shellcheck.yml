@@ -26,5 +26,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
+        with:
+          additional_files: "catppuccin.tmux"
         env:
           SHELLCHECK_OPTS: "-a"
