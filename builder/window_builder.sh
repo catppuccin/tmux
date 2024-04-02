@@ -18,7 +18,7 @@ build_window_format() {
     local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
 
-    if [ "$status_connect_separator" = "yes" ]; then
+    if [ "$window_connect_separator" = "yes" ]; then
       local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
       local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$window_right_separator"
 
@@ -35,7 +35,7 @@ build_window_format() {
     local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$background,bg=$color]$text"
 
-    if [ "$status_connect_separator" = "yes" ]; then
+    if [ "$window_connect_separator" = "yes" ]; then
       local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
       local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
 
@@ -53,7 +53,7 @@ build_window_format() {
     local show_text="#[fg=$thm_fg,bg=$background]$text"
 
     if [ "$window_number_position" = "right" ]; then
-      if [ "$status_connect_separator" = "yes" ]; then
+      if [ "$window_connect_separator" = "yes" ]; then
         local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
         local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
 
@@ -65,7 +65,7 @@ build_window_format() {
     fi
 
     if [ "$window_number_position" = "left" ]; then
-      if [ "$status_connect_separator" = "yes" ]; then
+      if [ "$window_connect_separator" = "yes" ]; then
         local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
         local show_left_separator="#[fg=$color,bg=$thm_bg]$window_left_separator"
 
