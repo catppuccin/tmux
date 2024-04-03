@@ -106,7 +106,7 @@ main() {
   window_middle_separator=$(get_tmux_option "@catppuccin_window_middle_separator" "█ ")
   window_number_position=$(get_tmux_option "@catppuccin_window_number_position" "left") # right, left
   window_status_enable=$(get_tmux_option "@catppuccin_window_status_enable" "no")       # right, left
-  window_connect_separator=$(get_tmux_option "@catppuccin_window_connect_separator" "yes")
+  window_connect_separator=$(get_tmux_option "@catppuccin_window_connect_separator" "no")
 
   window_format=$(load_modules "window_default_format" "$modules_custom_path" "$modules_window_path")
   setw window-status-format "$window_format"

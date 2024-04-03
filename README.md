@@ -147,7 +147,7 @@ set -g @catppuccin_icon_window_bell "󰂞 "
 
 #### Set the window connect separator:
 ```sh
-set -g @catppuccin_window_connect_separator "yes"
+set -g @catppuccin_window_connect_separator "no"
 ```
 Values:
 - yes - windows will join with a small gape between them
