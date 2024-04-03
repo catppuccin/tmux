@@ -145,6 +145,14 @@ set -g @catppuccin_icon_window_activity "󱅫 "
 set -g @catppuccin_icon_window_bell "󰂞 "
 ```
 
+#### Set the window connect separator:
+```sh
+set -g @catppuccin_window_connect_separator "yes"
+```
+Values:
+- yes - windows will join with a small gape between them
+- no - windows will not join
+
 ### Window default
 
 #### Set the window default color fill:
