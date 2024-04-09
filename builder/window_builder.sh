@@ -70,8 +70,17 @@ build_window_format() {
 
     if [ "$window_number_position" = "right" ]; then
       if [ "$window_connect_separator" = "yes" ]; then
-        local show_left_separator="#[fg=$thm_bg,bg=$background,nobold,nounderscore,noitalics]$window_left_separator"
-        local show_right_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
+        if [ "$status_background" = "theme" ]; then
+          local show_left_separator="#[fg=$thm_bg,bg=$background,nobold,nounderscore,noitalics]$window_left_separator"
+        else
+          if [ "$status_background" = "default" ]; then
+            local show_left_separator="#[fg=$thm_bg,bg=$background,nobold,nounderscore,noitalics]$window_left_separator"
+          else
+            local show_left_separator="#[fg=$status_background,bg=$background,nobold,nounderscore,noitalics]$window_left_separator"
+          fi
+
+        fi
+        local show_right_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$window_right_separator"
 
       else
         local show_left_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_left_separator"
@@ -82,8 +91,17 @@ build_window_format() {
 
     if [ "$window_number_position" = "left" ]; then
       if [ "$window_connect_separator" = "yes" ]; then
-        local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
-        local show_left_separator="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$window_left_separator"
+        if [ "$status_background" = "theme" ]; then
+          local show_left_separator="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$window_left_separator"
+        else
+          if [ "$status_background" = "default" ]; then
+            local show_left_separator="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$window_left_separator"
+          else
+            local show_left_separator="#[fg=$status_background,bg=$color,nobold,nounderscore,noitalics]$window_left_separator"
+          fi
+
+        fi
+        local show_right_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_right_separator"
 
       else
         local show_right_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_right_separator"
