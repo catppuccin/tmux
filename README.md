@@ -149,6 +149,9 @@ set -g @catppuccin_icon_window_bell "󰂞 "
 ```sh
 set -g @catppuccin_window_connect_separator "no"
 ```
+
+This option wouldn't work with `@catppuccin_status_background "default"`. If you want to use same color as your terminal background, you can use hex value `@catppuccin_status_background "#000000"`.
+
 Values:
 - yes - windows will join with a small gape between them
 - no - windows will not join
