@@ -466,6 +466,13 @@ Add the git module to the status modules list.
 set -g @catppuccin_status_modules_right "... git ..."
 ```
 
+#### Customizing the git module
+To customize the git module, you can follow the instruccitons in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing). Then uncomment the following line in your `git.sh` file:
+```
+  text="$(  get_tmux_option "@catppuccin_git_text"  "#(gitmux -cfg $HOME/.gitmux.conf "#{pane_current_path}")")"
+```
+
+
 ## Create a custom module
 
 It is possible to add a new custom module or overwrite any of the existing modules.
