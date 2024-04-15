@@ -6,6 +6,7 @@ build_window_format() {
   local background="$3"
   local text="$4"
   local fill="$5"
+  local window_type="$6"
 
   if [ "$window_status_enable" = "yes" ]; then
     local icon
@@ -13,18 +14,24 @@ build_window_format() {
     text="$text$icon"
   fi
 
+  local window_type_left_separator window_type_middle_separator window_type_right_separator
+
+  window_type_left_separator=$(get_separator "$window_type" "left")
+  window_type_middle_separator=$(get_separator "$window_type" "middle")
+  window_type_right_separator=$(get_separator "$window_type" "right")
+
   if [ "$fill" = "none" ]; then
     local show_number="#[fg=$thm_fg,bg=$thm_gray]$number"
-    local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$window_middle_separator"
+    local show_middle_separator="#[fg=$thm_fg,bg=$thm_gray,nobold,nounderscore,noitalics]$window_type_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$thm_gray]$text"
 
     if [ "$status_connect_separator" = "yes" ]; then
-      local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
-      local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$window_right_separator"
+      local show_left_separator="#[fg=$thm_gray,bg=$thm_bg,nobold,nounderscore,noitalics]$window_type_left_separator"
+      local show_right_separator="#[fg=$thm_gray,bg=$thm_bg]$window_type_right_separator"
 
     else
-      local show_left_separator="#[fg=$thm_gray,bg=default,nobold,nounderscore,noitalics]$window_left_separator"
-      local show_right_separator="#[fg=$thm_gray,bg=default]$window_right_separator"
+      local show_left_separator="#[fg=$thm_gray,bg=default,nobold,nounderscore,noitalics]$window_type_left_separator"
+      local show_right_separator="#[fg=$thm_gray,bg=default]$window_type_right_separator"
 
     fi
 
@@ -32,16 +39,16 @@ build_window_format() {
 
   if [ "$fill" = "all" ]; then
     local show_number="#[fg=$background,bg=$color]$number"
-    local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$window_middle_separator"
+    local show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$window_type_middle_separator"
     local show_text="#[fg=$background,bg=$color]$text"
 
     if [ "$status_connect_separator" = "yes" ]; then
-      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
-      local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
+      local show_left_separator="#[fg=$color,bg=$thm_bg,nobold,nounderscore,noitalics]$window_type_left_separator"
+      local show_right_separator="#[fg=$color,bg=$thm_bg]$window_type_right_separator"
 
     else
-      local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$window_left_separator"
-      local show_right_separator="#[fg=$color,bg=default]$window_right_separator"
+      local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$window_type_left_separator"
+      local show_right_separator="#[fg=$color,bg=default]$window_type_right_separator"
 
     fi
 
@@ -49,29 +56,29 @@ build_window_format() {
 
   if [ "$fill" = "number" ]; then
     local show_number="#[fg=$background,bg=$color]$number"
-    local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$window_middle_separator"
+    local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$window_type_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$background]$text"
 
     if [ "$window_number_position" = "right" ]; then
       if [ "$status_connect_separator" = "yes" ]; then
-        local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
-        local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
+        local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_type_left_separator"
+        local show_right_separator="#[fg=$color,bg=$thm_bg]$window_type_right_separator"
 
       else
-        local show_left_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_left_separator"
-        local show_right_separator="#[fg=$color,bg=default]$window_right_separator"
+        local show_left_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_type_left_separator"
+        local show_right_separator="#[fg=$color,bg=default]$window_type_right_separator"
 
       fi
     fi
 
     if [ "$window_number_position" = "left" ]; then
       if [ "$status_connect_separator" = "yes" ]; then
-        local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
-        local show_left_separator="#[fg=$color,bg=$thm_bg]$window_left_separator"
+        local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_type_right_separator"
+        local show_left_separator="#[fg=$color,bg=$thm_bg]$window_type_left_separator"
 
       else
-        local show_right_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_right_separator"
-        local show_left_separator="#[fg=$color,bg=default]$window_left_separator"
+        local show_right_separator="#[fg=$background,bg=default,nobold,nounderscore,noitalics]$window_type_right_separator"
+        local show_left_separator="#[fg=$color,bg=default]$window_type_left_separator"
 
       fi
 
@@ -124,4 +131,33 @@ build_window_icon() {
   fi
 
   echo "$show_window_status"
+}
+
+get_separator() {
+  local window_type="$1"
+  local separator_position="$2"
+
+  local separator
+  separator=$(get_tmux_option "@catppuccin_window_${window_type}_${separator_position}_separator" "")
+
+  if [ -n "${separator}" ]; then
+    echo "${separator}"
+    return
+  fi
+
+  # If window type separator is not set, use default values set on catppuccin.tmux
+  case "${separator_position}" in
+  "left")
+    echo "${window_left_separator}"
+    ;;
+  "middle")
+    echo "${window_middle_separator}"
+    ;;
+  "right")
+    echo "${window_right_separator}"
+    ;;
+  "*")
+    echo ""
+    ;;
+  esac
 }
