@@ -461,12 +461,7 @@ The preferred way to install gitmux is using [Binary release](https://github.com
 [Download the latest](https://github.com/arl/gitmux/releases/latest) binary for your platform/architecture and uncompress it.
 
 #### Configure
-Load tmux-loadavg after you load catppuccin.
-```sh
-set -g @plugin 'catppuccin/tmux'
-```
-
-Add the load module to the status modules list.
+Add the git module to the status modules list.
 ```sh
 set -g @catppuccin_status_modules_right "... git ..."
 ```
