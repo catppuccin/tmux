@@ -451,6 +451,26 @@ Add the load module to the status modules list.
 set -g @catppuccin_status_modules_right "... load ..."
 ```
 
+### Git module
+
+#### Requirements
+This module depends on [gitmux](https://github.com/arl/gitmux).
+
+#### Install
+The preferred way to install gitmux is using [Binary release](https://github.com/arl/gitmux?tab=readme-ov-file#installing).
+[Download the latest](https://github.com/arl/gitmux/releases/latest) binary for your platform/architecture and uncompress it.
+
+#### Configure
+Load tmux-loadavg after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+```
+
+Add the load module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... git ..."
+```
+
 ## Create a custom module
 
 It is possible to add a new custom module or overwrite any of the existing modules.
