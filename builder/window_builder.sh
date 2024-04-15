@@ -9,6 +9,7 @@ build_window_format() {
   local background="$3"
   local text="$4"
   local fill="$5"
+  local window_type="$6"
 
   # NOTE: For backwards compatibility remove before 1.0.0 and update default for
   # `@catppuccin_window_status`
@@ -36,6 +37,18 @@ build_window_format() {
     local icon
     icon="$(build_window_icon)"
     text="$text$icon"
+  fi
+
+  if [ "$window_type" = "current" ]; then
+    add_tmux_batch_option "@catppuccin_window_current_left_separator"
+    add_tmux_batch_option "@catppuccin_window_current_middle_separator"
+    add_tmux_batch_option "@catppuccin_window_current_right_separator"
+
+    run_tmux_batch_commands
+
+    window_left_separator=$(get_tmux_batch_option "@catppuccin_window_current_left_separator" "$window_left_separator")
+    window_middle_separator=$(get_tmux_batch_option "@catppuccin_window_current_middle_separator" "$window_middle_separator")
+    window_right_separator=$(get_tmux_batch_option "@catppuccin_window_current_right_separator" "$window_right_separator")
   fi
 
   if [ "$fill" = "none" ]; then
