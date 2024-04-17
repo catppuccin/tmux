@@ -68,8 +68,18 @@ main() {
   set status-right-length "100"
 
   # messages
-  set message-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
-  set message-command-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
+  local message_background
+  if [ "${status_background}" = "theme" ]; then
+    message_background="${thm_gray}"
+  else
+    if [ "${status_background}" = "default" ]; then
+      message_background="default"
+    else
+      message_background="${status_background}"
+    fi
+  fi
+  set message-style "fg=${thm_cyan},bg=${message_background},align=centre"
+  set message-command-style "fg=${thm_cyan},bg=${message_background},align=centre"
 
   # panes
   local pane_border_status pane_border_style \
