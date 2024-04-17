@@ -451,6 +451,26 @@ Add the load module to the status modules list.
 set -g @catppuccin_status_modules_right "... load ..."
 ```
 
+### Gitmux module
+
+#### Requirements
+This module depends on [gitmux](https://github.com/arl/gitmux).
+
+#### Install
+To install gitmux, follow the instructions in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#installing).
+
+#### Configure
+Add the gitmux module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... gitmux ..."
+```
+
+To customize the gitmux module, you can follow the instrucctions in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing) and add this line in your tmux configuration:
+```sh
+set -g @catppuccin_gitmux_text "#(gitmux -cfg $HOME/.gitmux.conf \"#{pane_current_path}\")"
+```
+
+
 ## Create a custom module
 
 It is possible to add a new custom module or overwrite any of the existing modules.
