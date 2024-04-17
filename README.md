@@ -465,9 +465,9 @@ Add the gitmux module to the status modules list.
 set -g @catppuccin_status_modules_right "... gitmux ..."
 ```
 
-To customize the gitmux module, you can follow the instruccitons in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing) and add this line in your tmux configuration:
+To customize the gitmux module, you can follow the instrucctions in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing) and add this line in your tmux configuration:
 ```sh
-set -g @catppuccin_git_text "#(gitmux -cfg $HOME/.gitmux.conf \"#{pane_current_path}\")"
+set -g @catppuccin_gitmux_text "#(gitmux -cfg $HOME/.gitmux.conf \"#{pane_current_path}\")"
 ```
 
 
