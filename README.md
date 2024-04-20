@@ -386,6 +386,48 @@ Add the cpu module to the status modules list.
 set -g @catppuccin_status_modules_right "... cpu ..."
 ```
 
+### CPU MEM module
+
+#### Requirements
+This module depends on [tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load).
+
+#### Install
+The preferred way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+
+#### Configure
+Load tmux-cpu after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'thewtex/tmux-mem-cpu-load'
+```
+
+Add the cpu module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... cpu_mem ..."
+```
+
+### Network module
+
+#### Requirements
+This module depends on [tmux-net-speed](https://github.com/tmux-plugins/tmux-net-speed).
+
+#### Install
+The preferred way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+
+#### Configure
+Load tmux-cpu after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'tmux-plugins/tmux-net-speed'
+```
+
+Add the cpu module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... network ..."
+```
+
 ### Weather modules
 
 #### tmux-weather
