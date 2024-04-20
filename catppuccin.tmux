@@ -45,7 +45,7 @@ main() {
   done <"${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
 
   # status general
-  local status_default status_justify status_background
+  local status_default status_justify status_background message_background
   status_default=$(get_tmux_option "@catppuccin_status_default" "on")
   # shellcheck disable=SC2121
   set status "$status_default"
@@ -56,11 +56,14 @@ main() {
   status_background=$(get_tmux_option "@catppuccin_status_background" "theme")
   if [ "${status_background}" = "theme" ]; then
     set status-bg "${thm_bg}"
+    message_background="${thm_gray}"
   else
     if [ "${status_background}" = "default" ]; then
       set status-style bg=default
+      message_background="default"
     else
       set status-bg "${status_background}"
+      message_background="${status_background}"
     fi
   fi
 
@@ -68,8 +71,8 @@ main() {
   set status-right-length "100"
 
   # messages
-  set message-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
-  set message-command-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
+  set message-style "fg=${thm_cyan},bg=${message_background},align=centre"
+  set message-command-style "fg=${thm_cyan},bg=${message_background},align=centre"
 
   # panes
   local pane_border_status pane_border_style \
