@@ -2,7 +2,10 @@ blank_issues_enabled: false
 contact_links:
   - name: Ask A Question
     url: https://github.com/catppuccin/tmux/discussions/new?category=q-a
-    about: Need help in tweaking your Catppuccin tmux configuration? Ask questions in GitHub Discussions!
+    about: Need help tweaking your Catppuccin tmux configuration? Ask questions in GitHub Discussions!
+  - name: Show & Tell
+    url: https://github.com/catppuccin/tmux/discussions/new?category=show-and-tell
+    about: Want to showcase your customised Catppuccin tmux configuration? Show it off in GitHub Discussions!
   - name: Community Discord
     url: https://discord.com/servers/catppuccin-907385605422448742
     about: Chat to other community members!
