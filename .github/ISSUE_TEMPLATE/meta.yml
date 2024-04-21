@@ -1,0 +1,18 @@
+name: Meta Issue
+description: Raise any issue regarding the repository here!
+labels: [meta]
+body:
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue outlining your problem?
+      description: Please search to see if an issue already exists for your problem.
+      options:
+        - label: I have searched the existing issues and they do not solve my problem.
+          required: true
+  - type: textarea
+    attributes:
+      label: Describe your issue.
+      description: Bugs should be raised under a [Bug Report](https://github.com/catppuccin/tmux/issues/new?assignees=&labels=bug&template=bug.yml).
+      placeholder: The README is missing crucial information such as...
+    validations:
+      required: true
