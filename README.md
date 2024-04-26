@@ -170,6 +170,13 @@ Values:
 set -g @catppuccin_window_default_text "#{b:pane_current_path}" # use "#W" for application instead of directory
 ```
 
+#### Override the window default separators
+```sh
+set -g @catppuccin_window_default_left_separator ""
+set -g @catppuccin_window_default_middle_separator "█"
+set -g @catppuccin_window_default_right_separator ""
+```
+
 ### Window current
 
 #### Set the window current color fill:
@@ -193,6 +200,13 @@ Values:
 #### Override the window current text:
 ```sh
 set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory
+```
+
+#### Override the window current separators
+```sh
+set -g @catppuccin_window_current_left_separator ""
+set -g @catppuccin_window_current_middle_separator "█"
+set -g @catppuccin_window_current_right_separator ""
 ```
 
 #### Set the current directory format
