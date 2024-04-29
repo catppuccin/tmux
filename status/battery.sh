@@ -18,6 +18,7 @@ show_battery() {
   tmux set-option -g @batt_icon_status_charging '󰂄'
   tmux set-option -g @batt_icon_status_discharging '󰂃'
   tmux set-option -g @batt_icon_status_unknown '󰂑'
+  tmux set-option -g @batt_icon_status_attached "󱈑"
 
   module=$(build_status_module "$index" "$icon" "$color" "$text")
 
