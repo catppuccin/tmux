@@ -48,11 +48,12 @@ build_window_format() {
   fi
 
   if [ "$fill" = "number" ]; then
+    local show_middle_separator
     local show_number="#[fg=$background,bg=$color]$number"
-    local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$window_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$background]$text"
 
     if [ "$window_number_position" = "right" ]; then
+      show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$window_middle_separator"
       if [ "$status_connect_separator" = "yes" ]; then
         local show_left_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_left_separator"
         local show_right_separator="#[fg=$color,bg=$thm_bg]$window_right_separator"
@@ -65,6 +66,8 @@ build_window_format() {
     fi
 
     if [ "$window_number_position" = "left" ]; then
+      show_middle_separator="#[fg=$background,bg=$color,nobold,nounderscore,noitalics]$window_middle_separator"
+
       if [ "$status_connect_separator" = "yes" ]; then
         local show_right_separator="#[fg=$background,bg=$thm_bg,nobold,nounderscore,noitalics]$window_right_separator"
         local show_left_separator="#[fg=$color,bg=$thm_bg]$window_left_separator"
