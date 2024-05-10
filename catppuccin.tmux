@@ -42,7 +42,7 @@ main() {
     # '$key' stores the key.
     # '$val' stores the value.
     eval "local $key"="$val"
-  done <"${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
+  done <"${PLUGIN_DIR}/themes/catppuccin_${theme}.tmuxtheme"
 
   # status general
   local status_default status_justify status_background message_background
