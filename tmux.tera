@@ -1,0 +1,26 @@
+---
+whiskers:
+  version: "2.1.0"
+  matrix:
+    - flavor
+  filename: "themes/catppuccin_{{flavor.identifier}}.tmuxtheme"
+---
+{%- set palette = flavor.colors -%}
+# NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
+# WARNING: hex colors can't contain capital letters
+
+# --> Catppuccin ({{ flavor.identifier | capitalize }})
+thm_bg="#{{ palette.base.hex | lower }}"
+thm_fg="#{{ palette.text.hex | lower }}"
+thm_cyan="#{{ palette.sky.hex| lower }}"
+thm_black="#{{ palette.mantle.hex | lower }}"
+thm_gray="#{{ palette.surface0.hex | lower }}"
+thm_magenta="#{{ palette.mauve.hex | lower }}"
+thm_pink="#{{ palette.pink.hex | lower }}"
+thm_red="#{{ palette.red.hex | lower }}"
+thm_green="#{{ palette.green.hex | lower }}"
+thm_yellow="#{{ palette.yellow.hex | lower }}"
+thm_blue="#{{ palette.blue.hex | lower }}"
+thm_orange="#{{ palette.peach.hex | lower }}"
+thm_black4="#{{ palette.surface2.hex | lower }}"
+{% raw %}{% endraw %}{# Needs to end with a newline #}
