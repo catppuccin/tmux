@@ -69,7 +69,7 @@ main() {
       set status-style bg=default
       message_background="default"
     else
-      message_background="$(do_color_interpolation)"
+      message_background="$(do_color_interpolation "$status_background")"
       set status-bg "${message_background}"
     fi
   fi
