@@ -12,6 +12,8 @@ source "${PLUGIN_DIR}/builder/window_builder.sh"
 source "${PLUGIN_DIR}/builder/pane_builder.sh"
 # shellcheck source=./utils/tmux_utils.sh
 source "${PLUGIN_DIR}/utils/tmux_utils.sh"
+# shellcheck source=./utils/interpolate_utils.sh
+source "${PLUGIN_DIR}/utils/interpolate_utils.sh"
 # shellcheck source=./utils/module_utils.sh
 source "${PLUGIN_DIR}/utils/module_utils.sh"
 
@@ -29,6 +31,8 @@ main() {
 
   # load local theme
   local theme
+  local color_interpolation=()
+  local color_values=()
   theme="$(get_tmux_option "@catppuccin_flavour" "mocha")"
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
@@ -42,6 +46,9 @@ main() {
     # '$key' stores the key.
     # '$val' stores the value.
     eval "local $key"="$val"
+
+    color_interpolation+=("\#{$key}")
+    color_values+=("${val:1:-1}")
   done <"${PLUGIN_DIR}/themes/catppuccin_${theme}.tmuxtheme"
 
   # status general
@@ -62,8 +69,8 @@ main() {
       set status-style bg=default
       message_background="default"
     else
-      set status-bg "${status_background}"
-      message_background="${status_background}"
+      message_background="$(do_color_interpolation)"
+      set status-bg "${message_background}"
     fi
   fi
 
@@ -80,9 +87,11 @@ main() {
     pane_right_separator pane_number_position pane_format
   pane_status_enable=$(get_tmux_option "@catppuccin_pane_status_enabled" "no") # yes
   pane_border_status=$(get_tmux_option "@catppuccin_pane_border_status" "off") # bottom
-  pane_border_style=$(get_tmux_option "@catppuccin_pane_border_style" "fg=${thm_gray}")
+  pane_border_style=$(
+    get_interpolated_tmux_option "@catppuccin_pane_border_style" "fg=${thm_gray}"
+  )
   pane_active_border_style=$(
-    get_tmux_option "@catppuccin_pane_active_border_style" \
+    get_interpolated_tmux_option "@catppuccin_pane_active_border_style" \
       "#{?pane_in_mode,fg=${thm_yellow},#{?pane_synchronized,fg=${thm_magenta},fg=${thm_orange}}}"
   )
   pane_left_separator=$(get_tmux_option "@catppuccin_pane_left_separator" "█")
@@ -94,14 +103,14 @@ main() {
   setw pane-border-status "$pane_border_status"
   setw pane-active-border-style "$pane_active_border_style"
   setw pane-border-style "$pane_border_style"
-  setw pane-border-format "$pane_format"
+  setw pane-border-format "$(do_color_interpolation "$pane_format")"
 
   # window
   local window_status_separator window_left_separator window_right_separator \
     window_middle_separator window_number_position window_status_enable \
     window_format window_current_format
 
-  window_status_separator=$(get_tmux_option "@catppuccin_window_separator" "")
+  window_status_separator=$(get_interpolated_tmux_option "@catppuccin_window_separator" "")
   setw window-status-separator "$window_status_separator"
 
   window_left_separator=$(get_tmux_option "@catppuccin_window_left_separator" "█")
@@ -111,10 +120,10 @@ main() {
   window_status_enable=$(get_tmux_option "@catppuccin_window_status_enable" "no")       # right, left
 
   window_format=$(load_modules "window_default_format" "$modules_custom_path" "$modules_window_path")
-  setw window-status-format "$window_format"
+  setw window-status-format "$(do_color_interpolation "$window_format")"
 
   window_current_format=$(load_modules "window_current_format" "$modules_custom_path" "$modules_window_path")
-  setw window-status-current-format "$window_current_format"
+  setw window-status-current-format "$(do_color_interpolation "$window_current_format")"
 
   # status module
   local status_left_separator status_right_separator status_connect_separator \
@@ -126,11 +135,11 @@ main() {
 
   status_modules_left=$(get_tmux_option "@catppuccin_status_modules_left" "")
   loaded_modules_left=$(load_modules "$status_modules_left" "$modules_custom_path" "$modules_status_path")
-  set status-left "$loaded_modules_left"
+  set status-left "$(do_color_interpolation "$loaded_modules_left")"
 
   status_modules_right=$(get_tmux_option "@catppuccin_status_modules_right" "application session")
   loaded_modules_right=$(load_modules "$status_modules_right" "$modules_custom_path" "$modules_status_path")
-  set status-right "$loaded_modules_right"
+  set status-right "$(do_color_interpolation "$loaded_modules_right")"
 
   # modes
   setw clock-mode-colour "${thm_blue}"

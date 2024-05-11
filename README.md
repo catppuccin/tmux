@@ -163,7 +163,7 @@ set -g @catppuccin_window_default_background "color"
 ```
 
 Values:
-- color - a hexadecimal color value
+- color - a theme color (`#{thm_<color>}`) or hexadecimal color value
 
 #### Override the window default text:
 ```sh
@@ -188,7 +188,7 @@ set -g @catppuccin_window_current_background "color"
 ```
 
 Values:
-- color - a hexadecimal color value
+- color - a theme color (`#{thm_<color>}`) or a hexadecimal color value
 
 #### Override the window current text:
 ```sh
@@ -212,13 +212,13 @@ Use this to override the way the directory is displayed.
 #### Set the pane border style:
 
 ```sh
-set -g @catppuccin_pane_border_style "fg=blue" # Use a value compatible with the standard tmux 'pane-border-style'
+set -g @catppuccin_pane_border_style "fg=#{thm_blue}" # Use a value compatible with the standard tmux 'pane-border-style'
 ```
 
 #### Set the pane active border style:
 
 ```sh
-set -g @catppuccin_pane_active_border_style "fg=red" # Use a value compatible with the standard tmux 'pane-border-active-style'
+set -g @catppuccin_pane_active_border_style "fg=#{thm_red}" # Use a value compatible with the standard tmux 'pane-border-active-style'
 ```
 
 
@@ -236,7 +236,7 @@ set -g @catppuccin_status_background "theme"
 This will overwrite the status bar background:
 - "theme" will use the color from the selected theme
 - "default" will make the status bar transparent
-- use hex color codes for other colors
+- use hex color codes for other colors or a theme color (`#{theme_<color>}`)
 
 Note: you need to restart tmux for this to take effect: 
 ```sh
