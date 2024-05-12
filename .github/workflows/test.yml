@@ -38,16 +38,14 @@ jobs:
     name: "Old Bash"
     runs-on: ubuntu-latest
     container:
-      image: bash:3.2.57 # Bash version used by macos
+      image: bash:3.2.57-alpine3.19 # Bash version used by macos
     steps:
       - uses: actions/checkout@v4
       - name: Check Syntax is Valid
         shell: bash
         run: |
-          # No tmux available in this container
-          tmp="$(mktemp -d)"
-          touch "$tmp/tmux"
-          chmod +x "$tmp/tmux"
-          export PATH="$tmp:$PATH"
+          apk update
+          apk add tmux
           bash --version
+          tmux -V
           ./.github/scripts/test.bash ./catppuccin.tmux
