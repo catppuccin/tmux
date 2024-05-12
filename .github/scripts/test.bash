@@ -59,7 +59,7 @@ main() {
     exit 1
   else
     echo "Running plugin: $plugin" >&2
-    output=$(tmux run-shell "$plugin" 2>&1)
+    output="$(tmux run-shell "$plugin" 2>&1)"
     exit_code="$?"
 
     check "$exit_code" "$output"
