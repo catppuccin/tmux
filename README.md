@@ -31,7 +31,6 @@
    1. [CPU module](#CPU-module)
    1. [Weather modules](#weather-modules)
    1. [Load module](#load-module)
-   1. [Uptime module](#uptime-module)
 1. [Create a custom module](#create-a-custom-module)
 1. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
@@ -40,10 +39,10 @@
 
 ## Themes
 
-- 🌻 [Latte](./catppuccin-latte.tmuxtheme)
-- 🪴 [Frappé](./catppuccin-frappe.tmuxtheme)
-- 🌺 [Macchiato](./catppuccin-macchiato.tmuxtheme)
-- 🌿 [Mocha](./catppuccin-mocha.tmuxtheme)
+- 🌻 [Latte](./themes/catppuccin_latte.tmuxtheme)
+- 🪴 [Frappé](./themes/catppuccin_frappe.tmuxtheme)
+- 🌺 [Macchiato](./themes/catppuccin_macchiato.tmuxtheme)
+- 🌿 [Mocha](./themes/catppuccin_mocha.tmuxtheme)
 
 ## Installation
 
@@ -64,7 +63,7 @@ set -g @plugin 'tmux-plugins/tpm'
 3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
 ```bash
-set -g @catppuccin_flavour 'latte' # or frappe, macchiato, mocha
+set -g @catppuccin_flavour 'mocha' # latte,frappe, macchiato or mocha
 ```
 
 ### Manual
@@ -120,7 +119,7 @@ Values:
 
 #### Enable window status:
 ```sh
-set -g @catppuccin_window_status_enable "yes"
+set -g @catppuccin_window_status_enable "no"
 ```
 Values:
 - yes - this will enable the window status part
@@ -136,13 +135,13 @@ Values:
 
 #### Override windows status icons
 ```sh
-set -g @catppuccin_icon_window_last "󰖰 "
-set -g @catppuccin_icon_window_current "󰖯 "
-set -g @catppuccin_icon_window_zoom "󰁌 "
-set -g @catppuccin_icon_window_mark "󰃀 "
-set -g @catppuccin_icon_window_silent "󰂛 "
-set -g @catppuccin_icon_window_activity "󱅫 "
-set -g @catppuccin_icon_window_bell "󰂞 "
+set -g @catppuccin_icon_window_last "󰖰"
+set -g @catppuccin_icon_window_current "󰖯"
+set -g @catppuccin_icon_window_zoom "󰁌"
+set -g @catppuccin_icon_window_mark "󰃀"
+set -g @catppuccin_icon_window_silent "󰂛"
+set -g @catppuccin_icon_window_activity "󱅫"
+set -g @catppuccin_icon_window_bell "󰂞"
 ```
 
 ### Window default
@@ -158,8 +157,8 @@ Values:
 
 #### Override the window default colors:
 ```sh
-set -g @catppuccin_window_default_color "color" # text color
-set -g @catppuccin_window_default_background "color"
+set -g @catppuccin_window_default_color "#{thm_blue}" # text color
+set -g @catppuccin_window_default_background "#{thm_gray}"
 ```
 
 Values:
@@ -183,8 +182,8 @@ Values:
 
 #### Override the window current colors:
 ```sh
-set -g @catppuccin_window_current_color "color" # text color
-set -g @catppuccin_window_current_background "color"
+set -g @catppuccin_window_current_color "#{thm_orange}" # text color
+set -g @catppuccin_window_current_background "#{thm_bg}"
 ```
 
 Values:
@@ -195,37 +194,25 @@ Values:
 set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory
 ```
 
-#### Set the current directory format
-```sh
-set -g @catppuccin_window_current_format_directory_text "#{b:pane_current_path}"
-```
-Use this to override the way the current directory is displayed.
-
-#### Set the directory format
-```sh
-set -g @catppuccin_window_format_directory_text "#{b:pane_current_path}"
-```
-Use this to override the way the directory is displayed.
-
 ### Pane
 
 #### Set the pane border style:
 
 ```sh
-set -g @catppuccin_pane_border_style "fg=#{thm_blue}" # Use a value compatible with the standard tmux 'pane-border-style'
+set -g @catppuccin_pane_border_style "fg=#{thm_gray}" # Use a value compatible with the standard tmux 'pane-border-style'
 ```
 
 #### Set the pane active border style:
 
 ```sh
-set -g @catppuccin_pane_active_border_style "fg=#{thm_red}" # Use a value compatible with the standard tmux 'pane-border-active-style'
+set -g @catppuccin_pane_active_border_style "fg=#{thm_orange}" # Use a value compatible with the standard tmux 'pane-border-active-style'
 ```
 
 
 ### Status
 #### Set the default status bar visibility
 ```sh
-set -g @catppuccin_status_default "off" # defaults to "on"
+set -g @catppuccin_status_default "on"
 
 ```
 
@@ -236,7 +223,7 @@ set -g @catppuccin_status_background "theme"
 This will overwrite the status bar background:
 - "theme" will use the color from the selected theme
 - "default" will make the status bar transparent
-- use hex color codes for other colors or a theme color (`#{theme_<color>}`)
+- use hex color codes for other colors or a theme color (`#{thm_<color>}`)
 
 Note: you need to restart tmux for this to take effect: 
 ```sh
@@ -283,19 +270,18 @@ Values:
 ### Pane
 
 ```sh
-tmux_orange="#fab387"
-set -g @catppuccin_pane_status_enabled "yes"
-set -g @catppuccin_pane_border_status "top"
-set -g @catppuccin_pane_left_separator ""
-set -g @catppuccin_pane_right_separator ""
-set -g @catppuccin_pane_middle_separator "█ "
+set -g @catppuccin_pane_status_enabled "no"
+set -g @catppuccin_pane_border_status "off" # See `pane-border-status`
+set -g @catppuccin_pane_left_separator "█"
+set -g @catppuccin_pane_right_separator "█"
+set -g @catppuccin_pane_middle_separator "█"
 set -g @catppuccin_pane_number_position "left"
 set -g @catppuccin_pane_default_fill "number"
 set -g @catppuccin_pane_default_text "#{b:pane_current_path}"
-set -g @catppuccin_pane_border_style "fg=$tmux_orange"
-set -g @catppuccin_pane_active_border_style "fg=$tmux_orange"
-set -g @catppuccin_pane_color "$tmux_orange"
-set -g @catppuccin_pane_background_color "$tmux_orange"
+set -g @catppuccin_pane_border_style "fg=#{thm_orange}"
+set -g @catppuccin_pane_active_border_style "fg=#{thm_orange}"
+set -g @catppuccin_pane_color "#{thm_orange}"
+set -g @catppuccin_pane_background_color "#{thm_orange}"
 ```
 
 #### Set the module list
