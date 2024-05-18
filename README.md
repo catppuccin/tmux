@@ -31,7 +31,6 @@
    1. [CPU module](#CPU-module)
    1. [Weather modules](#weather-modules)
    1. [Load module](#load-module)
-   1. [Uptime module](#uptime-module)
 1. [Create a custom module](#create-a-custom-module)
 1. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
