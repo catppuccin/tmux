@@ -195,18 +195,6 @@ Values:
 set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory
 ```
 
-#### Set the current directory format
-```sh
-set -g @catppuccin_window_current_format_directory_text "#{b:pane_current_path}"
-```
-Use this to override the way the current directory is displayed.
-
-#### Set the directory format
-```sh
-set -g @catppuccin_window_format_directory_text "#{b:pane_current_path}"
-```
-Use this to override the way the directory is displayed.
-
 ### Pane
 
 #### Set the pane border style:
