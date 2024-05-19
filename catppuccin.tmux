@@ -53,7 +53,7 @@ main() {
     temp="${temp#\"}"
     color_interpolation+=("\#{$key}")
     color_values+=("${temp}")
-  done <"${PLUGIN_DIR}/themes/catppuccin_${theme}.tmuxtheme"
+  done <"${PLUGIN_DIR}/themes/${theme}.tmuxtheme"
 
   # status general
   local status_default status_justify status_background message_background
