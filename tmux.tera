@@ -1,6 +1,6 @@
 ---
 whiskers:
-  version: "2.1.0"
+  version: "2.1.1"
   matrix:
     - flavor
   filename: "themes/catppuccin_{{flavor.identifier}}.tmuxtheme"
@@ -23,4 +23,3 @@ thm_yellow="#{{ palette.yellow.hex | lower }}"
 thm_blue="#{{ palette.blue.hex | lower }}"
 thm_orange="#{{ palette.peach.hex | lower }}"
 thm_black4="#{{ palette.surface2.hex | lower }}"
-{% raw %}{% endraw %}{# Needs to end with a newline #}
