@@ -2,16 +2,54 @@
 # WARNING: hex colors can't contain capital letters
 
 # --> Catppuccin (Frappe)
-thm_bg="#303446"
-thm_fg="#c6d0f5"
-thm_cyan="#99d1db"
-thm_black="#292c3c"
-thm_gray="#414559"
-thm_magenta="#ca9ee6"
-thm_pink="#f4b8e4"
-thm_red="#e78284"
-thm_green="#a6d189"
-thm_yellow="#e5c890"
-thm_blue="#8caaee"
-thm_orange="#ef9f76"
-thm_black4="#626880"
+thm_bg="#303340"
+
+thm_fg="#add7ff"
+
+thm_cyan="#89ddff"
+
+thm_black="#1b1e28"
+
+thm_gray="#506477"
+
+thm_magenta="#717cb4"
+
+thm_pink="#f087bd"
+
+thm_red="#d0679d"
+
+thm_green="#5de4c7"
+
+thm_yellow="#fffac2"
+
+thm_blue="#5fb3a1"
+
+thm_orange="#d0679d"
+
+thm_black4="#7390aa"
+
+#brightYellow: '#fffac2',
+#brightMint: '#5DE4c7',
+#lowerMint: '#5fb3a1',
+#blueishGreen: '#42675A',
+
+#lowerBlue: '#89ddff',
+#lightBlue: '#ADD7FF',
+#desaturatedBlue: '#91B4D5',
+#bluishGrayBrighter: '#7390AA',
+#
+#hotRed: '#d0679d',
+#pink: '#f087bd',
+#gray: '#a6accd',
+#
+#darkerGray: '#767c9d',
+#bluishGray: '#506477',
+#focus: '#303340',
+#bg: '#1b1e28',
+#
+#offWhite: '#e4f0fb',
+#selection: '#717cb425',
+#
+#white: '#ffffff',
+#black: '#000000',
+#transparent: '#00000000',
