@@ -2,7 +2,7 @@
 # WARNING: hex colors can't contain capital letters
 
 # --> Catppuccin (Gruvbox)
-thm_bg="#3c3836"
+thm_bg="#282828"
 thm_fg="#ebdbb2"
 thm_cyan="#83a598"
 thm_black="#181825"
