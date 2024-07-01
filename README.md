@@ -43,6 +43,7 @@
 - 🪴 [Frappé](./themes/catppuccin_frappe.tmuxtheme)
 - 🌺 [Macchiato](./themes/catppuccin_macchiato.tmuxtheme)
 - 🌿 [Mocha](./themes/catppuccin_mocha.tmuxtheme)
+- [Gruvbox](./themes/catppuccin_gruvbox.tmuxtheme)
 
 ## Installation
 
@@ -63,7 +64,7 @@ set -g @plugin 'tmux-plugins/tpm'
 3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
 ```bash
-set -g @catppuccin_flavour 'mocha' # latte,frappe, macchiato or mocha
+set -g @catppuccin_flavour 'mocha' # gruvbox, latte,frappe, macchiato or mocha
 ```
 
 ### Manual
