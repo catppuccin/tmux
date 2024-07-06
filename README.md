@@ -457,6 +457,27 @@ To customize the gitmux module, you can follow the instrucctions in the [gitmux 
 set -g @catppuccin_gitmux_text "#(gitmux -cfg $HOME/.gitmux.conf \"#{pane_current_path}\")"
 ```
 
+### Pomodoro module
+
+#### Requirements
+This module depends on [tmux-pomodoro-plus](https://github.com/olimorris/tmux-pomodoro-plus/tree/main).
+
+#### Install
+The preferred way to install tmux-pomodoro-plus is using [TPM](https://github.com/tmux-plugins/tpm).
+
+#### Configure
+Load tmux-pomodoro-plus after you load catppuccin.
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'olimorris/tmux-pomodoro-plus'
+```
+
+Add the pomodoro module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... pomodoro_plus ..."
+```
+
 
 ## Create a custom module
 
