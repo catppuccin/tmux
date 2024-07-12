@@ -1,5 +1,10 @@
 #!/bin/sh
 
+tmux_echo() {
+  local message="$1"
+  tmux run-shell "echo '$message'"
+}
+
 get_tmux_option() {
   local option value default
   option="$1"

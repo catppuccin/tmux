@@ -29,9 +29,12 @@ load_modules() {
         source "$module_path"
         loaded_modules="$loaded_modules$( "show_$module_name" "$module_index" )"
         module_index+=1
-        break
+        continue 2
       fi
     done
+    tmux_echo "catppuccin warning: module $module_name not found"
+
+
   done
 
   echo "$loaded_modules"
