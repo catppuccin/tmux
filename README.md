@@ -208,6 +208,25 @@ set -g @catppuccin_pane_border_style "fg=#{thm_gray}" # Use a value compatible w
 set -g @catppuccin_pane_active_border_style "fg=#{thm_orange}" # Use a value compatible with the standard tmux 'pane-border-active-style'
 ```
 
+### Menu
+
+#### Set the menu style:
+
+```sh
+set -g @catppuccin_menu_style "fg=#{thm_fg},bg=#{thm_gray}" # Use a value compatible with the standard tmux `menu-style`
+```
+
+#### Set the menu selected style:
+
+```sh
+set -g @catppuccin_menu_selected_style "fg=#{thm_gray},bg=#{thm_yellow}" # Use a value compatible with the standard tmux `menu-selected-style`
+```
+
+### Set the menu border style:
+
+```sh
+set -g @catppuccin_menu_border_style "fg=#{thm_fg},bg=#{thm_gray}" # Use a value compatible with the standard tmux `menu-border-style`
+```
 
 ### Status
 #### Set the default status bar visibility
