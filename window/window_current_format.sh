@@ -1,5 +1,16 @@
 show_window_current_format() {
   local number color background text fill current_window_format
+  # shellcheck disable=SC2034
+  local tmux_batch_options_commands=()
+  # shellcheck disable=SC2034
+  local tmux_batch_options=()
+
+  add_tmux_batch_option "@catppuccin_window_current_color"
+  add_tmux_batch_option "@catppuccin_window_current_background"
+  add_tmux_batch_option "@catppuccin_window_current_text"
+  add_tmux_batch_option "@catppuccin_window_current_fill"
+
+  run_tmux_batch_commands
 
   number="#I"
   color=$(get_tmux_batch_option "@catppuccin_window_current_color" "$thm_orange")

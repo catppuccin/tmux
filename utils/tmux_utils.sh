@@ -57,78 +57,78 @@ setw() {
 }
 
 get_tmux_batch_option() {
-	local option default value
-	option="$1"
+  local option default value
+  option="$1"
   default="$2"
 
-	for option_index in "${!tmux_batch_options[@]}"; do
-		IFS=":" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
-		if [[ "$read_option" == "$option" ]]; then
-			echo "$read_value"
+  for option_index in "${!tmux_batch_options[@]}"; do
+    IFS=":" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
+    if [[ "$read_option" == "$option" ]]; then
+      echo "$read_value"
       return
-		fi
-	done
+    fi
+  done
 
   echo "$default"
 }
 
 get_interpolated_tmux_batch_option() {
-	local option default value
-	option="$1"
+  local option default value
+  option="$1"
   default="$2"
 
-	for option_index in "${!tmux_batch_options[@]}"; do
-		IFS=":" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
-		if [[ "$read_option" == "$option" ]]; then
+  for option_index in "${!tmux_batch_options[@]}"; do
+    IFS=":" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
+    if [[ "$read_option" == "$option" ]]; then
       do_color_interpolation "$read_value"
       return
-		fi
-	done
+    fi
+  done
 
   echo "$default"
 }
 
 add_tmux_batch_option() {
-	local option
-	option="$1"
+  local option
+  option="$1"
 
-	tmux_batch_options_commands+=("show-option -gq $option ;")
+  tmux_batch_options_commands+=("show-option -gq $option ;")
 }
 
 set_tmux_batch_option() {
-	local option value
-	option="$1"
-	value="$2"
+  local option value
+  option="$1"
+  value="$2"
 
-	for option_index in "${!tmux_batch_options[@]}"; do
-		read -d ':' -r read_option <<<"${tmux_batch_options[$option_index]}"
-		if [[ "$read_option" == "$option" ]]; then
-			tmux_batch_options["$option_index"]="$option:$value"
-			return
-		fi
-	done
+  # NOTE: don't check for duplicates just append
+  # for option_index in "${!tmux_batch_options[@]}"; do
+  #   read -d ':' -r read_option <<<"${tmux_batch_options[$option_index]}"
+  #   if [[ "$read_option" == "$option" ]]; then
+  #     tmux_batch_options["$option_index"]="$option:$value"
+  #     return
+  #   fi
+  # done
 
   tmux_batch_options+=("$option:$value")
-	tmux_batch_options_commands+=("show-option -gq $option ;")
 }
 
 run_tmux_batch_commands() {
-	local temp
+  local temp
 
   # shellcheck disable=SC2048,SC2086
-	while IFS=' ' read -r option value; do
-		if [ -n "$value" ]; then
-			if [ "$value" = "null" ]; then
-				set_tmux_batch_option "$option" ""
-			else
-				temp="${value%\"}"
-				temp="${temp#\"}"
-				set_tmux_batch_option "$option" "$temp"
-			fi
-		fi
-	done < <(tmux ${tmux_batch_options_commands[*]})
+  while IFS=' ' read -r option value; do
+    if [ -n "$value" ]; then
+      if [ "$value" = "null" ]; then
+        set_tmux_batch_option "$option" ""
+      else
+        temp="${value%\"}"
+        temp="${temp#\"}"
+        set_tmux_batch_option "$option" "$temp"
+      fi
+    fi
+  done < <(tmux ${tmux_batch_options_commands[*]})
 
-	tmux_batch_options_commands=()
+  tmux_batch_options_commands=()
 }
 
 tmux_batch_setup_module() {
