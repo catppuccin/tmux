@@ -1,5 +1,16 @@
 show_window_default_format() {
   local number color background text fill default_window_format
+  # shellcheck disable=SC2034
+  local tmux_batch_options_commands=()
+  # shellcheck disable=SC2034
+  local tmux_batch_options=()
+
+  add_tmux_batch_option "@catppuccin_window_default_color"
+  add_tmux_batch_option "@catppuccin_window_default_background"
+  add_tmux_batch_option "@catppuccin_window_default_text"
+  add_tmux_batch_option "@catppuccin_window_default_fill"
+
+  run_tmux_batch_commands
 
   number="#I"
   color=$(get_tmux_batch_option "@catppuccin_window_default_color" "$thm_blue")

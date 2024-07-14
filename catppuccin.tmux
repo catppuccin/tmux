@@ -88,22 +88,6 @@ main() {
   add_tmux_batch_option "@catppuccin_status_modules_left"
   add_tmux_batch_option "@catppuccin_status_modules_right"
 
-  # Module options that are _always_ required
-  add_tmux_batch_option "@catppuccin_pane_color"
-  add_tmux_batch_option "@catppuccin_pane_background_color"
-  add_tmux_batch_option "@catppuccin_pane_default_text"
-  add_tmux_batch_option "@catppuccin_pane_default_fill"
-
-  add_tmux_batch_option "@catppuccin_window_default_color"
-  add_tmux_batch_option "@catppuccin_window_default_background"
-  add_tmux_batch_option "@catppuccin_window_default_text"
-  add_tmux_batch_option "@catppuccin_window_default_fill"
-
-  add_tmux_batch_option "@catppuccin_window_current_color"
-  add_tmux_batch_option "@catppuccin_window_current_background"
-  add_tmux_batch_option "@catppuccin_window_current_text"
-  add_tmux_batch_option "@catppuccin_window_current_fill"
-
   run_tmux_batch_commands
 
   # status general
