@@ -3,6 +3,13 @@
 show_kube() {
   local index icon color text context_color namespace_color symbol_enabled module
 
+  tmux_batch_setup_module "kube"
+
+  add_tmux_batch_option "@catppuccin_kube_context_color"
+  add_tmux_batch_option "@catppuccin_kube_namespace_color"
+
+  run_tmux_batch_commands
+
   index=$1
   icon=$(get_tmux_option "@catppuccin_kube_icon" "󱃾")
   color=$(get_tmux_option "@catppuccin_kube_color" "$thm_blue")
