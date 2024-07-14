@@ -1,7 +1,7 @@
 show_uptime() {
   local index icon color text module
 
-  tmux_batch_setup_module "application"
+  tmux_batch_setup_module "uptime"
   run_tmux_batch_commands
 
   index=$1
