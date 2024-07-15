@@ -478,6 +478,33 @@ set -g @catppuccin_status_modules_right "... pomodoro_plus ..."
 ```
 
 
+### Kube module
+
+#### Requirements
+This module depends on [kube-tmux](https://github.com/jonmosco/kube-tmux).
+
+#### Install
+The preferred way to install kube-tmux is using [TPM](https://github.com/tmux-plugins/tpm).
+
+#### Configure
+```sh
+set -g @plugin 'catppuccin/tmux'
+...
+set -g @plugin 'jonmosco/kube-tmux'
+```
+
+Add the tmux module to the status modules list.
+```sh
+set -g @catppuccin_status_modules_right "... kube ..."
+```
+
+Optionally override the kube-tmux colors
+```sh
+set -g @catppuccin_kube_context_color "red"
+set -g @catppuccin_kube_namespace_color "cyan"
+```
+
+
 ## Create a custom module
 
 It is possible to add a new custom module or overwrite any of the existing modules.
