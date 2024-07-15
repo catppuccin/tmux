@@ -87,9 +87,9 @@ main() {
 
   # menu
   local menu_style menu_selected_style menu_border_style
-  menu_style=$(get_interpolated_tmux_option "@catppuccin_menu_style" "fg=${thm_fg},bg=default")
-  menu_selected_style=$(get_interpolated_tmux_option "@catppuccin_menu_selected_style" "fg=${thm_gray},bg=${thm_yellow}")
-  menu_border_style=$(get_interpolated_tmux_option "@catppuccin_menu_border_style" "fg=${thm_fg},bg=default")
+  menu_style=$(get_interpolated_tmux_option "@catppuccin_menu_style" "default")
+  menu_selected_style=$(get_interpolated_tmux_option "@catppuccin_menu_selected_style" "fg=${thm_black4},bg=${thm_yellow}")
+  menu_border_style=$(get_interpolated_tmux_option "@catppuccin_menu_border_style" "default")
   set menu-style "$menu_style"
   set menu-selected-style "$menu_selected_style"
   set menu-border-style "$menu_border_style"
