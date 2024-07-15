@@ -500,8 +500,8 @@ set -g @catppuccin_status_modules_right "... kube ..."
 
 Optionally override the kube-tmux colors
 ```sh
-set -g @catppuccin_kube_context_color "red"
-set -g @catppuccin_kube_namespace_color "cyan"
+set -g @catppuccin_kube_context_color "#{thm_red}"
+set -g @catppuccin_kube_namespace_color "#{thm_cyan}"
 ```
 
 
