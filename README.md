@@ -219,7 +219,7 @@ set -g @catppuccin_menu_style "fg=#{thm_fg},bg=default" # Use a value compatible
 #### Set the menu selected style:
 
 ```sh
-set -g @catppuccin_menu_selected_style "fg=#{thm_gray},bg=#{thm_yellow}" # Use a value compatible with the standard tmux `menu-selected-style`
+set -g @catppuccin_menu_selected_style "fg=#{thm_black4},bg=#{thm_yellow}" # Use a value compatible with the standard tmux `menu-selected-style`
 ```
 
 ### Set the menu border style:
