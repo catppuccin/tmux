@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+show_window_status=
+
 build_window_format() {
   local number="$1"
   local color="$2"
@@ -93,34 +96,56 @@ build_window_format() {
 }
 
 build_window_icon() {
-  local window_status_icon_enable custom_icon_window_last \
-    custom_icon_window_zoom custom_icon_window_mark custom_icon_window_mark \
-    custom_icon_window_silent custom_icon_window_activity custom_icon_window_bell
+  # Only update `show_window_status` if it's not empty
+  # this module is ran twice once for current and once for default
+  # meaning 2 calls to build_window_icon wich will/should both return the same
+  # result.
+  if [ -z "$show_window_status" ]; then
+    local window_status_icon_enable custom_icon_window_last \
+      custom_icon_window_zoom custom_icon_window_mark custom_icon_window_mark \
+      custom_icon_window_silent custom_icon_window_activity custom_icon_window_bell
 
-  window_status_icon_enable=$(get_tmux_option "@catppuccin_window_status_icon_enable" "yes")
-  custom_icon_window_last=$(get_tmux_option "@catppuccin_icon_window_last" "󰖰")
-  custom_icon_window_current=$(get_tmux_option "@catppuccin_icon_window_current" "󰖯")
-  custom_icon_window_zoom=$(get_tmux_option "@catppuccin_icon_window_zoom" "󰁌")
-  custom_icon_window_mark=$(get_tmux_option "@catppuccin_icon_window_mark" "󰃀")
-  custom_icon_window_silent=$(get_tmux_option "@catppuccin_icon_window_silent" "󰂛")
-  custom_icon_window_activity=$(get_tmux_option "@catppuccin_icon_window_activity" "󱅫")
-  custom_icon_window_bell=$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞")
+    # shellcheck disable=SC2034
+    local tmux_batch_options_commands=()
+    # shellcheck disable=SC2034
+    local tmux_batch_options=()
 
-  if [ "$window_status_icon_enable" = "yes" ]; then
-    # #!~[*-]MZ
-    local show_window_status=""
-    show_window_status+="#{?window_activity_flag, ${custom_icon_window_activity},}"
-    show_window_status+="#{?window_bell_flag, ${custom_icon_window_bell},}"
-    show_window_status+="#{?window_silence_flag, ${custom_icon_window_silent},}"
-    show_window_status+="#{?window_active, ${custom_icon_window_current},}"
-    show_window_status+="#{?window_last_flag, ${custom_icon_window_last},}"
-    show_window_status+="#{?window_marked_flag, ${custom_icon_window_mark},}"
-    show_window_status+="#{?window_zoomed_flag, ${custom_icon_window_zoom},}"
+    add_tmux_batch_option "@catppuccin_window_status_icon_enable"
+    add_tmux_batch_option "@catppuccin_icon_window_last"
+    add_tmux_batch_option "@catppuccin_icon_window_current"
+    add_tmux_batch_option "@catppuccin_icon_window_zoom"
+    add_tmux_batch_option "@catppuccin_icon_window_mark"
+    add_tmux_batch_option "@catppuccin_icon_window_silent"
+    add_tmux_batch_option "@catppuccin_icon_window_activity"
+    add_tmux_batch_option "@catppuccin_icon_window_bell"
 
-  fi
+    run_tmux_batch_commands
 
-  if [ "$window_status_icon_enable" = "no" ]; then
-    local show_window_status=" #F"
+    window_status_icon_enable=$(get_tmux_batch_option "@catppuccin_window_status_icon_enable" "yes")
+    custom_icon_window_last=$(get_tmux_batch_option "@catppuccin_icon_window_last" "󰖰")
+    custom_icon_window_current=$(get_tmux_batch_option "@catppuccin_icon_window_current" "󰖯")
+    custom_icon_window_zoom=$(get_tmux_batch_option "@catppuccin_icon_window_zoom" "󰁌")
+    custom_icon_window_mark=$(get_tmux_batch_option "@catppuccin_icon_window_mark" "󰃀")
+    custom_icon_window_silent=$(get_tmux_batch_option "@catppuccin_icon_window_silent" "󰂛")
+    custom_icon_window_activity=$(get_tmux_batch_option "@catppuccin_icon_window_activity" "󱅫")
+    custom_icon_window_bell=$(get_tmux_batch_option "@catppuccin_icon_window_bell" "󰂞")
+
+    if [ "$window_status_icon_enable" = "yes" ]; then
+      # #!~[*-]MZ
+      show_window_status=""
+      show_window_status+="#{?window_activity_flag, ${custom_icon_window_activity},}"
+      show_window_status+="#{?window_bell_flag, ${custom_icon_window_bell},}"
+      show_window_status+="#{?window_silence_flag, ${custom_icon_window_silent},}"
+      show_window_status+="#{?window_active, ${custom_icon_window_current},}"
+      show_window_status+="#{?window_last_flag, ${custom_icon_window_last},}"
+      show_window_status+="#{?window_marked_flag, ${custom_icon_window_mark},}"
+      show_window_status+="#{?window_zoomed_flag, ${custom_icon_window_zoom},}"
+
+    fi
+
+    if [ "$window_status_icon_enable" = "no" ]; then
+      show_window_status=" #F"
+    fi
   fi
 
   echo "$show_window_status"
