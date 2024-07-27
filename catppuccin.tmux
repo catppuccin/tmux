@@ -69,6 +69,9 @@ main() {
   add_tmux_batch_option "@catppuccin_status_default"
   add_tmux_batch_option "@catppuccin_status_justify"
   add_tmux_batch_option "@catppuccin_status_background"
+  add_tmux_batch_option "@catppuccin_menu_style"
+  add_tmux_batch_option "@catppuccin_menu_selected_style"
+  add_tmux_batch_option "@catppuccin_menu_border_style"
   add_tmux_batch_option "@catppuccin_pane_status_enabled"
   add_tmux_batch_option "@catppuccin_pane_border_status"
   add_tmux_batch_option "@catppuccin_pane_left_separator"
@@ -122,9 +125,9 @@ main() {
 
   # menu
   local menu_style menu_selected_style menu_border_style
-  menu_style=$(get_interpolated_tmux_option "@catppuccin_menu_style" "default")
-  menu_selected_style=$(get_interpolated_tmux_option "@catppuccin_menu_selected_style" "fg=${thm_gray},bg=${thm_yellow}")
-  menu_border_style=$(get_interpolated_tmux_option "@catppuccin_menu_border_style" "default")
+  menu_style=$(get_interpolated_tmux_batch_option "@catppuccin_menu_style" "default")
+  menu_selected_style=$(get_interpolated_tmux_batch_option "@catppuccin_menu_selected_style" "fg=${thm_gray},bg=${thm_yellow}")
+  menu_border_style=$(get_interpolated_tmux_batch_option "@catppuccin_menu_border_style" "default")
   set menu-style "$menu_style"
   set menu-selected-style "$menu_selected_style"
   set menu-border-style "$menu_border_style"
