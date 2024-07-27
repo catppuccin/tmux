@@ -55,7 +55,7 @@ If you do not have a patched font installed, you can override or remove any icon
 2. Add the Catppuccin plugin:
 
 ```bash
-set -g @plugin 'catppuccin/tmux#vlatest' # See https://github.com/catppuccin/tmux/tags for additional tags
+set -g @plugin 'catppuccin/tmux#latest' # See https://github.com/catppuccin/tmux/tags for additional tags
 # set -g @plugin 'catppuccin/tmux' # main branch
 # ...alongside
 set -g @plugin 'tmux-plugins/tpm'
