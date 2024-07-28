@@ -41,8 +41,3 @@ feat(bar)!: foo the bars
 
 BREAKING CHANGE: bars are now foo'ed
 ```
-
-## For Maintainers
-
-Use squash merges when reasonable. They don't pollute the log with merge commits, and
-unlike rebase merges, list the author as the committer as well.
