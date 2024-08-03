@@ -93,34 +93,36 @@ build_window_format() {
 }
 
 build_window_icon() {
-  local window_status_icon_enable custom_icon_window_last \
+  local window_status_icon_enable window_status_separator custom_icon_window_last \
     custom_icon_window_zoom custom_icon_window_mark custom_icon_window_mark \
     custom_icon_window_silent custom_icon_window_activity custom_icon_window_bell
 
   window_status_icon_enable=$(get_tmux_option "@catppuccin_window_status_icon_enable" "yes")
-  custom_icon_window_last=$(get_tmux_option "@catppuccin_icon_window_last" "󰖰")
-  custom_icon_window_current=$(get_tmux_option "@catppuccin_icon_window_current" "󰖯")
-  custom_icon_window_zoom=$(get_tmux_option "@catppuccin_icon_window_zoom" "󰁌")
-  custom_icon_window_mark=$(get_tmux_option "@catppuccin_icon_window_mark" "󰃀")
-  custom_icon_window_silent=$(get_tmux_option "@catppuccin_icon_window_silent" "󰂛")
-  custom_icon_window_activity=$(get_tmux_option "@catppuccin_icon_window_activity" "󱅫")
-  custom_icon_window_bell=$(get_tmux_option "@catppuccin_icon_window_bell" "󰂞")
+
+  window_status_separator=$(get_tmux_option     "@catppuccin_window_status_separator" " ")
+  custom_icon_window_last=$(get_tmux_option     "@catppuccin_icon_window_last"     "󰖰" "${window_status_separator}")
+  custom_icon_window_current=$(get_tmux_option  "@catppuccin_icon_window_current"  "󰖯" "${window_status_separator}")
+  custom_icon_window_zoom=$(get_tmux_option     "@catppuccin_icon_window_zoom"     "󰁌" "${window_status_separator}")
+  custom_icon_window_mark=$(get_tmux_option     "@catppuccin_icon_window_mark"     "󰃀" "${window_status_separator}")
+  custom_icon_window_silent=$(get_tmux_option   "@catppuccin_icon_window_silent"   "󰂛" "${window_status_separator}")
+  custom_icon_window_activity=$(get_tmux_option "@catppuccin_icon_window_activity" "󱅫" "${window_status_separator}")
+  custom_icon_window_bell=$(get_tmux_option     "@catppuccin_icon_window_bell"     "󰂞" "${window_status_separator}")
 
   if [ "$window_status_icon_enable" = "yes" ]; then
     # #!~[*-]MZ
     local show_window_status=""
-    show_window_status+="#{?window_activity_flag, ${custom_icon_window_activity},}"
-    show_window_status+="#{?window_bell_flag, ${custom_icon_window_bell},}"
-    show_window_status+="#{?window_silence_flag, ${custom_icon_window_silent},}"
-    show_window_status+="#{?window_active, ${custom_icon_window_current},}"
-    show_window_status+="#{?window_last_flag, ${custom_icon_window_last},}"
-    show_window_status+="#{?window_marked_flag, ${custom_icon_window_mark},}"
-    show_window_status+="#{?window_zoomed_flag, ${custom_icon_window_zoom},}"
+    show_window_status+="#{?window_activity_flag,${custom_icon_window_activity},}"
+    show_window_status+="#{?window_bell_flag,${custom_icon_window_bell},}"
+    show_window_status+="#{?window_silence_flag,${custom_icon_window_silent},}"
+    show_window_status+="#{?window_active,${custom_icon_window_current},}"
+    show_window_status+="#{?window_last_flag,${custom_icon_window_last},}"
+    show_window_status+="#{?window_marked_flag,${custom_icon_window_mark},}"
+    show_window_status+="#{?window_zoomed_flag,${custom_icon_window_zoom},}"
 
   fi
 
   if [ "$window_status_icon_enable" = "no" ]; then
-    local show_window_status=" #F"
+    local show_window_status="${window_status_separator}#F"
   fi
 
   echo "$show_window_status"

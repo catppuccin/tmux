@@ -133,6 +133,12 @@ Values:
 - yes - this will replace the windows status text with icons
 - no - this will keep the windows status in text format
 
+#### Set window status icon/text separator:
+```sh
+set -g @catppuccin_window_status_separator " "
+```
+The character to use for separating window text and status.
+
 #### Override windows status icons
 ```sh
 set -g @catppuccin_icon_window_last "󰖰"
