@@ -6,24 +6,32 @@ tmux_echo() {
 }
 
 get_tmux_option() {
-  local option value default
+  local option value default sep_before sep_after res
   option="$1"
   default="$2"
+  sep_before="$3" # optional separator, prepended to the result if value not empty
+  sep_after="$4"  # optional separator, appended to the result if value not empty
+
   value=$(tmux show-option -gqv "$option")
+  res=""
 
   if [ -n "$value" ]
   then
     if [ "$value" = "null" ]
     then
-      echo ""
-
+      res=""
     else
-      echo "$value"
+      res="$value"
     fi
-
   else
-    echo "$default"
+    res="$default"
+  fi
 
+  if [ -n "$res" ]
+  then
+    echo "${sep_before}${res}${sep_after}"
+  else
+    echo "$res"
   fi
 }
 
