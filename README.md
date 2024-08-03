@@ -182,7 +182,7 @@ Values:
 
 #### Override the window current colors:
 ```sh
-set -g @catppuccin_window_current_color "#{thm_orange}" # text color
+set -g @catppuccin_window_current_color "#{thm_peach}" # text color
 set -g @catppuccin_window_current_background "#{thm_bg}"
 ```
 Note that color and background fields are swapped when `@catppuccin_window_current_fill` is set to "all".
@@ -206,7 +206,7 @@ set -g @catppuccin_pane_border_style "fg=#{thm_gray}" # Use a value compatible w
 #### Set the pane active border style:
 
 ```sh
-set -g @catppuccin_pane_active_border_style "fg=#{thm_orange}" # Use a value compatible with the standard tmux 'pane-border-active-style'
+set -g @catppuccin_pane_active_border_style "fg=#{thm_peach}" # Use a value compatible with the standard tmux 'pane-border-active-style'
 ```
 
 ### Menu
@@ -298,10 +298,10 @@ set -g @catppuccin_pane_middle_separator "█"
 set -g @catppuccin_pane_number_position "left"
 set -g @catppuccin_pane_default_fill "number"
 set -g @catppuccin_pane_default_text "#{b:pane_current_path}"
-set -g @catppuccin_pane_border_style "fg=#{thm_orange}"
-set -g @catppuccin_pane_active_border_style "fg=#{thm_orange}"
-set -g @catppuccin_pane_color "#{thm_orange}"
-set -g @catppuccin_pane_background_color "#{thm_orange}"
+set -g @catppuccin_pane_border_style "fg=#{thm_peach}"
+set -g @catppuccin_pane_active_border_style "fg=#{thm_peach}"
+set -g @catppuccin_pane_color "#{thm_peach}"
+set -g @catppuccin_pane_background_color "#{thm_peach}"
 ```
 
 #### Set the module list
@@ -521,7 +521,7 @@ set -g @catppuccin_status_modules_right "... kube ..."
 Optionally override the kube-tmux colors
 ```sh
 set -g @catppuccin_kube_context_color "#{thm_red}"
-set -g @catppuccin_kube_namespace_color "#{thm_cyan}"
+set -g @catppuccin_kube_namespace_color "#{thm_sky}"
 ```
 
 

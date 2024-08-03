@@ -82,8 +82,8 @@ main() {
   set status-right-length "100"
 
   # messages
-  set message-style "fg=${thm_cyan},bg=${message_background},align=centre"
-  set message-command-style "fg=${thm_cyan},bg=${message_background},align=centre"
+  set message-style "fg=${thm_sky},bg=${message_background},align=centre"
+  set message-command-style "fg=${thm_sky},bg=${message_background},align=centre"
 
   # menu
   local menu_style menu_selected_style menu_border_style
@@ -105,7 +105,7 @@ main() {
   )
   pane_active_border_style=$(
     get_interpolated_tmux_option "@catppuccin_pane_active_border_style" \
-      "#{?pane_in_mode,fg=${thm_yellow},#{?pane_synchronized,fg=${thm_magenta},fg=${thm_orange}}}"
+      "#{?pane_in_mode,fg=${thm_yellow},#{?pane_synchronized,fg=${thm_mauve},fg=${thm_peach}}}"
   )
   pane_left_separator=$(get_tmux_option "@catppuccin_pane_left_separator" "█")
   pane_middle_separator=$(get_tmux_option "@catppuccin_pane_middle_separator" "█")
@@ -156,7 +156,7 @@ main() {
 
   # modes
   setw clock-mode-colour "${thm_blue}"
-  setw mode-style "fg=${thm_pink} bg=${thm_black4} bold"
+  setw mode-style "fg=${thm_pink} bg=${thm_surface2} bold"
 
   tmux "${tmux_commands[@]}"
 }

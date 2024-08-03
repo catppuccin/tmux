@@ -5,7 +5,7 @@ show_pomodoro_plus() {
 
   index=$1
   icon="$(  get_tmux_option "@catppuccin_<module_name>_icon"  ""           )"
-  color="$( get_tmux_option "@catppuccin_<module_name>_color" "$thm_orange" )"
+  color="$( get_tmux_option "@catppuccin_<module_name>_color" "$thm_peach" )"
   text="$(  get_tmux_option "@catppuccin_<module_name>_text"  "#{pomodoro_status}" )"
 
   module=$( build_status_module "$index" "$icon" "$color" "$text" )
