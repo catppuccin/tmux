@@ -36,8 +36,8 @@ jobs:
           git push origin :v${{ steps.release.outputs.major }} || true
           git push origin :v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} || true
 
-          git tag -a latest -m "Release latest"
-          git tag -a v${{ steps.release.outputs.major }} -m "Release v${{ steps.release.outputs.major }}"
+          git tag -a latest -m "Release v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}"
+          git tag -a v${{ steps.release.outputs.major }} -m "Release v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}"
           git tag -a v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} -m "Release v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}"
 
           git push origin latest
