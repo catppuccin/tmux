@@ -2,16 +2,40 @@
 # WARNING: hex colors can't contain capital letters
 
 # --> Catppuccin (Frappe)
+# Base colors
 thm_bg="#303446"
 thm_fg="#c6d0f5"
-thm_cyan="#99d1db"
-thm_black="#292c3c"
-thm_gray="#414559"
-thm_magenta="#ca9ee6"
+
+thm_rosewater="#f2d5cf"
+thm_flamingo="#eebebe"
 thm_pink="#f4b8e4"
+thm_mauve="#ca9ee6"
 thm_red="#e78284"
-thm_green="#a6d189"
+thm_maroon="#ea999c"
+thm_peach="#ef9f76"
 thm_yellow="#e5c890"
+thm_green="#a6d189"
+thm_teal="#81c8be"
+thm_sky="#99d1db"
+thm_sapphire="#85c1dc"
 thm_blue="#8caaee"
-thm_orange="#ef9f76"
-thm_black4="#626880"
+thm_lavender="#babbf1"
+
+thm_surface2="#626880"
+thm_surface1="#51576d"
+thm_surface0="#414559"
+thm_overlay2="#949cbb"
+thm_overlay1="#838ba7"
+thm_overlay0="#737994"
+
+thm_black="#292c3c" # mantle
+thm_gray="#414559" # surface 0
+
+# DEPRECATED, use sky instead
+thm_cyan="${thm_sky}"
+# DEPRECATED, use mauve instead
+thm_magenta="${thm_mauve}"
+# DEPRECATED, use peach instead
+thm_orange="${thm_peach}"
+# DEPRECATED, use surface2 instead
+thm_black4="${thm_surface2}"
