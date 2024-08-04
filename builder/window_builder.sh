@@ -92,6 +92,13 @@ build_window_format() {
   echo "$final_window_format"
 }
 
+prepend_separator() {
+  local field="$1"
+  local separator="${2:- }"
+
+  echo "${field:+$separator$field}"
+}
+
 build_window_icon() {
   local window_status_icon_enable custom_icon_window_last \
     custom_icon_window_zoom custom_icon_window_mark custom_icon_window_mark \
@@ -109,13 +116,13 @@ build_window_icon() {
   if [ "$window_status_icon_enable" = "yes" ]; then
     # #!~[*-]MZ
     local show_window_status=""
-    show_window_status+="#{?window_activity_flag, ${custom_icon_window_activity},}"
-    show_window_status+="#{?window_bell_flag, ${custom_icon_window_bell},}"
-    show_window_status+="#{?window_silence_flag, ${custom_icon_window_silent},}"
-    show_window_status+="#{?window_active, ${custom_icon_window_current},}"
-    show_window_status+="#{?window_last_flag, ${custom_icon_window_last},}"
-    show_window_status+="#{?window_marked_flag, ${custom_icon_window_mark},}"
-    show_window_status+="#{?window_zoomed_flag, ${custom_icon_window_zoom},}"
+    show_window_status+="#{?window_activity_flag,$(prepend_separator "${custom_icon_window_activity}"),}"
+    show_window_status+="#{?window_bell_flag,$(prepend_separator "${custom_icon_window_bell}"),}"
+    show_window_status+="#{?window_silence_flag,$(prepend_separator "${custom_icon_window_silent}"),}"
+    show_window_status+="#{?window_active,$(prepend_separator "${custom_icon_window_current}"),}"
+    show_window_status+="#{?window_last_flag,$(prepend_separator "${custom_icon_window_last}"),}"
+    show_window_status+="#{?window_marked_flag,$(prepend_separator "${custom_icon_window_mark}"),}"
+    show_window_status+="#{?window_zoomed_flag,$(prepend_separator "${custom_icon_window_zoom}"),}"
 
   fi
 
