@@ -3,7 +3,7 @@
 show_pomodoro_plus() {
   local index icon color text module
 
-  tmux_batch_setup_module "pomodoro_plus"
+  tmux_batch_setup_status_module "pomodoro_plus"
   run_tmux_batch_commands
 
   index=$1
