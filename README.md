@@ -64,7 +64,7 @@ set -g @plugin 'tmux-plugins/tpm'
 3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
 ```bash
-set -g @catppuccin_flavour 'mocha' # latte,frappe, macchiato or mocha
+set -g @catppuccin_flavor 'mocha' # latte,frappe, macchiato or mocha
 ```
 
 ### Manual

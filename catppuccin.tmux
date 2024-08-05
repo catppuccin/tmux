@@ -27,7 +27,7 @@ main() {
 
   # Batch options for loading the colorscheme and everyting before
   add_tmux_batch_option "@catppuccin_custom_plugin_dir"
-  add_tmux_batch_option "@catppuccin_flavour"
+  add_tmux_batch_option "@catppuccin_flavor"
 
   run_tmux_batch_commands
 
@@ -44,7 +44,15 @@ main() {
   local color_interpolation=()
   local color_values=()
   local temp
-  theme="$(get_tmux_batch_option "@catppuccin_flavour" "mocha")"
+
+  theme="$(get_tmux_batch_option "@catppuccin_flavor" "")"
+
+  # NOTE: For backwards compatibility remove before 1.0.0
+  if [ -z "$theme" ]; then
+    theme="$(get_tmux_option "@catppuccin_flavour" "mocha")"
+    tmux_echo "catppuccin warning: @catppuccin_flavour has been deprecated use @catppuccin_flavour" 103
+  fi
+
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   # https://github.com/dylanaraps/pure-sh-bible#parsing-a-keyval-file
