@@ -308,7 +308,7 @@ set -g @catppuccin_pane_background_color "#{thm_orange}"
 #### Set the module list
 ```sh
 set -g @catppuccin_status_modules_right "application session"
-set -g @catppuccin_status_modules_left ""
+set -g @catppuccin_status_modules_left "null"
 ```
 Provide a list of modules and the order in which you want them to appear in the status.
 
