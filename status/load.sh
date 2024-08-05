@@ -1,7 +1,7 @@
 show_load() {
   local index icon color text module
 
-  tmux_batch_setup_module "load"
+  tmux_batch_setup_status_module "load"
   run_tmux_batch_commands
 
   index=$1

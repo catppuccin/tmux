@@ -1,7 +1,7 @@
 show_date_time() {
   local index icon color text module
 
-  tmux_batch_setup_module "date_time"
+  tmux_batch_setup_status_module "date_time"
   run_tmux_batch_commands
 
   index=$1

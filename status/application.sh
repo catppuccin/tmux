@@ -1,7 +1,7 @@
 show_application() {
   local index icon color text module
 
-  tmux_batch_setup_module "application"
+  tmux_batch_setup_status_module "application"
   run_tmux_batch_commands
 
   index=$1

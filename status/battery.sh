@@ -1,7 +1,7 @@
 show_battery() {
   local index icon color text module
 
-  tmux_batch_setup_module "battery"
+  tmux_batch_setup_status_module "battery"
 
   tmux_batch_options_commands+=("set-option -gq @batt_icon_charge_tier8 󰁹 ;")
   tmux_batch_options_commands+=("set-option -gq @batt_icon_charge_tier7 󰂁 ;")

@@ -1,7 +1,7 @@
 show_host() {
   local index icon color text module
 
-  tmux_batch_setup_module "host"
+  tmux_batch_setup_status_module "host"
   run_tmux_batch_commands
 
   index=$1

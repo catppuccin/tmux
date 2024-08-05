@@ -1,7 +1,7 @@
 show_user() {
   local index icon color text module
 
-  tmux_batch_setup_module "user"
+  tmux_batch_setup_status_module "user"
   run_tmux_batch_commands
 
   index=$1

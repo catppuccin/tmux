@@ -131,7 +131,7 @@ run_tmux_batch_commands() {
   tmux_batch_options_commands=()
 }
 
-tmux_batch_setup_module() {
+tmux_batch_setup_status_module() {
   local name="$1"
 
   # Don't want to run commands set before since we can't update

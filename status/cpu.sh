@@ -1,7 +1,7 @@
 show_cpu() {
   local index icon color text module
 
-  tmux_batch_setup_module "cpu"
+  tmux_batch_setup_status_module "cpu"
 
   tmux_batch_options_commands+=("set-option -gq @cpu_low_bg_color $thm_yellow ;")    # background color when cpu is low
   tmux_batch_options_commands+=("set-option -gq @cpu_medium_bg_color $thm_orange ;") # background color when cpu is medium

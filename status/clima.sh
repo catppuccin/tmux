@@ -2,7 +2,7 @@
 show_clima() {
   local index icon color text module
 
-  tmux_batch_setup_module "clima"
+  tmux_batch_setup_status_module "clima"
   run_tmux_batch_commands
 
   index=$1
