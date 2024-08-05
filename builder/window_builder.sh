@@ -95,6 +95,12 @@ build_window_format() {
   echo "$final_window_format"
 }
 
+prepend_separator() {
+  local field="$1"
+
+  echo "${field:+ $field}"
+}
+
 build_window_icon() {
   # Only update `show_window_status` if it's not empty
   # this module is ran twice once for current and once for default
@@ -133,14 +139,13 @@ build_window_icon() {
     if [ "$window_status_icon_enable" = "yes" ]; then
       # #!~[*-]MZ
       show_window_status=""
-      show_window_status+="#{?window_activity_flag, ${custom_icon_window_activity},}"
-      show_window_status+="#{?window_bell_flag, ${custom_icon_window_bell},}"
-      show_window_status+="#{?window_silence_flag, ${custom_icon_window_silent},}"
-      show_window_status+="#{?window_active, ${custom_icon_window_current},}"
-      show_window_status+="#{?window_last_flag, ${custom_icon_window_last},}"
-      show_window_status+="#{?window_marked_flag, ${custom_icon_window_mark},}"
-      show_window_status+="#{?window_zoomed_flag, ${custom_icon_window_zoom},}"
-
+      show_window_status+="#{?window_activity_flag,$(prepend_separator "${custom_icon_window_activity}"),}"
+      show_window_status+="#{?window_bell_flag,$(prepend_separator "${custom_icon_window_bell}"),}"
+      show_window_status+="#{?window_silence_flag,$(prepend_separator "${custom_icon_window_silent}"),}"
+      show_window_status+="#{?window_active,$(prepend_separator "${custom_icon_window_current}"),}"
+      show_window_status+="#{?window_last_flag,$(prepend_separator "${custom_icon_window_last}"),}"
+      show_window_status+="#{?window_marked_flag,$(prepend_separator "${custom_icon_window_mark}"),}"
+      show_window_status+="#{?window_zoomed_flag,$(prepend_separator "${custom_icon_window_zoom}"),}"
     fi
 
     if [ "$window_status_icon_enable" = "no" ]; then
