@@ -21,9 +21,19 @@ main() {
   # Aggregate all commands in one array
   local tmux_commands=()
 
+  # Aggregate all tmux option for tmux_batch_option
+  local tmux_batch_options_commands=()
+  local tmux_batch_options=()
+
+  # Batch options for loading the colorscheme and everyting before
+  add_tmux_batch_option "@catppuccin_custom_plugin_dir"
+  add_tmux_batch_option "@catppuccin_flavour"
+
+  run_tmux_batch_commands
+
   # module directories
   local custom_path modules_custom_path modules_status_path modules_window_path modules_pane_path
-  custom_path="$(get_tmux_option "@catppuccin_custom_plugin_dir" "${PLUGIN_DIR}/custom")"
+  custom_path="$(get_tmux_batch_option "@catppuccin_custom_plugin_dir" "${PLUGIN_DIR}/custom")"
   modules_custom_path=$custom_path
   modules_status_path=$PLUGIN_DIR/status
   modules_window_path=$PLUGIN_DIR/window
@@ -34,7 +44,7 @@ main() {
   local color_interpolation=()
   local color_values=()
   local temp
-  theme="$(get_tmux_option "@catppuccin_flavour" "mocha")"
+  theme="$(get_tmux_batch_option "@catppuccin_flavour" "mocha")"
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   # https://github.com/dylanaraps/pure-sh-bible#parsing-a-keyval-file
@@ -55,16 +65,44 @@ main() {
     color_values+=("${temp}")
   done <"${PLUGIN_DIR}/themes/catppuccin_${theme}.tmuxtheme"
 
+  # Batch options for `./catppuccin.tmux`
+  add_tmux_batch_option "@catppuccin_status_default"
+  add_tmux_batch_option "@catppuccin_status_justify"
+  add_tmux_batch_option "@catppuccin_status_background"
+  add_tmux_batch_option "@catppuccin_menu_style"
+  add_tmux_batch_option "@catppuccin_menu_selected_style"
+  add_tmux_batch_option "@catppuccin_menu_border_style"
+  add_tmux_batch_option "@catppuccin_pane_status_enabled"
+  add_tmux_batch_option "@catppuccin_pane_border_status"
+  add_tmux_batch_option "@catppuccin_pane_left_separator"
+  add_tmux_batch_option "@catppuccin_pane_middle_separator"
+  add_tmux_batch_option "@catppuccin_pane_right_separator"
+  add_tmux_batch_option "@catppuccin_pane_number_position"
+  add_tmux_batch_option "@catppuccin_window_separator"
+  add_tmux_batch_option "@catppuccin_window_left_separator"
+  add_tmux_batch_option "@catppuccin_window_right_separator"
+  add_tmux_batch_option "@catppuccin_window_middle_separator"
+  add_tmux_batch_option "@catppuccin_window_number_position"
+  add_tmux_batch_option "@catppuccin_window_status_enable"
+  add_tmux_batch_option "@catppuccin_status_left_separator"
+  add_tmux_batch_option "@catppuccin_status_right_separator"
+  add_tmux_batch_option "@catppuccin_status_connect_separator"
+  add_tmux_batch_option "@catppuccin_status_fill"
+  add_tmux_batch_option "@catppuccin_status_modules_left"
+  add_tmux_batch_option "@catppuccin_status_modules_right"
+
+  run_tmux_batch_commands
+
   # status general
   local status_default status_justify status_background message_background
-  status_default=$(get_tmux_option "@catppuccin_status_default" "on")
+  status_default=$(get_tmux_batch_option "@catppuccin_status_default" "on")
   # shellcheck disable=SC2121
   set status "$status_default"
 
-  status_justify=$(get_tmux_option "@catppuccin_status_justify" "left")
+  status_justify=$(get_tmux_batch_option "@catppuccin_status_justify" "left")
   set status-justify "$status_justify"
 
-  status_background=$(get_tmux_option "@catppuccin_status_background" "theme")
+  status_background=$(get_tmux_batch_option "@catppuccin_status_background" "theme")
   if [ "${status_background}" = "theme" ]; then
     set status-bg "${thm_bg}"
     message_background="${thm_gray}"
@@ -87,9 +125,9 @@ main() {
 
   # menu
   local menu_style menu_selected_style menu_border_style
-  menu_style=$(get_interpolated_tmux_option "@catppuccin_menu_style" "default")
-  menu_selected_style=$(get_interpolated_tmux_option "@catppuccin_menu_selected_style" "fg=${thm_gray},bg=${thm_yellow}")
-  menu_border_style=$(get_interpolated_tmux_option "@catppuccin_menu_border_style" "default")
+  menu_style=$(get_interpolated_tmux_batch_option "@catppuccin_menu_style" "default")
+  menu_selected_style=$(get_interpolated_tmux_batch_option "@catppuccin_menu_selected_style" "fg=${thm_gray},bg=${thm_yellow}")
+  menu_border_style=$(get_interpolated_tmux_batch_option "@catppuccin_menu_border_style" "default")
   set menu-style "$menu_style"
   set menu-selected-style "$menu_selected_style"
   set menu-border-style "$menu_border_style"
@@ -98,19 +136,19 @@ main() {
   local pane_border_status pane_border_style \
     pane_active_border_style pane_left_separator pane_middle_separator \
     pane_right_separator pane_number_position pane_format
-  pane_status_enable=$(get_tmux_option "@catppuccin_pane_status_enabled" "no") # yes
-  pane_border_status=$(get_tmux_option "@catppuccin_pane_border_status" "off") # bottom
+  pane_status_enable=$(get_tmux_batch_option "@catppuccin_pane_status_enabled" "no") # yes
+  pane_border_status=$(get_tmux_batch_option "@catppuccin_pane_border_status" "off") # bottom
   pane_border_style=$(
-    get_interpolated_tmux_option "@catppuccin_pane_border_style" "fg=${thm_gray}"
+    get_interpolated_tmux_batch_option "@catppuccin_pane_border_style" "fg=${thm_gray}"
   )
   pane_active_border_style=$(
-    get_interpolated_tmux_option "@catppuccin_pane_active_border_style" \
+    get_interpolated_tmux_batch_option "@catppuccin_pane_active_border_style" \
       "#{?pane_in_mode,fg=${thm_yellow},#{?pane_synchronized,fg=${thm_magenta},fg=${thm_orange}}}"
   )
-  pane_left_separator=$(get_tmux_option "@catppuccin_pane_left_separator" "█")
-  pane_middle_separator=$(get_tmux_option "@catppuccin_pane_middle_separator" "█")
-  pane_right_separator=$(get_tmux_option "@catppuccin_pane_right_separator" "█")
-  pane_number_position=$(get_tmux_option "@catppuccin_pane_number_position" "left") # right, left
+  pane_left_separator=$(get_tmux_batch_option "@catppuccin_pane_left_separator" "█")
+  pane_middle_separator=$(get_tmux_batch_option "@catppuccin_pane_middle_separator" "█")
+  pane_right_separator=$(get_tmux_batch_option "@catppuccin_pane_right_separator" "█")
+  pane_number_position=$(get_tmux_batch_option "@catppuccin_pane_number_position" "left") # right, left
   pane_format=$(load_modules "pane_default_format" "$modules_custom_path" "$modules_pane_path")
 
   setw pane-border-status "$pane_border_status"
@@ -123,14 +161,14 @@ main() {
     window_middle_separator window_number_position window_status_enable \
     window_format window_current_format
 
-  window_status_separator=$(get_interpolated_tmux_option "@catppuccin_window_separator" "")
+  window_status_separator=$(get_interpolated_tmux_batch_option "@catppuccin_window_separator" "")
   setw window-status-separator "$window_status_separator"
 
-  window_left_separator=$(get_tmux_option "@catppuccin_window_left_separator" "█")
-  window_right_separator=$(get_tmux_option "@catppuccin_window_right_separator" "█")
-  window_middle_separator=$(get_tmux_option "@catppuccin_window_middle_separator" "█ ")
-  window_number_position=$(get_tmux_option "@catppuccin_window_number_position" "left") # right, left
-  window_status_enable=$(get_tmux_option "@catppuccin_window_status_enable" "no")       # right, left
+  window_left_separator=$(get_tmux_batch_option "@catppuccin_window_left_separator" "█")
+  window_right_separator=$(get_tmux_batch_option "@catppuccin_window_right_separator" "█")
+  window_middle_separator=$(get_tmux_batch_option "@catppuccin_window_middle_separator" "█ ")
+  window_number_position=$(get_tmux_batch_option "@catppuccin_window_number_position" "left") # right, left
+  window_status_enable=$(get_tmux_batch_option "@catppuccin_window_status_enable" "no")       # right, left
 
   window_format=$(load_modules "window_default_format" "$modules_custom_path" "$modules_window_path")
   setw window-status-format "$(do_color_interpolation "$window_format")"
@@ -141,16 +179,16 @@ main() {
   # status module
   local status_left_separator status_right_separator status_connect_separator \
     status_fill status_modules_left status_modules_right
-  status_left_separator=$(get_tmux_option "@catppuccin_status_left_separator" "")
-  status_right_separator=$(get_tmux_option "@catppuccin_status_right_separator" "█")
-  status_connect_separator=$(get_tmux_option "@catppuccin_status_connect_separator" "yes")
-  status_fill=$(get_tmux_option "@catppuccin_status_fill" "icon")
+  status_left_separator=$(get_tmux_batch_option "@catppuccin_status_left_separator" "")
+  status_right_separator=$(get_tmux_batch_option "@catppuccin_status_right_separator" "█")
+  status_connect_separator=$(get_tmux_batch_option "@catppuccin_status_connect_separator" "yes")
+  status_fill=$(get_tmux_batch_option "@catppuccin_status_fill" "icon")
 
-  status_modules_left=$(get_tmux_option "@catppuccin_status_modules_left" "")
+  status_modules_left=$(get_tmux_batch_option "@catppuccin_status_modules_left" "")
   loaded_modules_left=$(load_modules "$status_modules_left" "$modules_custom_path" "$modules_status_path")
   set status-left "$(do_color_interpolation "$loaded_modules_left")"
 
-  status_modules_right=$(get_tmux_option "@catppuccin_status_modules_right" "application session")
+  status_modules_right=$(get_tmux_batch_option "@catppuccin_status_modules_right" "application session")
   loaded_modules_right=$(load_modules "$status_modules_right" "$modules_custom_path" "$modules_status_path")
   set status-right "$(do_color_interpolation "$loaded_modules_right")"
 
