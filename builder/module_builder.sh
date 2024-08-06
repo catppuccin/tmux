@@ -40,5 +40,9 @@ build_status_module() {
     local show_left_separator="#[fg=$color,bg=default,nobold,nounderscore,noitalics]$status_left_separator"
   fi
 
+  if [ -z "$icon" ] ; then
+    show_icon=""
+  fi
+
   echo "$show_left_separator$show_icon$show_text$show_right_separator"
 }
