@@ -20,6 +20,13 @@ body:
     attributes:
       label: Paste your configuration.
       description: Provide us with the contents of your `.tmux.conf` file.
+      placeholder: |
+        ```sh
+        set -g @plugin 'catppuccin/tmux'
+        set -g @plugin 'tmux-plugins/tpm'
+        # ...
+        run ~/.config/tmux/tpm/tpm
+        ```
     validations:
       required: true
   - type: textarea

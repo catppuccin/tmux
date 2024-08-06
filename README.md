@@ -56,7 +56,8 @@ If you do not have a patched font installed, you can override or remove any icon
 2. Add the Catppuccin plugin:
 
 ```bash
-set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'catppuccin/tmux#latest' # See https://github.com/catppuccin/tmux/tags for additional tags
+# set -g @plugin 'catppuccin/tmux' # main branch
 # ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```
@@ -308,7 +309,7 @@ set -g @catppuccin_pane_background_color "#{thm_orange}"
 #### Set the module list
 ```sh
 set -g @catppuccin_status_modules_right "application session"
-set -g @catppuccin_status_modules_left ""
+set -g @catppuccin_status_modules_left "null"
 ```
 Provide a list of modules and the order in which you want them to appear in the status.
 

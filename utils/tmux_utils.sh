@@ -1,8 +1,10 @@
 #!/bin/sh
 
 tmux_echo() {
-  local message="$1"
-  tmux run-shell "echo '$message'"
+  local hook
+  hook="after-new-session[$2]"
+
+  tmux set-hook -g "$hook" "run-shell 'echo \"$1\"'; set-hook -gu \"$hook\""
 }
 
 get_tmux_option() {

@@ -32,7 +32,17 @@ load_modules() {
         continue 2
       fi
     done
-    tmux_echo "catppuccin warning: module $module_name not found"
+
+    if [[ -z "${module_name/ }" ]]; then
+      if [[ -z "${modules_list/ }" ]]; then
+        tmux_echo "catppuccin warning: a module list has only white space, to remove all modules set it to \"null\"" 100
+      else
+        tmux_echo "catppuccin warning: a module list with value \"$modules_list\" has leading/trailing whitespace" 101
+      fi
+      continue
+    fi
+
+    tmux_echo "catppuccin warning: module $module_name not found" 102
 
 
   done
