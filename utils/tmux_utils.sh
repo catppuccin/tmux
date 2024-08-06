@@ -64,7 +64,7 @@ get_tmux_batch_option() {
   default="$2"
 
   for option_index in "${!tmux_batch_options[@]}"; do
-    IFS=":" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
+    IFS="" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
     if [[ "$read_option" == "$option" ]]; then
       echo "$read_value"
       return
@@ -80,7 +80,7 @@ get_interpolated_tmux_batch_option() {
   default="$2"
 
   for option_index in "${!tmux_batch_options[@]}"; do
-    IFS=":" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
+    IFS="" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
     if [[ "$read_option" == "$option" ]]; then
       do_color_interpolation "$read_value"
       return
@@ -104,14 +104,14 @@ set_tmux_batch_option() {
 
   # NOTE: don't check for duplicates just append
   # for option_index in "${!tmux_batch_options[@]}"; do
-  #   read -d ':' -r read_option <<<"${tmux_batch_options[$option_index]}"
+  #   read -d '' -r read_option <<<"${tmux_batch_options[$option_index]}"
   #   if [[ "$read_option" == "$option" ]]; then
-  #     tmux_batch_options["$option_index"]="$option:$value"
+  #     tmux_batch_options["$option_index"]="$option$value"
   #     return
   #   fi
   # done
 
-  tmux_batch_options+=("$option:$value")
+  tmux_batch_options+=("$option$value")
 }
 
 run_tmux_batch_commands() {
