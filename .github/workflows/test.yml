@@ -38,7 +38,7 @@ jobs:
     name: "Old Bash"
     runs-on: ubuntu-latest
     container:
-      image: bash:3.2.57-alpine3.19 # Bash version used by macos
+      image: bash:5.2.26-alpine3.19 # Bash version used by macos
     steps:
       - uses: actions/checkout@v4
       - name: Check Syntax is Valid
