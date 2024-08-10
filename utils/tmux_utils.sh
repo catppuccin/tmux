@@ -66,7 +66,7 @@ get_tmux_batch_option() {
   for option_index in "${!tmux_batch_options[@]}"; do
     IFS="" read -r read_option read_value <<<"${tmux_batch_options[$option_index]}"
     if [[ "$read_option" == "$option" ]]; then
-      echo "$read_value"
+      echo -e "$read_value"
       return
     fi
   done
