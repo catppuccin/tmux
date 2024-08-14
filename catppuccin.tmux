@@ -47,7 +47,8 @@ main() {
 
   theme="$(get_tmux_batch_option "@catppuccin_flavor" "")"
 
-  # NOTE: For backwards compatibility remove before 1.0.0
+  # NOTE: For backwards compatibility remove before 1.0.0 and set default for
+  # `@catppuccin_flavor` from `""` to `"mocha"`
   if [ -z "$theme" ]; then
     theme="$(get_tmux_option "@catppuccin_flavour" "mocha")"
     tmux_echo "catppuccin warning: \\\"@catppuccin_flavour\\\" has been deprecated use \\\"@catppuccin_flavor\\\"" 103
