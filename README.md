@@ -120,19 +120,12 @@ Values:
 
 #### Enable window status:
 ```sh
-set -g @catppuccin_window_status_enable "no"
+set -g @catppuccin_window_status "no"
 ```
 Values:
-- yes - this will enable the window status part
 - no - this will disable the window status part
-
-#### Enable window status icons instead of text:
-```sh
-set -g @catppuccin_window_status_icon_enable "yes"
-```
-Values:
-- yes - this will replace the windows status text with icons
-- no - this will keep the windows status in text format
+- icon - this will replace the windows status text with icons
+- text - this will keep the windows status in text format
 
 #### Override windows status icons
 ```sh
