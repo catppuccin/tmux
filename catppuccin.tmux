@@ -74,6 +74,8 @@ main() {
   add_tmux_batch_option "@catppuccin_menu_border_style"
   add_tmux_batch_option "@catppuccin_pane_status_enabled"
   add_tmux_batch_option "@catppuccin_pane_border_status"
+  add_tmux_batch_option "@catppuccin_pane_border_style"
+  add_tmux_batch_option "@catppuccin_pane_active_border_style"
   add_tmux_batch_option "@catppuccin_pane_left_separator"
   add_tmux_batch_option "@catppuccin_pane_middle_separator"
   add_tmux_batch_option "@catppuccin_pane_right_separator"
