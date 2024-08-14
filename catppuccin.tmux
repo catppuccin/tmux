@@ -183,7 +183,7 @@ main() {
   # NOTE: update default to `"no"` when removing the backwards compatibility for
   # `@catppuccin_window_status_enable` and
   # `@catppuccin_window_status_icon_enable` in ./builder/window_builder.sh
-  window_status=$(get_tmux_batch_option "@catppuccin_window_status" "") # no, icon, text
+  window_status=$(get_tmux_batch_option "@catppuccin_window_status" "no") # no, icon, text
 
   window_format=$(load_modules "window_default_format" "$modules_custom_path" "$modules_window_path")
   setw window-status-format "$(do_color_interpolation "$window_format")"
