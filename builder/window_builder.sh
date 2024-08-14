@@ -10,7 +10,26 @@ build_window_format() {
   local text="$4"
   local fill="$5"
 
-  if [ "$window_status_enable" = "yes" ]; then
+  # NOTE: For backwards compatibility remove before 1.0.0 and update default for
+  # `@catppuccin_window_status`
+  if [ -z "$window_status" ]; then
+    window_status_enable="$(get_tmux_option "@catppuccin_window_status_enable" "no")"
+    tmux_echo "catppuccin warning: \\\"@catppuccin_window_status_enable\\\" and \\\"@catppuccin_window_status_icon_enable\\\" has been replaced by\n\t \
+      \\\"@catppuccin_window_status\\\" with the options \\\"no\\\", \\\"icon\\\" and \\\"text\\\"" 104
+
+    if [ "$window_status_enable" = "yes" ]; then
+      window_status_icon_enable="$(get_tmux_option "@catppuccin_window_status_icon_enable" "yes")"
+      if [ "$window_status_icon_enable" = "yes" ]; then
+        window_status="icon"
+      else
+        window_status="text"
+      fi
+    else
+      window_status="no"
+    fi
+  fi
+
+  if [ ! "$window_status" = "no" ]; then
     local icon
     icon="$(build_window_icon)"
     text="$text$icon"
@@ -136,8 +155,8 @@ build_window_icon() {
     custom_icon_window_activity=$(get_tmux_batch_option "@catppuccin_icon_window_activity" "󱅫")
     custom_icon_window_bell=$(get_tmux_batch_option "@catppuccin_icon_window_bell" "󰂞")
 
-    if [ "$window_status_icon_enable" = "yes" ]; then
-      # #!~[*-]MZ
+    if [ "$window_status" = "icon" ]; then
+      # icon order: #!~[*-]MZ
       show_window_status=""
       show_window_status+="#{?window_activity_flag,$(prepend_separator "${custom_icon_window_activity}"),}"
       show_window_status+="#{?window_bell_flag,$(prepend_separator "${custom_icon_window_bell}"),}"
@@ -146,9 +165,7 @@ build_window_icon() {
       show_window_status+="#{?window_last_flag,$(prepend_separator "${custom_icon_window_last}"),}"
       show_window_status+="#{?window_marked_flag,$(prepend_separator "${custom_icon_window_mark}"),}"
       show_window_status+="#{?window_zoomed_flag,$(prepend_separator "${custom_icon_window_zoom}"),}"
-    fi
-
-    if [ "$window_status_icon_enable" = "no" ]; then
+    elif [ "$window_status" = "text" ]; then
       show_window_status=" #F"
     fi
   fi

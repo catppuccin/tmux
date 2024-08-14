@@ -85,7 +85,7 @@ main() {
   add_tmux_batch_option "@catppuccin_window_right_separator"
   add_tmux_batch_option "@catppuccin_window_middle_separator"
   add_tmux_batch_option "@catppuccin_window_number_position"
-  add_tmux_batch_option "@catppuccin_window_status_enable"
+  add_tmux_batch_option "@catppuccin_window_status"
   add_tmux_batch_option "@catppuccin_status_left_separator"
   add_tmux_batch_option "@catppuccin_status_right_separator"
   add_tmux_batch_option "@catppuccin_status_connect_separator"
@@ -170,7 +170,11 @@ main() {
   window_right_separator=$(get_tmux_batch_option "@catppuccin_window_right_separator" "█")
   window_middle_separator=$(get_tmux_batch_option "@catppuccin_window_middle_separator" "█ ")
   window_number_position=$(get_tmux_batch_option "@catppuccin_window_number_position" "left") # right, left
-  window_status_enable=$(get_tmux_batch_option "@catppuccin_window_status_enable" "no")       # right, left
+
+  # NOTE: update default to `"no"` when removing the backwards compatibility for
+  # `@catppuccin_window_status_enable` and
+  # `@catppuccin_window_status_icon_enable` in ./builder/window_builder.sh
+  window_status=$(get_tmux_batch_option "@catppuccin_window_status" "") # no, icon, text
 
   window_format=$(load_modules "window_default_format" "$modules_custom_path" "$modules_window_path")
   setw window-status-format "$(do_color_interpolation "$window_format")"
