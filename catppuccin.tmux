@@ -50,8 +50,12 @@ main() {
   # NOTE: For backwards compatibility remove before 1.0.0 and set default for
   # `@catppuccin_flavor` from `""` to `"mocha"`
   if [ -z "$theme" ]; then
-    theme="$(get_tmux_option "@catppuccin_flavour" "mocha")"
-    tmux_echo "catppuccin warning: \\\"@catppuccin_flavour\\\" has been deprecated use \\\"@catppuccin_flavor\\\"" 103
+    theme="$(get_tmux_option "@catppuccin_flavour" "")"
+    if [ -n "$theme" ]; then
+      tmux_echo "catppuccin warning: \\\"@catppuccin_flavour\\\" has been deprecated use \\\"@catppuccin_flavor\\\"" 103
+    else
+      theme="mocha"
+    fi
   fi
 
   # NOTE: Pulling in the selected theme by the theme that's being set as local
