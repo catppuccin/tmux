@@ -117,7 +117,7 @@ set_tmux_batch_option() {
 run_tmux_batch_commands() {
   local temp
 
-  # shellcheck disable=SC2048,SC2086
+  # shellcheck disable=SC2048,SC2086,SC2162
   while IFS=' ' read option value; do
     if [ -n "$value" ]; then
       if [ "$value" = "null" ]; then
