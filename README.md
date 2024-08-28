@@ -85,8 +85,15 @@ This is a diagram of how the theme is split between its components.
 ## Configuration options
 
 All flavors support certain levels of customization that match our [Catppuccin
-Style Guide][style-guide]. To add these customizations, add any of the following
-options to your Tmux configuration.
+Style Guide][style-guide]. To add these customizations, you may add any of the
+following options to your Tmux configuration.
+
+If you want to set a text-based customization to an emtpy string, use `null` to
+do so. For instance:
+
+```sh
+set -g @catppuccin_icon_window_last "null"
+```
 
 ### Window
 
