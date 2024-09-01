@@ -3,6 +3,11 @@
 # Set path of script
 PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+tmux source "${PLUGIN_DIR}/catppuccin_options_conf.tmux"
+tmux source "${PLUGIN_DIR}/catppuccin_conf.tmux"
+
+exit
+
 # import
 # shellcheck source=./builder/module_builder.sh
 source "${PLUGIN_DIR}/builder/module_builder.sh"
