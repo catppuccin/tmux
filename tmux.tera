@@ -13,7 +13,7 @@ whiskers:
 # --> Catppuccin ({{ flavor.identifier | capitalize }})
 set -g @thm_bg "#{{ palette.base.hex | lower }}"
 set -g @thm_fg "#{{ palette.text.hex | lower }}"
-set -g @thm_cyan "#{{ palette.sky.hex| lower }}"
+set -g @thm_cyan "#{{ palette.sky.hex | lower }}"
 set -g @thm_black "#{{ palette.mantle.hex | lower }}"
 set -g @thm_gray "#{{ palette.surface0.hex | lower }}"
 set -g @thm_magenta "#{{ palette.mauve.hex | lower }}"
