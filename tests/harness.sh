@@ -47,12 +47,12 @@ start_tmux_server() {
 
 kill_tmux_server() {
   msg "${CYAN}Stopping tmux server${NOFORMAT}"
-  tmux kill-server || true
+  tmux kill-server
 }
 
 cleanup() {
   trap - SIGINT SIGTERM ERR EXIT
-  kill_tmux_server 2>/dev/null
+  kill_tmux_server
 }
 
 die() {
@@ -99,7 +99,9 @@ setup_colors
 
 run_test() {
   msg "Running test ${test_script} and checking the output against ${expected_output}\n"
+  msg "Using socket ${SOCKET_NAME}"
 
+  kill_tmux_server
   start_tmux_server
 
   local output
