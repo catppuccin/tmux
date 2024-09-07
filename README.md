@@ -189,6 +189,12 @@ Values:
 set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory
 ```
 
+#### Override the window current separators
+```sh
+set -g @catppuccin_window_current_left_separator ""
+set -g @catppuccin_window_current_middle_separator "█"
+set -g @catppuccin_window_current_right_separator ""
+```
 ### Pane
 
 #### Set the pane border style:
