@@ -105,7 +105,7 @@ run_test() {
   start_tmux_server
 
   local output
-  output=$(${test_script})
+  output=$(tmux source ${test_script})
 
   echo ${output} | diff --color=${DIFFCOLORS} - ${expected_output}
 
