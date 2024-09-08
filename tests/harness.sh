@@ -117,13 +117,13 @@ run_test() {
 
   start_tmux_server
 
-  local output
-  output=$(tmux source ${test_script})
-
-  echo ${output} | diff --color=${DIFFCOLORS} - ${expected_output}
-
   local script_name
   script_name=$(basename ${test_script})
+
+  local output
+  output=$(source ${test_script})
+
+  echo -e ${output} | diff -aBZ --color=${DIFFCOLORS} ${expected_output} -
 
   if test $? -eq 0; then
     msg "${GREEN}Test ${script_name} passed${NOFORMAT}"

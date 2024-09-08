@@ -1,1 +1,2 @@
 @catppuccin_flavor mocha
+@catppuccin_menu_selected_style fg=#313244,bg=#f9e2af
