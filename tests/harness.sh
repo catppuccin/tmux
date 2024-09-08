@@ -18,11 +18,13 @@ Available options:
 -h, --help      Print this help and exit
 -t, --test      The script to run to generate the test output
 -e, --expected  File that contains the expected output of the test
+-v, --verbose   Enable verbose messaging
 --no-color      Do not use color in the output
 EOF
   exit
 }
 
+DIFFCOLORS="never" NOFORMAT='' RED='' GREEN='' ORANGE='' BLUE='' PURPLE='' CYAN='' YELLOW=''
 setup_colors() {
   if [[ -t 2 ]] && [[ -z "${NO_COLOR-}" ]] && [[ "${TERM-}" != "dumb" ]]; then
     DIFFCOLORS="always" NOFORMAT='\033[0m' RED='\033[0;31m' GREEN='\033[0;32m' ORANGE='\033[0;33m' BLUE='\033[0;34m' PURPLE='\033[0;35m' CYAN='\033[0;36m' YELLOW='\033[1;33m'
@@ -31,8 +33,16 @@ setup_colors() {
   fi
 }
 
+VERBOSE=false
+
 msg() {
   echo >&2 -e "${1-}"
+}
+
+msg_verbose() {
+  if [ "$VERBOSE" = true ]; then
+    msg "$@"
+  fi
 }
 
 SOCKET_NAME="${SOCKET_NAME:-test}"
@@ -42,13 +52,13 @@ tmux() {
 }
 
 start_tmux_server() {
-  msg "${CYAN}Starting tmux server${NOFORMAT}\n"
+  msg_verbose "${CYAN}Starting tmux server on socket ${SOCKET_NAME}${NOFORMAT}"
   tmux new -s dummy -d
 }
 
 kill_tmux_server() {
-  msg "${CYAN}Stopping tmux server${NOFORMAT}"
-  tmux kill-server
+  msg_verbose "${CYAN}Stopping tmux server${NOFORMAT}"
+  tmux kill-server 2>/dev/null
 }
 
 cleanup() {
@@ -80,6 +90,10 @@ parse_params() {
       expected_output="${2-}"
       shift
       ;;
+    -v | --verbose)
+      VERBOSE=true
+      shift
+      ;;
     -?*) die "Unknown option: $1" ;;
     *) break ;;
     esac
@@ -99,10 +113,8 @@ parse_params "$@"
 setup_colors
 
 run_test() {
-  msg "Running test ${test_script} and checking the output against ${expected_output}\n"
-  msg "Using socket ${SOCKET_NAME}"
+  msg_verbose "Running test ${test_script} and checking the output against ${expected_output}"
 
-  kill_tmux_server
   start_tmux_server
 
   local output
@@ -110,12 +122,13 @@ run_test() {
 
   echo ${output} | diff --color=${DIFFCOLORS} - ${expected_output}
 
+  local script_name
+  script_name=$(basename ${test_script})
+
   if test $? -eq 0; then
-    kill_tmux_server
-    msg "\n${GREEN}Test passed${NOFORMAT}"
+    msg "${GREEN}Test ${script_name} passed${NOFORMAT}"
   else
-    kill_tmux_server
-    die "\n${RED}Test failed${NOFORMAT}"
+    die "\n${RED}Test ${script_name} failed${NOFORMAT}"
   fi
 }
 
