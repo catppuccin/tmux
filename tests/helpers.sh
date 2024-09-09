@@ -11,6 +11,6 @@ print_option() {
   local option
   option=$1
 
-  echo -n "\n${option} "
+  printf "\n%s " "${option}"
   tmux display-message -p "#{E:${option}}"
 }

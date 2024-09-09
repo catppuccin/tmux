@@ -3,8 +3,6 @@
 set -Euo pipefail
 trap cleanup SIGINT SIGTERM ERR EXIT
 
-script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
-
 usage() {
   trap - EXIT
   cat <<EOF
@@ -29,6 +27,7 @@ setup_colors() {
   if [[ -t 2 ]] && [[ -z "${NO_COLOR-}" ]] && [[ "${TERM-}" != "dumb" ]]; then
     DIFFCOLORS="always" NOFORMAT='\033[0m' RED='\033[0;31m' GREEN='\033[0;32m' ORANGE='\033[0;33m' BLUE='\033[0;34m' PURPLE='\033[0;35m' CYAN='\033[0;36m' YELLOW='\033[1;33m'
   else
+    # shellcheck disable=SC2034
     DIFFCOLORS="never" NOFORMAT='' RED='' GREEN='' ORANGE='' BLUE='' PURPLE='' CYAN='' YELLOW=''
   fi
 }
@@ -100,6 +99,7 @@ parse_params() {
     shift
   done
 
+  # shellcheck disable=SC2034
   args=("$@")
 
   # check required params and arguments
@@ -118,12 +118,13 @@ run_test() {
   start_tmux_server
 
   local script_name
-  script_name=$(basename ${test_script})
+  script_name=$(basename "${test_script}")
 
   local output
-  output=$(source ${test_script})
+  # shellcheck disable=SC1090
+  output=$(source "${test_script}")
 
-  echo -e ${output} | diff -aBZ --color=${DIFFCOLORS} ${expected_output} -
+  echo -e "${output}" | diff -aB --color=${DIFFCOLORS} "${expected_output}" -
 
   if test $? -eq 0; then
     msg "${GREEN}Test ${script_name} passed${NOFORMAT}"
