@@ -258,7 +258,7 @@ set -g @catppuccin_status_left_separator ""
 #### Set the status module middle separator:
 
 ```sh
-set -g @catppuccin_status_middle_separator ""
+set -g @catppuccin_status_middle_separator "null"
 ```
 
 #### Set the status module right separator:
