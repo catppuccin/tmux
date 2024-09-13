@@ -9,7 +9,6 @@ build_status_module() {
   if [ "$status_fill" = "icon" ]; then
     local bg
     local show_icon="#[fg=$thm_bg,bg=$color,nobold,nounderscore,noitalics]$icon "
-    local show_middle_separator="#[fg=$color,bg=$background,nobold,nounderscore,noitalics]$status_middle_separator"
     local show_text="#[fg=$thm_fg,bg=$thm_gray] $text"
 
     if [ "$status_connect_separator" = "yes" ]; then
@@ -19,6 +18,7 @@ build_status_module() {
     fi
 
     local show_left_separator="#[fg=$color,bg=$bg,nobold,nounderscore,noitalics]$status_left_separator"
+    local show_middle_separator="#[fg=$color,bg=$thm_gray,nobold,nounderscore,noitalics]$status_middle_separator"
     local show_right_separator="#[fg=$thm_gray,bg=$bg,nobold,nounderscore,noitalics]$status_right_separator"
   fi
 

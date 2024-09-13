@@ -255,6 +255,12 @@ tmux kill-server & tmux
 set -g @catppuccin_status_left_separator ""
 ```
 
+#### Set the status module middle separator:
+
+```sh
+set -g @catppuccin_status_middle_separator ""
+```
+
 #### Set the status module right separator:
 ```sh
 set -g @catppuccin_status_right_separator "█"
