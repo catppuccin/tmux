@@ -52,7 +52,7 @@ tmux() {
 
 start_tmux_server() {
   msg_verbose "${CYAN}Starting tmux server on socket ${SOCKET_NAME}${NOFORMAT}"
-  tmux new -s dummy -d
+  tmux new -s dummy -d "$(which bash)"
 }
 
 kill_tmux_server() {
