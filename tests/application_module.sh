@@ -8,4 +8,4 @@ source "${script_dir}/helpers.sh"
 tmux source "${script_dir}/../catppuccin_options_tmux.conf"
 tmux source "${script_dir}/../catppuccin_tmux.conf"
 
-print_option @catppuccin_status_application
+print_option @catppuccin_status_application | sed -E 's/\b(bash|fish|zsh)\b/<application>/'
