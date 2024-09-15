@@ -47,7 +47,7 @@ msg_verbose() {
 SOCKET_NAME="${SOCKET_NAME:-test}"
 
 tmux() {
-  command tmux -L "$SOCKET_NAME" "$@"
+  command tmux -L "$SOCKET_NAME" -f /dev/null "$@"
 }
 
 start_tmux_server() {
