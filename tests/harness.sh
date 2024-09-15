@@ -123,6 +123,11 @@ run_test() {
   local output
   # shellcheck disable=SC1090
   output=$(source "${test_script}")
+  test_exit_code="$?"
+
+  if test $test_exit_code -ne 0; then
+    die "\n${RED}Test ${script_name} exited with code $test_exit_code ${NOFORMAT}"
+  fi
 
   echo -e "${output}" | diff -aB --color=${DIFFCOLORS} "${expected_output}" -
 
