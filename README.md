@@ -99,6 +99,29 @@ The plugin comes with three window styles built in, these can be customized by s
 | `basic` | Simple styling with blocks. |
 | `rounded` | Each window is separated with rounded separators. |
 | `slanted` | Each window is separated with slanted separators. |
+| `custom` | Custom separators are used. |
+| `none` | Styling of the window status is completely disabled. |
+
+If you want to change the active color to something else (the default is peach), use the following. For example to use lavender:
+
+```bash
+set -g @catppuccin_window_current_background "#{@thm_lavender}"
+```
+
+<details>
+
+<summary>Customising the separators</summary>
+
+Add the following (above `set -g @plugin "catppuccin/tmux"` if using TPM), setting whatever values you'd like for the separators:
+
+```bash
+set -g @catppuccin_window_status_style "custom"
+set -g @catppuccin_window_left_separator ""
+set -g @catppuccin_window_middle_separator ""
+set -g @catppuccin_window_right_separator ""
+```
+
+</details>
 
 ### Pane
 
