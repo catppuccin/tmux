@@ -55,10 +55,16 @@ This method is recommended as TPM has some issues with name conflicts.
 
 1. Clone this repository to your desired location (e.g.
    `~/.config/tmux/plugins/catppuccin`).
+
+```bash
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+```
+
 2. Add the following line to your `tmux.conf` file:
-    `run ~/.config/tmux/plugins/catppuccin/catppuccin.tmux`
+    `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`
 3. (Optional) Set your preferred flavor and/or add configuration options as
-   listed in [Configuration Options](#configuration-options).
+   listed in [Configuration Options](#configuration-options). These options must be added above the `run ~/.config...` line.
 4. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`
 
 ### TPM
