@@ -16,4 +16,4 @@ print_option @catppuccin_status_application | grep -q "$application_text" ||
 print_option @catppuccin_status_application | grep -q "@thm_" &&
   echo "@catppuccin_status_application did not expand all colors"
 
-print_option E:@catppuccin_status_application | sed -E 's/\b(bash|fish|zsh)\b/<application>/'
+print_option E:@catppuccin_status_application | sed -E 's/(bash|fish|zsh)/<application>/'
