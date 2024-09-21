@@ -49,6 +49,18 @@
 In order to have the icons displayed correctly please use/update your favorite [patched font](https://www.nerdfonts.com/font-downloads).
 If you do not have a patched font installed, you can override or remove any icon. Check the documentation below on the options available.
 
+### Manual (Recommended)
+
+This method is recommended as TPM has some issues with name conflicts.
+
+1. Clone this repository to your desired location (e.g.
+   `~/.config/tmux/plugins/catppuccin`).
+2. Add the following line to your `tmux.conf` file:
+    `run ~/.config/tmux/plugins/catppuccin/catppuccin.tmux`
+3. (Optional) Set your preferred flavor and/or add configuration options as
+   listed in [Configuration Options](#configuration-options).
+4. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`
+
 ### TPM
 
 1. Install [TPM](https://github.com/tmux-plugins/tpm)
@@ -67,16 +79,6 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
 ```
 
-### Manual
-
-1. Clone this repository to your desired location (e.g.
-   `~/.config/tmux/plugins/catppuccin`)
-2. Add the following line to your `tmux.conf` file:
-    `run ~/.config/tmux/plugins/catppuccin/catppuccin.tmux`
-3. (Optional) Set your preferred flavor and/or add configuration options as
-   listed in [Configuration Options](#configuration-options).
-4. Reload Tmux by either restarting the session or reloading it with `tmux source-file ~/.tmux.conf`
-
 ## Overview
 
 ![Default](./assets/overview.png)
@@ -90,119 +92,13 @@ options to your Tmux configuration.
 
 ### Window
 
-| Option | Default | Effect |
-| --- | --- | --- |
-| `@catppuccin_window_separator` | \<empty string\> | |
-| `@catppuccin_window_left_separator` | █ | Appears on the left side of the window tab in the status line.  |
-| `@catppuccin_window_middle_separator` | █ | Appears between the number and title of the window tab in the status line.  |
-| `@catppuccin_window_right_separator` | █ | Appears on the right side of the window tab in the status line.  |
+The plugin comes with three window styles built in, these can be customized by setting the `@catppuccin_window_status_style` option. The default is `basic`.
 
-#### Position the number
-
-```sh
-set -g @catppuccin_window_number_position "left"
-```
-
-Values:
-
-- left - the number will be on the left part of the window
-- right - the number will be on the right part of the window
-
-#### Enable window status
-
-```sh
-set -g @catppuccin_window_status "no"
-```
-
-Values:
-
-- no - this will disable the window status part
-- icon - this will replace the windows status text with icons
-- text - this will keep the windows status in text format
-
-#### Override windows status icons
-
-```sh
-set -g @catppuccin_icon_window_last "󰖰"
-set -g @catppuccin_icon_window_current "󰖯"
-set -g @catppuccin_icon_window_zoom "󰁌"
-set -g @catppuccin_icon_window_mark "󰃀"
-set -g @catppuccin_icon_window_silent "󰂛"
-set -g @catppuccin_icon_window_activity "󱅫"
-set -g @catppuccin_icon_window_bell "󰂞"
-```
-
-### Window default
-
-#### Set the window default color fill
-
-```sh
-set -g @catppuccin_window_default_fill "number"
-```
-
-Values:
-
-- number - only the number of the window part will have color
-- all - the entire window part will have the same color
-- none - the entire window part will have no color
-
-#### Override the window default colors
-
-```sh
-set -g @catppuccin_window_default_color "#{thm_blue}" # text color
-set -g @catppuccin_window_default_background "#{thm_gray}"
-```
-
-Values:
-
-- color - a theme color (`#{thm_<color>}`) or hexadecimal color value
-
-#### Override the window default text
-
-```sh
-set -g @catppuccin_window_default_text "#{b:pane_current_path}" # use "#W" for application instead of directory
-```
-
-### Window current
-
-#### Set the window current color fill
-
-```sh
-set -g @catppuccin_window_current_fill "number"
-```
-
-Values:
-
-- number - only the number of the window part will have color
-- all - the entire window part will have the same color
-- none - the entire window part will have no color
-
-#### Override the window current colors
-
-```sh
-set -g @catppuccin_window_current_color "#{thm_orange}" # text color
-set -g @catppuccin_window_current_background "#{thm_bg}"
-```
-
-Note that color and background fields are swapped when `@catppuccin_window_current_fill` is set to "all".
-
-Values:
-
-- color - a theme color (`#{thm_<color>}`) or a hexadecimal color value
-
-#### Override the window current text
-
-```sh
-set -g @catppuccin_window_current_text "#{b:pane_current_path}" # use "#W" for application instead of directory
-```
-
-#### Override the window current separators
-
-```sh
-set -g @catppuccin_window_current_left_separator ""
-set -g @catppuccin_window_current_middle_separator "█"
-set -g @catppuccin_window_current_right_separator ""
-```
+| Option | Effect |
+| --- | --- |
+| `basic` | Simple styling with blocks. |
+| `rounded` | Each window is separated with rounded separators. |
+| `slanted` | Each window is separated with slanted separators. |
 
 ### Pane
 
