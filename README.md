@@ -182,12 +182,12 @@ This will overwrite the status bar background:
 
 - "theme" will use the color from the selected theme
 - "default" will make the status bar transparent
-- use hex color codes for other colors or a theme color (`#{thm_<color>}`)
+- use hex color codes for other colors or a theme color (`#{@thm_<color>}`)
 
 Note: you need to restart tmux for this to take effect:
 
 ```sh
-tmux kill-server & tmux
+tmux kill-server && tmux
 ```
 
 #### Set the status module left separator
@@ -237,7 +237,11 @@ Values:
 - right
 - absolute-centre - uses the centre of the entire horizontal space
 
-### Pane
+### Pane Options
+
+By default no pane styling options are set. To enable, set `@catppuccin_pane_status_enabled` to `yes`.
+
+Defaults:
 
 ```sh
 set -g @catppuccin_pane_status_enabled "no"
@@ -248,20 +252,24 @@ set -g @catppuccin_pane_middle_separator "█"
 set -g @catppuccin_pane_number_position "left"
 set -g @catppuccin_pane_default_fill "number"
 set -g @catppuccin_pane_default_text "#{b:pane_current_path}"
-set -g @catppuccin_pane_border_style "fg=#{thm_orange}"
-set -g @catppuccin_pane_active_border_style "fg=#{thm_orange}"
-set -g @catppuccin_pane_color "#{thm_orange}"
-set -g @catppuccin_pane_background_color "#{thm_orange}"
+set -g @catppuccin_pane_border_style "fg=#{@thm_overlay_0}"
+set -g @catppuccin_pane_active_border_style "#{?pane_in_mode,fg=#{@thm_lavender},#{?pane_synchronized,fg=#{@thm_magenta},fg=#{@thm_lavender}}}"
+set -g @catppuccin_pane_color "#{@thm_green}"
+set -g @catppuccin_pane_background_color "#{@thm_surface_0}"
 ```
 
-#### Set the module list
+### Use the theme's built-in status modules
+
+To use the theme's built in status modules, set the `status-left` and `status-right` tmux options _after_ the plugin has been loaded.
+
+The tmux status line modules are set as variables and prefixed with `@catppuccin_status_<module>`.
+
+To use the `application` and `session` modules on the right and have nothing on the left:
 
 ```sh
-set -g @catppuccin_status_modules_right "application session"
-set -g @catppuccin_status_modules_left "null"
+set -gF status-right "#{E:@catpuccin_status_application} #{E:@catppuccin_status_session}"
+set -g status-left ""
 ```
-
-Provide a list of modules and the order in which you want them to appear in the status.
 
 Available modules:
 
@@ -518,8 +526,8 @@ set -g @catppuccin_status_modules_right "... kube ..."
 Optionally override the kube-tmux colors
 
 ```sh
-set -g @catppuccin_kube_context_color "#{thm_red}"
-set -g @catppuccin_kube_namespace_color "#{thm_cyan}"
+set -g @catppuccin_kube_context_color "#{@thm_red}"
+set -g @catppuccin_kube_namespace_color "#{@thm_sky}"
 ```
 
 ## Create a custom module
