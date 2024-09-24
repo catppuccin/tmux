@@ -1,5 +1,9 @@
 # User Defined Modules
 
+[!NOTE]
+Currently out of date pending a rewrite since this plugin has been
+rewritten. If you depend on this behavior, pin your plugin to version v0.2.0.
+
 This folder is used to store user defined modules. You can use this folder to
 add a new module or override any existing module. To override an existing
 module, make sure that you use the same name for your module as the module you
