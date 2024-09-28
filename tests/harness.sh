@@ -45,6 +45,7 @@ msg_verbose() {
 }
 
 SOCKET_NAME="${SOCKET_NAME:-test}"
+SESSION_NAME="test-session"
 
 tmux() {
   command tmux -L "$SOCKET_NAME" -f /dev/null "$@"
@@ -52,23 +53,32 @@ tmux() {
 
 start_tmux_server() {
   msg_verbose "${CYAN}Starting tmux server on socket ${SOCKET_NAME}${NOFORMAT}"
-  tmux new -s dummy -d "$(which bash)"
+  tmux new -s "$SESSION_NAME" -d "$(which bash)"
 }
 
 kill_tmux_server() {
   msg_verbose "${CYAN}Stopping tmux server${NOFORMAT}"
+  tmux kill-session "$SESSION_NAME" 2>/dev/null
   tmux kill-server 2>/dev/null
 }
 
 cleanup() {
   trap - SIGINT SIGTERM ERR EXIT
-  kill_tmux_server
+
+  # If the session is still running then stop it.
+  tmux has-session -t "$SESSION_NAME" 2>/dev/null
+  if test $? -eq 0; then
+    kill_tmux_server
+  fi
 }
 
 die() {
   local msg=$1
   local code=${2-1} # default exit status 1
   msg "$msg"
+
+  cleanup
+
   exit "$code"
 }
 
@@ -136,6 +146,8 @@ run_test() {
   else
     die "\n${RED}Test ${script_name} failed${NOFORMAT}"
   fi
+
+  cleanup
 }
 
 run_test
