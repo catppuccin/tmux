@@ -145,34 +145,22 @@ set -g @catppuccin_pane_active_border_style "fg=#{@thm_peach}" # Use a value com
 
 ### Menu
 
-#### Set the menu style
-
-```sh
-set -g @catppuccin_menu_style "default" # Use a value compatible with the standard tmux `menu-style`
-```
-
-#### Set the menu selected style
+**Set the menu selected style:**
 
 ```sh
 set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}" # Use a value compatible with the standard tmux `menu-selected-style`
 ```
 
-### Set the menu border style
+### Status Line
 
-```sh
-set -g @catppuccin_menu_border_style "default" # Use a value compatible with the standard tmux `menu-border-style`
-```
-
-### Status
-
-#### Set the default status bar visibility
+**Set the default status bar visibility:**
 
 ```sh
 set -g @catppuccin_status_default "on"
 
 ```
 
-#### Override the default status background color
+**Override the default status background color:**
 
 ```sh
 set -g @catppuccin_status_background "theme"
@@ -180,8 +168,8 @@ set -g @catppuccin_status_background "theme"
 
 This will overwrite the status bar background:
 
-- "theme" will use the color from the selected theme
-- "default" will make the status bar transparent
+- `theme` will use the color from the selected theme
+- `default` will make the status bar transparent
 - use hex color codes for other colors or a theme color (`#{@thm_<color>}`)
 
 Note: you need to restart tmux for this to take effect:
@@ -190,30 +178,30 @@ Note: you need to restart tmux for this to take effect:
 tmux kill-server && tmux
 ```
 
-#### Set the status module left separator
+**Set the status module left separator:**
 
 ```sh
 set -g @catppuccin_status_left_separator ""
 ```
 
-#### Set the status module right separator
+**Set the status module right separator:**
 
 ```sh
 set -g @catppuccin_status_right_separator "█"
 ```
 
-#### Set the status connect separator
+**Set the status connect separator:**
 
 ```sh
 set -g @catppuccin_status_connect_separator "yes"
 ```
 
-Values:
+Possible values:
 
 - yes - the background color of the separator will not blend in with the background color of tmux
 - no - the background color of the separator will blend in with the background color of tmux
 
-#### Set the status module color fill
+**Set the status module color fill:**
 
 ```sh
 set -g @catppuccin_status_fill "icon"
@@ -224,7 +212,7 @@ Values:
 - icon - only the icon of the module will have color
 - all - the entire module will have the same color
 
-#### Set the status module justify value
+**Set the status module justify value:**
 
 ```sh
 set -g @catppuccin_status_justify "left"
@@ -232,10 +220,10 @@ set -g @catppuccin_status_justify "left"
 
 Values:
 
-- left
-- centre - puts the window list in the relative centre of the available free space
-- right
-- absolute-centre - uses the centre of the entire horizontal space
+- `left`
+- `centre` - puts the window list in the relative centre of the available free space
+- `right`
+- `absolute-centre` - uses the centre of the entire horizontal space
 
 ### Pane Options
 
@@ -258,7 +246,7 @@ set -g @catppuccin_pane_color "#{@thm_green}"
 set -g @catppuccin_pane_background_color "#{@thm_surface_0}"
 ```
 
-### Use the theme's built-in status modules
+### Using the theme's built-in status modules
 
 To use the theme's built in status modules, set the `status-left` and `status-right` tmux options _after_ the plugin has been loaded.
 
@@ -273,14 +261,14 @@ set -g status-left ""
 
 Available modules:
 
-- application - display the current window running application
-- directory - display the basename of the current window path
-- session - display the number of tmux sessions running
-- user - display the username
-- host - display the hostname
-- date_time - display the date and time
-- uptime - display the uptime
-- battery - display the battery
+- `application` - display the current window running application
+- `directory` - display the basename of the current window path
+- `session` - display the number of tmux sessions running
+- `user` - display the username
+- `host` - display the hostname
+- `date_time` - display the date and time
+- `uptime` - display the uptime
+- `battery` - display the battery
 
 For a full list of modules and their options see [status](./status/README.md).
 
