@@ -163,13 +163,13 @@ set -g @catppuccin_status_default "on"
 **Override the default status background color:**
 
 ```sh
-set -g @catppuccin_status_background "theme"
+set -g @catppuccin_status_background "default"
 ```
 
 This will overwrite the status bar background:
 
-- `theme` will use the color from the selected theme
-- `default` will make the status bar transparent
+- `default` will use the color from the selected theme
+- `none` will make the status bar transparent
 - use hex color codes for other colors or a theme color (`#{@thm_<color>}`)
 
 Note: you need to restart tmux for this to take effect:
@@ -255,7 +255,7 @@ The tmux status line modules are set as variables and prefixed with `@catppuccin
 To use the `application` and `session` modules on the right and have nothing on the left:
 
 ```sh
-set -gF status-right "#{E:@catpuccin_status_application} #{E:@catppuccin_status_session}"
+set -gF status-right "#{E:@catpuccin_status_application}#{E:@catppuccin_status_session}"
 set -g status-left ""
 ```
 
@@ -298,11 +298,19 @@ set -g @catppuccin_window_default_fill "none"
 
 set -g @catppuccin_window_current_fill "all"
 
-set -g @catppuccin_status_modules_right "application session user host date_time"
 set -g @catppuccin_status_left_separator "█"
 set -g @catppuccin_status_right_separator "█"
 
 set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
+
+# Run catppuccin plugin manually or through tpm
+# ...
+
+set -gF  status-right "#{@catppuccin_status_application}"
+set -agF status-right "#{@catppuccin_status_session}"
+set -agF status-right "#{@catppuccin_status_user}"
+set -agF status-right "#{@catppuccin_status_host}"
+set -agF status-right "#{@catppuccin_status_date_time}"
 ```
 
 ### Config 2
@@ -320,11 +328,15 @@ set -g @catppuccin_window_default_fill "number"
 set -g @catppuccin_window_current_fill "number"
 set -g @catppuccin_window_current_text "#{pane_current_path}"
 
-set -g @catppuccin_status_modules_right "application session date_time"
 set -g @catppuccin_status_left_separator  ""
 set -g @catppuccin_status_right_separator " "
 set -g @catppuccin_status_fill "all"
 set -g @catppuccin_status_connect_separator "yes"
+
+# Run catppuccin plugin manually or through tpm
+# ...
+
+set -gF status-right "#{@catppuccin_status_application}#{@catppuccin_status_session}#{@catppuccin_status_date_time}"
 ```
 
 ### Config 3
@@ -343,13 +355,20 @@ set -g @catppuccin_window_default_text "#W"
 set -g @catppuccin_window_current_fill "number"
 set -g @catppuccin_window_current_text "#W"
 
-set -g @catppuccin_status_modules_right "directory user host session"
 set -g @catppuccin_status_left_separator  " "
 set -g @catppuccin_status_right_separator ""
 set -g @catppuccin_status_fill "icon"
 set -g @catppuccin_status_connect_separator "no"
 
 set -g @catppuccin_directory_text "#{pane_current_path}"
+
+# Run catppuccin plugin manually or through tpm
+# ...
+
+set -gF  status-right "#{@catppuccin_status_directory}"
+set -agF status-right "#{@catppuccin_status_user}"
+set -agF status-right "#{@catppuccin_status_host}"
+set -agF status-right "#{@catppuccin_status_session}"
 ```
 
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
