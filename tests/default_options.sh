@@ -8,6 +8,6 @@ source "${script_dir}/helpers.sh"
 tmux source "${script_dir}/../catppuccin_options_tmux.conf"
 tmux source "${script_dir}/../catppuccin_tmux.conf"
 
-print_option E:@catppuccin_flavor
-print_option E:@catppuccin_menu_selected_style
-print_option E:@catppuccin_pane_active_border_style
+print_option @catppuccin_flavor
+print_option @catppuccin_menu_selected_style
+print_option @catppuccin_pane_active_border_style
