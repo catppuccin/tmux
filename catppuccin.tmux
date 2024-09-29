@@ -168,7 +168,7 @@ main() {
   pane_format=$(load_modules "pane_default_format" "$modules_custom_path" "$modules_pane_path")
 
   setw pane-border-status "$pane_border_status"
-  setw pane-active-border-style "$pane_active_border_style"
+  setw pane-active-border-style-format "$pane_active_border_style"
   setw pane-border-style "$pane_border_style"
   setw pane-border-format "$(do_color_interpolation "$pane_format")"
 
