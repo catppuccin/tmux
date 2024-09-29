@@ -54,12 +54,14 @@ If you do not have a patched font installed, you can override or remove any icon
 1. Install [TPM](https://github.com/tmux-plugins/tpm)
 2. Add the Catppuccin plugin:
 
+<!-- x-release-please-start-version -->
 ```bash
-set -g @plugin 'catppuccin/tmux#latest' # See https://github.com/catppuccin/tmux/tags for additional tags
+set -g @plugin 'catppuccin/tmux#0.2.0' # See https://github.com/catppuccin/tmux/tags for additional tags
 # set -g @plugin 'catppuccin/tmux' # main branch
 # ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```
+<!-- x-release-please-end -->
 
 3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
