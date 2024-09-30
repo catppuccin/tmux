@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/catppuccin/tmux/compare/v0.2.0...v0.3.0) (2024-09-17)
+
+
+### Features
+
+* **status:** Add support for status module middle separators ([#310](https://github.com/catppuccin/tmux/issues/310)) ([1612a23](https://github.com/catppuccin/tmux/commit/1612a23174a6771ac466312eb156f83b8b89d907))
+* **status:** window specific separator config ([#198](https://github.com/catppuccin/tmux/issues/198)) ([8276c5a](https://github.com/catppuccin/tmux/commit/8276c5a5e33dbbbae3d370db2f6129e20b402f8a))
+
+
+### Bug Fixes
+
+* **kube:** escape env var ([c31b9b2](https://github.com/catppuccin/tmux/commit/c31b9b2c6c7c50abbebd02b80c4fd32b2782a011))
+
 ## [0.2.0](https://github.com/catppuccin/tmux/compare/v0.1.0...v0.2.0) (2024-08-23)
 
 
