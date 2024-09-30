@@ -306,11 +306,11 @@ set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
 # Run catppuccin plugin manually or through tpm
 # ...
 
-set -gF  status-right "#{@catppuccin_status_application}"
-set -agF status-right "#{@catppuccin_status_session}"
-set -agF status-right "#{@catppuccin_status_user}"
-set -agF status-right "#{@catppuccin_status_host}"
-set -agF status-right "#{@catppuccin_status_date_time}"
+set -gF  status-right "#{E:@catppuccin_status_application}"
+set -agF status-right "#{E:@catppuccin_status_session}"
+set -agF status-right "#{E:@catppuccin_status_user}"
+set -agF status-right "#{E:@catppuccin_status_host}"
+set -agF status-right "#{E:@catppuccin_status_date_time}"
 ```
 
 ### Config 2
@@ -336,7 +336,7 @@ set -g @catppuccin_status_connect_separator "yes"
 # Run catppuccin plugin manually or through tpm
 # ...
 
-set -gF status-right "#{@catppuccin_status_application}#{@catppuccin_status_session}#{@catppuccin_status_date_time}"
+set -gF status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}#{E:@catppuccin_status_date_time}"
 ```
 
 ### Config 3
@@ -365,10 +365,10 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
 # Run catppuccin plugin manually or through tpm
 # ...
 
-set -gF  status-right "#{@catppuccin_status_directory}"
-set -agF status-right "#{@catppuccin_status_user}"
-set -agF status-right "#{@catppuccin_status_host}"
-set -agF status-right "#{@catppuccin_status_session}"
+set -gF  status-right "#{E:@catppuccin_status_directory}"
+set -agF status-right "#{E:@catppuccin_status_user}"
+set -agF status-right "#{E:@catppuccin_status_host}"
+set -agF status-right "#{E:@catppuccin_status_session}"
 ```
 
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
