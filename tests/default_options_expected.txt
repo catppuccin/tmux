@@ -1,0 +1,3 @@
+@catppuccin_flavor mocha
+@catppuccin_menu_selected_style fg=#{@thm_surface_0},bg=#{@thm_yellow}
+@catppuccin_pane_active_border_style ##{?pane_in_mode,fg=#{@thm_lavender},##{?pane_synchronized,fg=#{@thm_mauve},fg=#{@thm_lavender}}}
