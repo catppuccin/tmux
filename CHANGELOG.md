@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.4.0](https://github.com/catppuccin/tmux/compare/v0.3.0...v0.4.0) (2024-10-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* rewrite to use tmux native rather than bash ([#328](https://github.com/catppuccin/tmux/issues/328))
+
+### Bug Fixes
+
+* **readme:** update the readme to include upgrade instructions ([1bcad05](https://github.com/catppuccin/tmux/commit/1bcad05f206fb4bb9706403da24b97d2cdb64bad))
+* **window:** ensure the window formats are set correctly ([#331](https://github.com/catppuccin/tmux/issues/331)) ([1bcad05](https://github.com/catppuccin/tmux/commit/1bcad05f206fb4bb9706403da24b97d2cdb64bad))
+
+
+### Code Refactoring
+
+* rewrite to use tmux native rather than bash ([#328](https://github.com/catppuccin/tmux/issues/328)) ([87fa4a0](https://github.com/catppuccin/tmux/commit/87fa4a08c5a7fdbef3130f05a8b12f0ca26d4a46))
+
 ## [0.3.0](https://github.com/catppuccin/tmux/compare/v0.2.0...v0.3.0) (2024-09-17)
 
 
