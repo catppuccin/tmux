@@ -57,7 +57,7 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 Add the battery module to the status modules list.
 
 ```sh
-set -g @catppuccin_status_modules_right "... #{E:@catppuccin_status_battery} ..."
+set -ag status-right "... #{E:@catppuccin_status_battery} ..."
 ```
 
 ### CPU module
@@ -83,7 +83,7 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 Add the cpu module to the status modules list.
 
 ```sh
-set -g @catppuccin_status_modules_right "... #{E:@catppuccin_status_cpu} ..."
+set -ag status-right "... #{E:@catppuccin_status_cpu} ..."
 ```
 
 ### Weather modules
@@ -111,7 +111,7 @@ set -g @plugin 'xamut/tmux-weather'
 Add the weather module to the status modules list:
 
 ```sh
-set -g @catppuccin_status_modules_right "... #{E:@catppuccin_status_weather} ..."
+set -ag status-right "... #{E:@catppuccin_status_weather} ..."
 ```
 
 #### tmux-clima
@@ -137,7 +137,7 @@ set -g @plugin 'vascomfnunes/tmux-clima'
 Add the weather module to the status modules list.
 
 ```sh
-set -g @catppuccin_status_modules_right "... #{E:@catppuccin_status_clima} ..."
+set -ag status-right "... #{E:@catppuccin_status_clima} ..."
 ```
 
 ### Load module
@@ -163,7 +163,7 @@ set -g @plugin 'jamesoff/tmux-loadavg'
 Add the load module to the status modules list.
 
 ```sh
-set -g @catppuccin_status_modules_right "... #{E:@catppuccin_status_load} ..."
+set -ag status-right "... #{E:@catppuccin_status_load} ..."
 ```
 
 ### Gitmux module
@@ -181,7 +181,7 @@ To install gitmux, follow the instructions in the [gitmux documentation](https:/
 Add the gitmux module to the status modules list.
 
 ```sh
-set -g @catppuccin_status_modules_right "... #{E:@catppuccin_status_gitmux} ..."
+set -ag status-right "... #{E:@catppuccin_status_gitmux} ..."
 ```
 
 To customize the gitmux module, you can follow the instrucctions in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing) and add this line in your tmux configuration:
@@ -213,7 +213,7 @@ set -g @plugin 'olimorris/tmux-pomodoro-plus'
 Add the pomodoro module to the status modules list.
 
 ```sh
-set -g @catppuccin_status_modules_right "... #{E:@catppuccin_status_pomodoro_plus} ..."
+set -ag status-right "... #{E:@catppuccin_status_pomodoro_plus} ..."
 ```
 
 ### Kube module
@@ -237,7 +237,7 @@ set -g @plugin 'jonmosco/kube-tmux'
 Add the tmux module to the status modules list.
 
 ```sh
-set -g @catppuccin_status_modules_right "... #{E:@catppuccin_status_kube} ..."
+set -ag status-right "... #{E:@catppuccin_status_kube} ..."
 ```
 
 Optionally override the kube-tmux colors
