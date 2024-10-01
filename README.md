@@ -22,16 +22,9 @@
 1. [Overview](#overview)
 1. [Configuration options](#configuration-options)
    1. [Window](#window)
-   1. [Window default](#window-default)
-   1. [Window current](#window-current)
-   1. [Status](#status)
    1. [Pane](#pane)
-   1. [Customizing modules](#customizing-modules)
-   1. [Battery module](#battery-module)
-   1. [CPU module](#cpu-module)
-   1. [Weather modules](#weather-modules)
-   1. [Load module](#load-module)
-1. [Create a custom module](#create-a-custom-module)
+   1. [Status Line](#status-line)
+   1. [Using the theme's built-in status modules](#using-the-themes-built-in-status-modules)
 1. [Configuration Examples](#configuration-examples)
    1. [Config 1](#config-1)
    1. [Config 2](#config-2)
@@ -48,6 +41,10 @@
 
 In order to have the icons displayed correctly please use/update your favorite [patched font](https://www.nerdfonts.com/font-downloads).
 If you do not have a patched font installed, you can override or remove any icon. Check the documentation below on the options available.
+
+> [!NOTE]
+> If you are using a tmux version older than 3.0, you
+> will need to follow the instructions for [older versions](#for-tmux-versions-prior-to-32).
 
 ### Manual (Recommended)
 
@@ -68,8 +65,8 @@ git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppucc
 4. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`
 
 > [!IMPORTANT]  
-> You may have to run ~/.config/tmux/plugins/tpm/bin/clean_plugins if upgrading from an earlier version
-> (especially from v0.3.0).
+> You may have to run `~/.config/tmux/plugins/tpm/bin/clean_plugins` if upgrading from an earlier version
+> (especially from `v0.3.0`).
 
 ### TPM
 
@@ -87,6 +84,32 @@ set -g @plugin 'tmux-plugins/tpm'
 
 ```bash
 set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
+```
+
+### For TMUX versions prior to 3.2
+
+This plugin uses features that were only introduced into tmux in version 3.2.
+If you are using a version earlier than this, you can still have lovely catppuccin colors,
+the installation method just looks a little different.
+
+```sh
+# In your ~/.tmux.conf
+
+# Add the colors from the pallete. Check the themes/ directory for all options.
+
+# Some basic mocha colors.
+set -g @ctp_bg "#24273a"
+set -g @ctp_surface_1 "#494d64"
+set -g @ctp_fg "#cad3f5"
+set -g @ctp_mauve "#c6a0f6"
+set -g @ctp_crust "#181926"
+
+# status line
+set -gF status-style "bg=#{@ctp_bg},fg=#{@ctp_fg}"
+
+# windows
+set -gF window-status-format "#[bg=#{@ctp_surface_1},fg=#{@ctp_fg}] ##I ##T "
+set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T 
 ```
 
 ### Upgrading from v0.3.0
