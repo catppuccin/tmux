@@ -138,13 +138,13 @@ options to your Tmux configuration.
 
 The plugin comes with three window styles built in, these can be customized by setting the `@catppuccin_window_status_style` option. The default is `basic`.
 
-| Option | Effect |
-| --- | --- |
-| `basic` | Simple styling with blocks. |
-| `rounded` | Each window is separated with rounded separators. |
-| `slanted` | Each window is separated with slanted separators. |
-| `custom` | Custom separators are used. |
-| `none` | Styling of the window status is completely disabled. |
+| Option | Effect | Preview |
+| --- | --- | --- |
+| `basic` | Simple styling with blocks. | ![window basic](./assets/window-basic.webp) |
+| `rounded` | Each window is separated with rounded separators. | ![window rounded style](./assets/window-rounded.webp) |
+| `slanted` | Each window is separated with slanted separators. | ![window slanted style](./assets/window-slanted.webp) |
+| `custom` | Custom separators are used. | |
+| `none` | Styling of the window status is completely disabled. | ![window no styling](./assets/window-none.webp) |
 
 If you want to change the active color to something else (the default is peach), use the following. For example to use lavender:
 
