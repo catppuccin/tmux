@@ -270,7 +270,7 @@ The tmux status line modules are set as variables and prefixed with `@catppuccin
 To use the `application` and `session` modules on the right and have nothing on the left:
 
 ```sh
-set -gF status-right "#{E:@catpuccin_status_application}#{E:@catppuccin_status_session}"
+set -g status-right "#{E:@catpuccin_status_application}#{E:@catppuccin_status_session}"
 set -g status-left ""
 ```
 
@@ -321,11 +321,11 @@ set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
 # Run catppuccin plugin manually or through tpm
 # ...
 
-set -gF  status-right "#{E:@catppuccin_status_application}"
-set -agF status-right "#{E:@catppuccin_status_session}"
-set -agF status-right "#{E:@catppuccin_status_user}"
-set -agF status-right "#{E:@catppuccin_status_host}"
-set -agF status-right "#{E:@catppuccin_status_date_time}"
+set -g  status-right "#{E:@catppuccin_status_application}"
+set -ag status-right "#{E:@catppuccin_status_session}"
+set -ag status-right "#{E:@catppuccin_status_user}"
+set -ag status-right "#{E:@catppuccin_status_host}"
+set -ag status-right "#{E:@catppuccin_status_date_time}"
 ```
 
 ### Config 2
@@ -380,10 +380,10 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
 # Run catppuccin plugin manually or through tpm
 # ...
 
-set -gF  status-right "#{E:@catppuccin_status_directory}"
-set -agF status-right "#{E:@catppuccin_status_user}"
-set -agF status-right "#{E:@catppuccin_status_host}"
-set -agF status-right "#{E:@catppuccin_status_session}"
+set -g  status-right "#{E:@catppuccin_status_directory}"
+set -ag status-right "#{E:@catppuccin_status_user}"
+set -ag status-right "#{E:@catppuccin_status_host}"
+set -ag status-right "#{E:@catppuccin_status_session}"
 ```
 
 [style-guide]: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
