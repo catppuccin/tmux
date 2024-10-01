@@ -123,6 +123,37 @@ If you are upgrading from 0.3.0 to any later versions, please note the following
 
 The plugin can be pinned to v0.3.0 if desired: `set -g @plugin 'catppuccin/tmux#v0.3.0'`.
 
+## Recommended Default Configuration
+
+This configuration shows some customisation options, that can be further extended as desired.
+
+![Example configuration](./assets/example-config.webp)
+
+```bash
+# ~/.tmux.conf
+
+# Options to make tmux more pleasant
+set -g mouse on
+set -g default-terminal "tmux-256color"
+
+# Configure the catppuccin plugin
+set -g @catppuccin_flavor "macchiato"
+set -g @catppuccin_window_status_style "rounded"
+# leave this unset to let applications set the window title
+set -g @catppuccin_window_default_text " #W"
+set -g @catppuccin_window_current_text " #W"
+set -g @catppuccin_window_status "icon"
+set -g @catppuccin_window_current_background "#{@thm_mauve}"
+
+# Load catppuccin
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+
+# Make the status line pretty and add some modules
+set -g status-left ""
+set -g status-right "#{E:@catppuccin_status_user}"
+set -ag status-right "#{E:@catppuccin_status_directory}"
+```
+
 ## Overview
 
 ![Default](./assets/overview.png)
