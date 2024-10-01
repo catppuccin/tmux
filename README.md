@@ -67,6 +67,10 @@ git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppucc
    listed in [Configuration Options](#configuration-options). These options must be added above the `run ~/.config...` line.
 4. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`
 
+> [!IMPORTANT]  
+> You may have to run ~/.config/tmux/plugins/tpm/bin/clean_plugins if upgrading from an earlier version
+> (especially from v0.3.0).
+
 ### TPM
 
 1. Install [TPM](https://github.com/tmux-plugins/tpm)
@@ -84,6 +88,17 @@ set -g @plugin 'tmux-plugins/tpm'
 ```bash
 set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
 ```
+
+### Upgrading from v0.3.0
+
+If you are upgrading from 0.3.0 to any later versions, please note the following changes:
+
+1. The `status-left` and `status-right` options are no longer controlled by this plugin.
+   You can adjust these manually. See the section on status line modules for more details.
+1. Any custom status line modules may no longer work correctly, and will need to be rewritten
+   to maintain compatibility with newer plugin versions.
+
+The plugin can be pinned to v0.3.0 if desired: `set -g @plugin 'catppuccin/tmux#v0.3.0'`.
 
 ## Overview
 
