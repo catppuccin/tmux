@@ -32,10 +32,10 @@
 
 ## Themes
 
-- 🌻 [Latte](./themes/catppuccin_latte.tmuxtheme)
-- 🪴 [Frappé](./themes/catppuccin_frappe.tmuxtheme)
-- 🌺 [Macchiato](./themes/catppuccin_macchiato.tmuxtheme)
-- 🌿 [Mocha](./themes/catppuccin_mocha.tmuxtheme)
+- 🌻 [Latte](./themes/catppuccin_latte_tmux.conf)
+- 🪴 [Frappé](./themes/catppuccin_frappe_tmux.conf)
+- 🌺 [Macchiato](./themes/catppuccin_macchiato_tmux.conf)
+- 🌿 [Mocha](./themes/catppuccin_mocha_tmux.conf)
 
 ## Installation
 
