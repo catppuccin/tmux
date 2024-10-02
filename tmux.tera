@@ -3,23 +3,41 @@ whiskers:
   version: "2.1.1"
   matrix:
     - flavor
-  filename: "themes/catppuccin_{{flavor.identifier}}.tmuxtheme"
+  filename: "themes/catppuccin_{{flavor.identifier}}_tmux.conf"
 ---
 {%- set palette = flavor.colors -%}
-# NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
-# WARNING: hex colors can't contain capital letters
+# vim:set ft=tmux:
 
 # --> Catppuccin ({{ flavor.identifier | capitalize }})
-thm_bg="#{{ palette.base.hex | lower }}"
-thm_fg="#{{ palette.text.hex | lower }}"
-thm_cyan="#{{ palette.sky.hex| lower }}"
-thm_black="#{{ palette.mantle.hex | lower }}"
-thm_gray="#{{ palette.surface0.hex | lower }}"
-thm_magenta="#{{ palette.mauve.hex | lower }}"
-thm_pink="#{{ palette.pink.hex | lower }}"
-thm_red="#{{ palette.red.hex | lower }}"
-thm_green="#{{ palette.green.hex | lower }}"
-thm_yellow="#{{ palette.yellow.hex | lower }}"
-thm_blue="#{{ palette.blue.hex | lower }}"
-thm_orange="#{{ palette.peach.hex | lower }}"
-thm_black4="#{{ palette.surface2.hex | lower }}"
+set -ogq @thm_bg "#{{ palette.base.hex | lower }}"
+set -ogq @thm_fg "#{{ palette.text.hex | lower }}"
+
+# Colors
+set -ogq @thm_rosewater "#{{ palette.rosewater.hex | lower }}"
+set -ogq @thm_flamingo "#{{ palette.flamingo.hex | lower }}"
+set -ogq @thm_rosewater "#{{ palette.rosewater.hex | lower }}"
+set -ogq @thm_pink "#{{ palette.pink.hex | lower }}"
+set -ogq @thm_mauve "#{{ palette.mauve.hex | lower }}"
+set -ogq @thm_red "#{{ palette.red.hex | lower }}"
+set -ogq @thm_maroon "#{{ palette.maroon.hex | lower }}"
+set -ogq @thm_peach "#{{ palette.peach.hex | lower }}"
+set -ogq @thm_yellow "#{{ palette.yellow.hex | lower }}"
+set -ogq @thm_green "#{{ palette.green.hex | lower }}"
+set -ogq @thm_teal "#{{ palette.teal.hex | lower }}"
+set -ogq @thm_sky "#{{ palette.sky.hex | lower }}"
+set -ogq @thm_sapphire "#{{ palette.sapphire.hex | lower }}"
+set -ogq @thm_blue "#{{ palette.blue.hex | lower }}"
+set -ogq @thm_lavender "#{{ palette.lavender.hex | lower }}"
+
+# Surfaces and overlays
+set -ogq @thm_subtext_1 "#{{ palette.subtext0.hex | lower }}"
+set -ogq @thm_subtext_0 "#{{ palette.subtext1.hex | lower }}"
+set -ogq @thm_overlay_2 "#{{ palette.overlay2.hex | lower }}"
+set -ogq @thm_overlay_1 "#{{ palette.overlay1.hex | lower }}"
+set -ogq @thm_overlay_0 "#{{ palette.overlay0.hex | lower }}"
+set -ogq @thm_surface_2 "#{{ palette.surface2.hex | lower }}"
+set -ogq @thm_surface_1 "#{{ palette.surface1.hex | lower }}"
+set -ogq @thm_surface_0 "#{{ palette.surface0.hex | lower }}"
+set -ogq @thm_mantle "#{{ palette.mantle.hex | lower }}"
+set -ogq @thm_crust "#{{ palette.crust.hex | lower }}"
+
