@@ -39,6 +39,11 @@
 
 ## Installation
 
+> [!IMPORTANT]
+> The plugin was re-written from bash to use tmux's native configuration
+> language. This occurred after `v0.3.0`. Old configurations will
+> need to be updated. Please consider if the upgrade is worth the tradeoff.
+
 In order to have the icons displayed correctly please use/update your favorite [patched font](https://www.nerdfonts.com/font-downloads).
 If you do not have a patched font installed, you can override or remove any icon. Check the documentation below on the options available.
 
@@ -174,7 +179,7 @@ The plugin comes with three window styles built in, these can be customized by s
 | `basic` | Simple styling with blocks. | ![window basic](./assets/window-basic.webp) |
 | `rounded` | Each window is separated with rounded separators. | ![window rounded style](./assets/window-rounded.webp) |
 | `slanted` | Each window is separated with slanted separators. | ![window slanted style](./assets/window-slanted.webp) |
-| `custom` | Custom separators are used. | |
+| `custom` | Custom separators are used. This is required to override the separators! | |
 | `none` | Styling of the window status is completely disabled. | ![window no styling](./assets/window-none.webp) |
 
 If you want to change the active color to something else (the default is peach), use the following. For example to use lavender:
@@ -359,14 +364,8 @@ To kill the tmux server and clear all global variables.
 ![Default](./assets/config1.png)
 
 ```sh
-set -g @catppuccin_window_right_separator "█ "
-set -g @catppuccin_window_number_position "right"
-set -g @catppuccin_window_middle_separator " | "
-
-set -g @catppuccin_window_default_fill "none"
-
-set -g @catppuccin_window_current_fill "all"
-
+# Disable catppuccin styling windows.
+set -g @catppuccin_window_status_style "none"
 set -g @catppuccin_status_left_separator "█"
 set -g @catppuccin_status_right_separator "█"
 
@@ -375,6 +374,14 @@ set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
 # Run catppuccin plugin manually or through tpm
 # ...
 
+# Style the windows. See https://man7.org/linux/man-pages/man1/tmux.1.html#STYLES for more details.
+set -gF window-status-style "bg=#{@thm_surface_1},fg=#{@thm_fg}"
+set -gF window-status-current-style "bg=#{@thm_peach},fg=#{@thm_crust}"
+
+set -g window-status-format " #T | #I "
+set -g window-status-current-format " #T | #I "
+
+set -g status-left ""
 set -g  status-right "#{E:@catppuccin_status_application}"
 set -ag status-right "#{E:@catppuccin_status_session}"
 set -ag status-right "#{E:@catppuccin_status_user}"
@@ -387,10 +394,8 @@ set -ag status-right "#{E:@catppuccin_status_date_time}"
 ![Default](./assets/config2.png)
 
 ```sh
-set -g @catppuccin_window_left_separator "█"
-set -g @catppuccin_window_right_separator "█ "
+set -g @@catppuccin_window_status_style "slanted"
 set -g @catppuccin_window_number_position "right"
-set -g @catppuccin_window_middle_separator "  █"
 
 set -g @catppuccin_window_default_fill "number"
 
@@ -405,6 +410,7 @@ set -g @catppuccin_status_connect_separator "yes"
 # Run catppuccin plugin manually or through tpm
 # ...
 
+set -g status-left ""
 set -gF status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}#{E:@catppuccin_status_date_time}"
 ```
 
@@ -413,9 +419,7 @@ set -gF status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_
 ![Default](./assets/config3.png)
 
 ```sh
-set -g @catppuccin_window_left_separator ""
-set -g @catppuccin_window_right_separator " "
-set -g @catppuccin_window_middle_separator " █"
+set -g @catppuccin_window_status_style "rounded"
 set -g @catppuccin_window_number_position "right"
 
 set -g @catppuccin_window_default_fill "number"
@@ -434,6 +438,7 @@ set -g @catppuccin_directory_text "#{pane_current_path}"
 # Run catppuccin plugin manually or through tpm
 # ...
 
+set -g status-left ""
 set -g  status-right "#{E:@catppuccin_status_directory}"
 set -ag status-right "#{E:@catppuccin_status_user}"
 set -ag status-right "#{E:@catppuccin_status_host}"
