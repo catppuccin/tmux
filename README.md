@@ -78,12 +78,13 @@ git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppucc
 1. Install [TPM](https://github.com/tmux-plugins/tpm)
 2. Add the Catppuccin plugin:
 
+<!-- x-release-please-start-version -->
 ```bash
-# See https://github.com/catppuccin/tmux/tags for additional tags
-set -g @plugin 'catppuccin/tmux#latest'
-# ...above
+set -g @plugin 'catppuccin/tmux#1.0.0' # See https://github.com/catppuccin/tmux/tags for additional tags
+# ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```
+<!-- x-release-please-end -->
 
 3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
