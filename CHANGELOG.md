@@ -1,5 +1,42 @@
 # Changelog
 
+## [1.0.0](https://github.com/catppuccin/tmux/compare/v0.4.0...v1.0.0) (2024-10-02)
+
+
+### Bug Fixes
+
+* **readme:** remove -F when setting the status line ([#333](https://github.com/catppuccin/tmux/issues/333)) ([b38421f](https://github.com/catppuccin/tmux/commit/b38421fa15d8dfafecaf6f438115cfe3c1259bf0))
+
+## [0.4.0](https://github.com/catppuccin/tmux/compare/v0.3.0...v0.4.0) (2024-10-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* rewrite to use tmux native rather than bash ([#328](https://github.com/catppuccin/tmux/issues/328))
+
+### Bug Fixes
+
+* **readme:** update the readme to include upgrade instructions ([1bcad05](https://github.com/catppuccin/tmux/commit/1bcad05f206fb4bb9706403da24b97d2cdb64bad))
+* **window:** ensure the window formats are set correctly ([#331](https://github.com/catppuccin/tmux/issues/331)) ([1bcad05](https://github.com/catppuccin/tmux/commit/1bcad05f206fb4bb9706403da24b97d2cdb64bad))
+
+
+### Code Refactoring
+
+* rewrite to use tmux native rather than bash ([#328](https://github.com/catppuccin/tmux/issues/328)) ([87fa4a0](https://github.com/catppuccin/tmux/commit/87fa4a08c5a7fdbef3130f05a8b12f0ca26d4a46))
+
+## [0.3.0](https://github.com/catppuccin/tmux/compare/v0.2.0...v0.3.0) (2024-09-17)
+
+
+### Features
+
+* **status:** Add support for status module middle separators ([#310](https://github.com/catppuccin/tmux/issues/310)) ([1612a23](https://github.com/catppuccin/tmux/commit/1612a23174a6771ac466312eb156f83b8b89d907))
+* **status:** window specific separator config ([#198](https://github.com/catppuccin/tmux/issues/198)) ([8276c5a](https://github.com/catppuccin/tmux/commit/8276c5a5e33dbbbae3d370db2f6129e20b402f8a))
+
+
+### Bug Fixes
+
+* **kube:** escape env var ([c31b9b2](https://github.com/catppuccin/tmux/commit/c31b9b2c6c7c50abbebd02b80c4fd32b2782a011))
+
 ## [0.2.0](https://github.com/catppuccin/tmux/compare/v0.1.0...v0.2.0) (2024-08-23)
 
 
