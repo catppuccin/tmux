@@ -115,7 +115,7 @@ set -gF status-style "bg=#{@ctp_bg},fg=#{@ctp_fg}"
 
 # windows
 set -gF window-status-format "#[bg=#{@ctp_surface_1},fg=#{@ctp_fg}] ##I ##T "
-set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T 
+set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T "
 ```
 
 ### Upgrading from v0.3.0
