@@ -8,5 +8,4 @@ source "${script_dir}/helpers.sh"
 tmux source "${script_dir}/../catppuccin_options_tmux.conf"
 tmux source "${script_dir}/../catppuccin_tmux.conf"
 
-print_option @catppuccin_status_cpu | grep -q "#{cpu_bg_color}" ||
-  echo "@catppuccin_status_cpu expanded #{cpu_bg_color} in @catppuccin_cpu_color"
+print_option E:@catppuccin_status_cpu

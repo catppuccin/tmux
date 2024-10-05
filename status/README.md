@@ -83,7 +83,7 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 Add the cpu module to the status modules list.
 
 ```sh
-set -ag status-right "... #{E:@catppuccin_status_cpu} ..."
+set -agF status-right "... #{E:@catppuccin_status_cpu} ..."
 ```
 
 ### Weather modules
@@ -111,7 +111,7 @@ set -g @plugin 'xamut/tmux-weather'
 Add the weather module to the status modules list:
 
 ```sh
-set -ag status-right "... #{E:@catppuccin_status_weather} ..."
+set -agF status-right "... #{E:@catppuccin_status_weather} ..."
 ```
 
 #### tmux-clima
@@ -137,7 +137,7 @@ set -g @plugin 'vascomfnunes/tmux-clima'
 Add the weather module to the status modules list.
 
 ```sh
-set -ag status-right "... #{E:@catppuccin_status_clima} ..."
+set -agF status-right "... #{E:@catppuccin_status_clima} ..."
 ```
 
 ### Load module
@@ -163,7 +163,7 @@ set -g @plugin 'jamesoff/tmux-loadavg'
 Add the load module to the status modules list.
 
 ```sh
-set -ag status-right "... #{E:@catppuccin_status_load} ..."
+set -agF status-right "... #{E:@catppuccin_status_load} ..."
 ```
 
 ### Gitmux module
@@ -181,7 +181,7 @@ To install gitmux, follow the instructions in the [gitmux documentation](https:/
 Add the gitmux module to the status modules list.
 
 ```sh
-set -ag status-right "... #{E:@catppuccin_status_gitmux} ..."
+set -agF status-right "... #{E:@catppuccin_status_gitmux} ..."
 ```
 
 To customize the gitmux module, you can follow the instrucctions in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing) and add this line in your tmux configuration:
@@ -213,7 +213,7 @@ set -g @plugin 'olimorris/tmux-pomodoro-plus'
 Add the pomodoro module to the status modules list.
 
 ```sh
-set -ag status-right "... #{E:@catppuccin_status_pomodoro_plus} ..."
+set -agF status-right "... #{E:@catppuccin_status_pomodoro_plus} ..."
 ```
 
 ### Kube module
@@ -237,7 +237,7 @@ set -g @plugin 'jonmosco/kube-tmux'
 Add the tmux module to the status modules list.
 
 ```sh
-set -ag status-right "... #{E:@catppuccin_status_kube} ..."
+set -agF status-right "... #{E:@catppuccin_status_kube} ..."
 ```
 
 Optionally override the kube-tmux colors
