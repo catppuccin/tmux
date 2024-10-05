@@ -330,7 +330,7 @@ The tmux status line modules are set as variables and prefixed with `@catppuccin
 To use the `application` and `session` modules on the right and have nothing on the left:
 
 ```sh
-set -g status-right "#{E:@catpuccin_status_application}#{E:@catppuccin_status_session}"
+set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}"
 set -g status-left ""
 ```
 
