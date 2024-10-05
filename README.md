@@ -122,7 +122,7 @@ set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I #
 
 ### Upgrading from 0.3
 
-Breaking changes have been introduced since 0.3, to understand how to migrate your configuration, see pinned issue #291.
+Breaking changes have been introduced since 0.3, to understand how to migrate your configuration, see pinned issue [#291](https://github.com/catppuccin/tmux/issues/291).
 
 ## Recommended Default Configuration
 
