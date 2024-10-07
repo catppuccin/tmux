@@ -23,7 +23,7 @@ set -ogq "@catppuccin_${MODULE_NAME}_icon" " "
 set -ogqF "@catppuccin_${MODULE_NAME}_color" "#{E:@thm_pink}"
 set -ogq "@catppuccin_${MODULE_NAME}_text" "#{pane_current_command}"
 
-source -F "<path to catppuccin plugin>/utils/status_module.conf"
+source "<path to catppuccin plugin>/utils/status_module.conf"
 
-set -gF status-right "#{E:@catpuccin_status_application}#{E:@catppuccin_status_my_custom_module}"
+set -g status-right "#{E:@catpuccin_status_application}#{E:@catppuccin_status_my_custom_module}"
 ```

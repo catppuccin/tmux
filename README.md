@@ -32,10 +32,10 @@
 
 ## Themes
 
-- 🌻 [Latte](./themes/catppuccin_latte.tmuxtheme)
-- 🪴 [Frappé](./themes/catppuccin_frappe.tmuxtheme)
-- 🌺 [Macchiato](./themes/catppuccin_macchiato.tmuxtheme)
-- 🌿 [Mocha](./themes/catppuccin_mocha.tmuxtheme)
+- 🌻 [Latte](./themes/catppuccin_latte_tmux.conf)
+- 🪴 [Frappé](./themes/catppuccin_frappe_tmux.conf)
+- 🌺 [Macchiato](./themes/catppuccin_macchiato_tmux.conf)
+- 🌿 [Mocha](./themes/catppuccin_mocha_tmux.conf)
 
 ## Installation
 
@@ -64,7 +64,7 @@ git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppucc
 ```
 
 2. Add the following line to your `tmux.conf` file:
-    `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`
+   `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`
 3. (Optional) Set your preferred flavor and/or add configuration options as
    listed in [Configuration Options](#configuration-options). These options must be added above the `run ~/.config...` line.
 4. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`
@@ -79,11 +79,13 @@ git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppucc
 2. Add the Catppuccin plugin:
 
 <!-- x-release-please-start-version -->
+
 ```bash
-set -g @plugin 'catppuccin/tmux#1.0.0' # See https://github.com/catppuccin/tmux/tags for additional tags
+set -g @plugin 'catppuccin/tmux#v1.0.1' # See https://github.com/catppuccin/tmux/tags for additional tags
 # ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```
+
 <!-- x-release-please-end -->
 
 3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
@@ -115,19 +117,12 @@ set -gF status-style "bg=#{@ctp_bg},fg=#{@ctp_fg}"
 
 # windows
 set -gF window-status-format "#[bg=#{@ctp_surface_1},fg=#{@ctp_fg}] ##I ##T "
-set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T 
+set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T "
 ```
 
-### Upgrading from v0.3.0
+### Upgrading from 0.3
 
-If you are upgrading from 0.3.0 to any later versions, please note the following changes:
-
-1. The `status-left` and `status-right` options are no longer controlled by this plugin.
-   You can adjust these manually. See the section on status line modules for more details.
-1. Any custom status line modules may no longer work correctly, and will need to be rewritten
-   to maintain compatibility with newer plugin versions.
-
-The plugin can be pinned to v0.3.0 if desired: `set -g @plugin 'catppuccin/tmux#v0.3.0'`.
+Breaking changes have been introduced since 0.3, to understand how to migrate your configuration, see pinned issue [#291](https://github.com/catppuccin/tmux/issues/291).
 
 ## Recommended Default Configuration
 
@@ -175,13 +170,13 @@ options to your Tmux configuration.
 
 The plugin comes with three window styles built in, these can be customized by setting the `@catppuccin_window_status_style` option. The default is `basic`.
 
-| Option | Effect | Preview |
-| --- | --- | --- |
-| `basic` | Simple styling with blocks. | ![window basic](./assets/window-basic.webp) |
-| `rounded` | Each window is separated with rounded separators. | ![window rounded style](./assets/window-rounded.webp) |
-| `slanted` | Each window is separated with slanted separators. | ![window slanted style](./assets/window-slanted.webp) |
-| `custom` | Custom separators are used. This is required to override the separators! | |
-| `none` | Styling of the window status is completely disabled. | ![window no styling](./assets/window-none.webp) |
+| Option    | Effect                                                                   | Preview                                               |
+| --------- | ------------------------------------------------------------------------ | ----------------------------------------------------- |
+| `basic`   | Simple styling with blocks.                                              | ![window basic](./assets/window-basic.webp)           |
+| `rounded` | Each window is separated with rounded separators.                        | ![window rounded style](./assets/window-rounded.webp) |
+| `slanted` | Each window is separated with slanted separators.                        | ![window slanted style](./assets/window-slanted.webp) |
+| `custom`  | Custom separators are used. This is required to override the separators! |                                                       |
+| `none`    | Styling of the window status is completely disabled.                     | ![window no styling](./assets/window-none.webp)       |
 
 If you want to change the active color to something else (the default is peach), use the following. For example to use lavender:
 
@@ -330,7 +325,7 @@ The tmux status line modules are set as variables and prefixed with `@catppuccin
 To use the `application` and `session` modules on the right and have nothing on the left:
 
 ```sh
-set -g status-right "#{E:@catpuccin_status_application}#{E:@catppuccin_status_session}"
+set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}"
 set -g status-left ""
 ```
 
@@ -395,7 +390,7 @@ set -ag status-right "#{E:@catppuccin_status_date_time}"
 ![Default](./assets/config2.png)
 
 ```sh
-set -g @@catppuccin_window_status_style "slanted"
+set -g @catppuccin_window_status_style "slanted"
 set -g @catppuccin_window_number_position "right"
 
 set -g @catppuccin_window_default_fill "number"
