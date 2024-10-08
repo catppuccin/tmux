@@ -1,4 +1,3 @@
-
 ### Customizing modules
 
 Every module (except the module "session") supports the following overrides:
@@ -33,6 +32,14 @@ Ex:
 ```sh
 set -g @catppuccin_date_time_icon "null"
 ```
+
+> [!IMPORTANT]
+> Make sure to load the catppuccin theme prior to setting your status modules.<br/>
+> Use `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`.<br/>
+> For TPM, instead use `run ~/.config/tmux/plugins/tmux/catppuccin.tmux`.
+
+> [!NOTE]
+> For TPM users, execute the TPM start command `run '~/.tmux/plugins/tpm/tpm'` after setting your status modules.
 
 ### Battery module
 
