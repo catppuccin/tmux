@@ -33,13 +33,28 @@ Ex:
 set -g @catppuccin_date_time_icon "null"
 ```
 
-> [!IMPORTANT]
-> Make sure to load the catppuccin theme prior to setting your status modules.<br/>
-> Use `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`.<br/>
-> For TPM, instead use `run ~/.config/tmux/plugins/tmux/catppuccin.tmux`.
+### Notes for TPM users
 
-> [!NOTE]
-> For TPM users, execute the TPM start command `run '~/.tmux/plugins/tpm/tpm'` after setting your status modules.
+Make sure you load the catppuccin theme prior to setting the status-left and/or status-left options. This allows the catppuccin settings to be defined in the global space so they can then be set. After these settings have been configured make sure to run the TPM command to load the modules. This runs the plugin and sets them into the status line.
+
+```bash
+# ... load catppuccin theme
+run '~/.config/tmux/plugins/tmux/catppuccin.tmux' # or where this file is located on your machine
+
+# ... catppuccin settings
+set -g status-left "#{E:@catppuccin_status_session}"
+
+set -g status-right "#{E:@catppuccin_status_[module_name]}"
+set -ag status-right "#{E:@catppuccin_status_[module_name]}"
+set -agF status-right "#{E:@catppuccin_status_[module_name]}"
+
+# ... start TPM
+run '~/.tmux/plugins/tpm/tpm'
+
+set -g @plugin 'catppuccin/tmux#v1.0.1' # See https://github.com/catppuccin/tmux/tags for additional tags
+# ...alongside
+set -g @plugin 'tmux-plugins/tpm'
+```
 
 ### Battery module
 
