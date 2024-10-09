@@ -35,24 +35,25 @@ set -g @catppuccin_date_time_icon "null"
 
 ### Notes for TPM users
 
-Make sure you load the catppuccin theme prior to setting the status-left and/or status-left options. This allows the catppuccin settings to be defined in the global space so they can then be set. After these settings have been configured make sure to run the TPM command to load the modules. This runs the plugin and sets them into the status line.
+Make sure you load the catppuccin theme prior to setting the status-left and/or status-left options. This ensures the catppuccin options (such as colors and status modules) are defined so they can then be used.
+<br><br>
+After status-left and/or status-left have been set, make sure to run TPM to load the modules. This runs any plugins that may replace text in the status line.
 
 ```bash
-# ... load catppuccin theme
+# load catppuccin theme ...
 run '~/.config/tmux/plugins/tmux/catppuccin.tmux' # or where this file is located on your machine
 
-# ... catppuccin settings
+# ... and then set status-left & status-right ...
 set -g status-left "#{E:@catppuccin_status_session}"
 
 set -g status-right "#{E:@catppuccin_status_[module_name]}"
 set -ag status-right "#{E:@catppuccin_status_[module_name]}"
 set -agF status-right "#{E:@catppuccin_status_[module_name]}"
 
-# ... start TPM
+# ... and finally start TPM
 run '~/.tmux/plugins/tpm/tpm'
 
 set -g @plugin 'catppuccin/tmux#v1.0.1' # See https://github.com/catppuccin/tmux/tags for additional tags
-# ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```
 
