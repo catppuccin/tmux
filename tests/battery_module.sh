@@ -8,10 +8,4 @@ source "${script_dir}/helpers.sh"
 tmux source "${script_dir}/../catppuccin_options_tmux.conf"
 tmux source "${script_dir}/../catppuccin_tmux.conf"
 
-print_option @catppuccin_battery_icon | grep -q "#{battery_icon}" ||
-  echo "@catppuccin_status_battery expanded #{battery_icon} in @catppuccin_battery_icon"
-
-NL='
-'
-[[ "$(print_option @catppuccin_battery_icon)" == "${NL}@catppuccin_battery_icon #{l:#{battery_icon}} " ]] ||
-  echo "@catppuccin_status_battery expanded #{battery_icon} as literal in @catppuccin_battery_icon"
+print_option @catppuccin_status_battery
