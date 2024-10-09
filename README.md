@@ -81,7 +81,7 @@ git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppucc
 <!-- x-release-please-start-version -->
 
 ```bash
-set -g @plugin 'catppuccin/tmux#v1.0.1' # See https://github.com/catppuccin/tmux/tags for additional tags
+set -g @plugin 'catppuccin/tmux#v1.0.2' # See https://github.com/catppuccin/tmux/tags for additional tags
 # ...alongside
 set -g @plugin 'tmux-plugins/tpm'
 ```

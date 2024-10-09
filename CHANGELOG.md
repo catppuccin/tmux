@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/catppuccin/tmux/compare/v1.0.1...v1.0.2) (2024-10-09)
+
+
+### Bug Fixes
+
+* **status:** use a literal string for battery_icon so it can be replaced by the battery plugin ([#365](https://github.com/catppuccin/tmux/issues/365)) ([06fff2f](https://github.com/catppuccin/tmux/commit/06fff2f40ec4a5cd2c9e064bc7fde22130ecd4bb)), closes [#342](https://github.com/catppuccin/tmux/issues/342)
+* typo in readme config example ([#362](https://github.com/catppuccin/tmux/issues/362)) ([41ee0b8](https://github.com/catppuccin/tmux/commit/41ee0b89acb3f4afe531209558d6b8e4d7d4ae1a))
+
 ## [1.0.1](https://github.com/catppuccin/tmux/compare/v1.0.0...v1.0.1) (2024-10-05)
 
 
