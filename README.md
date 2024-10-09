@@ -390,7 +390,7 @@ set -ag status-right "#{E:@catppuccin_status_date_time}"
 ![Default](./assets/config2.png)
 
 ```sh
-set -g @@catppuccin_window_status_style "slanted"
+set -g @catppuccin_window_status_style "slanted"
 set -g @catppuccin_window_number_position "right"
 
 set -g @catppuccin_window_default_fill "number"
