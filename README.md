@@ -69,7 +69,7 @@ git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppucc
    listed in [Configuration Options](#configuration-options). These options must be added above the `run ~/.config...` line.
 4. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > You may have to run `~/.config/tmux/plugins/tpm/bin/clean_plugins` if upgrading from an earlier version
 > (especially from `v0.3.0`).
 
@@ -148,6 +148,7 @@ set -g @catppuccin_window_current_background "#{@thm_mauve}"
 
 # Load catppuccin
 run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+# For TPM, instead use `run ~/.config/tmux/plugins/tmux/catppuccin.tmux`
 
 # Make the status line pretty and add some modules
 set -g status-left ""
