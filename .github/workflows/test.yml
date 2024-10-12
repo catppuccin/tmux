@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Install tmux
-        run: sudo apt-get update && sudo apt-get install -y tmux=3.4-1build1
+        run: sudo apt update && sudo apt install -y --allow-downgrades tmux=3.4-1build1
       - uses: actions/checkout@v4
       - name: Run Tests
         shell: bash
