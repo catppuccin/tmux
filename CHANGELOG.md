@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.2](https://github.com/catppuccin/tmux/compare/v1.0.1...v1.0.2) (2024-10-12)
+
+
+### Bug Fixes
+
+* **ci:** update tmux in test workflow ([#370](https://github.com/catppuccin/tmux/issues/370)) ([02debd3](https://github.com/catppuccin/tmux/commit/02debd396802af9fe4b41601739e48ef38217533))
+* **status:** use a literal string for battery_icon so it can be replaced by the battery plugin ([#365](https://github.com/catppuccin/tmux/issues/365)) ([06fff2f](https://github.com/catppuccin/tmux/commit/06fff2f40ec4a5cd2c9e064bc7fde22130ecd4bb)), closes [#342](https://github.com/catppuccin/tmux/issues/342)
+* typo in readme config example ([#362](https://github.com/catppuccin/tmux/issues/362)) ([41ee0b8](https://github.com/catppuccin/tmux/commit/41ee0b89acb3f4afe531209558d6b8e4d7d4ae1a))
+* **window:** middle separator colors ([#369](https://github.com/catppuccin/tmux/issues/369)) ([c59df83](https://github.com/catppuccin/tmux/commit/c59df83d68e64feb8d015c2eb3f8b90febc95a53))
+
 ## [1.0.1](https://github.com/catppuccin/tmux/compare/v1.0.0...v1.0.1) (2024-10-05)
 
 
