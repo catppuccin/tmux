@@ -17,18 +17,31 @@
 
 ## Content
 
-1. [Themes](#themes)
-1. [Installation](#installation)
-1. [Overview](#overview)
-1. [Configuration options](#configuration-options)
-   1. [Window](#window)
-   1. [Pane](#pane)
-   1. [Status Line](#status-line)
-   1. [Using the theme's built-in status modules](#using-the-themes-built-in-status-modules)
-1. [Configuration Examples](#configuration-examples)
-   1. [Config 1](#config-1)
-   1. [Config 2](#config-2)
-   1. [Config 3](#config-3)
+<!--toc:start-->
+
+- [Content](#content)
+- [Themes](#themes)
+- [Installation](#installation)
+  - [Manual (Recommended)](#manual-recommended)
+  - [TPM](#tpm)
+  - [For TMUX versions prior to 3.2](#for-tmux-versions-prior-to-32)
+  - [Upgrading from v0.3](#upgrading-from-v03)
+- [Recommended Default Configuration](#recommended-default-configuration)
+- [Overview](#overview)
+- [Configuration options](#configuration-options)
+  - [Window](#window)
+  - [Pane](#pane)
+    - [Set the pane border style](#set-the-pane-border-style)
+    - [Set the pane active border style](#set-the-pane-active-border-style)
+  - [Menu](#menu)
+  - [Status Line](#status-line)
+  - [Pane Options](#pane-options)
+  - [Using the theme's built-in status modules](#using-the-themes-built-in-status-modules)
+- [Configuration Examples](#configuration-examples)
+  - [Config 1](#config-1)
+  - [Config 2](#config-2)
+  - [Config 3](#config-3)
+  <!--toc:end-->
 
 ## Themes
 
@@ -140,15 +153,16 @@ set -gF window-status-format "#[bg=#{@ctp_surface_1},fg=#{@ctp_fg}] ##I ##T "
 set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T "
 ```
 
-### Upgrading from 0.3
+### Upgrading from v0.3
 
 Breaking changes have been introduced since 0.3, to understand how to migrate your configuration, see pinned issue [#291](https://github.com/catppuccin/tmux/issues/291).
 
 ## Recommended Default Configuration
 
 This configuration shows some customisation options, that can be further extended as desired.
+This is what is used for the previews above.
 
-![Example configuration](./assets/example-config.webp)
+![Example configuration](./assets/mocha.webp)
 
 ```bash
 # ~/.tmux.conf
@@ -158,22 +172,25 @@ set -g mouse on
 set -g default-terminal "tmux-256color"
 
 # Configure the catppuccin plugin
-set -g @catppuccin_flavor "macchiato"
+set -g @catppuccin_flavor "mocha"
 set -g @catppuccin_window_status_style "rounded"
-# leave this unset to let applications set the window title
-set -g @catppuccin_window_default_text " #W"
-set -g @catppuccin_window_current_text " #W"
-set -g @catppuccin_window_status "icon"
-set -g @catppuccin_window_current_background "#{@thm_mauve}"
 
 # Load catppuccin
 run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 # For TPM, instead use `run ~/.config/tmux/plugins/tmux/catppuccin.tmux`
 
 # Make the status line pretty and add some modules
+set -g status-right-length 100
 set -g status-left ""
-set -g status-right "#{E:@catppuccin_status_user}"
-set -ag status-right "#{E:@catppuccin_status_directory}"
+set -g status-right "#{E:@catppuccin_status_application}"
+set -agF status-right "#{E:@catppuccin_status_cpu}"
+set -ag status-right "#{E:@catppuccin_status_session}"
+set -ag status-right "#{E:@catppuccin_status_uptime}"
+set -agF status-right "#{E:@catppuccin_status_battery}"
+
+run ~/.config/tmux/plugins/tmux-plugins/tmux-cpu/cpu.tmux
+run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
+# Or, if using TPM, just run TPM
 ```
 
 ## Overview
@@ -199,10 +216,10 @@ The plugin comes with three window styles built in, these can be customized by s
 | `custom`  | Custom separators are used. This is required to override the separators! |                                                       |
 | `none`    | Styling of the window status is completely disabled.                     | ![window no styling](./assets/window-none.webp)       |
 
-If you want to change the active color to something else (the default is peach), use the following. For example to use lavender:
+If you want to change the active color to something else (the default is mauve), use the following. For example to use lavender:
 
 ```bash
-set -g @catppuccin_window_current_background "#{@thm_lavender}"
+set -g @catppuccin_window_current_number_color "#{@thm_lavender}"
 ```
 
 <details>
@@ -413,10 +430,6 @@ set -ag status-right "#{E:@catppuccin_status_date_time}"
 ```sh
 set -g @catppuccin_window_status_style "slanted"
 set -g @catppuccin_window_number_position "right"
-
-set -g @catppuccin_window_default_fill "number"
-
-set -g @catppuccin_window_current_fill "number"
 set -g @catppuccin_window_current_text "#{pane_current_path}"
 
 set -g @catppuccin_status_left_separator  ""
