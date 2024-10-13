@@ -1,6 +1,6 @@
-window-status-format #[fg=#9399b2,bg=default]█#[fg=#11111b,bg=#9399b2]#I#[fg=#9399b2,bg=#313244]█#[fg=#cdd6f4,bg=#313244] #T#[fg=#313244,bg=default]█
-window-status-current-format #[fg=#cba6f7,bg=default]█#[fg=#11111b,bg=#cba6f7]#I#[fg=#cba6f7,bg=#45475a]█#[fg=#cdd6f4,bg=#45475a] #T#[fg=#45475a,bg=default]█
-window-status-format #[fg=#9399b2,bg=default]#[fg=#11111b,bg=#9399b2]#I#[fg=#9399b2,bg=#313244]█#[fg=#cdd6f4,bg=#313244] #T#[fg=#313244,bg=default]
-window-status-current-format #[fg=#cba6f7,bg=default]#[fg=#11111b,bg=#cba6f7]#I#[fg=#cba6f7,bg=#45475a]█#[fg=#cdd6f4,bg=#45475a] #T#[fg=#45475a,bg=default]
-window-status-format #[fg=#313244,bg=default]█#[fg=#cdd6f4,bg=#313244] #T#[fg=#9399b2,bg=#313244]█#[fg=#11111b,bg=#9399b2]#I#[fg=#9399b2,bg=default]█
-window-status-current-format #[fg=#45475a,bg=default]█#[fg=#cdd6f4,bg=#45475a] #T#[fg=#cba6f7,bg=#45475a]█#[fg=#11111b,bg=#cba6f7]#I#[fg=#cba6f7,bg=default]█
+window-status-format #[fg=#11111b,bg=#{@thm_overlay_2}] #I #[fg=#cdd6f4,bg=#{@thm_surface_0}] #T
+window-status-current-format #[fg=#11111b,bg=#{@thm_mauve}] #I #[fg=#cdd6f4,bg=#{@thm_surface_1}] #T
+window-status-format #[fg=#11111b,bg=#{@thm_overlay_2}]#[fg=#181825,reverse]#[none]#I #[fg=#cdd6f4,bg=#{@thm_surface_0}] #T#[fg=#181825,reverse]#[none]
+window-status-current-format #[fg=#11111b,bg=#{@thm_mauve}]#[fg=#181825,reverse]#[none]#I #[fg=#cdd6f4,bg=#{@thm_surface_1}] #T#[fg=#181825,reverse]#[none]
+window-status-format #[fg=#cdd6f4,bg=#{@thm_surface_0}] #[fg=#cdd6f4,bg=#{@thm_surface_0}] #T #[fg=#11111b,bg=#{@thm_overlay_2}] #I
+window-status-current-format #[fg=#cdd6f4,bg=#{@thm_surface_1}] #[fg=#cdd6f4,bg=#{@thm_surface_1}] #T #[fg=#11111b,bg=#{@thm_mauve}] #I
