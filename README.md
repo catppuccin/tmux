@@ -446,7 +446,7 @@ set -ag status-right "#{E:@catppuccin_status_session}"
 
 ## 💝 Thanks to
 
-- [Pocco81](https://github.com/catppuccin)
+- [Pocco81](https://github.com/Pocco81)
 - [vinnyA3](https://github.com/vinnyA3)
 - [rogeruiz](https://github.com/rogeruiz)
 
