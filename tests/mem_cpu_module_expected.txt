@@ -1,0 +1,1 @@
+E:@catppuccin_status_mem_cpu #[fg=#f38ba8,nobold,nounderscore,noitalics]#[fg=#11111b,bg=#f38ba8] #[fg=#f38ba8,bg=#45475a]#[fg=#cdd6f4] #[fg=#45475a]█
