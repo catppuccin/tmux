@@ -64,3 +64,7 @@ and use colors before that line, it won't work. The `#S` is a special sequence
 that tmux replaces with the current session name. There are a long, long
 "[list of special sequences](https://man7.org/linux/man-pages/man1/tmux.1.html#FORMATS)"
 that tmux can replace.
+
+If everything is working right, your version should look like this:
+
+![Demonstration of basic configuration](../assets/demos/basic.gif)
