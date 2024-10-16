@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/catppuccin/tmux/compare/v1.0.2...v1.0.3) (2024-10-16)
+
+
+### Bug Fixes
+
+* change the default status line background to mantle ([#377](https://github.com/catppuccin/tmux/issues/377)) ([47dbe81](https://github.com/catppuccin/tmux/commit/47dbe818e3ad7a008ccbd3e5d69a29a4509f7d07))
+
 ## [1.0.2](https://github.com/catppuccin/tmux/compare/v1.0.1...v1.0.2) (2024-10-12)
 
 
