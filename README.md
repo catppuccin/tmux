@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 <h3 align="center">
  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="100" alt="Logo"/><br/>
  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
@@ -14,6 +15,7 @@
 <p align="center">
   <img src="./assets/preview.webp"/>
 </p>
+<!-- markdownlint-enable -->
 
 ## Content
 
@@ -77,8 +79,10 @@
 > language. This occurred after `v0.3.0`. Old configurations will
 > need to be updated. Please consider if the upgrade is worth the tradeoff.
 
-In order to have the icons displayed correctly please use/update your favorite [patched font](https://www.nerdfonts.com/font-downloads).
-If you do not have a patched font installed, you can override or remove any icon. Check the documentation below on the options available.
+In order to have the icons displayed correctly please use/update your favorite
+ [patched font](https://www.nerdfonts.com/font-downloads).
+If you do not have a patched font installed, you can override or remove any
+icon. Check the documentation below on the options available.
 
 > [!NOTE]
 > If you are using a tmux version older than 3.0, you
@@ -91,47 +95,47 @@ This method is recommended as TPM has some issues with name conflicts.
 1. Clone this repository to your desired location (e.g.
    `~/.config/tmux/plugins/catppuccin`).
 
-```bash
-mkdir -p ~/.config/tmux/plugins/catppuccin
-git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
-```
+    ```bash
+    mkdir -p ~/.config/tmux/plugins/catppuccin
+    git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+    ```
 
-2. Add the following line to your `tmux.conf` file:
+1. Add the following line to your `tmux.conf` file:
    `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`
-3. (Optional) Set your preferred flavor and/or add configuration options as
-   listed in [Configuration Options](#configuration-options). These options must be added above the `run ~/.config...` line.
-4. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`
+1. (Optional) Set your preferred flavor and/or add configuration options as
+   listed in [Configuration Options](#configuration-options).
+   These options must be added above the `run ~/.config...` line.
+1. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`
 
 > [!IMPORTANT]
-> You may have to run `~/.config/tmux/plugins/tpm/bin/clean_plugins` if upgrading from an earlier version
+> You may have to run `~/.config/tmux/plugins/tpm/bin/clean_plugins`
+> if upgrading from an earlier version
 > (especially from `v0.3.0`).
 
 ### TPM
 
-1. Install [TPM](https://github.com/tmux-plugins/tpm)
-2. Add the Catppuccin plugin:
-
 <!-- x-release-please-start-version -->
+1. Install [TPM](https://github.com/tmux-plugins/tpm)
+1. Add the Catppuccin plugin:
 
-```bash
-set -g @plugin 'catppuccin/tmux#v1.0.3' # See https://github.com/catppuccin/tmux/tags for additional tags
-# ...alongside
-set -g @plugin 'tmux-plugins/tpm'
-```
+    ```bash
+    set -g @plugin 'catppuccin/tmux#v1.0.3' # See https://github.com/catppuccin/tmux/tags for additional tags
+    # ...alongside
+    set -g @plugin 'tmux-plugins/tpm'
+    ```
 
+1. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
+
+    ```bash
+    set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
+    ```
 <!-- x-release-please-end -->
-
-3. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
-
-```bash
-set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
-```
 
 ### For TMUX versions prior to 3.2
 
 This plugin uses features that were only introduced into tmux in version 3.2.
-If you are using a version earlier than this, you can still have lovely catppuccin colors,
-the installation method just looks a little different.
+If you are using a version earlier than this, you can still have lovely
+catppuccin colors, the installation method just looks a little different.
 
 ```sh
 # In your ~/.tmux.conf
@@ -155,11 +159,13 @@ set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I #
 
 ### Upgrading from v0.3
 
-Breaking changes have been introduced since 0.3, to understand how to migrate your configuration, see pinned issue [#291](https://github.com/catppuccin/tmux/issues/291).
+Breaking changes have been introduced since 0.3, to understand how to migrate
+your configuration, see pinned issue [#291](https://github.com/catppuccin/tmux/issues/291).
 
 ## Recommended Default Configuration
 
-This configuration shows some customisation options, that can be further extended as desired.
+This configuration shows some customisation options, that can be further
+extended as desired.
 This is what is used for the previews above.
 
 ![Example configuration](./assets/mocha.webp)
@@ -206,7 +212,8 @@ options to your Tmux configuration.
 
 ### Window
 
-The plugin comes with three window styles built in, these can be customized by setting the `@catppuccin_window_status_style` option. The default is `basic`.
+The plugin comes with three window styles built in, these can be customized by
+setting the `@catppuccin_window_status_style` option. The default is `basic`.
 
 | Option    | Effect                                                                   | Preview                                               |
 | --------- | ------------------------------------------------------------------------ | ----------------------------------------------------- |
@@ -216,7 +223,8 @@ The plugin comes with three window styles built in, these can be customized by s
 | `custom`  | Custom separators are used. This is required to override the separators! |                                                       |
 | `none`    | Styling of the window status is completely disabled.                     | ![window no styling](./assets/window-none.webp)       |
 
-If you want to change the active color to something else (the default is mauve), use the following. For example to use lavender:
+If you want to change the active color to something else (the default is mauve),
+use the following. For example to use lavender:
 
 ```bash
 set -g @catppuccin_window_current_number_color "#{@thm_lavender}"
@@ -226,7 +234,8 @@ set -g @catppuccin_window_current_number_color "#{@thm_lavender}"
 
 <summary>Customising the separators</summary>
 
-Add the following (above `set -g @plugin "catppuccin/tmux"` if using TPM), setting whatever values you'd like for the separators:
+Add the following (above `set -g @plugin "catppuccin/tmux"` if using TPM),
+setting whatever values you'd like for the separators:
 
 ```bash
 set -g @catppuccin_window_status_style "custom"
@@ -256,7 +265,8 @@ set -g @catppuccin_pane_active_border_style "fg=#{@thm_peach}" # Use a value com
 **Set the menu selected style:**
 
 ```sh
-set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}" # Use a value compatible with the standard tmux `menu-selected-style`
+# Use a value compatible with the standard tmux `menu-selected-style`
+set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}" 
 ```
 
 ### Status Line
@@ -306,8 +316,10 @@ set -g @catppuccin_status_connect_separator "yes"
 
 Possible values:
 
-- yes - the background color of the separator will not blend in with the background color of tmux
-- no - the background color of the separator will blend in with the background color of tmux
+- yes - the background color of the separator will not blend in with the background
+  color of tmux
+- no - the background color of the separator will blend in with the background
+  color of tmux
 
 **Set the status module color fill:**
 
@@ -335,7 +347,8 @@ Values:
 
 ### Pane Options
 
-By default no pane styling options are set. To enable, set `@catppuccin_pane_status_enabled` to `yes`.
+By default no pane styling options are set. To enable, set
+`@catppuccin_pane_status_enabled` to `yes`.
 
 Defaults:
 
@@ -356,11 +369,13 @@ set -g @catppuccin_pane_background_color "#{@thm_surface_0}"
 
 ### Using the theme's built-in status modules
 
-To use the theme's built in status modules, set the `status-left` and `status-right` tmux options _after_ the plugin has been loaded.
+To use the theme's built in status modules, set the `status-left` and
+`status-right` tmux options _after_ the plugin has been loaded.
 
 The tmux status line modules are set as variables and prefixed with `@catppuccin_status_<module>`.
 
-To use the `application` and `session` modules on the right and have nothing on the left:
+To use the `application` and `session` modules on the right and have nothing on
+the left:
 
 ```sh
 set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}"
@@ -485,6 +500,9 @@ set -ag status-right "#{E:@catppuccin_status_session}"
 
 &nbsp;
 
-<p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
+<!-- markdownlint-disable -->
+<p align="center">
+<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
 <p align="center">Copyright &copy; 2021-present <a href="https://github.com/catppuccin" target="_blank">Catppuccin Org</a>
 <p align="center"><a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
+<!-- markdownlint-enable -->
