@@ -8,5 +8,8 @@
         "allowed_elements": ["details", "summary", "img", "p", "a", "h3"]
     },
     "first-line-heading": false,
-    "no-alt-text": false
+    "no-alt-text": false,
+    "code-block-style": {
+        "style": "consistent"
+    }
 }
