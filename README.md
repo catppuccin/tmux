@@ -393,7 +393,7 @@ Available modules:
 - `uptime` - display the uptime
 - `battery` - display the battery
 
-For a full list of modules and their options see [status](./status/README.md).
+For a full list of modules and their options see [status](./docs/status-line-reference.md).
 
 ## Configuration Examples
 
