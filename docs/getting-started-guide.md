@@ -45,7 +45,7 @@ set -g status-right-length 100
 ```
 
 There is some new stuff here. Firstly, everything is documented in
-the [tmux man page](https://man7.org/linux/man-pages/man1/tmux.1.html).
+the "[tmux man page](https://man7.org/linux/man-pages/man1/tmux.1.html)".
 Go check it out if anything is unclear. The lines `set -g ...` are setting
 "options". The `-g` means that the option is global, so it applies everywhere.
 When an option name begins with `@`, then it is a "user" option and has no
@@ -62,5 +62,5 @@ user option set by the plugin. It is created by the line
 `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`, so if you try
 and use colors before that line, it won't work. The `#S` is a special sequence
 that tmux replaces with the current session name. There are a long, long
-list of special sequences that tmux can replace.
-[Have a look here.](https://man7.org/linux/man-pages/man1/tmux.1.html#FORMATS)
+"[list of special sequences](https://man7.org/linux/man-pages/man1/tmux.1.html#FORMATS)"
+that tmux can replace.
