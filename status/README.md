@@ -270,6 +270,36 @@ set -g @catppuccin_kube_context_color "#{@thm_red}"
 set -g @catppuccin_kube_namespace_color "#{@thm_sky}"
 ```
 
+### MEM-CPU module
+
+#### Requirements
+
+This module depends on [tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load).
+
+#### Install
+
+To install tmux-mem-cpu-load, follow the instructions in the [documentation](https://github.com/thewtex/tmux-mem-cpu-load?tab=readme-ov-file#installation).
+
+#### Configure
+
+Add the module to the status modules list.
+
+```sh
+set -agF status-right "... #{E:@catppuccin_status_mem_cpu} ..."
+```
+
+To customize the module, you can follow the instructions in the [documentation](https://github.com/thewtex/tmux-mem-cpu-load?tab=readme-ov-file#configuring-tmux).
+
+This module defaults the `@catppuccin_mem_cpu_command` to `tmux-mem-cpu-load`, if this is not in the path, please reference accordingly.
+
+This module defaults the `@catppuccin_mem_cpu_options` to `--cpu-mode 2 --averages-count 0  --interval 2` and can be overridden.
+
+The combination text can also be overridden:
+
+```sh
+set -g @catppuccin_mem_cpu_text "#(tmux-mem-cpu-load -p -q)"
+```
+
 ## Create a custom module
 
 It is possible to use the options set by the plugin to create your own modules.
