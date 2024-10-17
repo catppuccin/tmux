@@ -14,6 +14,14 @@ set -g @catppuccin_[module_name]_icon "icon"
 set -g @catppuccin_[module_name]_color "color"
 ```
 
+#### Override the specific module background color
+
+##### (NB: Only when `@catppuccin_status_fill` is `icon`)
+
+```sh
+set -g @catppuccin_status_[module_name]_bg_color "color"
+```
+
 #### Override the specific module text
 
 ```sh
