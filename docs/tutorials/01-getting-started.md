@@ -67,4 +67,4 @@ that tmux can replace.
 
 If everything is working right, your version should look like this:
 
-![Demonstration of basic configuration](../assets/demos/basic.gif)
+![Demonstration of basic configuration](../../assets/demos/basic.gif)

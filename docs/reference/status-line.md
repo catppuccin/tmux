@@ -1,26 +1,43 @@
-### Customizing modules
+## Using the theme's built-in status modules
+
+To use the theme's built in status modules, set the `status-left` and
+`status-right` tmux options _after_ the plugin has been loaded with `run`.
+
+The tmux status line modules are set as variables and prefixed with `@catppuccin_status_<module>`.
+
+To use the `application` and `session` modules on the right and have nothing on
+the left:
+
+```sh
+set -g status-right-length 100
+
+set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}"
+set -g status-left ""
+```
+
+## Customizing modules
 
 Every module supports the following overrides:
 
-#### Override the specific module icon
+### Override the specific module icon
 
 ```sh
 set -g @catppuccin_[module_name]_icon "icon"
 ```
 
-#### Override the specific module color
+### Override the specific module color
 
 ```sh
 set -g @catppuccin_[module_name]_color "color"
 ```
 
-#### Override the specific module text
+### Override the specific module text
 
 ```sh
 set -g @catppuccin_[module_name]_text "text"
 ```
 
-#### Removing a specific module option
+### Removing a specific module option
 
 ```sh
 set -g @catppuccin_[module_name]_[option] ""
@@ -58,7 +75,7 @@ set -g @plugin 'tmux-plugins/tpm'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-### Battery module
+## Battery module
 
 **Requirements:** This module depends on [tmux-battery](https://github.com/tmux-plugins/tmux-battery/tree/master).
 
@@ -75,7 +92,7 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-### CPU module
+## CPU module
 
 **Requirements:** This module depends on [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu/tree/master).
 
@@ -92,9 +109,9 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-### Weather modules
+## Weather modules
 
-#### tmux-weather
+### tmux-weather
 
 **Requirements:** This module depends on [tmux-weather](https://github.com/xamut/tmux-weather).
 
@@ -111,7 +128,7 @@ set -g @plugin 'xamut/tmux-weather'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-#### tmux-clima
+### tmux-clima
 
 **Requirements:** This module depends on [tmux-clima](https://github.com/vascomfnunes/tmux-clima).
 
@@ -128,7 +145,7 @@ set -g @plugin 'vascomfnunes/tmux-clima'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-### Load module
+## Load module
 
 **Requirements:** This module depends on [tmux-loadavg](https://github.com/jamesoff/tmux-loadavg).
 
@@ -145,7 +162,7 @@ set -g @plugin 'jamesoff/tmux-loadavg'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-### Gitmux module
+## Gitmux module
 
 **Requirements:** This module depends on [gitmux](https://github.com/arl/gitmux).
 
@@ -163,7 +180,7 @@ set -agF status-right "#{@catppuccin_status_gitmux}"
 
 To customize the gitmux module, you can follow the instrucctions in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing).
 
-### Pomodoro module
+## Pomodoro module
 
 **Requirements:**: This module depends on [tmux-pomodoro-plus](https://github.com/olimorris/tmux-pomodoro-plus/tree/main).
 
@@ -180,7 +197,7 @@ set -g @plugin 'olimorris/tmux-pomodoro-plus'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-### Kube module
+## Kube module
 
 **Requirements:** This module depends on [kube-tmux](https://github.com/jonmosco/kube-tmux).
 

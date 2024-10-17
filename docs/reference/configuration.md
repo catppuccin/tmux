@@ -1,5 +1,8 @@
 ## Configuration Reference
 
+![Default](../../assets/overview.png)
+This is a diagram of how the theme is split between its components.
+
 ### Top Level Options
 
 | Option               | Effect                                                                         |
@@ -12,6 +15,10 @@
 | ----------------------------- | --------------------------------------------- |
 | @catppuccin_status_background | Sets the background color of the status line. |
 
+- `default` will use the color from the selected theme
+- `none` will make the status bar transparent
+- use hex color codes for other colors or a theme color (`#{@thm_<color>}`)
+
 ### Window
 
 The plugin comes with three window styles built in, these can be customized by
@@ -19,11 +26,11 @@ setting the `@catppuccin_window_status_style` option. The default is `basic`.
 
 | Option    | Effect                                                                   | Preview                                                |
 | --------- | ------------------------------------------------------------------------ | ------------------------------------------------------ |
-| `basic`   | Simple styling with blocks.                                              | ![window basic](../assets/window-basic.webp)           |
-| `rounded` | Each window is separated with rounded separators.                        | ![window rounded style](../assets/window-rounded.webp) |
-| `slanted` | Each window is separated with slanted separators.                        | ![window slanted style](../assets/window-slanted.webp) |
+| `basic`   | Simple styling with blocks.                                              | ![window basic](../../assets/window-basic.webp)           |
+| `rounded` | Each window is separated with rounded separators.                        | ![window rounded style](../../assets/window-rounded.webp) |
+| `slanted` | Each window is separated with slanted separators.                        | ![window slanted style](../../assets/window-slanted.webp) |
 | `custom`  | Custom separators are used. This is required to override the separators! |                                                        |
-| `none`    | Styling of the window status is completely disabled.                     | ![window no styling](../assets/window-none.webp)       |
+| `none`    | Styling of the window status is completely disabled.                     | ![window no styling](../../assets/window-none.webp)       |
 
 If you want to change the active color to something else (the default is mauve),
 use the following. For example to use lavender:
@@ -31,6 +38,33 @@ use the following. For example to use lavender:
 ```bash
 set -g @catppuccin_window_current_number_color "#{@thm_lavender}"
 ```
+
+<details>
+
+<summary>Customising the separators</summary>
+
+Add the following,
+setting whatever values you'd like for the separators:
+
+```bash
+set -g @catppuccin_window_status_style "custom"
+set -g @catppuccin_window_left_separator ""
+set -g @catppuccin_window_middle_separator ""
+set -g @catppuccin_window_right_separator ""
+```
+
+</details>
+
+### Menu
+
+**Set the menu selected style:**
+
+```sh
+# Use a value compatible with the standard tmux `menu-selected-style`
+set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}" 
+```
+
+### All options and their defaults
 
 ```bash
 # Menu styling options
