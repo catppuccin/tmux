@@ -1,5 +1,8 @@
 ## Configuration Reference
 
+![Default](../assets/overview.png)
+This is a diagram of how the theme is split between its components.
+
 ### Top Level Options
 
 | Option               | Effect                                                                         |
@@ -11,6 +14,10 @@
 | Option                        | Effect                                        |
 | ----------------------------- | --------------------------------------------- |
 | @catppuccin_status_background | Sets the background color of the status line. |
+
+- `default` will use the color from the selected theme
+- `none` will make the status bar transparent
+- use hex color codes for other colors or a theme color (`#{@thm_<color>}`)
 
 ### Window
 
@@ -31,6 +38,33 @@ use the following. For example to use lavender:
 ```bash
 set -g @catppuccin_window_current_number_color "#{@thm_lavender}"
 ```
+
+<details>
+
+<summary>Customising the separators</summary>
+
+Add the following,
+setting whatever values you'd like for the separators:
+
+```bash
+set -g @catppuccin_window_status_style "custom"
+set -g @catppuccin_window_left_separator ""
+set -g @catppuccin_window_middle_separator ""
+set -g @catppuccin_window_right_separator ""
+```
+
+</details>
+
+### Menu
+
+**Set the menu selected style:**
+
+```sh
+# Use a value compatible with the standard tmux `menu-selected-style`
+set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}" 
+```
+
+### All options and their defaults
 
 ```bash
 # Menu styling options
