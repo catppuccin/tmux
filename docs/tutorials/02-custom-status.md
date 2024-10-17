@@ -22,7 +22,7 @@ set -g status-right "#[bg=#{@thm_flamingo},fg=#{@thm_crust}]#[reverse]#[norev
 set -ag status-right "#[fg=#{@thm_fg},bg=#{@thm_mantle}] #(memory_pressure | awk '/percentage/{print $5}') "
 ```
 
-![Example of the custom ram module](../assets/ram-example.webp)
+![Example of the custom ram module](../../assets/ram-example.webp)
 
 To use the status module formatting that catppuccin uses, do the following:
 

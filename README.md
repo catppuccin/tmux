@@ -76,7 +76,7 @@ This method is recommended as TPM has some issues with name conflicts.
    `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`.
 1. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`.
 
-Check out what to do next in the "[Getting Started Guide](./docs/getting-started-guide.md)".
+Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-getting-started.md)".
 
 > [!IMPORTANT]
 > You may have to run `~/.config/tmux/plugins/tpm/bin/clean_plugins`
@@ -175,13 +175,13 @@ run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
 
 ### Guides
 
-[Getting Started](./docs/getting-started-guide.md)
-[Custom Status Line Segments](./docs/custom-status-guide.md)
+- [Getting Started](./docs/tutorials/01-getting-started.md)
+- [Custom Status Line Segments](./docs/tutorials/02-custom-status.md)
 
 ### Reference
 
-[Status Line](./docs/status-line-reference.md)
-[Configuration Options Reference](./docs/configuration-reference.md)
+- [Status Line](./docs/reference/status-line.md)
+- [Configuration Options Reference](./docs/reference/configuration.md)
 
 ## 💝 Thanks to
 

@@ -1,6 +1,6 @@
 ## Configuration Reference
 
-![Default](../assets/overview.png)
+![Default](../../assets/overview.png)
 This is a diagram of how the theme is split between its components.
 
 ### Top Level Options
@@ -26,11 +26,11 @@ setting the `@catppuccin_window_status_style` option. The default is `basic`.
 
 | Option    | Effect                                                                   | Preview                                                |
 | --------- | ------------------------------------------------------------------------ | ------------------------------------------------------ |
-| `basic`   | Simple styling with blocks.                                              | ![window basic](../assets/window-basic.webp)           |
-| `rounded` | Each window is separated with rounded separators.                        | ![window rounded style](../assets/window-rounded.webp) |
-| `slanted` | Each window is separated with slanted separators.                        | ![window slanted style](../assets/window-slanted.webp) |
+| `basic`   | Simple styling with blocks.                                              | ![window basic](../../assets/window-basic.webp)           |
+| `rounded` | Each window is separated with rounded separators.                        | ![window rounded style](../../assets/window-rounded.webp) |
+| `slanted` | Each window is separated with slanted separators.                        | ![window slanted style](../../assets/window-slanted.webp) |
 | `custom`  | Custom separators are used. This is required to override the separators! |                                                        |
-| `none`    | Styling of the window status is completely disabled.                     | ![window no styling](../assets/window-none.webp)       |
+| `none`    | Styling of the window status is completely disabled.                     | ![window no styling](../../assets/window-none.webp)       |
 
 If you want to change the active color to something else (the default is mauve),
 use the following. For example to use lavender:
