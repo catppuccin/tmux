@@ -1,0 +1,15 @@
+{
+    "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.35.0/schema/markdownlint-config-schema.json",
+    "line-length": {
+        "code_block_line_length": 120,
+        "tables": false
+    },
+    "no-inline-html": {
+        "allowed_elements": ["details", "summary", "img", "p", "a", "h3"]
+    },
+    "first-line-heading": false,
+    "no-alt-text": false,
+    "code-block-style": {
+        "style": "consistent"
+    }
+}
