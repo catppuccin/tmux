@@ -184,7 +184,29 @@ run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 set -agF status-right "#{@catppuccin_status_gitmux}"
 ```
 
-To customize the gitmux module, you can follow the instrucctions in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing).
+Follow the instructions in the [gitmux documentation](https://github.com/arl/gitmux/blob/main/README.md#customizing)
+to create a gitmux config file. The gitmux plugin expects a file to be present
+at `~/.gitmux.conf`.
+
+Add the following to your `~/.gitmux.conf` so that it uses catppuccin colors:
+
+```yaml
+tmux:
+    styles:
+        clear: '#[fg=#{@thm_fg}]'
+        state: '#[fg=#{@thm_red},bold]'
+        branch: '#[fg=#{@thm_fg},bold]'
+        remote: '#[fg=#{@thm_teal}]'
+        divergence: '#[fg=#{@thm_fg}]'
+        staged: '#[fg=#{@thm_green},bold]'
+        conflict: '#[fg=#{@thm_red},bold]'
+        modified: '#[fg=#{@thm_yellow},bold]'
+        untracked: '#[fg=#{@thm_mauve},bold]'
+        stashed: '#[fg=#{@thm_blue},bold]'
+        clean: '#[fg=#{@thm_rosewater},bold]'
+        insertions: '#[fg=#{@thm_green}]'
+        deletions: '#[fg=#{@thm_red}]'
+```
 
 ## Pomodoro module
 
