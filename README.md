@@ -47,9 +47,10 @@
 ## Installation
 
 In order to have the icons displayed correctly please use/update your favorite
- [nerd font](https://www.nerdfonts.com/font-downloads).
+[nerd font](https://www.nerdfonts.com/font-downloads).
 If you do not have a patched font installed, you can override or remove any
-icon. Check the documentation on the options available.
+icon. Check the [documentation](./docs/reference/configuration.md) on the
+options available.
 
 ### Manual (Recommended)
 

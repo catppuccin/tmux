@@ -37,6 +37,12 @@ set -g @catppuccin_[module_name]_color "color"
 set -g @catppuccin_[module_name]_text "text"
 ```
 
+### Override the specific module's background color
+
+```sh
+set -g @catppuccin_status_[module_name]_bg_color "#{@thm_surface_0}"
+```
+
 ### Removing a specific module option
 
 ```sh

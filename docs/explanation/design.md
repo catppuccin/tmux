@@ -3,6 +3,20 @@
 First and foremost, this is a color scheme. Making colors work
 well takes precedence over other kinds of functionality.
 
+### History
+
+This plugin kept on growing essentially because no one was there to push back on
+changes that went against, for example, parts of the UNIX philosophy. This lead to
+a state where there were almost an infinite number of configuration options,
+and combining them in unique ways would almost certainly break something.
+Maintaining the options for everyone's setup was impossible, and fixing
+one bug would cause several others to appear. Eventually the addition
+of more and more things that didn't relate to colors, such as status line modules,
+took time away from getting the basics right.
+
+Moving forward, we will be trying to align with the philosophies listed below.
+This is in contrast to what the plugin has historically offered in terms of functionality.
+
 ### UNIX Philosphy
 
 1. Write programs that do one thing and do it well.

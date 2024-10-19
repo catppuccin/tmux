@@ -2,10 +2,12 @@ Want to install the color scheme and make tmux pastel? Great! Here's how.
 
 ## Step 1: Clone this repository
 
+<!-- x-release-please-start-version -->
 ```bash
 mkdir -p ~/.config/tmux/plugins/catppuccin
-git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+git clone -b v1.0.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 ```
+<!-- x-release-please-end -->
 
 ## Step 2: Edit your tmux configuration file
 

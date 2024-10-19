@@ -1,6 +1,7 @@
 ## Configuration Reference
 
-![Default](../../assets/overview.png)
+<img src="../../assets/structure.svg" style="background: #eff1f5" />
+
 This is a diagram of how the theme is split between its components.
 
 ### Top Level Options
@@ -92,7 +93,7 @@ set -ogq @catppuccin_window_current_text_color "#{@thm_surface_1}"
 set -ogq @catppuccin_window_current_number_color "#{@thm_mauve}"
 set -ogq @catppuccin_window_current_text " #T"
 set -ogq @catppuccin_window_number_position "left"
-set -ogq @catppuccin_window_status "none"
+set -ogq @catppuccin_window_flags "none"
 set -ogq @catppuccin_window_flags_icon_last " 󰖰" # -
 set -ogq @catppuccin_window_flags_icon_current " 󰖯" # *
 set -ogq @catppuccin_window_flags_icon_zoom " 󰁌" # Z
@@ -109,4 +110,5 @@ set -ogq @catppuccin_status_middle_separator ""
 set -ogq @catppuccin_status_right_separator "█"
 set -ogq @catppuccin_status_connect_separator "yes" # yes, no
 set -ogq @catppuccin_status_fill "icon"
+set -ogq @catppuccin_status_module_bg_color "#{@thm_surface_0}"
 ```
