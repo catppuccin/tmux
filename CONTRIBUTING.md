@@ -2,8 +2,7 @@
 
 ## Design
 
-Check out the "[Design Philosphy](./docs/explanation/design.md)" to ensure
-your changes are consistent.
+To understand our mindset in developing this plugin and how to ensure your changes align with that mindset, check out the "[Design Philosophy(./docs/explanation/design.md)."
 
 ## Commit messages
 

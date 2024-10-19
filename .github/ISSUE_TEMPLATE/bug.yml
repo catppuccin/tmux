@@ -4,7 +4,7 @@ labels: [bug]
 body:
   - type: checkboxes
     attributes:
-      label: Something is actually broken, I am not requesting help with my configuration.
+      label: I am not requesting help with my configuration and believe something is genuinely broken.
       description: Please open a discussion if you need support.
       options:
         - label: Something is really actually broken.
