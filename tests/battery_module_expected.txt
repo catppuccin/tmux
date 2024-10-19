@@ -1,1 +1,1 @@
-@catppuccin_status_battery #[fg=#f9e2af,nobold,nounderscore,noitalics]#[fg=#11111b,bg=#f9e2af]#{l:#{battery_icon}} #[fg=#f9e2af,bg=#313244]#[fg=#cdd6f4] #{E:@catppuccin_battery_text}#[fg=#313244]█
+@catppuccin_status_battery #[fg=#{@thm_lavender},nobold,nounderscore,noitalics]#[fg=#11111b,bg=#{@thm_lavender}]#{l:#{battery_icon}} #[fg=#{@thm_lavender},bg=#313244]#[fg=#cdd6f4] #{E:@catppuccin_battery_text}#[fg=#313244]█

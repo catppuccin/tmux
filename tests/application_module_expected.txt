@@ -1,1 +1,1 @@
-@catppuccin_status_application #[fg=#f5c2e7,nobold,nounderscore,noitalics]#[fg=#11111b,bg=#f5c2e7] #[fg=#f5c2e7,bg=#313244]#[fg=#cdd6f4] #{E:@catppuccin_application_text}#[fg=#313244]█
+@catppuccin_status_application #[fg=#eba0ac,nobold,nounderscore,noitalics]#[fg=#11111b,bg=#eba0ac] #[fg=#eba0ac,bg=#313244]#[fg=#cdd6f4] #{E:@catppuccin_application_text}#[fg=#313244]█
