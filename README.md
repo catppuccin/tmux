@@ -46,42 +46,30 @@
 
 ## Installation
 
-> [!IMPORTANT]
-> The plugin was re-written from bash to use tmux's native configuration
-> language. This occurred after `v0.3.0`. Old configurations will
-> need to be updated. Please consider if the upgrade is worth the tradeoff.
-
 In order to have the icons displayed correctly please use/update your favorite
- [patched font](https://www.nerdfonts.com/font-downloads).
+ [nerd font](https://www.nerdfonts.com/font-downloads).
 If you do not have a patched font installed, you can override or remove any
-icon. Check the documentation below on the options available.
-
-> [!NOTE]
-> If you are using a tmux version older than 3.0, you
-> will need to follow the instructions for [older versions](#for-tmux-versions-prior-to-32).
+icon. Check the documentation on the options available.
 
 ### Manual (Recommended)
 
 This method is recommended as TPM has some issues with name conflicts.
 
+<!-- x-release-please-start-version -->
 1. Clone this repository to your desired location (e.g.
    `~/.config/tmux/plugins/catppuccin`).
 
     ```bash
     mkdir -p ~/.config/tmux/plugins/catppuccin
-    git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+    git clone -b v1.0.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
     ```
 
 1. Add the following line to your `tmux.conf` file:
    `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`.
 1. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`.
+<!-- x-release-please-end -->
 
 Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-getting-started.md)".
-
-> [!IMPORTANT]
-> You may have to run `~/.config/tmux/plugins/tpm/bin/clean_plugins`
-> if upgrading from an earlier version
-> (especially from `v0.3.0`).
 
 ### TPM
 
@@ -101,6 +89,11 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
     set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
     ```
 <!-- x-release-please-end -->
+
+> [!IMPORTANT]
+> You may have to run `~/.config/tmux/plugins/tpm/bin/clean_plugins`
+> if upgrading from an earlier version
+> (especially from `v0.3.0`).
 
 ### For TMUX versions prior to 3.2
 
