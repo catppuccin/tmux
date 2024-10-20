@@ -21,11 +21,11 @@ concurrency:
 jobs:
   ubuntu:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Install tmux
-        run: sudo apt-get update && sudo apt-get install -y tmux=3.2a-4ubuntu0.2
+        run: sudo apt update && sudo apt install -y --allow-downgrades tmux=3.4-1build1
       - uses: actions/checkout@v4
       - name: Run Tests
         shell: bash
