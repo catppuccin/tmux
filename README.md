@@ -182,6 +182,7 @@ run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
 - [Pocco81](https://github.com/Pocco81)
 - [vinnyA3](https://github.com/vinnyA3)
 - [rogeruiz](https://github.com/rogeruiz)
+- [kales](https://github.com/kjnsn)
 
 &nbsp;
 
