@@ -2,7 +2,7 @@
 
 ## Design
 
-To understand our mindset in developing this plugin and how to ensure your changes align with that mindset, check out the "[Design Philosophy(./docs/explanation/design.md)."
+To understand our mindset in developing this plugin and how to ensure your changes align with that mindset, check out the "[Design Philosophy](./docs/explanation/design.md)."
 
 ## Commit messages
 
