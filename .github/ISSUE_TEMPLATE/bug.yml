@@ -9,7 +9,7 @@ body:
       options:
         - label: Something is really actually broken.
           required: true
-   - type: checkboxes
+  - type: checkboxes
     attributes:
       label: Is there an existing issue outlining your problem?
       description: Please search to see if an issue already exists for your problem.
