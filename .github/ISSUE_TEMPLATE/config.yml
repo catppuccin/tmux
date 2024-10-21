@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Ask A Question
-    url: https://github.com/catppuccin/tmux/discussions/new?category=q-a
+  - name: Get Support
+    url: https://github.com/catppuccin/tmux/discussions/new?category=help
     about: Need help tweaking your Catppuccin tmux configuration? Ask questions in GitHub Discussions!
   - name: Show & Tell
     url: https://github.com/catppuccin/tmux/discussions/new?category=show-tell

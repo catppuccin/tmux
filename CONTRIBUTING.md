@@ -1,9 +1,8 @@
 # Contributing
 
-## Adding a module
+## Design
 
-Follow the instructions from [custom](/custom), place the module in the appropriate
-directory and document the module in `README.md`.
+To understand our mindset in developing this plugin and how to ensure your changes align with that mindset, check out the "[Design Philosophy](./docs/explanation/design.md)."
 
 ## Commit messages
 
@@ -36,7 +35,7 @@ described by Conventional Commits. Use the `<type>!` syntax in order to distingu
 breaking commits in the log, but include the footer to provide a better description
 for the changelog generator.
 
-```
+```text
 feat(bar)!: foo the bars
 
 BREAKING CHANGE: bars are now foo'ed

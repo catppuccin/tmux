@@ -8,7 +8,8 @@
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "extra-files": [
-        "README.md"
+        "README.md",
+        "docs/tutorials/01-getting-started.md"
       ]
     }
   },
