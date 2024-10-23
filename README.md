@@ -62,7 +62,7 @@ This method is recommended as TPM has some issues with name conflicts.
 
     ```bash
     mkdir -p ~/.config/tmux/plugins/catppuccin
-    git clone -b v2.0.0 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+    git clone -b v2.0.1 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
     ```
 
 1. Add the following line to your `tmux.conf` file:
@@ -79,7 +79,7 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
 1. Add the Catppuccin plugin:
 
     ```bash
-    set -g @plugin 'catppuccin/tmux#v2.0.0' # See https://github.com/catppuccin/tmux/tags for additional tags
+    set -g @plugin 'catppuccin/tmux#v2.0.1' # See https://github.com/catppuccin/tmux/tags for additional tags
     # ...alongside
     set -g @plugin 'tmux-plugins/tpm'
     ```

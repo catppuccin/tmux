@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.1](https://github.com/catppuccin/tmux/compare/v2.0.0...v2.0.1) (2024-10-23)
+
+
+### Bug Fixes
+
+* session status icon bg color change by client_prefix ([#394](https://github.com/catppuccin/tmux/issues/394)) ([8855667](https://github.com/catppuccin/tmux/commit/885566714315915547516de5c2f1b660f8e524c2))
+
+
+### Documentation
+
+* **README:** add [@kjnsn](https://github.com/kjnsn) to "Thanks to" section ([#398](https://github.com/catppuccin/tmux/issues/398)) ([c3fab98](https://github.com/catppuccin/tmux/commit/c3fab98ab4248a2a78c8193ad48f0991b7bfa1e3))
+
 ## [2.0.0](https://github.com/catppuccin/tmux/compare/v1.0.3...v2.0.0) (2024-10-21)
 
 
