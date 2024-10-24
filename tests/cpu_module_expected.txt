@@ -1,1 +1,1 @@
-E:@catppuccin_status_cpu #[fg=#f9e2af]#[fg=#11111b,bg=#f9e2af] #[fg=#cdd6f4,bg=#313244] #{cpu_bg_color}#{cpu_percentage}#[reverse]█#[noreverse]
+E:@catppuccin_status_cpu #[fg=#f9e2af]#[fg=#11111b,bg=#f9e2af] #[fg=#{cpu_fg_color},bg=#{cpu_bg_color}] #{cpu_percentage}#[reverse]█#[noreverse]
