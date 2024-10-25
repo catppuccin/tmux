@@ -62,7 +62,7 @@ set -g @catppuccin_window_right_separator ""
 
 ```sh
 # Use a value compatible with the standard tmux `menu-selected-style`
-set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}" 
+set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}"
 ```
 
 ### All options and their defaults
@@ -89,9 +89,11 @@ set -ogq @catppuccin_window_status_style "basic" # basic, rounded, slanted, cust
 set -ogq @catppuccin_window_text_color "#{@thm_surface_0}"
 set -ogq @catppuccin_window_number_color "#{@thm_overlay_2}"
 set -ogq @catppuccin_window_text " #T"
+set -ogq @catppuccin_window_number "#I"
 set -ogq @catppuccin_window_current_text_color "#{@thm_surface_1}"
 set -ogq @catppuccin_window_current_number_color "#{@thm_mauve}"
 set -ogq @catppuccin_window_current_text " #T"
+set -ogq @catppuccin_window_current_number "#I"
 set -ogq @catppuccin_window_number_position "left"
 set -ogq @catppuccin_window_flags "none"
 set -ogq @catppuccin_window_flags_icon_last " 󰖰" # -
