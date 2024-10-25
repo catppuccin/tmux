@@ -14,8 +14,11 @@
     }
   },
   "changelog-sections": [
-    { "type": "feat", "section": "Features" },
-    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "feat", "section": "Added" },
+    { "type": "change", "section": "Changed" },
+    { "type": "fix", "section": "Fixed" },
+    { "type": "deprecate", "section": "Deprecated" },
+    { "type": "remove", "section": "Removed" },
     { "type": "perf", "section": "Performance Improvements" },
     { "type": "revert", "section": "Reverts" },
     { "type": "docs", "section": "Documentation" }
