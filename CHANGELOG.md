@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.0](https://github.com/catppuccin/tmux/compare/v2.0.0...v2.1.0) (2024-10-25)
+
+
+### Added
+
+* add an option to format the window number with `[@catppuccin](https://github.com/catppuccin)_window_number` and `[@catppuccin](https://github.com/catppuccin)_window_current_number` ([c749885](https://github.com/catppuccin/tmux/commit/c74988511a462bdf07c5fc9ce88157b93a4ed185))
+
+
+### Fixed
+
+* allow for dynamic colors in status modules ([#411](https://github.com/catppuccin/tmux/issues/411)), fixes issue [#407](https://github.com/catppuccin/tmux/issues/407) ([5e273e4](https://github.com/catppuccin/tmux/commit/5e273e41dd3188a1a0e795b120623c95de491445))
+* session status icon bg color change by client_prefix ([#394](https://github.com/catppuccin/tmux/issues/394)) ([8855667](https://github.com/catppuccin/tmux/commit/885566714315915547516de5c2f1b660f8e524c2))
+
+
+### Documentation
+
+* **README:** add [@kjnsn](https://github.com/kjnsn) to "Thanks to" section ([#398](https://github.com/catppuccin/tmux/issues/398)) ([c3fab98](https://github.com/catppuccin/tmux/commit/c3fab98ab4248a2a78c8193ad48f0991b7bfa1e3))
+
 ## [2.0.0](https://github.com/catppuccin/tmux/compare/v1.0.3...v2.0.0) (2024-10-21)
 
 
