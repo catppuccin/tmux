@@ -139,7 +139,7 @@ run_test() {
     die "\n${RED}Test ${script_name} exited with code $test_exit_code ${NOFORMAT}"
   fi
 
-  echo -e "${output}" | diff -aB --color=${DIFFCOLORS} "${expected_output}" -
+  echo -e "${output}" | diff -abB --color=${DIFFCOLORS} "${expected_output}" -
 
   if test $? -eq 0; then
     msg "${GREEN}Test ${script_name} passed${NOFORMAT}"

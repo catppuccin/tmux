@@ -8,9 +8,20 @@
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "extra-files": [
-        "README.md"
+        "README.md",
+        "docs/tutorials/01-getting-started.md"
       ]
     }
   },
+  "changelog-sections": [
+    { "type": "feat", "section": "Added" },
+    { "type": "change", "section": "Changed" },
+    { "type": "fix", "section": "Fixed" },
+    { "type": "deprecate", "section": "Deprecated" },
+    { "type": "remove", "section": "Removed" },
+    { "type": "perf", "section": "Performance Improvements" },
+    { "type": "revert", "section": "Reverts" },
+    { "type": "docs", "section": "Documentation" }
+  ],
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
 }

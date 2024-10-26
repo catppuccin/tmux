@@ -4,6 +4,13 @@ labels: [bug]
 body:
   - type: checkboxes
     attributes:
+      label: I am not requesting help with my configuration and believe something is genuinely broken.
+      description: Please open a [discussion](https://github.com/catppuccin/tmux/discussions/new?category=help) if you need support.
+      options:
+        - label: Something is really actually broken.
+          required: true
+  - type: checkboxes
+    attributes:
       label: Is there an existing issue outlining your problem?
       description: Please search to see if an issue already exists for your problem.
       options:
@@ -13,20 +20,13 @@ body:
     attributes:
       label: Describe your problem.
       description: Also tell us, what do you expect to see?
-      placeholder: The battery charging icon is missing...
+      placeholder: The status bar is bright green, I expect it to be mantle.
     validations:
       required: true
   - type: textarea
     attributes:
       label: Paste your configuration.
-      description: Provide us with the contents of your `.tmux.conf` file.
-      placeholder: |
-        ```sh
-        set -g @plugin 'catppuccin/tmux'
-        set -g @plugin 'tmux-plugins/tpm'
-        # ...
-        run ~/.config/tmux/tpm/tpm
-        ```
+      description: Provide us with the contents of your `~/.tmux.conf` file.
     validations:
       required: true
   - type: textarea
@@ -37,7 +37,7 @@ body:
     attributes:
       label: What tmux version are you seeing the issue on?
       description: "You can find your version by running `tmux -V`"
-      placeholder: tmux 3.3a
+      placeholder: tmux 3.5a
     validations:
       required: true
   - type: textarea
