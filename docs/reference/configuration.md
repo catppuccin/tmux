@@ -95,7 +95,7 @@ set -ogq @catppuccin_window_current_number_color "#{@thm_mauve}"
 set -ogq @catppuccin_window_current_text " #T"
 set -ogq @catppuccin_window_current_number "#I"
 set -ogq @catppuccin_window_number_position "left"
-set -ogq @catppuccin_window_flags "none"
+set -ogq @catppuccin_window_flags "none" # none, icon, or text
 set -ogq @catppuccin_window_flags_icon_last " 󰖰" # -
 set -ogq @catppuccin_window_flags_icon_current " 󰖯" # *
 set -ogq @catppuccin_window_flags_icon_zoom " 󰁌" # Z

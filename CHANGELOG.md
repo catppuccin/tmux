@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.1](https://github.com/catppuccin/tmux/compare/v2.1.0...v2.1.1) (2024-11-17)
+
+
+### Fixed
+
+* escape the TPM environment variable in the kube status line module ([#434](https://github.com/catppuccin/tmux/issues/434)) ([eb78ade](https://github.com/catppuccin/tmux/commit/eb78ade9dc1f6cd8ba654572f51ddcae3c6e7fd7))
+* specify the color for right separator of the status modules to be the same as text bg color ([#429](https://github.com/catppuccin/tmux/issues/429)) ([0e66dee](https://github.com/catppuccin/tmux/commit/0e66dee11ee396824668d4db863f1873e9e9243f))
+
+
+### Documentation
+
+* add possible values for window_flags ([#417](https://github.com/catppuccin/tmux/issues/417)) ([c8a2d1a](https://github.com/catppuccin/tmux/commit/c8a2d1ae9649aa904960bef1516ea2ff9a3e6ad0))
+* **custom-status:** fix typo `catpuccin` -&gt; `catppuccin` ([#424](https://github.com/catppuccin/tmux/issues/424)) ([aaf9120](https://github.com/catppuccin/tmux/commit/aaf9120f769a34e5491b3ee7f885c8c347f2f663))
+
 ## [2.1.0](https://github.com/catppuccin/tmux/compare/v2.0.0...v2.1.0) (2024-10-25)
 
 
