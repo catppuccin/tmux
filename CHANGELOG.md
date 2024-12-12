@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.2](https://github.com/catppuccin/tmux/compare/v2.1.1...v2.1.2) (2024-12-08)
+
+
+### Fixed
+
+* improve uptime status sed script to report correct units for few uptime scenarios ([#437](https://github.com/catppuccin/tmux/issues/437)) ([31fc2bf](https://github.com/catppuccin/tmux/commit/31fc2bfb1123681dc06da613b944b85f81e4babd))
+* use current window separators for the current window format ([#443](https://github.com/catppuccin/tmux/issues/443)) ([2a6c45b](https://github.com/catppuccin/tmux/commit/2a6c45b7c0da1594de1105d6cef15e3e68981113))
+
 ## [2.1.1](https://github.com/catppuccin/tmux/compare/v2.1.0...v2.1.1) (2024-11-17)
 
 
