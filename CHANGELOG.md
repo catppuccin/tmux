@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/catppuccin/tmux/compare/v2.1.2...v2.1.3) (2024-12-28)
+
+
+### Fixed
+
+* use the correct option for the left separator for the current window ([#450](https://github.com/catppuccin/tmux/issues/450)) ([ba9bd88](https://github.com/catppuccin/tmux/commit/ba9bd88c98c81f25060f051ed983e40f82fdd3ba))
+
 ## [2.1.2](https://github.com/catppuccin/tmux/compare/v2.1.1...v2.1.2) (2024-12-08)
 
 
