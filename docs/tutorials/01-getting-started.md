@@ -41,6 +41,13 @@ run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 set -g status-left ""
 set -g status-right '#[fg=#{@thm_crust},bg=#{@thm_teal}] session: #S '
 
+# automatically set CWD as window name
+set -g @catppuccin_window_default_text "#W"
+set -g @catppuccin_window_current_text "#W"
+set -g @catppuccin_window_text "#W"
+set-option -g automatic-rename on
+set-option -g automatic-rename-format '#I #{b:pane_current_path}'
+
 # Ensure that everything on the right side of the status line
 # is included.
 set -g status-right-length 100

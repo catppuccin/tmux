@@ -160,6 +160,13 @@ set -ag status-right "#{E:@catppuccin_status_session}"
 set -ag status-right "#{E:@catppuccin_status_uptime}"
 set -agF status-right "#{E:@catppuccin_status_battery}"
 
+# automatically set CWD as window name
+set -g @catppuccin_window_default_text "#W"
+set -g @catppuccin_window_current_text "#W"
+set -g @catppuccin_window_text "#W"
+set-option -g automatic-rename on
+set-option -g automatic-rename-format '#I #{b:pane_current_path}'
+
 run ~/.config/tmux/plugins/tmux-plugins/tmux-cpu/cpu.tmux
 run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
 # Or, if using TPM, just run TPM
