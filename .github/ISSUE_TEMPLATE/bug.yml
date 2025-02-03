@@ -14,7 +14,7 @@ body:
       label: Is there an existing issue outlining your problem?
       description: Please search to see if an issue already exists for your problem.
       options:
-        - label: I have searched the existing issues and they do not solve my problem.
+        - label: I have searched the existing issues and [troubleshooting guide](https://github.com/catppuccin/tmux/blob/main/docs/guides/troubleshooting.md), and they do not solve my problem.
           required: true
   - type: textarea
     attributes:
@@ -38,6 +38,13 @@ body:
       label: What tmux version are you seeing the issue on?
       description: "You can find your version by running `tmux -V`"
       placeholder: tmux 3.5a
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: What shell are you using?
+      description: "You can find your shell by running `echo $SHELL`"
+      placeholder: bash
     validations:
       required: true
   - type: textarea

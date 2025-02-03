@@ -57,13 +57,14 @@ options available.
 This method is recommended as TPM has some issues with name conflicts.
 
 <!-- x-release-please-start-version -->
+
 1. Clone this repository to your desired location (e.g.
    `~/.config/tmux/plugins/catppuccin`).
 
-    ```bash
-    mkdir -p ~/.config/tmux/plugins/catppuccin
-    git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
-    ```
+   ```bash
+   mkdir -p ~/.config/tmux/plugins/catppuccin
+   git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+   ```
 
 1. Add the following line to your `tmux.conf` file:
    `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`.
@@ -75,8 +76,9 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
 ### TPM
 
 <!-- x-release-please-start-version -->
-1. Install [TPM](https://github.com/tmux-plugins/tpm)
-1. Add the Catppuccin plugin:
+
+1.  Install [TPM](https://github.com/tmux-plugins/tpm)
+1.  Add the Catppuccin plugin:
 
     ```bash
     set -g @plugin 'catppuccin/tmux#v2.1.2' # See https://github.com/catppuccin/tmux/tags for additional tags
@@ -84,12 +86,13 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
     set -g @plugin 'tmux-plugins/tpm'
     ```
 
-1. (Optional) Set your preferred flavor, it defaults to `"mocha"`:
+1.  (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
-    ```bash
-    set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
-    ```
-<!-- x-release-please-end -->
+        ```bash
+        set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
+        ```
+
+    <!-- x-release-please-end -->
 
 > [!IMPORTANT]
 > You may have to run `~/.config/tmux/plugins/tpm/bin/clean_plugins`
@@ -171,6 +174,7 @@ run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
 
 - [Getting Started](./docs/tutorials/01-getting-started.md)
 - [Custom Status Line Segments](./docs/tutorials/02-custom-status.md)
+- [Troubleshooting](./docs/guides/troubleshooting.md)
 
 ### Reference
 
