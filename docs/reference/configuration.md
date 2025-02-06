@@ -86,12 +86,17 @@ set -ogq @catppuccin_pane_default_fill "number"
 set -ogq @catppuccin_pane_number_position "left" # right, left
 
 set -ogq @catppuccin_window_status_style "basic" # basic, rounded, slanted, custom, or none
-set -ogq @catppuccin_window_text_color "#{@thm_surface_0}"
-set -ogq @catppuccin_window_number_color "#{@thm_overlay_2}"
+set -ogq @catppuccin_window_text_fg "#{@thm_fg}"
+set -ogq @catppuccin_window_text_bg "#{@thm_surface_0}"
+set -ogq @catppuccin_window_number_fg "#{@thm_surface_0}"
+set -ogq @catppuccin_window_number_bg "#{@thm_overlay_2}"
 set -ogq @catppuccin_window_text " #T"
 set -ogq @catppuccin_window_number "#I"
-set -ogq @catppuccin_window_current_text_color "#{@thm_surface_1}"
-set -ogq @catppuccin_window_current_number_color "#{@thm_mauve}"
+set -ogq @catppuccin_window_current_text_fg "#{@thm_fg}"
+set -ogq @catppuccin_window_current_text_bg "#{@thm_surface_1}"
+set -ogq @catppuccin_window_current_number_fg "#{@thm_crust}"
+set -ogq @catppuccin_window_current_number_bg "#{@thm_mauve}"
+
 set -ogq @catppuccin_window_current_text " #T"
 set -ogq @catppuccin_window_current_number "#I"
 set -ogq @catppuccin_window_number_position "left"
