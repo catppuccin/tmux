@@ -88,9 +88,9 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
 
 1.  (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
-        ```bash
-        set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
-        ```
+     ```bash
+     set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
+     ```
 
     <!-- x-release-please-end -->
 
