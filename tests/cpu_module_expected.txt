@@ -1,1 +1,1 @@
-E:@catppuccin_status_cpu #[fg=#f9e2af]#[fg=#11111b,bg=#f9e2af] #[fg=#{cpu_fg_color},bg=#{cpu_bg_color}] #{cpu_percentage}#[fg=#{cpu_bg_color}]
+E:@gruvbox_status_cpu #[fg=#f9e2af]#[fg=#11111b,bg=#f9e2af] #[fg=#{cpu_fg_color},bg=#{cpu_bg_color}] #{cpu_percentage}#[fg=#{cpu_bg_color}]

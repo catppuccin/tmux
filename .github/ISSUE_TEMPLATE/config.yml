@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Get Support
-    url: https://github.com/catppuccin/tmux/discussions/new?category=help
-    about: Need help tweaking your Catppuccin tmux configuration? Ask questions in GitHub Discussions!
+    url: https://github.com/gruvbox/tmux/discussions/new?category=help
+    about: Need help tweaking your gruvbox tmux configuration? Ask questions in GitHub Discussions!
   - name: Show & Tell
-    url: https://github.com/catppuccin/tmux/discussions/new?category=show-tell
-    about: Want to showcase your customised Catppuccin tmux configuration? Show it off in GitHub Discussions!
+    url: https://github.com/gruvbox/tmux/discussions/new?category=show-tell
+    about: Want to showcase your customised gruvbox tmux configuration? Show it off in GitHub Discussions!
   - name: Community Discord
-    url: https://discord.com/servers/catppuccin-907385605422448742
+    url: https://discord.com/servers/gruvbox-907385605422448742
     about: Chat to other community members!

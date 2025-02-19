@@ -12,7 +12,7 @@ body:
   - type: textarea
     attributes:
       label: Describe your issue.
-      description: Bugs should be raised under a [Bug Report](https://github.com/catppuccin/tmux/issues/new?assignees=&labels=bug&template=bug.yml).
+      description: Bugs should be raised under a [Bug Report](https://github.com/gruvbox/tmux/issues/new?assignees=&labels=bug&template=bug.yml).
       placeholder: The README is missing crucial information such as...
     validations:
       required: true

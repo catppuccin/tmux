@@ -3,7 +3,7 @@ whiskers:
   version: "2.1.1"
   matrix:
     - flavor
-  filename: "themes/catppuccin_{{flavor.identifier}}_tmux.conf"
+  filename: "themes/gruvbox_{{flavor.identifier}}_tmux.conf"
 ---
 {%- set palette = flavor.colors -%}
 # vim:set ft=tmux:
@@ -13,21 +13,21 @@ set -ogq @thm_bg "#{{ palette.base.hex | lower }}"
 set -ogq @thm_fg "#{{ palette.text.hex | lower }}"
 
 # Colors
-set -ogq @thm_rosewater "#{{ palette.rosewater.hex | lower }}"
-set -ogq @thm_flamingo "#{{ palette.flamingo.hex | lower }}"
-set -ogq @thm_rosewater "#{{ palette.rosewater.hex | lower }}"
-set -ogq @thm_pink "#{{ palette.pink.hex | lower }}"
-set -ogq @thm_mauve "#{{ palette.mauve.hex | lower }}"
+set -ogq @thm_orange "#{{ palette.orange.hex | lower }}"
+set -ogq @thm_red_two "#{{ palette.red_two.hex | lower }}"
+set -ogq @thm_orange "#{{ palette.orange.hex | lower }}"
+set -ogq @thm_purple_two "#{{ palette.purple_two.hex | lower }}"
+set -ogq @thm_purple "#{{ palette.purple.hex | lower }}"
 set -ogq @thm_red "#{{ palette.red.hex | lower }}"
 set -ogq @thm_maroon "#{{ palette.maroon.hex | lower }}"
-set -ogq @thm_peach "#{{ palette.peach.hex | lower }}"
+set -ogq @thm_yellow_two "#{{ palette.yellow_two.hex | lower }}"
 set -ogq @thm_yellow "#{{ palette.yellow.hex | lower }}"
 set -ogq @thm_green "#{{ palette.green.hex | lower }}"
 set -ogq @thm_teal "#{{ palette.teal.hex | lower }}"
-set -ogq @thm_sky "#{{ palette.sky.hex | lower }}"
-set -ogq @thm_sapphire "#{{ palette.sapphire.hex | lower }}"
-set -ogq @thm_blue "#{{ palette.blue.hex | lower }}"
-set -ogq @thm_lavender "#{{ palette.lavender.hex | lower }}"
+set -ogq @thm_blue_two "#{{ palette.sky.hex | lower }}"
+set -ogq @thm_blue "#{{ palette.sapphire.hex | lower }}"
+set -ogq @thm_blue_two "#{{ palette.blue.hex | lower }}"
+set -ogq @thm_gray "#{{ palette.lavender.hex | lower }}"
 
 # Surfaces and overlays
 set -ogq @thm_subtext_1 "#{{ palette.subtext0.hex | lower }}"

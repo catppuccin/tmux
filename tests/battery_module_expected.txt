@@ -1,1 +1,1 @@
-@catppuccin_status_battery #[fg=#b4befe]#[fg=#11111b,bg=#b4befe]#{l:#{battery_icon}} #[fg=#cdd6f4,bg=#313244]#{E:@catppuccin_battery_text}#[fg=#313244]
+@gruvbox_status_battery #[fg=#b4befe]#[fg=#11111b,bg=#b4befe]#{l:#{battery_icon}} #[fg=#cdd6f4,bg=#313244]#{E:@gruvbox_battery_text}#[fg=#313244]

@@ -1,15 +1,15 @@
 <!-- markdownlint-disable -->
 <h3 align="center">
- <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="100" alt="Logo"/><br/>
- <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
- Catppuccin for <a href="https://github.com/tmux/tmux">Tmux</a>
- <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
+ <img src="https://raw.githubusercontent.com/gruvbox/gruvbox/main/assets/logos/exports/1544x1544_circle.png" width="100" alt="Logo"/><br/>
+ <img src="https://raw.githubusercontent.com/gruvbox/gruvbox/main/assets/misc/transparent.png" height="30" width="0px"/>
+ gruvbox for <a href="https://github.com/tmux/tmux">Tmux</a>
+ <img src="https://raw.githubusercontent.com/gruvbox/gruvbox/main/assets/misc/transparent.png" height="30" width="0px"/>
 </h3>
 
 <p align="center">
-    <a href="https://github.com/catppuccin/tmux/stargazers"><img src="https://img.shields.io/github/stars/catppuccin/tmux?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-    <a href="https://github.com/catppuccin/tmux/issues"><img src="https://img.shields.io/github/issues/catppuccin/tmux?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
-    <a href="https://github.com/catppuccin/tmux/contributors"><img src="https://img.shields.io/github/contributors/catppuccin/tmux?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+    <a href="https://github.com/gruvbox/tmux/stargazers"><img src="https://img.shields.io/github/stars/gruvbox/tmux?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+    <a href="https://github.com/gruvbox/tmux/issues"><img src="https://img.shields.io/github/issues/gruvbox/tmux?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+    <a href="https://github.com/gruvbox/tmux/contributors"><img src="https://img.shields.io/github/contributors/gruvbox/tmux?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
 <p align="center">
@@ -59,15 +59,15 @@ This method is recommended as TPM has some issues with name conflicts.
 <!-- x-release-please-start-version -->
 
 1. Clone this repository to your desired location (e.g.
-   `~/.config/tmux/plugins/catppuccin`).
+   `~/.config/tmux/plugins/gruvbox`).
 
    ```bash
-   mkdir -p ~/.config/tmux/plugins/catppuccin
-   git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+   mkdir -p ~/.config/tmux/plugins/gruvbox
+   git clone -b v2.1.2 https://github.com/gruvbox/tmux.git ~/.config/tmux/plugins/gruvbox/tmux
    ```
 
 1. Add the following line to your `tmux.conf` file:
-   `run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux`.
+   `run ~/.config/tmux/plugins/gruvbox/tmux/gruvbox.tmux`.
 1. Reload Tmux by either restarting or reloading with `tmux source ~/.tmux.conf`.
 <!-- x-release-please-end -->
 
@@ -78,10 +78,10 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
 <!-- x-release-please-start-version -->
 
 1.  Install [TPM](https://github.com/tmux-plugins/tpm)
-1.  Add the Catppuccin plugin:
+1.  Add the gruvbox plugin:
 
     ```bash
-    set -g @plugin 'catppuccin/tmux#v2.1.2' # See https://github.com/catppuccin/tmux/tags for additional tags
+    set -g @plugin 'gruvbox/tmux#v2.1.2' # See https://github.com/gruvbox/tmux/tags for additional tags
     # ...alongside
     set -g @plugin 'tmux-plugins/tpm'
     ```
@@ -89,7 +89,7 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
 1.  (Optional) Set your preferred flavor, it defaults to `"mocha"`:
 
         ```bash
-        set -g @catppuccin_flavor 'mocha' # latte, frappe, macchiato or mocha
+        set -g @gruvbox_flavor 'mocha' # latte, frappe, macchiato or mocha
         ```
 
     <!-- x-release-please-end -->
@@ -103,7 +103,7 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
 
 This plugin uses features that were only introduced into tmux in version 3.2.
 If you are using a version earlier than this, you can still have lovely
-catppuccin colors, the installation method just looks a little different.
+gruvbox colors, the installation method just looks a little different.
 
 ```sh
 # In your ~/.tmux.conf
@@ -114,7 +114,7 @@ catppuccin colors, the installation method just looks a little different.
 set -g @ctp_bg "#24273a"
 set -g @ctp_surface_1 "#494d64"
 set -g @ctp_fg "#cad3f5"
-set -g @ctp_mauve "#c6a0f6"
+set -g @ctp_purple "#c6a0f6"
 set -g @ctp_crust "#181926"
 
 # status line
@@ -122,13 +122,13 @@ set -gF status-style "bg=#{@ctp_bg},fg=#{@ctp_fg}"
 
 # windows
 set -gF window-status-format "#[bg=#{@ctp_surface_1},fg=#{@ctp_fg}] ##I ##T "
-set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T "
+set -gF window-status-current-format "#[bg=#{@ctp_purple},fg=#{@ctp_crust}] ##I ##T "
 ```
 
 ### Upgrading from v0.3
 
 Breaking changes have been introduced since 0.3, to understand how to migrate
-your configuration, see pinned issue [#291](https://github.com/catppuccin/tmux/issues/291).
+your configuration, see pinned issue [#291](https://github.com/gruvbox/tmux/issues/291).
 
 ## Recommended Default Configuration
 
@@ -145,23 +145,23 @@ This is what is used for the previews above.
 set -g mouse on
 set -g default-terminal "tmux-256color"
 
-# Configure the catppuccin plugin
-set -g @catppuccin_flavor "mocha"
-set -g @catppuccin_window_status_style "rounded"
+# Configure the gruvbox plugin
+set -g @gruvbox_flavor "mocha"
+set -g @gruvbox_window_status_style "rounded"
 
-# Load catppuccin
-run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
-# For TPM, instead use `run ~/.config/tmux/plugins/tmux/catppuccin.tmux`
+# Load gruvbox
+run ~/.config/tmux/plugins/gruvbox/tmux/gruvbox.tmux
+# For TPM, instead use `run ~/.config/tmux/plugins/tmux/gruvbox.tmux`
 
 # Make the status line pretty and add some modules
 set -g status-right-length 100
 set -g status-left-length 100
 set -g status-left ""
-set -g status-right "#{E:@catppuccin_status_application}"
-set -agF status-right "#{E:@catppuccin_status_cpu}"
-set -ag status-right "#{E:@catppuccin_status_session}"
-set -ag status-right "#{E:@catppuccin_status_uptime}"
-set -agF status-right "#{E:@catppuccin_status_battery}"
+set -g status-right "#{E:@gruvbox_status_application}"
+set -agF status-right "#{E:@gruvbox_status_cpu}"
+set -ag status-right "#{E:@gruvbox_status_session}"
+set -ag status-right "#{E:@gruvbox_status_uptime}"
+set -agF status-right "#{E:@gruvbox_status_battery}"
 
 run ~/.config/tmux/plugins/tmux-plugins/tmux-cpu/cpu.tmux
 run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
@@ -180,7 +180,7 @@ run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
 
 - [Status Line](./docs/reference/status-line.md)
 - [Configuration Options Reference](./docs/reference/configuration.md)
-- [Tmux Configuration Showcase](https://github.com/catppuccin/tmux/discussions/317)
+- [Tmux Configuration Showcase](https://github.com/gruvbox/tmux/discussions/317)
 
 ## 💝 Thanks to
 
@@ -193,7 +193,7 @@ run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
 
 <!-- markdownlint-disable -->
 <p align="center">
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
-<p align="center">Copyright &copy; 2021-present <a href="https://github.com/catppuccin" target="_blank">Catppuccin Org</a>
-<p align="center"><a href="https://github.com/catppuccin/catppuccin/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
+<img src="https://raw.githubusercontent.com/gruvbox/gruvbox/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
+<p align="center">Copyright &copy; 2021-present <a href="https://github.com/gruvbox" target="_blank">gruvbox Org</a>
+<p align="center"><a href="https://github.com/gruvbox/gruvbox/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
 <!-- markdownlint-enable -->

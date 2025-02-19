@@ -9,8 +9,8 @@ as does [fish](https://fishshell.com/docs/current/cmds/fish_title.html).
 The format string used can be changed by setting the following options:
 
 ```bash
-set -g @catppuccin_window_text "#W"
-set -g @catppuccin_window_current_text "#W"
+set -g @gruvbox_window_text "#W"
+set -g @gruvbox_window_current_text "#W"
 ```
 
 The window title is `#W`, the current path is `#{b:pane_current_path}`. A huge
@@ -27,9 +27,9 @@ and that your terminal is set to use that font.
 Go through these steps:
 
 1. Completely kill tmux and restart (`killall tmux`).
-1. Ensure every `@catppuccin.*` option is being set _before_
+1. Ensure every `@gruvbox.*` option is being set _before_
    the plugin is loaded. Loading occurs where you have `run` in your config file.
-1. Double check for typos. There are two "c"s and two "p"s in "catppuccin".
+1. Double check for typos. There are two "c"s and two "p"s in "gruvbox".
 1. Do not use `-o` to set options that begin with `@`. The `-o` flag means that
    the option will not be set if it has already been set. You do not need this
    in your config file.
