@@ -151,7 +151,7 @@ set -g @catppuccin_window_status_style "rounded"
 
 # Load catppuccin
 run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
-# For TPM, instead use `run ~/.config/tmux/plugins/tmux/catppuccin.tmux`
+# For TPM, instead use `run ~/.tmux/plugins/tmux/catppuccin.tmux`
 
 # Make the status line pretty and add some modules
 set -g status-right-length 100
