@@ -244,3 +244,17 @@ set -agF status-right "#{E:@catppuccin_status_kube}"
 set -g @plugin 'jonmosco/kube-tmux'
 run '~/.tmux/plugins/tpm/tpm'
 ```
+
+## Network bandwidth module
+
+**Requirements:**: This module depends on [tmux-network-bandwidth](https://github.com/ilya-manin/tmux-network-bandwidth)
+
+**Install:**: The preferred way to install tmux-network-bandwidth is using [TPM](https://github.com/tmux-plugins/tpm).
+
+**Configure:**
+
+```sh
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+
+set -agF status-right "#{E:@catppuccin_status_network_bandwidth}"
+```
