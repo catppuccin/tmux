@@ -1,0 +1,2 @@
+
+E:@catppuccin_status_load #[fg=#8aadf4]#[fg=#181926,bg=#8aadf4]󰊚 #[fg=#cad3f5,bg=#363a4f]#[fg=#363a4f] 
