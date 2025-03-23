@@ -153,19 +153,12 @@ run '~/.tmux/plugins/tpm/tpm'
 
 ## Load module
 
-**Requirements:** This module depends on [tmux-loadavg](https://github.com/jamesoff/tmux-loadavg).
-
-**Install:** The preferred way to install tmux-loadavg is using [TPM](https://github.com/tmux-plugins/tpm).
-
 **Configure:**
 
 ```sh
 run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
 set -agF status-right "#{E:@catppuccin_status_load}"
-
-set -g @plugin 'jamesoff/tmux-loadavg'
-run '~/.tmux/plugins/tpm/tpm'
 ```
 
 ## Gitmux module
@@ -192,20 +185,20 @@ Add the following to your `~/.gitmux.conf` so that it uses catppuccin colors:
 
 ```yaml
 tmux:
-    styles:
-        clear: '#[fg=#{@thm_fg}]'
-        state: '#[fg=#{@thm_red},bold]'
-        branch: '#[fg=#{@thm_fg},bold]'
-        remote: '#[fg=#{@thm_teal}]'
-        divergence: '#[fg=#{@thm_fg}]'
-        staged: '#[fg=#{@thm_green},bold]'
-        conflict: '#[fg=#{@thm_red},bold]'
-        modified: '#[fg=#{@thm_yellow},bold]'
-        untracked: '#[fg=#{@thm_mauve},bold]'
-        stashed: '#[fg=#{@thm_blue},bold]'
-        clean: '#[fg=#{@thm_rosewater},bold]'
-        insertions: '#[fg=#{@thm_green}]'
-        deletions: '#[fg=#{@thm_red}]'
+  styles:
+    clear: "#[fg=#{@thm_fg}]"
+    state: "#[fg=#{@thm_red},bold]"
+    branch: "#[fg=#{@thm_fg},bold]"
+    remote: "#[fg=#{@thm_teal}]"
+    divergence: "#[fg=#{@thm_fg}]"
+    staged: "#[fg=#{@thm_green},bold]"
+    conflict: "#[fg=#{@thm_red},bold]"
+    modified: "#[fg=#{@thm_yellow},bold]"
+    untracked: "#[fg=#{@thm_mauve},bold]"
+    stashed: "#[fg=#{@thm_blue},bold]"
+    clean: "#[fg=#{@thm_rosewater},bold]"
+    insertions: "#[fg=#{@thm_green}]"
+    deletions: "#[fg=#{@thm_red}]"
 ```
 
 ## Pomodoro module
