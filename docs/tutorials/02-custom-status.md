@@ -31,9 +31,9 @@ To use the status module formatting that catppuccin uses, do the following:
 
 %hidden MODULE_NAME="my_custom_module"
 
-set -ogq "@catppuccin_${MODULE_NAME}_icon" " "
-set -ogqF "@catppuccin_${MODULE_NAME}_color" "#{E:@thm_pink}"
-set -ogq "@catppuccin_${MODULE_NAME}_text" "#{pane_current_command}"
+set -g "@catppuccin_${MODULE_NAME}_icon" " "
+set -gF "@catppuccin_${MODULE_NAME}_color" "#{E:@thm_pink}"
+set -g "@catppuccin_${MODULE_NAME}_text" "#{pane_current_command}"
 
 source "<path to catppuccin plugin>/utils/status_module.conf"
 
