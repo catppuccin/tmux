@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.4](https://github.com/catppuccin/tmux/compare/v2.1.3...v2.1.4) (2025-04-18)
+
+
+### Documentation
+
+* stop recommending `-o` ([#524](https://github.com/catppuccin/tmux/issues/524)) ([14a546f](https://github.com/catppuccin/tmux/commit/14a546fb64dc1141e5d02bac2185d8c1fd530d6a))
+
 ## [2.1.3](https://github.com/catppuccin/tmux/compare/v2.1.2...v2.1.3) (2025-03-23)
 
 
