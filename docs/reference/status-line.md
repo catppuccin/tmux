@@ -14,6 +14,7 @@ set -g status-right-length 100
 set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}"
 set -g status-left ""
 ```
+Note that the status variables are expanded using `E:` before the variable name. Depending on the module used, you may also have to use `set -gF` in order for `set` to expand format, see for example the [CPU](#cpu-module) and [battery](#battery-module) modules below. 
 
 ## Customizing modules
 
