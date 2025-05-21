@@ -237,3 +237,29 @@ set -agF status-right "#{E:@catppuccin_status_kube}"
 set -g @plugin 'jonmosco/kube-tmux'
 run '~/.tmux/plugins/tpm/tpm'
 ```
+
+## Tmux nerd font window name module
+
+**Requirements:** This module depends on [tmux-nerd-font-window-name](https://github.com/joshmedeski/tmux-nerd-font-window-name).
+
+**Install:** To install, please follow the instruction on their [README](https://github.com/joshmedeski/tmux-nerd-font-window-name#requirements)
+
+**Configure:**
+
+Add the nerd window module to the status modules list.
+
+```sh
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+
+set -ag status-right "#{@catppuccin_status_nerd_window}"
+```
+
+Follow the instructions in their [documentation](https://github.com/joshmedeski/tmux-nerd-font-window-name#configuration)
+to create a config file. This module expects the `show-name` attribute to be set to `false`.
+
+Add the following to your `~/.config/tmux/tmux-nerd-font-window-name.yml`
+
+```yaml
+config:
+  show-name: false
+```
