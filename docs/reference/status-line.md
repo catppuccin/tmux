@@ -220,9 +220,9 @@ run '~/.tmux/plugins/tpm/tpm'
 
 ## Kube module
 
-**Requirements:** This module depends on [kube-tmux](https://github.com/jonmosco/kube-tmux).
+**Requirements:** This module depends on [tmux-kubectx](https://github.com/tony-sol/tmux-kubectx).
 
-**Install:** The preferred way to install kube-tmux is using [TPM](https://github.com/tmux-plugins/tpm).
+**Install:** The preferred way to install tmux-kubectx is using [TPM](https://github.com/tmux-plugins/tpm).
 
 **Configure:**
 
@@ -234,6 +234,6 @@ run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
 set -agF status-right "#{E:@catppuccin_status_kube}"
 
-set -g @plugin 'jonmosco/kube-tmux'
+set -g @plugin 'tony-sol/tmux-kubectx'
 run '~/.tmux/plugins/tpm/tpm'
 ```
