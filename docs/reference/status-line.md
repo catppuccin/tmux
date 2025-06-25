@@ -59,7 +59,7 @@ set -g @catppuccin_date_time_icon ""
 ### Notes for TPM users
 
 Make sure you load the catppuccin theme prior to setting the status-left and/or
-status-right options. This ensures the catppuccin options (such as colors and
+status-* options. This ensures the catppuccin options (such as colors and
 status modules) are defined so they can then be used.
 
 After status-left and/or status-right have been set, make sure to run TPM to load
