@@ -115,6 +115,23 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
+## RAM module
+
+**Requirements:** This module depends on [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu/tree/master). (like the CPU module)
+
+**Install:** The preferred way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+
+**Configure:**
+
+```sh
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+
+set -agF status-right "#{E:@catppuccin_status_ram}"
+
+set -g @plugin 'tmux-plugins/tmux-ram'
+run '~/.tmux/plugins/tpm/tpm'
+```
+
 ## Weather modules
 
 ### tmux-weather
