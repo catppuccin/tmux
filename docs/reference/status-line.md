@@ -14,6 +14,10 @@ set -g status-right-length 100
 set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_session}"
 set -g status-left ""
 ```
+Some notes about expanding options when setting the status line:
+* Options are expanded as format strings by placing `E:` before the option name.
+* When a module status string contains a reference to another variable, you have to add the `-F` flag that treats the value passed as a format string that is immediately expanded, that is use `set -gF` (see tmux [`set-option`](https://man.openbsd.org/OpenBSD-current/man1/tmux.1#set-option) man page).
+* Example for such a case is the [battery](#battery-module) module below, where the status contains the format string `#{battery_percentage}` that needs to be further expanded.
 
 ## Customizing modules
 
