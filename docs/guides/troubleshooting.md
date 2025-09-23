@@ -17,6 +17,8 @@ The window title is `#W`, the current path is `#{b:pane_current_path}`. A huge
 amount of customisation is possible, and is explained in depth
 in the "[tmux man page](https://man7.org/linux/man-pages/man1/tmux.1.html#FORMATS)".
 
+> Note: This _must_ be set before loading the plugin, otherwise it will do nothing.
+
 ## Symbols are not displaying
 
 Make sure you have installed a [Nerd Font](https://www.nerdfonts.com/),
