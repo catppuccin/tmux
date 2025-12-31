@@ -18,7 +18,6 @@ This is a diagram of how the theme is split between its components.
 
 - `default` will use the color from the selected theme
 - `none` will make the status bar transparent
-  - If you are using the `rounded` or `slanted` window styles, instead set a hex color code that your terminal will make transparent.
 - use hex color codes for other colors or a theme color (`#{@thm_<color>}`)
 
 ### Window
