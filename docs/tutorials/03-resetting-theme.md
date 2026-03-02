@@ -4,6 +4,10 @@ To reset the colors colors in your status line, you can perform a reset of all
 the options associated with the styling of the Tmux-line. This is done by
 setting a global option called `@catppuccin_reset` to `true.
 
+<details open>
+
+<summary>A list of all the options that our <code>@catppuccin_reset</code> option resets</summary>
+
 ```txt
 @thm_bg
 @thm_fg
@@ -61,22 +65,32 @@ setting a global option called `@catppuccin_reset` to `true.
 @catppuccin_window_current_right_separator
 ```
 
-All of these Tmux options are unset, with the `-U` flag, when the plugin is
-called with the option named `@catppuccin_reset` with a value of `true`. Due to
-the way options are set within the plugin, with the `-o` flag, this means that
-all user-set options will be reset to their original default values. _This means
-that if you have set custom options, you will lose your updates and **will need
-to run the plugin again after setting your custom options**_.
+</details>
 
-This feature is most useful for auto switching between the theme's flavor.
+All of these Tmux options above are unset, **with the `-U` flag**, when the
+plugin is called with the option named `@catppuccin_reset` with a value of
+`true`. Due to _the way options are set within the plugin_, **with the `-o`
+flag**, all options set by the user will be reset to plugins original default
+values. _This means that if you have set **any** custom options, you **may**
+lose your updates and **will need to run the plugin again after setting your
+custom options**_.
+
+> [!TIP]
+> Trying running the reset yourself right now and note what breaks for your
+> custom setup. That's one good way to experience what's being described above
+> locally on your machine.
+
+This feature is the most useful for auto-switching between the theme's flavor.
+It's also useful for contributing or developing the plugin locally as well.
 
 ## Minimal example of resetting the flavor
 
 If you're using all the defaults of Catppuccin Tmux, you will only have to worry
-about setting the flavor when setting the `@catppuccin_reset` option.
+about setting the flavor when setting the `@catppuccin_reset` option to `true`.
 
 ```sh
-# somewhere in a Tmux configuration file
+# somewhere in a Tmux configuration file that will be sourced specifically for
+# reloading `catppuccin/tmux`.
 set -g @catppuccin_flavor "latte"
 set -g @catppuccin_reset "true"
 run /path/to/catppuccin/tmux/catppuccin.tmux
@@ -93,29 +107,34 @@ must set set options you're customizing along with any dependent options _that
 aren't necessary_ when configuring the theme for only a single flavor.
 
 > [!TIP]
-> This section is most important for folks who've really riced the shit of our
+> This section is most important for folks who've really riced the shit out of
 > of their setup.
 
 Like in the minimal example, you will set your flavor and also reset the plugin.
 
 ```sh
-# somewhere in a Tmux configuration file
+# somewhere in a Tmux configuration file that will be sourced specifically for
+# reloading `catppuccin/tmux`.
 set -g @catppuccin_flavor "latte"
 set -g @catppuccin_reset "true"
 run /path/to/catppuccin/tmux/catppuccin.tmux
+# we're not done yet!
 ```
 
-But right afterwards, you'll have to set both the before and after your `run
-...` the plugin. This does mean running the plugin twice in rapid succession.
+But right afterwards, you'll have to set your customized options both before and
+after you `run ...` the plugin. _This does mean running the plugin twice in
+rapid succession_. This is due to a limitation of Tmux and how the plugin is
+designed to be customizable and also ergonomic to ease with minimal
+configuration.
 
 ```sh
-
-# somewhere in a Tmux configuration file
-set -g @catppuccin_flavor "latte"
+# somewhere in a Tmux configuration file that will be sourced specifically for
+# reloading `catppuccin/tmux`.
+set -g @catppuccin_flavor "mocha"
 set -g @catppuccin_reset "true"
 run /path/to/catppuccin/tmux/catppuccin.tmux
 
-# after the initial reset call
+# right after the initial reset call.
 set -g @catppuccin_flavor "mocha"
 set -g @catppuccin_window_status_style "basic"
 set -g @catppuccin_window_text " #W"
@@ -151,19 +170,24 @@ set -g @catppuccin_status_session_icon_fg "#{E:@thm_crust}"
 set -g @catppuccin_status_session_text_fg "#{E:@thm_fg}"
 set -g @catppuccin_session_color "#{?client_prefix,#{E:@thm_red},#{E:@thm_green}}"
 set -g @catppuccin_status_module_text_bg "#{?@catppuccin_status_module_bg_color,#{E:@catppuccin_status_module_bg_color},#{@thm_surface_0}}"
-
 run /path/to/catppuccin/tmux/catppuccin.tmux
 ```
 
-Notice that above there are certain lines that are being set that aren't usually
-set initially. This is due to the colors being updated. _These options are
-highlighted below in a smaller snippet_. These specific options aren't usually
-set when configuring the plugin for a single flavor. Due to how options are
-reset and then immediately set in the entry point for the plugin, all options
-will be updated to their defaults which aren't going to be what you've
-customized.
+Notice that above there are certain lines that are _being set that aren't
+usually set initially_. Some of these options are set within the file named
+`utils/status_module.conf`, for example. While some are set in the other parts
+of the plugin's configuration. This is due to the colors being unset and then
+rest to the defaults **because you can't reset this plugin without also running
+the default configuration options too**. _These options are highlighted below in
+a smaller snippet_. These specific options aren't usually set when configuring
+the plugin for a single flavor. Due to how options are reset and then again
+immediately set in the `catppuccin_options_tmux.conf` file & all options will be
+set to their defaults which aren't going to be what you've customized.
 
 ```sh
+# here's some options extracted from the example above which must be set again
+# after the reset that you probably would not have to set if you're using the
+# reset functionality.
 set -g @catppuccin_window_text_color "#{@thm_surface_0}"
 set -g @catppuccin_window_number_color "#{@thm_overlay_2}"
 set -g @catppuccin_window_current_text_color "#{@thm_surface_1}"
@@ -182,3 +206,15 @@ set -g @catppuccin_status_module_text_bg "#{?@catppuccin_status_module_bg_color,
 > See the `@catppuccin_status_module_bg_color` and other color options such as
 > `@catppuccin_application_color` and others have to be set due to the how the
 > plugin resets all the values listed at the top of this document.
+
+## You should now know how to reset the flavor using Tmux configuration files
+
+Thanks for reading this far. If there's any questions or concerns please reach
+out to the community in our [Discord server][discord] or by creating an issue on [GitHub][github].
+
+Hopefully after reading this you've got a much better understanding of both how
+to reset the flavor for `catppuccin/tmux` and[the configuration][internal] for this plugin.
+
+[discord]: https://discord.com/servers/catppuccin-907385605422448742 "The official Catppuccin Discord server"
+[github]: https://github.com/catppuccin/tmux/issues/new/choose "This project's GitHub issue type chooser page"
+[internal]: ../reference/configuration.md "Our internal configuration document for this plugin"
