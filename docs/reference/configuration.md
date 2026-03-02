@@ -69,48 +69,48 @@ set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}"
 
 ```bash
 # Menu styling options
-set -ogq @catppuccin_menu_selected_style "fg=#{@thm_fg},bold,bg=#{@thm_overlay_0}"
+set -g @catppuccin_menu_selected_style "fg=#{@thm_fg},bold,bg=#{@thm_overlay_0}"
 
 # Pane styling options
-set -ogq @catppuccin_pane_status_enabled "no" # set to "yes" to enable
-set -ogq @catppuccin_pane_border_status "off" # set to "yes" to enable
-set -ogq @catppuccin_pane_border_style "fg=#{@thm_overlay_0}"
-set -ogq @catppuccin_pane_active_border_style "##{?pane_in_mode,fg=#{@thm_lavender},##{?pane_synchronized,fg=#{@thm_mauve},fg=#{@thm_lavender}}}"
-set -ogq @catppuccin_pane_left_separator "█"
-set -ogq @catppuccin_pane_middle_separator "█"
-set -ogq @catppuccin_pane_right_separator "█"
-set -ogq @catppuccin_pane_color "#{@thm_green}"
-set -ogq @catppuccin_pane_background_color "#{@thm_surface_0}"
-set -ogq @catppuccin_pane_default_text "##{b:pane_current_path}"
-set -ogq @catppuccin_pane_default_fill "number"
-set -ogq @catppuccin_pane_number_position "left" # right, left
+set -g @catppuccin_pane_status_enabled "no" # set to "yes" to enable
+set -g @catppuccin_pane_border_status "off" # set to "yes" to enable
+set -g @catppuccin_pane_border_style "fg=#{@thm_overlay_0}"
+set -g @catppuccin_pane_active_border_style "##{?pane_in_mode,fg=#{@thm_lavender},##{?pane_synchronized,fg=#{@thm_mauve},fg=#{@thm_lavender}}}"
+set -g @catppuccin_pane_left_separator "█"
+set -g @catppuccin_pane_middle_separator "█"
+set -g @catppuccin_pane_right_separator "█"
+set -g @catppuccin_pane_color "#{@thm_green}"
+set -g @catppuccin_pane_background_color "#{@thm_surface_0}"
+set -g @catppuccin_pane_default_text "##{b:pane_current_path}"
+set -g @catppuccin_pane_default_fill "number"
+set -g @catppuccin_pane_number_position "left" # right, left
 
-set -ogq @catppuccin_window_status_style "basic" # basic, rounded, slanted, custom, or none
-set -ogq @catppuccin_window_text_color "#{@thm_surface_0}"
-set -ogq @catppuccin_window_number_color "#{@thm_overlay_2}"
-set -ogq @catppuccin_window_text " #T"
-set -ogq @catppuccin_window_number "#I"
-set -ogq @catppuccin_window_current_text_color "#{@thm_surface_1}"
-set -ogq @catppuccin_window_current_number_color "#{@thm_mauve}"
-set -ogq @catppuccin_window_current_text " #T"
-set -ogq @catppuccin_window_current_number "#I"
-set -ogq @catppuccin_window_number_position "left"
-set -ogq @catppuccin_window_flags "none" # none, icon, or text
-set -ogq @catppuccin_window_flags_icon_last " 󰖰" # -
-set -ogq @catppuccin_window_flags_icon_current " 󰖯" # *
-set -ogq @catppuccin_window_flags_icon_zoom " 󰁌" # Z
-set -ogq @catppuccin_window_flags_icon_mark " 󰃀" # M
-set -ogq @catppuccin_window_flags_icon_silent " 󰂛" # ~
-set -ogq @catppuccin_window_flags_icon_activity " 󱅫" # #
-set -ogq @catppuccin_window_flags_icon_bell " 󰂞" # !
+set -g @catppuccin_window_status_style "basic" # basic, rounded, slanted, custom, or none
+set -g @catppuccin_window_text_color "#{@thm_surface_0}"
+set -g @catppuccin_window_number_color "#{@thm_overlay_2}"
+set -g @catppuccin_window_text " #T"
+set -g @catppuccin_window_number "#I"
+set -g @catppuccin_window_current_text_color "#{@thm_surface_1}"
+set -g @catppuccin_window_current_number_color "#{@thm_mauve}"
+set -g @catppuccin_window_current_text " #T"
+set -g @catppuccin_window_current_number "#I"
+set -g @catppuccin_window_number_position "left"
+set -g @catppuccin_window_flags "none" # none, icon, or text
+set -g @catppuccin_window_flags_icon_last " 󰖰" # -
+set -g @catppuccin_window_flags_icon_current " 󰖯" # *
+set -g @catppuccin_window_flags_icon_zoom " 󰁌" # Z
+set -g @catppuccin_window_flags_icon_mark " 󰃀" # M
+set -g @catppuccin_window_flags_icon_silent " 󰂛" # ~
+set -g @catppuccin_window_flags_icon_activity " 󱅫" # #
+set -g @catppuccin_window_flags_icon_bell " 󰂞" # !
 # Matches icon order when using `#F` (`#!~[*-]MZ`)
-set -ogq @catppuccin_window_flags_icon_format "##{?window_activity_flag,#{E:@catppuccin_window_flags_icon_activity},}##{?window_bell_flag,#{E:@catppuccin_window_flags_icon_bell},}##{?window_silence_flag,#{E:@catppuccin_window_flags_icon_silent},}##{?window_active,#{E:@catppuccin_window_flags_icon_current},}##{?window_last_flag,#{E:@catppuccin_window_flags_icon_last},}##{?window_marked_flag,#{E:@catppuccin_window_flags_icon_mark},}##{?window_zoomed_flag,#{E:@catppuccin_window_flags_icon_zoom},} "
+set -g @catppuccin_window_flags_icon_format "##{?window_activity_flag,#{E:@catppuccin_window_flags_icon_activity},}##{?window_bell_flag,#{E:@catppuccin_window_flags_icon_bell},}##{?window_silence_flag,#{E:@catppuccin_window_flags_icon_silent},}##{?window_active,#{E:@catppuccin_window_flags_icon_current},}##{?window_last_flag,#{E:@catppuccin_window_flags_icon_last},}##{?window_marked_flag,#{E:@catppuccin_window_flags_icon_mark},}##{?window_zoomed_flag,#{E:@catppuccin_window_flags_icon_zoom},} "
 
 # Status line options
-set -ogq @catppuccin_status_left_separator ""
-set -ogq @catppuccin_status_middle_separator ""
-set -ogq @catppuccin_status_right_separator "█"
-set -ogq @catppuccin_status_connect_separator "yes" # yes, no
-set -ogq @catppuccin_status_fill "icon"
-set -ogq @catppuccin_status_module_bg_color "#{@thm_surface_0}"
+set -g @catppuccin_status_left_separator ""
+set -g @catppuccin_status_middle_separator ""
+set -g @catppuccin_status_right_separator "█"
+set -g @catppuccin_status_connect_separator "yes" # yes, no
+set -g @catppuccin_status_fill "icon"
+set -g @catppuccin_status_module_bg_color "#{@thm_surface_0}"
 ```

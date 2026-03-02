@@ -1,0 +1,3 @@
+
+E:@catppuccin_status_load #[fg=#89b4fa]#[fg=#11111b,bg=#89b4fa]󰊚 #[fg=#cdd6f4,bg=#313244]#(uptime | awk '{split(substr($0, index($0, "load")), a, ":"); print a[2]}')#[fg=#313244]
+

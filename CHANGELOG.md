@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.3](https://github.com/catppuccin/tmux/compare/v2.1.2...v2.1.3) (2025-03-23)
+
+
+### Fixed
+
+* make the space in [@catppuccin](https://github.com/catppuccin)_window_flags_icon_format user-configurable ([#465](https://github.com/catppuccin/tmux/issues/465)) ([320e184](https://github.com/catppuccin/tmux/commit/320e184a31d0825cb4f4af550492cbdff2fc3ffc))
+* pomodoro plugin icon color - use a defined color (peach) rather than orange ([#466](https://github.com/catppuccin/tmux/issues/466)) ([da2143d](https://github.com/catppuccin/tmux/commit/da2143d2a6baf7951eda302678a57a171a78d78a))
+* use plain awk for the load status line module, removing a dep ([#508](https://github.com/catppuccin/tmux/issues/508)) ([c21246e](https://github.com/catppuccin/tmux/commit/c21246ed58e867c9594dc687c5e92b229bc1760d))
+* use the correct option for the left separator for the current window ([#450](https://github.com/catppuccin/tmux/issues/450)) ([ba9bd88](https://github.com/catppuccin/tmux/commit/ba9bd88c98c81f25060f051ed983e40f82fdd3ba))
+
+
+### Documentation
+
+* add a troubleshooting guide ([#473](https://github.com/catppuccin/tmux/issues/473)) ([ab647cf](https://github.com/catppuccin/tmux/commit/ab647cf91501cebbd3f967da2b488a5f87614e6b))
+* Correct the plugin path for TPM in the readme ([#492](https://github.com/catppuccin/tmux/issues/492)) ([ee8970d](https://github.com/catppuccin/tmux/commit/ee8970ddb5dd60fd93e254de9a30ed8277c7ccc7))
+* **README:** fix codeblock indentation ([#489](https://github.com/catppuccin/tmux/issues/489)) ([cce60ab](https://github.com/catppuccin/tmux/commit/cce60abc8efd7a641a5fcc8001e6b3ae61e8d5fe))
+* **README:** update migration guide issue link ([#493](https://github.com/catppuccin/tmux/issues/493)) ([073ee54](https://github.com/catppuccin/tmux/commit/073ee54992c59fedcc29c1525a26f95691f0ae1f))
+
 ## [2.1.2](https://github.com/catppuccin/tmux/compare/v2.1.1...v2.1.2) (2024-12-08)
 
 
