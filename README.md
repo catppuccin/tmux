@@ -125,6 +125,43 @@ set -gF window-status-format "#[bg=#{@ctp_surface_1},fg=#{@ctp_fg}] ##I ##T "
 set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T "
 ```
 
+### For TMUX versions prior to 3.6
+
+This plugin can be used in conjunction with the support for tmux to
+automatically report dark or light themes using hooks. You can leverage these
+hooks in your tmux configuration file like so:
+
+```conf
+set-hook -g client-dark-theme {
+  set -g @catppuccin_flavor "frappe"
+  set -g @catppuccin_reset "true"
+
+  # NOTE: you may need to set more `@catppuccin_*` variables to fully reset
+  # everything.
+
+  run ~/code/github.com/catppuccin/tmux/catppuccin.tmux
+}
+set-hook -g client-light-theme {
+  set -g @catppuccin_flavor "latte"
+  set -g @catppuccin_reset "true"
+
+  # NOTE: you may need to set more `@catppuccin_*` variables to fully reset
+  # everything.
+
+  run ~/code/github.com/catppuccin/tmux/catppuccin.tmux
+}
+```
+
+The above is only possible with versions of tmux 3.6+. To replicate this
+functionality with versions prior to 3.6, you can will need to set variables and
+run the `cappuccin.tmux` file and trigger it yourself.
+
+> [!IMPORTANT]
+> As mentioned in the comments in the `conf` snippet above, you may find that
+> you'll need to add to the list of `@catppuccin_*` variables. Test your
+> configuration by switching themes and noting what of the Tmux session isn't
+> getting reset to an expected color.
+
 ### Upgrading from v0.3
 
 Breaking changes have been introduced since 0.3, to understand how to migrate
