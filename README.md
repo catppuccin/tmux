@@ -154,7 +154,12 @@ set-hook -g client-light-theme {
 
 The above is only possible with versions of tmux 3.6+. To replicate this
 functionality with versions prior to 3.6, you can will need to set variables and
-run the `cappuccin.tmux` file and trigger it yourself.
+run the `cappuccin.tmux` file and trigger it yourself. If you'd like some
+inspiration for how to do this, read through [the Bash code found in this Nix
+function here][reload-example] which reloads Catppuccin on-demand without
+relying on tmux hooks.
+
+[reload-example]: https://git.sr.ht/~rogeruiz/.files.nix/tree/1dedf4da47f995ec41e07d37b65008ad0f464717/item/module/tools/terminal/tmux/catppuccin/bin/default.nix "An example from a catppuccin/tmux maintainer on how to manually reload the Catppuccin configuration on macOS."
 
 > [!IMPORTANT]
 > As mentioned in the comments in the `conf` snippet above, you may find that
