@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.2.0](https://github.com/catppuccin/tmux/compare/v2.1.3...v2.2.0) (2026-04-07)
+
+
+### Added
+
+* add a "reset" option to clear options on plugin load ([#500](https://github.com/catppuccin/tmux/issues/500)) ([556fea5](https://github.com/catppuccin/tmux/commit/556fea52bb5d827a42740bc605de4f1d8a0440de))
+
+
+### Fixed
+
+* change tmux plugin kube module uses ([#531](https://github.com/catppuccin/tmux/issues/531)) ([ef94979](https://github.com/catppuccin/tmux/commit/ef9497982032a9494f4bf3ad276fba58b61bd7e6))
+* **theme:** Cleanup duplicate palette theme color ([#562](https://github.com/catppuccin/tmux/issues/562)) ([efeb958](https://github.com/catppuccin/tmux/commit/efeb9583cec0bc7486caedbc309df0ea9505d332))
+
+
+### Documentation
+
+* clarify custom-status should be added before plugin is loaded ([#551](https://github.com/catppuccin/tmux/issues/551)) ([8b0b915](https://github.com/catppuccin/tmux/commit/8b0b9150f9d7dee2a4b70cdb50876ba7fd6d674a))
+* status-line left/right mixup ([#542](https://github.com/catppuccin/tmux/issues/542)) ([9d21d7c](https://github.com/catppuccin/tmux/commit/9d21d7ccd50df82bd732be2850ce2798e78b6391))
+* stop recommending `-o` ([#524](https://github.com/catppuccin/tmux/issues/524)) ([14a546f](https://github.com/catppuccin/tmux/commit/14a546fb64dc1141e5d02bac2185d8c1fd530d6a))
+
 ## [2.1.3](https://github.com/catppuccin/tmux/compare/v2.1.2...v2.1.3) (2025-03-23)
 
 
