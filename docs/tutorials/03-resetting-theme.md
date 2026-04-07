@@ -104,11 +104,7 @@ run /path/to/catppuccin/tmux/catppuccin.tmux
 
 If you're customizing any of the settings that get reset in the list above, you
 must set set options you're customizing along with any dependent options _that
-aren't necessary_ when configuring the theme for only a single flavor.
-
-> [!TIP]
-> This section is most important for folks who've really riced the shit out of
-> of their setup.
+aren't necessary_ when configuring the theme for only a single flavor. 
 
 Like in the minimal example, you will set your flavor and also reset the plugin.
 
