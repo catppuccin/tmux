@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/catppuccin/tmux/compare/v2.2.0...v2.2.1) (2026-04-07)
+
+
+### Documentation
+
+* **03-resetting-theme:** remove tip ([#584](https://github.com/catppuccin/tmux/issues/584)) ([f451db9](https://github.com/catppuccin/tmux/commit/f451db96c8e4e7d9cdea7bbb0b57c149bfb40e28))
+
 ## [2.2.0](https://github.com/catppuccin/tmux/compare/v2.1.3...v2.2.0) (2026-04-07)
 
 
