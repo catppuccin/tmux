@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.2](https://github.com/catppuccin/tmux/compare/v2.2.1...v2.2.2) (2026-04-08)
+
+
+### Fixed
+
+* Update status-line.md ([#528](https://github.com/catppuccin/tmux/issues/528)) ([4fb9e8d](https://github.com/catppuccin/tmux/commit/4fb9e8d10ed381981920054df8a449165efd23a6))
+
 ## [2.2.1](https://github.com/catppuccin/tmux/compare/v2.2.0...v2.2.1) (2026-04-07)
 
 
