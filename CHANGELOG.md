@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/catppuccin/tmux/compare/v2.2.2...v2.3.0) (2026-04-08)
+
+
+### Added
+
+* add RAM status module ([#570](https://github.com/catppuccin/tmux/issues/570)) ([4a9165b](https://github.com/catppuccin/tmux/commit/4a9165b2b029b57bbccc3bab488c3c8474a3056e))
+
 ## [2.2.2](https://github.com/catppuccin/tmux/compare/v2.2.1...v2.2.2) (2026-04-08)
 
 
