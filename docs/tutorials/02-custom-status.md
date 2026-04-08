@@ -27,7 +27,7 @@ set -ag status-right "#[fg=#{@thm_fg},bg=#{@thm_mantle}] #(memory_pressure | awk
 To use the status module formatting that catppuccin uses, do the following:
 
 ```sh
-# In ~/.tmux.conf, after the catppuccin plugin has been loaded.
+# In ~/.tmux.conf, before the catppuccin plugin has been loaded.
 
 %hidden MODULE_NAME="my_custom_module"
 

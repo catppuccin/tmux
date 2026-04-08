@@ -63,7 +63,7 @@ This method is recommended as TPM has some issues with name conflicts.
 
    ```bash
    mkdir -p ~/.config/tmux/plugins/catppuccin
-   git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+   git clone -b v2.2.1 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
    ```
 
 1. Add the following line to your `tmux.conf` file:
@@ -81,7 +81,7 @@ Check out what to do next in the "[Getting Started Guide](./docs/tutorials/01-ge
 1.  Add the Catppuccin plugin:
 
     ```bash
-    set -g @plugin 'catppuccin/tmux#v2.1.3' # See https://github.com/catppuccin/tmux/tags for additional tags
+    set -g @plugin 'catppuccin/tmux#v2.2.1' # See https://github.com/catppuccin/tmux/tags for additional tags
     # ...alongside
     set -g @plugin 'tmux-plugins/tpm'
     ```
@@ -124,6 +124,48 @@ set -gF status-style "bg=#{@ctp_bg},fg=#{@ctp_fg}"
 set -gF window-status-format "#[bg=#{@ctp_surface_1},fg=#{@ctp_fg}] ##I ##T "
 set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##T "
 ```
+
+### For TMUX versions prior to 3.6
+
+This plugin can be used in conjunction with the support for tmux to
+automatically report dark or light themes using hooks. You can leverage these
+hooks in your tmux configuration file like so:
+
+```conf
+set-hook -g client-dark-theme {
+  set -g @catppuccin_flavor "frappe"
+  set -g @catppuccin_reset "true"
+
+  # NOTE: you may need to set more `@catppuccin_*` variables to fully reset
+  # everything.
+
+  run ~/code/github.com/catppuccin/tmux/catppuccin.tmux
+}
+set-hook -g client-light-theme {
+  set -g @catppuccin_flavor "latte"
+  set -g @catppuccin_reset "true"
+
+  # NOTE: you may need to set more `@catppuccin_*` variables to fully reset
+  # everything.
+
+  run ~/code/github.com/catppuccin/tmux/catppuccin.tmux
+}
+```
+
+The above is only possible with versions of tmux 3.6+. To replicate this
+functionality with versions prior to 3.6, you can will need to set variables and
+run the `cappuccin.tmux` file and trigger it yourself. If you'd like some
+inspiration for how to do this, read through [the Bash code found in this Nix
+function here][reload-example] which reloads Catppuccin on-demand without
+relying on tmux hooks.
+
+[reload-example]: https://git.sr.ht/~rogeruiz/.files.nix/tree/1dedf4da47f995ec41e07d37b65008ad0f464717/item/module/tools/terminal/tmux/catppuccin/bin/default.nix "An example from a catppuccin/tmux maintainer on how to manually reload the Catppuccin configuration on macOS."
+
+> [!IMPORTANT]
+> As mentioned in the comments in the `conf` snippet above, you may find that
+> you'll need to add to the list of `@catppuccin_*` variables. Test your
+> configuration by switching themes and noting what of the Tmux session isn't
+> getting reset to an expected color.
 
 ### Upgrading from v0.3
 

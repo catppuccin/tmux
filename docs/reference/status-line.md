@@ -63,10 +63,10 @@ set -g @catppuccin_date_time_icon ""
 ### Notes for TPM users
 
 Make sure you load the catppuccin theme prior to setting the status-left and/or
-status-left options. This ensures the catppuccin options (such as colors and
+status-* options. This ensures the catppuccin options (such as colors and
 status modules) are defined so they can then be used.
 
-After status-left and/or status-left have been set, make sure to run TPM to load
+After status-left and/or status-right have been set, make sure to run TPM to load
 the modules. This runs any plugins that may replace text in the status line.
 
 ```bash
@@ -224,9 +224,9 @@ run '~/.tmux/plugins/tpm/tpm'
 
 ## Kube module
 
-**Requirements:** This module depends on [kube-tmux](https://github.com/jonmosco/kube-tmux).
+**Requirements:** This module depends on [tmux-kubectx](https://github.com/tony-sol/tmux-kubectx).
 
-**Install:** The preferred way to install kube-tmux is using [TPM](https://github.com/tmux-plugins/tpm).
+**Install:** The preferred way to install tmux-kubectx is using [TPM](https://github.com/tmux-plugins/tpm).
 
 **Configure:**
 
@@ -238,6 +238,6 @@ run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
 set -agF status-right "#{E:@catppuccin_status_kube}"
 
-set -g @plugin 'jonmosco/kube-tmux'
+set -g @plugin 'tony-sol/tmux-kubectx'
 run '~/.tmux/plugins/tpm/tpm'
 ```
