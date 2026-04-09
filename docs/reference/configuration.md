@@ -71,6 +71,10 @@ set -g @catppuccin_menu_selected_style "fg=#{@thm_surface_0},bg=#{@thm_yellow}"
 # Menu styling options
 set -g @catppuccin_menu_selected_style "fg=#{@thm_fg},bold,bg=#{@thm_overlay_0}"
 
+# Popup styling options
+set -g @catppuccin_popup_style "bg=#{@thm_bg},fg=#{@thm_fg}"
+set -g @catppuccin_popup_border_style "fg=#{@thm_surface_1}"
+
 # Pane styling options
 set -g @catppuccin_pane_status_enabled "no" # set to "yes" to enable
 set -g @catppuccin_pane_border_status "off" # set to "yes" to enable
