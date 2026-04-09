@@ -1,0 +1,2 @@
+
+E:@catppuccin_status_vram #[fg=#b4befe]#[fg=#11111b,bg=#b4befe]󰘚 #[fg=#{gram_fg_color},bg=#{gram_bg_color}] #{gram_percentage}#[fg=#{gram_bg_color}] 
