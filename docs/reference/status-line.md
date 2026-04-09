@@ -155,6 +155,25 @@ run '~/.tmux/plugins/tpm/tpm'
 
 **Note:** GPU usage data is provided by tmux-cpu. Systems without supported GPU monitoring may display "No GPU" or similar output from tmux-cpu.
 
+## VRAM module
+
+**Requirements:** This module depends on [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu/tree/master).
+
+**Install:** The preferred way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+
+**Configure:**
+
+```sh
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+
+set -agF status-right "#{E:@catppuccin_status_vram}"
+
+set -g @plugin 'tmux-plugins/tmux-cpu'
+run '~/.tmux/plugins/tpm/tpm'
+```
+
+**Note:** VRAM usage is backed by tmux-cpu's `gram_*` placeholders (GPU RAM percentage). Systems without supported GPU monitoring may display the underlying tmux-cpu fallback output such as `No GPU`.
+
 ## Weather modules
 
 ### tmux-weather
