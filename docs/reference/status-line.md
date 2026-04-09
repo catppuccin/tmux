@@ -136,6 +136,25 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
+## GPU module
+
+**Requirements:** This module depends on [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu/tree/master).
+
+**Install:** The preferred way to install tmux-cpu is using [TPM](https://github.com/tmux-plugins/tpm).
+
+**Configure:**
+
+```sh
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+
+set -agF status-right "#{E:@catppuccin_status_gpu}"
+
+set -g @plugin 'tmux-plugins/tmux-cpu'
+run '~/.tmux/plugins/tpm/tpm'
+```
+
+**Note:** GPU usage data is provided by tmux-cpu. Systems without supported GPU monitoring may display "No GPU" or similar output from tmux-cpu.
+
 ## Weather modules
 
 ### tmux-weather
