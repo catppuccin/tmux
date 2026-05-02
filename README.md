@@ -133,21 +133,19 @@ hooks in your tmux configuration file like so:
 
 ```conf
 set-hook -g client-dark-theme {
-  set -g @catppuccin_flavor "frappe"
   set -g @catppuccin_reset "true"
+  run ~/code/github.com/catppuccin/tmux/catppuccin.tmux
 
-  # NOTE: you may need to set more `@catppuccin_*` variables to fully reset
-  # everything.
-
+  set -g @catppuccin_flavor "frappe"
+  # Other custom overrides.
   run ~/code/github.com/catppuccin/tmux/catppuccin.tmux
 }
 set-hook -g client-light-theme {
-  set -g @catppuccin_flavor "latte"
   set -g @catppuccin_reset "true"
+  run ~/code/github.com/catppuccin/tmux/catppuccin.tmux
 
-  # NOTE: you may need to set more `@catppuccin_*` variables to fully reset
-  # everything.
-
+  set -g @catppuccin_flavor "latte"
+  # Other custom overrides.
   run ~/code/github.com/catppuccin/tmux/catppuccin.tmux
 }
 ```
@@ -160,12 +158,6 @@ function here][reload-example] which reloads Catppuccin on-demand without
 relying on tmux hooks.
 
 [reload-example]: https://git.sr.ht/~rogeruiz/.files.nix/tree/1dedf4da47f995ec41e07d37b65008ad0f464717/item/module/tools/terminal/tmux/catppuccin/bin/default.nix "An example from a catppuccin/tmux maintainer on how to manually reload the Catppuccin configuration on macOS."
-
-> [!IMPORTANT]
-> As mentioned in the comments in the `conf` snippet above, you may find that
-> you'll need to add to the list of `@catppuccin_*` variables. Test your
-> configuration by switching themes and noting what of the Tmux session isn't
-> getting reset to an expected color.
 
 ### Upgrading from v0.3
 
