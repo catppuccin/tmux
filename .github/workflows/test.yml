@@ -34,14 +34,14 @@ jobs:
           tmux -V
           ./run_tests.sh
 
-  # Advisory canary against tmux master; non-blocking by design.
-  tmux-master:
-    name: Test (tmux master)
+  # Advisory canary against tmux's default branch; non-blocking by design.
+  tmux-latest:
+    name: Test (tmux latest)
     runs-on: ubuntu-24.04
     continue-on-error: true
 
     steps:
-      - name: Build tmux from master
+      - name: Build tmux from default branch
         run: |
           sudo apt update
           sudo apt install -y libevent-dev libncurses-dev bison autoconf automake pkg-config build-essential
