@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/catppuccin/tmux/compare/v2.3.0...v2.3.1) (2026-09-21)
+
+
+### Fixed
+
+* **#600:** command and messages regression after 3.7 update ([#602](https://github.com/catppuccin/tmux/issues/602)) ([19093fb](https://github.com/catppuccin/tmux/commit/19093fb39cabbe001314b643e0650162b4b915b0))
+
 ## [2.3.0](https://github.com/catppuccin/tmux/compare/v2.2.2...v2.3.0) (2026-04-08)
 
 
