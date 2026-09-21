@@ -1,0 +1,4 @@
+message-style fg=#94e2d5,bg=default,fill=terminal
+message-command-style fg=#94e2d5,bg=default,fill=terminal
+message-style fg=#94e2d5,bg=red,fill=red
+message-command-style fg=#94e2d5,bg=red,fill=red
