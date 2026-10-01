@@ -39,3 +39,33 @@ source "<path to catppuccin plugin>/utils/status_module.conf"
 
 set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_my_custom_module}"
 ```
+
+## Pane Synchronization Indicator
+
+Show a styled indicator on the status line when tmux panes are synchronized.
+The badge appears only when panes are synced and disappears otherwise.
+
+Uses the `pane_synchronized` tmux format variable with a conditional to toggle
+visibility, colored with catppuccin mauve.
+
+```sh
+# ~/.tmux.conf — after catppuccin is loaded
+
+# Pre-define the sync badge format in a variable to avoid
+# nesting #[...] style directives inside #{?...} conditionals
+set -g @sync_on '#[fg=#{@thm_mauve}] 󰓦 SYNC '
+
+# Include the conditional in status-left (or status-right)
+set -g status-left "#{?pane_synchronized,#{@sync_on},}#{E:@catppuccin_status_session} #{E:@catppuccin_status_directory}"
+```
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| Icon | `󰓦` | nf-md-sync (Nerd Font) |
+| Color | `#{@thm_mauve}` | Catppuccin mauve (`#c6a0f6` in Macchiato) |
+| Visibility | `#{?pane_synchronized,...}` | Only shown when panes are synced via `prefix a` |
+
+**How it works:** tmux evaluates `status-left` on every status-interval tick.
+When panes are synchronized, `#{?pane_synchronized,...}` expands the `@sync_on`
+variable which contains the mauve-colored icon and text. When unsynced, the
+false-branch is empty and no badge appears.
