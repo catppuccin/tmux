@@ -10,6 +10,9 @@ print_message_styles() {
 }
 
 tmux source "${script_dir}/../catppuccin_options_tmux.conf"
+tmux source "${script_dir}/../catppuccin_tmux.conf"
+print_message_styles
+
 tmux set -g @catppuccin_status_background "none"
 tmux source "${script_dir}/../catppuccin_tmux.conf"
 print_message_styles
