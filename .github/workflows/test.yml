@@ -33,3 +33,28 @@ jobs:
           bash --version
           tmux -V
           ./run_tests.sh
+
+  # Advisory canary against tmux's default branch; non-blocking by design.
+  tmux-latest:
+    name: Test (tmux latest)
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+
+    steps:
+      - name: Build tmux from default branch
+        run: |
+          sudo apt update
+          sudo apt install -y libevent-dev libncurses-dev bison autoconf automake pkg-config build-essential
+          git clone --depth 1 https://github.com/tmux/tmux.git /tmp/tmux-src
+          cd /tmp/tmux-src
+          sh autogen.sh
+          ./configure
+          make
+          sudo make install
+      - uses: actions/checkout@v6
+      - name: Run Tests
+        shell: bash
+        run: |
+          bash --version
+          tmux -V
+          ./run_tests.sh
